@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lapor Komandan!</title>
+<meta name="description" content="Berapa banyak polisi yang terlibat kasus di Indonesia, diperbarui tiap pagi.">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lapor Komandan!">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Lapor Komandan!">
+<meta property="og:description" content="Berapa banyak polisi yang terlibat kasus di Indonesia, diperbarui tiap pagi.">
+<meta property="og:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kartu Lapor Komandan! berisi jumlah kasus dugaan pelanggaran polisi yang tercatat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lapor Komandan!">
+<meta name="twitter:description" content="Berapa banyak polisi yang terlibat kasus di Indonesia, diperbarui tiap pagi.">
+<meta name="twitter:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* Latar putih dikunci: situs ini sengaja hanya punya satu tampilan. */
+:root {
+  color-scheme: light;
+  --kertas:  #ffffff;
+  --tinta:   #000000;
+  --tinta-2: #4a4a4a;
+  --tinta-3: #8a8a8a;
+  --garis:   #000000;
+  --pudar:   #e6e6e6;
+}
+
+body {
+  margin: 0;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg { shape-rendering: crispEdges; }
+img, svg { max-width: 100%; }
+
+a { color: var(--tinta); }
+
+/* Judul pixel: lebar mengikuti wadah, tinggi ikut proporsi. */
+.judul-pixel { display: block; width: 100%; height: auto; color: var(--tinta); }
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Judul dinaikkan jadi header sungguhan di puncak halaman, bukan lagi ikut
+   dipusatkan bersama isi. Kucing menempel di bawahnya sebagai satu kesatuan
+   kepala halaman, dan sekarang selalu tampil — bukan hanya saat kemarin
+   kosong — dengan ukuran yang jauh lebih kecil supaya tidak menyaingi judul. */
+.depan-kepala {
+  padding: clamp(28px, 5vw, 56px) clamp(20px, 5vw, 64px) 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.depan {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(40px, 7vh, 76px);
+  padding: clamp(28px, 5vw, 56px) clamp(20px, 5vw, 64px) clamp(32px, 6vw, 72px);
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.kepala { width: min(560px, 78%); margin: 0 auto; }
+
+.baris-baris {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 5vh, 52px);
+  width: 100%;
+}
+
+.baris {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0 .38em;
+  line-height: 1.15;
+}
+.baris .kecil { font-size: clamp(1rem, 2.4vw, 1.6rem); font-weight: 400; }
+.baris .angka { font-size: clamp(1.9rem, 5vw, 3.4rem); font-weight: 400; font-variant-numeric: lining-nums; }
+.baris .besar { font-size: clamp(2rem, 5.6vw, 3.9rem); font-weight: 400; letter-spacing: -.01em; }
+
+/* Panggung kucing, kini bagian tetap dari kepala halaman. Lebar dan tingginya
+   dikecilkan kira-kira separuh dari versi lama, supaya ia jadi pengiring judul
+   dan bukan pesaingnya. */
+.kucing-panggung {
+  position: relative;
+  width: min(170px, 46%);
+  height: clamp(20px, 3.2vw, 26px);
+  margin: 12px auto 0;
+  overflow: hidden;
+}
+/* Lebar kucing dibuat ~separuh panggung, dan geserannya dihitung supaya
+   kucing selalu terlihat sebagian: begitu keluar di kanan, sudah masuk lagi
+   dari kiri. */
+.kucing {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 58%;
+  height: auto;
+  color: var(--tinta);
+  animation: jalan-menyeberang 9s steps(54, end) infinite;
+}
+/* Geseran dihitung dari lebar kucing sendiri: berangkat dari luar tepi kiri
+   dan berhenti tepat setelah tepi kanan, jadi kucing praktis selalu terlihat. */
+@keyframes jalan-menyeberang {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(172%); }
+}
+/* Dua frame kaki, digilir supaya terlihat melangkah. Timing linear, karena
+   pergantiannya sudah dibuat mendadak lewat keyframes. */
+.kucing-frame-a { animation: gilir-a .3s linear infinite; }
+.kucing-frame-b { animation: gilir-b .3s linear infinite; }
+@keyframes gilir-a { 0%, 49.9% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gilir-b { 0%, 49.9% { opacity: 0; } 50%, 100% { opacity: 1; } }
+
+.kucing-teks {
+  margin: 4px 0 0;
+  font-size: clamp(.6rem, 1vw, .7rem);
+  letter-spacing: .04em;
+  color: var(--tinta-2);
+}
+.kucing-teks b { font-weight: 700; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kucing { animation: none; left: 50%; transform: translateX(-50%); }
+  .kucing-frame-b { display: none; }
+  .kucing-frame-a { animation: none; }
+}
+
+.tautan {
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  text-decoration: none;
+  border-bottom: 3px solid var(--tinta);
+  padding-bottom: 3px;
+}
+.tautan:hover { background: var(--tinta); color: var(--kertas); }
+
+.jejak {
+  margin: 0;
+  padding: 0 20px 22px;
+  text-align: center;
+  font-size: .75rem;
+  color: var(--tinta-3);
+}
+
+@media (max-width: 560px) {
+  .depan { gap: 34px; justify-content: flex-start; padding-top: 46px; }
+  .kepala { width: 88%; }
+  .baris { gap: 0 .3em; }
+}
+</style>
+</head>
+<body>
+
+<header class="depan-kepala">
+  <div class="kepala"><svg class="judul-pixel" viewBox="0 0 89 7" role="img" aria-label="LAPOR KOMANDAN!" preserveAspectRatio="xMidYMid meet"><rect x="0" y="0" width="1" height="1" fill="currentColor"/><rect x="0" y="1" width="1" height="1" fill="currentColor"/><rect x="0" y="2" width="1" height="1" fill="currentColor"/><rect x="0" y="3" width="1" height="1" fill="currentColor"/><rect x="0" y="4" width="1" height="1" fill="currentColor"/><rect x="0" y="5" width="1" height="1" fill="currentColor"/><rect x="0" y="6" width="5" height="1" fill="currentColor"/><rect x="7" y="0" width="3" height="1" fill="currentColor"/><rect x="6" y="1" width="1" height="1" fill="currentColor"/><rect x="10" y="1" width="1" height="1" fill="currentColor"/><rect x="6" y="2" width="1" height="1" fill="currentColor"/><rect x="10" y="2" width="1" height="1" fill="currentColor"/><rect x="6" y="3" width="5" height="1" fill="currentColor"/><rect x="6" y="4" width="1" height="1" fill="currentColor"/><rect x="10" y="4" width="1" height="1" fill="currentColor"/><rect x="6" y="5" width="1" height="1" fill="currentColor"/><rect x="10" y="5" width="1" height="1" fill="currentColor"/><rect x="6" y="6" width="1" height="1" fill="currentColor"/><rect x="10" y="6" width="1" height="1" fill="currentColor"/><rect x="12" y="0" width="4" height="1" fill="currentColor"/><rect x="12" y="1" width="1" height="1" fill="currentColor"/><rect x="16" y="1" width="1" height="1" fill="currentColor"/><rect x="12" y="2" width="1" height="1" fill="currentColor"/><rect x="16" y="2" width="1" height="1" fill="currentColor"/><rect x="12" y="3" width="4" height="1" fill="currentColor"/><rect x="12" y="4" width="1" height="1" fill="currentColor"/><rect x="12" y="5" width="1" height="1" fill="currentColor"/><rect x="12" y="6" width="1" height="1" fill="currentColor"/><rect x="19" y="0" width="3" height="1" fill="currentColor"/><rect x="18" y="1" width="1" height="1" fill="currentColor"/><rect x="22" y="1" width="1" height="1" fill="currentColor"/><rect x="18" y="2" width="1" height="1" fill="currentColor"/><rect x="22" y="2" width="1" height="1" fill="currentColor"/><rect x="18" y="3" width="1" height="1" fill="currentColor"/><rect x="22" y="3" width="1" height="1" fill="currentColor"/><rect x="18" y="4" width="1" height="1" fill="currentColor"/><rect x="22" y="4" width="1" height="1" fill="currentColor"/><rect x="18" y="5" width="1" height="1" fill="currentColor"/><rect x="22" y="5" width="1" height="1" fill="currentColor"/><rect x="19" y="6" width="3" height="1" fill="currentColor"/><rect x="24" y="0" width="4" height="1" fill="currentColor"/><rect x="24" y="1" width="1" height="1" fill="currentColor"/><rect x="28" y="1" width="1" height="1" fill="currentColor"/><rect x="24" y="2" width="1" height="1" fill="currentColor"/><rect x="28" y="2" width="1" height="1" fill="currentColor"/><rect x="24" y="3" width="4" height="1" fill="currentColor"/><rect x="24" y="4" width="1" height="1" fill="currentColor"/><rect x="26" y="4" width="1" height="1" fill="currentColor"/><rect x="24" y="5" width="1" height="1" fill="currentColor"/><rect x="27" y="5" width="1" height="1" fill="currentColor"/><rect x="24" y="6" width="1" height="1" fill="currentColor"/><rect x="28" y="6" width="1" height="1" fill="currentColor"/><rect x="36" y="0" width="1" height="1" fill="currentColor"/><rect x="40" y="0" width="1" height="1" fill="currentColor"/><rect x="36" y="1" width="1" height="1" fill="currentColor"/><rect x="39" y="1" width="1" height="1" fill="currentColor"/><rect x="36" y="2" width="1" height="1" fill="currentColor"/><rect x="38" y="2" width="1" height="1" fill="currentColor"/><rect x="36" y="3" width="2" height="1" fill="currentColor"/><rect x="36" y="4" width="1" height="1" fill="currentColor"/><rect x="38" y="4" width="1" height="1" fill="currentColor"/><rect x="36" y="5" width="1" height="1" fill="currentColor"/><rect x="39" y="5" width="1" height="1" fill="currentColor"/><rect x="36" y="6" width="1" height="1" fill="currentColor"/><rect x="40" y="6" width="1" height="1" fill="currentColor"/><rect x="43" y="0" width="3" height="1" fill="currentColor"/><rect x="42" y="1" width="1" height="1" fill="currentColor"/><rect x="46" y="1" width="1" height="1" fill="currentColor"/><rect x="42" y="2" width="1" height="1" fill="currentColor"/><rect x="46" y="2" width="1" height="1" fill="currentColor"/><rect x="42" y="3" width="1" height="1" fill="currentColor"/><rect x="46" y="3" width="1" height="1" fill="currentColor"/><rect x="42" y="4" width="1" height="1" fill="currentColor"/><rect x="46" y="4" width="1" height="1" fill="currentColor"/><rect x="42" y="5" width="1" height="1" fill="currentColor"/><rect x="46" y="5" width="1" height="1" fill="currentColor"/><rect x="43" y="6" width="3" height="1" fill="currentColor"/><rect x="48" y="0" width="1" height="1" fill="currentColor"/><rect x="52" y="0" width="1" height="1" fill="currentColor"/><rect x="48" y="1" width="2" height="1" fill="currentColor"/><rect x="51" y="1" width="2" height="1" fill="currentColor"/><rect x="48" y="2" width="1" height="1" fill="currentColor"/><rect x="50" y="2" width="1" height="1" fill="currentColor"/><rect x="52" y="2" width="1" height="1" fill="currentColor"/><rect x="48" y="3" width="1" height="1" fill="currentColor"/><rect x="50" y="3" width="1" height="1" fill="currentColor"/><rect x="52" y="3" width="1" height="1" fill="currentColor"/><rect x="48" y="4" width="1" height="1" fill="currentColor"/><rect x="52" y="4" width="1" height="1" fill="currentColor"/><rect x="48" y="5" width="1" height="1" fill="currentColor"/><rect x="52" y="5" width="1" height="1" fill="currentColor"/><rect x="48" y="6" width="1" height="1" fill="currentColor"/><rect x="52" y="6" width="1" height="1" fill="currentColor"/><rect x="55" y="0" width="3" height="1" fill="currentColor"/><rect x="54" y="1" width="1" height="1" fill="currentColor"/><rect x="58" y="1" width="1" height="1" fill="currentColor"/><rect x="54" y="2" width="1" height="1" fill="currentColor"/><rect x="58" y="2" width="1" height="1" fill="currentColor"/><rect x="54" y="3" width="5" height="1" fill="currentColor"/><rect x="54" y="4" width="1" height="1" fill="currentColor"/><rect x="58" y="4" width="1" height="1" fill="currentColor"/><rect x="54" y="5" width="1" height="1" fill="currentColor"/><rect x="58" y="5" width="1" height="1" fill="currentColor"/><rect x="54" y="6" width="1" height="1" fill="currentColor"/><rect x="58" y="6" width="1" height="1" fill="currentColor"/><rect x="60" y="0" width="1" height="1" fill="currentColor"/><rect x="64" y="0" width="1" height="1" fill="currentColor"/><rect x="60" y="1" width="2" height="1" fill="currentColor"/><rect x="64" y="1" width="1" height="1" fill="currentColor"/><rect x="60" y="2" width="1" height="1" fill="currentColor"/><rect x="62" y="2" width="1" height="1" fill="currentColor"/><rect x="64" y="2" width="1" height="1" fill="currentColor"/><rect x="60" y="3" width="1" height="1" fill="currentColor"/><rect x="63" y="3" width="2" height="1" fill="currentColor"/><rect x="60" y="4" width="1" height="1" fill="currentColor"/><rect x="64" y="4" width="1" height="1" fill="currentColor"/><rect x="60" y="5" width="1" height="1" fill="currentColor"/><rect x="64" y="5" width="1" height="1" fill="currentColor"/><rect x="60" y="6" width="1" height="1" fill="currentColor"/><rect x="64" y="6" width="1" height="1" fill="currentColor"/><rect x="66" y="0" width="4" height="1" fill="currentColor"/><rect x="66" y="1" width="1" height="1" fill="currentColor"/><rect x="70" y="1" width="1" height="1" fill="currentColor"/><rect x="66" y="2" width="1" height="1" fill="currentColor"/><rect x="70" y="2" width="1" height="1" fill="currentColor"/><rect x="66" y="3" width="1" height="1" fill="currentColor"/><rect x="70" y="3" width="1" height="1" fill="currentColor"/><rect x="66" y="4" width="1" height="1" fill="currentColor"/><rect x="70" y="4" width="1" height="1" fill="currentColor"/><rect x="66" y="5" width="1" height="1" fill="currentColor"/><rect x="70" y="5" width="1" height="1" fill="currentColor"/><rect x="66" y="6" width="4" height="1" fill="currentColor"/><rect x="73" y="0" width="3" height="1" fill="currentColor"/><rect x="72" y="1" width="1" height="1" fill="currentColor"/><rect x="76" y="1" width="1" height="1" fill="currentColor"/><rect x="72" y="2" width="1" height="1" fill="currentColor"/><rect x="76" y="2" width="1" height="1" fill="currentColor"/><rect x="72" y="3" width="5" height="1" fill="currentColor"/><rect x="72" y="4" width="1" height="1" fill="currentColor"/><rect x="76" y="4" width="1" height="1" fill="currentColor"/><rect x="72" y="5" width="1" height="1" fill="currentColor"/><rect x="76" y="5" width="1" height="1" fill="currentColor"/><rect x="72" y="6" width="1" height="1" fill="currentColor"/><rect x="76" y="6" width="1" height="1" fill="currentColor"/><rect x="78" y="0" width="1" height="1" fill="currentColor"/><rect x="82" y="0" width="1" height="1" fill="currentColor"/><rect x="78" y="1" width="2" height="1" fill="currentColor"/><rect x="82" y="1" width="1" height="1" fill="currentColor"/><rect x="78" y="2" width="1" height="1" fill="currentColor"/><rect x="80" y="2" width="1" height="1" fill="currentColor"/><rect x="82" y="2" width="1" height="1" fill="currentColor"/><rect x="78" y="3" width="1" height="1" fill="currentColor"/><rect x="81" y="3" width="2" height="1" fill="currentColor"/><rect x="78" y="4" width="1" height="1" fill="currentColor"/><rect x="82" y="4" width="1" height="1" fill="currentColor"/><rect x="78" y="5" width="1" height="1" fill="currentColor"/><rect x="82" y="5" width="1" height="1" fill="currentColor"/><rect x="78" y="6" width="1" height="1" fill="currentColor"/><rect x="82" y="6" width="1" height="1" fill="currentColor"/><rect x="86" y="0" width="1" height="1" fill="currentColor"/><rect x="86" y="1" width="1" height="1" fill="currentColor"/><rect x="86" y="2" width="1" height="1" fill="currentColor"/><rect x="86" y="3" width="1" height="1" fill="currentColor"/><rect x="86" y="4" width="1" height="1" fill="currentColor"/><rect x="86" y="6" width="1" height="1" fill="currentColor"/></svg></div>
+  <div class="kucing-panggung"><svg class="kucing" viewBox="0 0 75 14" role="img"
+ aria-label="Kucing pixel menarik spanduk bertuliskan ACAB"
+ shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">
+  <rect x=".5" y="0.5" width="30" height="12" fill="none" stroke="currentColor" stroke-width="1"/><rect x="5" y="3" width="3" height="1" fill="currentColor"/><rect x="4" y="4" width="1" height="1" fill="currentColor"/><rect x="8" y="4" width="1" height="1" fill="currentColor"/><rect x="4" y="5" width="1" height="1" fill="currentColor"/><rect x="8" y="5" width="1" height="1" fill="currentColor"/><rect x="4" y="6" width="5" height="1" fill="currentColor"/><rect x="4" y="7" width="1" height="1" fill="currentColor"/><rect x="8" y="7" width="1" height="1" fill="currentColor"/><rect x="4" y="8" width="1" height="1" fill="currentColor"/><rect x="8" y="8" width="1" height="1" fill="currentColor"/><rect x="4" y="9" width="1" height="1" fill="currentColor"/><rect x="8" y="9" width="1" height="1" fill="currentColor"/><rect x="11" y="3" width="4" height="1" fill="currentColor"/><rect x="10" y="4" width="1" height="1" fill="currentColor"/><rect x="10" y="5" width="1" height="1" fill="currentColor"/><rect x="10" y="6" width="1" height="1" fill="currentColor"/><rect x="10" y="7" width="1" height="1" fill="currentColor"/><rect x="10" y="8" width="1" height="1" fill="currentColor"/><rect x="11" y="9" width="4" height="1" fill="currentColor"/><rect x="17" y="3" width="3" height="1" fill="currentColor"/><rect x="16" y="4" width="1" height="1" fill="currentColor"/><rect x="20" y="4" width="1" height="1" fill="currentColor"/><rect x="16" y="5" width="1" height="1" fill="currentColor"/><rect x="20" y="5" width="1" height="1" fill="currentColor"/><rect x="16" y="6" width="5" height="1" fill="currentColor"/><rect x="16" y="7" width="1" height="1" fill="currentColor"/><rect x="20" y="7" width="1" height="1" fill="currentColor"/><rect x="16" y="8" width="1" height="1" fill="currentColor"/><rect x="20" y="8" width="1" height="1" fill="currentColor"/><rect x="16" y="9" width="1" height="1" fill="currentColor"/><rect x="20" y="9" width="1" height="1" fill="currentColor"/><rect x="22" y="3" width="4" height="1" fill="currentColor"/><rect x="22" y="4" width="1" height="1" fill="currentColor"/><rect x="26" y="4" width="1" height="1" fill="currentColor"/><rect x="22" y="5" width="1" height="1" fill="currentColor"/><rect x="26" y="5" width="1" height="1" fill="currentColor"/><rect x="22" y="6" width="4" height="1" fill="currentColor"/><rect x="22" y="7" width="1" height="1" fill="currentColor"/><rect x="26" y="7" width="1" height="1" fill="currentColor"/><rect x="22" y="8" width="1" height="1" fill="currentColor"/><rect x="26" y="8" width="1" height="1" fill="currentColor"/><rect x="22" y="9" width="4" height="1" fill="currentColor"/><rect x="31" y="4" width="1" height="1" fill="currentColor"/><rect x="33" y="4" width="1" height="1" fill="currentColor"/><rect x="35" y="4" width="1" height="1" fill="currentColor"/><rect x="37" y="4" width="1" height="1" fill="currentColor"/><rect x="39" y="4" width="1" height="1" fill="currentColor"/>
+  <g class="kucing-frame kucing-frame-a"><rect x="43" y="1" width="3" height="1" fill="currentColor"/><rect x="68" y="1" width="2" height="1" fill="currentColor"/><rect x="72" y="1" width="2" height="1" fill="currentColor"/><rect x="42" y="2" width="2" height="1" fill="currentColor"/><rect x="68" y="2" width="2" height="1" fill="currentColor"/><rect x="72" y="2" width="2" height="1" fill="currentColor"/><rect x="42" y="3" width="2" height="1" fill="currentColor"/><rect x="68" y="3" width="6" height="1" fill="currentColor"/><rect x="42" y="4" width="2" height="1" fill="currentColor"/><rect x="67" y="4" width="8" height="1" fill="currentColor"/><rect x="43" y="5" width="2" height="1" fill="currentColor"/><rect x="67" y="5" width="2" height="1" fill="currentColor"/><rect x="70" y="5" width="2" height="1" fill="currentColor"/><rect x="73" y="5" width="2" height="1" fill="currentColor"/><rect x="44" y="6" width="31" height="1" fill="currentColor"/><rect x="46" y="7" width="29" height="1" fill="currentColor"/><rect x="46" y="8" width="29" height="1" fill="currentColor"/><rect x="46" y="9" width="28" height="1" fill="currentColor"/><rect x="47" y="10" width="21" height="1" fill="currentColor"/><rect x="48" y="11" width="2" height="1" fill="currentColor"/><rect x="53" y="11" width="2" height="1" fill="currentColor"/><rect x="62" y="11" width="2" height="1" fill="currentColor"/><rect x="67" y="11" width="2" height="1" fill="currentColor"/><rect x="48" y="12" width="2" height="1" fill="currentColor"/><rect x="53" y="12" width="2" height="1" fill="currentColor"/><rect x="62" y="12" width="2" height="1" fill="currentColor"/><rect x="67" y="12" width="2" height="1" fill="currentColor"/><rect x="48" y="13" width="2" height="1" fill="currentColor"/><rect x="53" y="13" width="2" height="1" fill="currentColor"/><rect x="62" y="13" width="2" height="1" fill="currentColor"/><rect x="67" y="13" width="2" height="1" fill="currentColor"/></g>
+  <g class="kucing-frame kucing-frame-b"><rect x="43" y="1" width="3" height="1" fill="currentColor"/><rect x="68" y="1" width="2" height="1" fill="currentColor"/><rect x="72" y="1" width="2" height="1" fill="currentColor"/><rect x="42" y="2" width="2" height="1" fill="currentColor"/><rect x="68" y="2" width="2" height="1" fill="currentColor"/><rect x="72" y="2" width="2" height="1" fill="currentColor"/><rect x="42" y="3" width="2" height="1" fill="currentColor"/><rect x="68" y="3" width="6" height="1" fill="currentColor"/><rect x="42" y="4" width="2" height="1" fill="currentColor"/><rect x="67" y="4" width="8" height="1" fill="currentColor"/><rect x="43" y="5" width="2" height="1" fill="currentColor"/><rect x="67" y="5" width="2" height="1" fill="currentColor"/><rect x="70" y="5" width="2" height="1" fill="currentColor"/><rect x="73" y="5" width="2" height="1" fill="currentColor"/><rect x="44" y="6" width="31" height="1" fill="currentColor"/><rect x="46" y="7" width="29" height="1" fill="currentColor"/><rect x="46" y="8" width="29" height="1" fill="currentColor"/><rect x="46" y="9" width="28" height="1" fill="currentColor"/><rect x="47" y="10" width="21" height="1" fill="currentColor"/><rect x="48" y="11" width="2" height="1" fill="currentColor"/><rect x="53" y="11" width="2" height="1" fill="currentColor"/><rect x="62" y="11" width="2" height="1" fill="currentColor"/><rect x="67" y="11" width="2" height="1" fill="currentColor"/><rect x="49" y="12" width="2" height="1" fill="currentColor"/><rect x="52" y="12" width="2" height="1" fill="currentColor"/><rect x="63" y="12" width="2" height="1" fill="currentColor"/><rect x="66" y="12" width="2" height="1" fill="currentColor"/><rect x="50" y="13" width="2" height="1" fill="currentColor"/><rect x="51" y="13" width="2" height="1" fill="currentColor"/><rect x="64" y="13" width="2" height="1" fill="currentColor"/><rect x="65" y="13" width="2" height="1" fill="currentColor"/></g>
+</svg></div>
+  <p class="kucing-teks"><b>ACAB</b> — All Cat Are Beautiful</p>
+</header>
+<main class="depan">
+  <div class="baris-baris">
+    <p class="baris"><span class="kecil">Kemarin ada</span><a class="angka-tautan" href="kasus.html?dari=2026-08-22&amp;sampai=2026-08-22" title="Buka daftar kasusnya"><span class="angka">1</span></a><span class="kecil">polisi yang terlibat</span><span class="besar">pelanggaran.</span></p><p class="baris"><span class="kecil">Minggu ini ada</span><a class="angka-tautan" href="kasus.html?dari=2026-08-17&amp;sampai=2026-08-23" title="Buka daftar kasusnya"><span class="angka">5</span></a><span class="kecil">polisi yang terlibat</span><span class="besar">kejahatan.</span></p><p class="baris"><span class="kecil">Bulan ini ada</span><a class="angka-tautan" href="kasus.html?dari=2026-08-01&amp;sampai=2026-08-23" title="Buka daftar kasusnya"><span class="angka">30</span></a><span class="kecil">polisi yang terlibat</span><span class="besar">kriminalitas.</span></p>
+  </div>
+  <a class="tautan" href="dashboard.html">Cek datanya di sini</a>
+</main>
+<p class="jejak">Diperbarui 01.03, 23 Agustus 2026</p>
+
+<script>
+(function () {
+  // Jalan keluar dari kode yang sudah mati: alamat bersih tanpa kode, lalu
+  // form login dibuka langsung supaya "Forgot password?" ada di depan mata.
+  if (/[?&]login=1/.test(location.search)) {
+    var ket = document.createElement("div");
+    ket.setAttribute("role", "status");
+    ket.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+      "background:#000;color:#fff;padding:12px 18px;text-align:center;" +
+      "font:13px/1.5 system-ui,sans-serif";
+    ket.textContent = "Halaman masuk. Membukanya tidak mengirim surel apa pun, "
+      + "jadi aman dibuka berkali-kali. Surel hanya terkirim kalau kamu menekan "
+      + "Forgot password.";
+    (document.body ? Promise.resolve() : new Promise(function (r) {
+      document.addEventListener("DOMContentLoaded", r);
+    })).then(function () { document.body.appendChild(ket); });
+    var sl = document.createElement("script");
+    sl.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    sl.onload = function () {
+      // Sama seperti jalur pemulihan: jangan tutup dan jangan pindah halaman
+      // saat login, supaya form penetapan kata sandi tidak ikut hilang.
+      window.netlifyIdentity.on("login", function (u) {
+        ket.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor")
+          + ". Kalau kotak kata sandi masih terbuka, isi dan simpan sekarang.";
+      });
+      window.netlifyIdentity.init();
+      setTimeout(function () { window.netlifyIdentity.open("login"); }, 400);
+    };
+    document.head.appendChild(sl);
+    return;
+  }
+
+  var hash = location.hash || "";
+  // Ditangkap luas, bukan hanya tiga token yang diharapkan. Kalau Netlify
+  // mengirim bentuk lain — `access_token`, `error` — kegagalannya harus
+  // KELIHATAN, bukan berupa halaman depan biasa yang membingungkan orang
+  // yang sedang menunggu form kata sandi.
+  if (!/[#&](invite_token|recovery_token|confirmation_token|email_change_token|access_token|error)=/.test(hash)) return;
+
+  var jenis = (hash.match(/[#&](\w+)=/) || [])[1] || "tidak dikenal";
+  var papan = document.createElement("div");
+  papan.setAttribute("role", "status");
+  papan.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+    "background:#000;color:#fff;padding:14px 18px;font:14px/1.5 system-ui,sans-serif;" +
+    "text-align:center";
+  papan.textContent = "Menyiapkan form kata sandi…";
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.appendChild(papan);
+  });
+  if (document.body) document.body.appendChild(papan);
+
+  var sebabTerakhir = "";
+
+  function gagal(sebab) { sebabTerakhir = sebab; tawarkan(); }
+
+  // Selalu sisakan jalan keluar yang bisa diklik. Form yang terbuka lalu
+  // tertutup sendiri terlihat sama saja dengan tidak terjadi apa-apa, dan
+  // orang yang menunggu kata sandi tidak punya cara menebak apa yang salah.
+  function tawarkan() {
+    var w = document.querySelector("#netlify-identity-widget");
+    if (w && w.offsetHeight > 200) return;   // masih terbuka, jangan ganggu
+    papan.innerHTML = "";
+    var t = document.createElement("p");
+    t.style.cssText = "margin:0 0 8px;font-weight:700";
+    t.textContent = "Form kata sandi tertutup sebelum selesai.";
+    var d = document.createElement("p");
+    d.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+    d.textContent = "Jenis kode: " + jenis +
+      (sebabTerakhir ? " · sebab: " + sebabTerakhir : "") +
+      " · kemungkinan kodenya sudah terpakai atau kedaluwarsa.";
+    var b = document.createElement("button");
+    b.textContent = "Buka form lagi";
+    b.style.cssText = "font:inherit;font-size:13px;font-weight:700;cursor:pointer;" +
+      "padding:7px 16px;border:2px solid #fff;background:#fff;color:#000";
+    b.onclick = function () { try { window.netlifyIdentity.open(); } catch (e) {} };
+    papan.appendChild(t); papan.appendChild(d); papan.appendChild(b);
+  }
+
+  var s = document.createElement("script");
+  s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  s.onerror = function () { gagal("skrip Netlify tidak bisa dimuat"); };
+  s.onload = function () {
+    // JANGAN menutup widget atau berpindah halaman di sini. Pada jalur
+    // pemulihan, Netlify memasukkan orang LEBIH DULU tanpa kata sandi, baru
+    // menampilkan form penetapan kata sandi. Versi sebelumnya menutup widget
+    // dan melempar ke halaman lain tepat di titik itu — form-nya tidak pernah
+    // terlihat, tidak ada kata sandi tersimpan, dan begitu logout orang itu
+    // terkunci sampai harus meminta tautan baru.
+    window.netlifyIdentity.on("login", function (u) {
+      papan.innerHTML = "";
+      var p1 = document.createElement("p");
+      p1.style.cssText = "margin:0 0 4px;font-weight:700";
+      p1.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor") + ".";
+      var p2 = document.createElement("p");
+      p2.style.cssText = "margin:0;font-size:13px;opacity:.85";
+      p2.textContent = "Kalau kotak kata sandi masih terbuka, isi kata sandi "
+        + "barumu SEKARANG lalu simpan — sebelum menutup apa pun. Tanpa itu "
+        + "kamu perlu tautan pemulihan baru untuk masuk lagi.";
+      papan.appendChild(p1); papan.appendChild(p2);
+    });
+    window.netlifyIdentity.on("error", function (e) {
+      gagal("Netlify menolak: " + (e && e.message ? e.message : "sebab tidak disebutkan"));
+    });
+    // Widget menutup dirinya sendiri kalau tokennya ditolak, dan halaman
+    // kembali kosong tanpa penjelasan. Penutupan itu ditangkap supaya
+    // penyebabnya terlihat, bukan menyisakan orang menatap halaman depan.
+    window.netlifyIdentity.on("close", function () { tawarkan(); });
+    window.netlifyIdentity.init();
+    setTimeout(function () {
+      var w = document.querySelector("#netlify-identity-widget");
+      if (!(w && w.offsetHeight > 200)) {
+        try { window.netlifyIdentity.open(); } catch (e) {}
+        setTimeout(tawarkan, 1200);
+      } else {
+        // Widget tetap membuka kotak meski kodenya sudah terpakai — kotaknya
+        // muncul kosong, dan itu terlihat seperti berhasil. Disebutkan
+        // terus terang supaya tidak ditunggui percuma.
+        // Tinggi kotak BUKAN tanda berhasil: widget yang rusak karena kode
+        // kedaluwarsa tetap membuat kotak setinggi 994 piksel, hanya isinya
+        // tidak pernah digambar. Karena itu jalan keluarnya selalu
+        // ditawarkan, bukan hanya saat kegagalan berhasil terdeteksi.
+        papan.innerHTML = "";
+        var a = document.createElement("p");
+        a.style.cssText = "margin:0 0 4px;font-weight:700";
+        a.textContent = "Isi kata sandi barumu di kotak yang muncul.";
+        var b2 = document.createElement("p");
+        b2.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+        b2.textContent = "Kotaknya kosong? Berarti kode di tautan ini sudah "
+          + "kedaluwarsa atau terpakai.";
+        var b3 = document.createElement("button");
+        b3.textContent = "Buka form login untuk minta kode baru";
+        b3.style.cssText = "font:inherit;font-size:13px;font-weight:700;" +
+          "cursor:pointer;padding:7px 16px;border:2px solid #fff;" +
+          "background:#fff;color:#000";
+        b3.onclick = function () {
+          location.replace(location.pathname + "?login=1");
+        };
+        papan.appendChild(a); papan.appendChild(b2); papan.appendChild(b3);
+      }
+    }, 1000);
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>

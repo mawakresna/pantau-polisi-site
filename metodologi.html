@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metodologi — Lapor Komandan!</title>
+<meta name="description" content="Penjelasan sumber data, cara penghitungan, dan batas data Lapor Komandan!">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lapor Komandan!">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Metodologi — Lapor Komandan!">
+<meta property="og:description" content="Penjelasan sumber data, cara penghitungan, dan batas data Lapor Komandan!">
+<meta property="og:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kartu Lapor Komandan! berisi jumlah kasus dugaan pelanggaran polisi yang tercatat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Metodologi — Lapor Komandan!">
+<meta name="twitter:description" content="Penjelasan sumber data, cara penghitungan, dan batas data Lapor Komandan!">
+<meta name="twitter:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* Latar putih dikunci: situs ini sengaja hanya punya satu tampilan. */
+:root {
+  color-scheme: light;
+  --kertas:  #ffffff;
+  --tinta:   #000000;
+  --tinta-2: #4a4a4a;
+  --tinta-3: #8a8a8a;
+  --garis:   #000000;
+  --pudar:   #e6e6e6;
+}
+
+body {
+  margin: 0;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg { shape-rendering: crispEdges; }
+img, svg { max-width: 100%; }
+
+a { color: var(--tinta); }
+
+/* Judul pixel: lebar mengikuti wadah, tinggi ikut proporsi. */
+.judul-pixel { display: block; width: 100%; height: auto; color: var(--tinta); }
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.masthead { border-bottom: 3px solid var(--garis); }
+.masthead-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  /* padding-block saja — padding kiri-kanan datang dari .wrap dan jangan
+     tertimpa, kalau tidak logonya mepet ke tepi layar. */
+  padding-block: 16px;
+}
+/* Hanya logo (anak langsung), bukan tautan di dalam .nav. */
+.masthead-inner > a { display: block; width: min(260px, 46vw); text-decoration: none; }
+.masthead-meta { font-size: .75rem; color: var(--tinta-2); text-align: right; }
+
+.nav { display: flex; gap: 16px; align-items: center; }
+.nav a {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; text-decoration: none; color: var(--tinta-2);
+  border-bottom: 3px solid transparent; padding-bottom: 2px;
+}
+.nav a:hover { color: var(--tinta); }
+.nav a[aria-current="page"] { color: var(--tinta); border-bottom-color: var(--garis); }
+
+.page-head { padding: 40px 0 4px; }
+.page-head h1 {
+  font-size: clamp(1.4rem, 3.4vw, 1.9rem); font-weight: 700;
+  letter-spacing: -.01em; margin: 0 0 10px;
+}
+.page-head p { margin: 0; color: var(--tinta-2); max-width: 62ch; }
+.backlink {
+  display: inline-block; margin-bottom: 18px; font-size: .8125rem;
+  color: var(--tinta-2); text-decoration: none;
+  border-bottom: 2px solid var(--pudar); padding-bottom: 2px;
+}
+.backlink:hover { border-color: var(--garis); color: var(--tinta); }
+
+/* ---------- halaman satu kasus ---------- */
+.case-title a { text-decoration: none; border-bottom: 2px solid var(--pudar); }
+.case-title a:hover { border-color: var(--garis); }
+
+.kasus-kode {
+  font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--tinta-2); margin: 0 0 8px;
+}
+.kasus-ringkasan { margin: 24px 0 0; padding: 20px; border: 3px solid var(--garis); }
+.kasus-ringkasan p { margin: 0 0 12px; max-width: 66ch; }
+.kasus-ringkasan p:last-child { margin-bottom: 0; }
+.kasus-ringkasan.kosong { border-style: dashed; color: var(--tinta-2); }
+
+/* Catatan terbuka: bagian yang belum berpijak pada beritanya. Dibuat
+   menonjol tapi tidak seperti peringatan bahaya — ini soal ketelitian
+   data, bukan tuduhan terhadap orangnya. */
+.kasus-periksa {
+  margin: 24px 0 0; padding: 16px 20px;
+  border: 3px solid var(--garis); border-left-width: 10px;
+  background: var(--kertas);
+}
+.kasus-periksa p { margin: 0; max-width: 66ch; font-size: .9375rem; }
+
+/* Donat silang. Warna dipakai untuk identitas irisan, tapi TIDAK sendirian:
+   tiap irisan besar diberi label langsung, dan tabel angkanya selalu bisa
+   dibuka — syarat dari pemisahan buta warna yang ada di pita batas. */
+.donat-baris {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px; margin: 8px 0 20px;
+}
+.donat { margin: 0; text-align: center; }
+.donat svg { width: 100%; max-width: 160px; height: auto; }
+.donat-iris { transition: opacity .15s; }
+.donat:hover .donat-iris { opacity: .45; }
+.donat .donat-iris:hover { opacity: 1; }
+.donat-inti-n {
+  text-anchor: middle; font-size: 22px; font-weight: 800; fill: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+.donat-inti-l { text-anchor: middle; font-size: 10px; fill: var(--tinta-2); }
+.donat figcaption {
+  margin-top: 10px; font-size: .8125rem; font-weight: 700; line-height: 1.4;
+}
+.donat-besar { list-style: none; margin: 6px 0 0; padding: 0; font-weight: 400; }
+.donat-besar li {
+  font-size: .75rem; color: var(--tinta-2); margin: 2px 0;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+.donat-besar b { color: var(--tinta); font-variant-numeric: tabular-nums; }
+.donat-legenda {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px;
+  padding: 0; margin: 0 0 14px; font-size: .8125rem; color: var(--tinta-2);
+}
+.donat-legenda li { display: flex; align-items: center; gap: 7px; }
+.donat-titik {
+  width: 11px; height: 11px; border-radius: 50%; flex: none;
+  display: inline-block;
+}
+
+/* Tabel silang, dipakai sebagai pendamping donat. */
+.gulir-x { overflow-x: auto; }
+table.silang { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .875rem; }
+table.silang th, table.silang td {
+  text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--garis-tipis);
+  vertical-align: middle;
+}
+table.silang thead th {
+  font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--tinta-2); border-bottom: 2px solid var(--tinta); white-space: nowrap;
+}
+table.silang tbody th { font-weight: 700; white-space: nowrap; }
+.silang-total { display: block; font-size: .75rem; font-weight: 400; color: var(--tinta-2); }
+.silang-sel { position: relative; min-width: 78px; }
+.silang-bar {
+  position: absolute; left: 0; top: 4px; bottom: 4px;
+  background: var(--tinta); opacity: .12; pointer-events: none;
+}
+.silang-angka { position: relative; font-variant-numeric: tabular-nums; font-weight: 700; }
+.silang-n { position: relative; display: block; font-size: .75rem; color: var(--tinta-2); }
+
+/* Editor. Semuanya tersembunyi sampai seseorang benar-benar masuk — pembaca
+   biasa tidak boleh melihat jejak antarmuka yang tak bisa mereka pakai. */
+.baris-editor { margin-top: 14px; font-size: .8125rem; }
+.baris-editor a { color: var(--tinta-2); }
+.baris-editor a:hover { color: var(--tinta); }
+.editor-aktif { display: none; margin-left: 12px; color: var(--tinta-2); }
+.mode-editor .editor-aktif { display: inline; }
+.mode-editor .dapat-disunting {
+  cursor: pointer; outline: 2px dashed var(--tinta-3); outline-offset: 3px;
+}
+.mode-editor .dapat-disunting:hover { outline-color: var(--tinta); }
+/* Nilai yang sudah dikoreksi TIDAK diberi label siapa yang mengoreksinya.
+   Label itu dulu mencetak isi kolom `oleh` apa adanya ke halaman publik —
+   artinya alamat surel editor ikut tayang ke siapa pun yang membuka halaman
+   kasus. Pembaca juga tidak butuh tahu tangan siapa yang menyentuh baris mana;
+   yang mereka butuhkan nilainya benar. */
+.sunting { display: flex; flex-direction: column; gap: 8px; }
+.sunting input, .sunting select, .sunting textarea {
+  font: inherit; font-size: .9375rem; padding: 8px 10px;
+  border: 2px solid var(--tinta); background: var(--kertas); color: var(--tinta);
+  width: 100%; max-width: 60ch;
+}
+.sunting .alasan { font-size: .8125rem; }
+.sunting .alat { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.sunting button {
+  font: inherit; font-size: .8125rem; font-weight: 700; cursor: pointer;
+  padding: 7px 14px; border: 2px solid var(--tinta);
+  background: var(--kertas); color: var(--tinta);
+}
+.sunting button.utama { background: var(--tinta); color: var(--kertas); }
+.sunting button[disabled] { opacity: .5; cursor: default; }
+.pesan-sunting { font-size: .8125rem; color: var(--tinta-2); }
+.pesan-sunting.galat { color: #a8321e; font-weight: 700; }
+
+.fakta { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.fakta th, .fakta td {
+  text-align: left; vertical-align: top; padding: 8px 0;
+  border-bottom: 1px solid var(--pudar); font-size: .9375rem;
+}
+.fakta th { width: 34%; font-weight: 600; color: var(--tinta-2); padding-right: 16px; }
+
+.berita { list-style: none; margin: 0; padding: 0; }
+.berita li { padding: 12px 0; border-top: 1px solid var(--pudar); }
+.berita li:first-child { border-top: 0; }
+.berita a { font-weight: 600; font-size: .9375rem; }
+.berita .berita-meta { font-size: .8125rem; color: var(--tinta-2); margin: 3px 0 0; }
+
+/* ---------- daftar seluruh kasus ---------- */
+.saring input[type="search"] {
+  font: inherit; font-size: 1rem; color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0; padding: 6px 10px;
+  min-width: 220px; appearance: none;
+}
+.saring input[type="search"]::placeholder { color: var(--tinta-3); }
+.daftar-hitung { margin: 20px 0 0; font-size: .875rem; color: var(--tinta-2); }
+.daftar-hitung b { color: var(--tinta); }
+.daftar-kosong { margin: 24px 0; padding: 20px; border: 3px dashed var(--garis); color: var(--tinta-2); }
+/* Penyaring yang datang dari halaman lain harus kelihatan, kalau tidak
+   pembaca mengira daftarnya memang sependek itu. */
+.saring-aktif {
+  margin: 18px 0 0; padding: 11px 14px; border-left: 6px solid var(--tinta);
+  background: #f4f4f2; font-size: .875rem; color: var(--tinta-2);
+}
+.saring-aktif b { color: var(--tinta); }
+.saring-aktif a { margin-left: 4px; }
+#daftar-kasus { margin-top: 8px; }
+#daftar-kasus li[hidden] { display: none; }
+
+.lihat-semua { margin: 16px 0 0; }
+.lihat-semua a {
+  font-size: .875rem; font-weight: 700; text-decoration: none;
+  border-bottom: 3px solid var(--pudar); padding-bottom: 2px;
+}
+.lihat-semua a:hover { border-color: var(--garis); }
+
+/* ---------- penyaring tahun ---------- */
+.saring {
+  display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap;
+  margin: 24px 0 0; padding: 14px 16px; border: 3px solid var(--garis);
+}
+.saring-grup { display: flex; align-items: center; gap: 10px; }
+.saring label {
+  font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.saring select {
+  font: inherit; font-size: 1rem; font-weight: 700;
+  color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0;
+  padding: 6px 34px 6px 10px; cursor: pointer;
+  appearance: none;
+  /* Panah kotak-kotak, digambar sebagai gradien supaya tetap tanpa berkas. */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--tinta) 50%),
+    linear-gradient(135deg, var(--tinta) 50%, transparent 50%);
+  background-position: right 15px top 50%, right 10px top 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.saring select:focus-visible { outline: 3px solid var(--tinta); outline-offset: 2px; }
+.saring select:disabled {
+  color: var(--tinta-3); border-color: var(--pudar); cursor: not-allowed;
+  background-image: none;
+}
+.saring .saring-info { font-size: .8125rem; color: var(--tinta-2); }
+.panel-kosong { font-size: .875rem; color: var(--tinta-2); margin: 0; }
+
+.kpi-row {
+  display: grid; gap: 0; margin: 26px 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  border: 3px solid var(--garis);
+}
+.kpi { padding: 16px 18px; border-right: 3px solid var(--garis); }
+.kpi:last-child { border-right: 0; }
+.kpi-value {
+  font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em;
+  line-height: 1.1; margin: 0 0 3px;
+}
+.kpi-label { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+
+section.panel {
+  border: 3px solid var(--garis);
+  padding: 22px; margin: 14px 0 0;
+}
+.panel h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 0 0 6px;
+}
+.panel .sub { font-size: .875rem; color: var(--tinta-2); margin: 0 0 20px; max-width: 66ch; }
+.panel-note { font-size: .8125rem; color: var(--tinta-2); margin: 18px 0 0; }
+
+.grid-2 { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-top: 14px; }
+.grid-2 > section.panel { margin-top: 0; }
+@media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* ---------- bar chart ---------- */
+.bars { display: flex; flex-direction: column; gap: 3px; }
+.bar-row {
+  display: grid; grid-template-columns: minmax(96px, 40%) 1fr auto;
+  gap: 12px; align-items: center; padding: 4px 6px; margin: 0 -6px;
+}
+.bar-row:hover { background: #f2f2f2; }
+/* Batang yang bisa diklik membuka daftar kasusnya. Garis bawah hanya muncul
+   saat disentuh kursor: kalau selalu ada, panel penuh batang jadi berisik. */
+a.bar-tautan { display: block; color: inherit; text-decoration: none; }
+a.bar-tautan:hover .bar-name,
+a.bar-tautan:focus-visible .bar-name { color: var(--tinta); text-decoration: underline; }
+a.bar-tautan:focus-visible { outline: 2px solid var(--tinta); outline-offset: 1px; }
+.bar-name {
+  font-size: .875rem; color: var(--tinta-2);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.bar-track { min-height: 16px; display: flex; align-items: center; }
+.bar-fill { height: 12px; background: var(--tinta); min-width: 3px; }
+.bar-value {
+  font-size: .875rem; font-weight: 700; color: var(--tinta);
+  font-variant-numeric: tabular-nums; min-width: 3.4em; text-align: right;
+}
+.bar-value .pct { font-weight: 400; color: var(--tinta-3); font-size: .8125rem; }
+
+/* ---------- tren ---------- */
+.trend { position: relative; }
+.trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+.trend-tip {
+  position: absolute; pointer-events: none; opacity: 0;
+  transform: translate(-50%, -100%);
+  background: var(--tinta); color: var(--kertas);
+  padding: 5px 9px; font-size: .8125rem; line-height: 1.35;
+  white-space: nowrap; transition: opacity .1s; z-index: 2;
+}
+.trend-tip b { display: block; font-weight: 700; }
+
+/* ---------- daftar kasus ---------- */
+.cases { list-style: none; margin: 0; padding: 0; }
+.cases li {
+  padding: 13px 0; border-top: 1px solid var(--pudar);
+  display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: baseline;
+}
+.cases li:first-child { border-top: 0; padding-top: 0; }
+.case-title { font-size: .9375rem; font-weight: 600; margin: 0 0 3px; line-height: 1.4; }
+.case-meta { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+.case-date {
+  font-size: .8125rem; color: var(--tinta-2); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- tabel ---------- */
+.table-toggle {
+  margin-top: 16px; background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; font-size: .8125rem; color: var(--tinta-2);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.table-toggle:hover { color: var(--tinta); }
+.table-wrap { display: none; margin-top: 12px; overflow-x: auto; }
+.table-wrap.open { display: block; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+th, td { text-align: left; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--pudar); }
+th { font-weight: 700; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.footnote {
+  margin-top: 40px; padding: 20px 0 60px; border-top: 3px solid var(--garis);
+  font-size: .8125rem; line-height: 1.7; color: var(--tinta-2);
+}
+.footnote p { margin: 0 0 8px; max-width: 76ch; }
+.footnote p:last-child { margin-bottom: 0; }
+.footnote a { color: var(--tinta); font-weight: 600; }
+
+/* ---------- halaman metodologi ---------- */
+.teks { max-width: 68ch; padding-bottom: 72px; }
+.teks h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 44px 0 12px;
+  padding-top: 16px; border-top: 3px solid var(--garis);
+}
+.teks h3 { font-size: 1rem; font-weight: 700; margin: 26px 0 6px; }
+.teks p { margin: 0 0 14px; }
+.teks ul { margin: 0 0 14px; padding-left: 20px; }
+.teks li { margin: 0 0 7px; }
+.teks code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: .875em; background: #f2f2f2; padding: 1px 5px;
+}
+.teks .sorot { border: 3px solid var(--garis); padding: 16px 18px; margin: 0 0 18px; }
+.teks .sorot p:last-child { margin-bottom: 0; }
+.daftar-isi { margin: 24px 0 8px; padding: 0; list-style: none; }
+.daftar-isi li { margin: 0 0 6px; }
+.daftar-isi a { color: var(--tinta); }
+
+@media (max-width: 620px) {
+  .masthead-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .masthead-inner > a { width: min(230px, 64vw); }
+  .masthead-meta { text-align: left; }
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .kpi { border-bottom: 3px solid var(--garis); }
+  .kpi:nth-child(2n) { border-right: 0; }
+  .kpi:nth-last-child(-n+2) { border-bottom: 0; }
+  .bar-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name value" "track track";
+    row-gap: 4px; padding-bottom: 8px;
+  }
+  .bar-name { grid-area: name; white-space: normal; }
+  .bar-value { grid-area: value; }
+  .bar-track { grid-area: track; min-height: 0; }
+  .cases li { grid-template-columns: 1fr; }
+  .case-date { order: -1; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead"><div class="wrap masthead-inner">
+  <a href="index.html"><svg class="judul-pixel" viewBox="0 0 89 7" role="img" aria-label="LAPOR KOMANDAN!" preserveAspectRatio="xMidYMid meet"><rect x="0" y="0" width="1" height="1" fill="currentColor"/><rect x="0" y="1" width="1" height="1" fill="currentColor"/><rect x="0" y="2" width="1" height="1" fill="currentColor"/><rect x="0" y="3" width="1" height="1" fill="currentColor"/><rect x="0" y="4" width="1" height="1" fill="currentColor"/><rect x="0" y="5" width="1" height="1" fill="currentColor"/><rect x="0" y="6" width="5" height="1" fill="currentColor"/><rect x="7" y="0" width="3" height="1" fill="currentColor"/><rect x="6" y="1" width="1" height="1" fill="currentColor"/><rect x="10" y="1" width="1" height="1" fill="currentColor"/><rect x="6" y="2" width="1" height="1" fill="currentColor"/><rect x="10" y="2" width="1" height="1" fill="currentColor"/><rect x="6" y="3" width="5" height="1" fill="currentColor"/><rect x="6" y="4" width="1" height="1" fill="currentColor"/><rect x="10" y="4" width="1" height="1" fill="currentColor"/><rect x="6" y="5" width="1" height="1" fill="currentColor"/><rect x="10" y="5" width="1" height="1" fill="currentColor"/><rect x="6" y="6" width="1" height="1" fill="currentColor"/><rect x="10" y="6" width="1" height="1" fill="currentColor"/><rect x="12" y="0" width="4" height="1" fill="currentColor"/><rect x="12" y="1" width="1" height="1" fill="currentColor"/><rect x="16" y="1" width="1" height="1" fill="currentColor"/><rect x="12" y="2" width="1" height="1" fill="currentColor"/><rect x="16" y="2" width="1" height="1" fill="currentColor"/><rect x="12" y="3" width="4" height="1" fill="currentColor"/><rect x="12" y="4" width="1" height="1" fill="currentColor"/><rect x="12" y="5" width="1" height="1" fill="currentColor"/><rect x="12" y="6" width="1" height="1" fill="currentColor"/><rect x="19" y="0" width="3" height="1" fill="currentColor"/><rect x="18" y="1" width="1" height="1" fill="currentColor"/><rect x="22" y="1" width="1" height="1" fill="currentColor"/><rect x="18" y="2" width="1" height="1" fill="currentColor"/><rect x="22" y="2" width="1" height="1" fill="currentColor"/><rect x="18" y="3" width="1" height="1" fill="currentColor"/><rect x="22" y="3" width="1" height="1" fill="currentColor"/><rect x="18" y="4" width="1" height="1" fill="currentColor"/><rect x="22" y="4" width="1" height="1" fill="currentColor"/><rect x="18" y="5" width="1" height="1" fill="currentColor"/><rect x="22" y="5" width="1" height="1" fill="currentColor"/><rect x="19" y="6" width="3" height="1" fill="currentColor"/><rect x="24" y="0" width="4" height="1" fill="currentColor"/><rect x="24" y="1" width="1" height="1" fill="currentColor"/><rect x="28" y="1" width="1" height="1" fill="currentColor"/><rect x="24" y="2" width="1" height="1" fill="currentColor"/><rect x="28" y="2" width="1" height="1" fill="currentColor"/><rect x="24" y="3" width="4" height="1" fill="currentColor"/><rect x="24" y="4" width="1" height="1" fill="currentColor"/><rect x="26" y="4" width="1" height="1" fill="currentColor"/><rect x="24" y="5" width="1" height="1" fill="currentColor"/><rect x="27" y="5" width="1" height="1" fill="currentColor"/><rect x="24" y="6" width="1" height="1" fill="currentColor"/><rect x="28" y="6" width="1" height="1" fill="currentColor"/><rect x="36" y="0" width="1" height="1" fill="currentColor"/><rect x="40" y="0" width="1" height="1" fill="currentColor"/><rect x="36" y="1" width="1" height="1" fill="currentColor"/><rect x="39" y="1" width="1" height="1" fill="currentColor"/><rect x="36" y="2" width="1" height="1" fill="currentColor"/><rect x="38" y="2" width="1" height="1" fill="currentColor"/><rect x="36" y="3" width="2" height="1" fill="currentColor"/><rect x="36" y="4" width="1" height="1" fill="currentColor"/><rect x="38" y="4" width="1" height="1" fill="currentColor"/><rect x="36" y="5" width="1" height="1" fill="currentColor"/><rect x="39" y="5" width="1" height="1" fill="currentColor"/><rect x="36" y="6" width="1" height="1" fill="currentColor"/><rect x="40" y="6" width="1" height="1" fill="currentColor"/><rect x="43" y="0" width="3" height="1" fill="currentColor"/><rect x="42" y="1" width="1" height="1" fill="currentColor"/><rect x="46" y="1" width="1" height="1" fill="currentColor"/><rect x="42" y="2" width="1" height="1" fill="currentColor"/><rect x="46" y="2" width="1" height="1" fill="currentColor"/><rect x="42" y="3" width="1" height="1" fill="currentColor"/><rect x="46" y="3" width="1" height="1" fill="currentColor"/><rect x="42" y="4" width="1" height="1" fill="currentColor"/><rect x="46" y="4" width="1" height="1" fill="currentColor"/><rect x="42" y="5" width="1" height="1" fill="currentColor"/><rect x="46" y="5" width="1" height="1" fill="currentColor"/><rect x="43" y="6" width="3" height="1" fill="currentColor"/><rect x="48" y="0" width="1" height="1" fill="currentColor"/><rect x="52" y="0" width="1" height="1" fill="currentColor"/><rect x="48" y="1" width="2" height="1" fill="currentColor"/><rect x="51" y="1" width="2" height="1" fill="currentColor"/><rect x="48" y="2" width="1" height="1" fill="currentColor"/><rect x="50" y="2" width="1" height="1" fill="currentColor"/><rect x="52" y="2" width="1" height="1" fill="currentColor"/><rect x="48" y="3" width="1" height="1" fill="currentColor"/><rect x="50" y="3" width="1" height="1" fill="currentColor"/><rect x="52" y="3" width="1" height="1" fill="currentColor"/><rect x="48" y="4" width="1" height="1" fill="currentColor"/><rect x="52" y="4" width="1" height="1" fill="currentColor"/><rect x="48" y="5" width="1" height="1" fill="currentColor"/><rect x="52" y="5" width="1" height="1" fill="currentColor"/><rect x="48" y="6" width="1" height="1" fill="currentColor"/><rect x="52" y="6" width="1" height="1" fill="currentColor"/><rect x="55" y="0" width="3" height="1" fill="currentColor"/><rect x="54" y="1" width="1" height="1" fill="currentColor"/><rect x="58" y="1" width="1" height="1" fill="currentColor"/><rect x="54" y="2" width="1" height="1" fill="currentColor"/><rect x="58" y="2" width="1" height="1" fill="currentColor"/><rect x="54" y="3" width="5" height="1" fill="currentColor"/><rect x="54" y="4" width="1" height="1" fill="currentColor"/><rect x="58" y="4" width="1" height="1" fill="currentColor"/><rect x="54" y="5" width="1" height="1" fill="currentColor"/><rect x="58" y="5" width="1" height="1" fill="currentColor"/><rect x="54" y="6" width="1" height="1" fill="currentColor"/><rect x="58" y="6" width="1" height="1" fill="currentColor"/><rect x="60" y="0" width="1" height="1" fill="currentColor"/><rect x="64" y="0" width="1" height="1" fill="currentColor"/><rect x="60" y="1" width="2" height="1" fill="currentColor"/><rect x="64" y="1" width="1" height="1" fill="currentColor"/><rect x="60" y="2" width="1" height="1" fill="currentColor"/><rect x="62" y="2" width="1" height="1" fill="currentColor"/><rect x="64" y="2" width="1" height="1" fill="currentColor"/><rect x="60" y="3" width="1" height="1" fill="currentColor"/><rect x="63" y="3" width="2" height="1" fill="currentColor"/><rect x="60" y="4" width="1" height="1" fill="currentColor"/><rect x="64" y="4" width="1" height="1" fill="currentColor"/><rect x="60" y="5" width="1" height="1" fill="currentColor"/><rect x="64" y="5" width="1" height="1" fill="currentColor"/><rect x="60" y="6" width="1" height="1" fill="currentColor"/><rect x="64" y="6" width="1" height="1" fill="currentColor"/><rect x="66" y="0" width="4" height="1" fill="currentColor"/><rect x="66" y="1" width="1" height="1" fill="currentColor"/><rect x="70" y="1" width="1" height="1" fill="currentColor"/><rect x="66" y="2" width="1" height="1" fill="currentColor"/><rect x="70" y="2" width="1" height="1" fill="currentColor"/><rect x="66" y="3" width="1" height="1" fill="currentColor"/><rect x="70" y="3" width="1" height="1" fill="currentColor"/><rect x="66" y="4" width="1" height="1" fill="currentColor"/><rect x="70" y="4" width="1" height="1" fill="currentColor"/><rect x="66" y="5" width="1" height="1" fill="currentColor"/><rect x="70" y="5" width="1" height="1" fill="currentColor"/><rect x="66" y="6" width="4" height="1" fill="currentColor"/><rect x="73" y="0" width="3" height="1" fill="currentColor"/><rect x="72" y="1" width="1" height="1" fill="currentColor"/><rect x="76" y="1" width="1" height="1" fill="currentColor"/><rect x="72" y="2" width="1" height="1" fill="currentColor"/><rect x="76" y="2" width="1" height="1" fill="currentColor"/><rect x="72" y="3" width="5" height="1" fill="currentColor"/><rect x="72" y="4" width="1" height="1" fill="currentColor"/><rect x="76" y="4" width="1" height="1" fill="currentColor"/><rect x="72" y="5" width="1" height="1" fill="currentColor"/><rect x="76" y="5" width="1" height="1" fill="currentColor"/><rect x="72" y="6" width="1" height="1" fill="currentColor"/><rect x="76" y="6" width="1" height="1" fill="currentColor"/><rect x="78" y="0" width="1" height="1" fill="currentColor"/><rect x="82" y="0" width="1" height="1" fill="currentColor"/><rect x="78" y="1" width="2" height="1" fill="currentColor"/><rect x="82" y="1" width="1" height="1" fill="currentColor"/><rect x="78" y="2" width="1" height="1" fill="currentColor"/><rect x="80" y="2" width="1" height="1" fill="currentColor"/><rect x="82" y="2" width="1" height="1" fill="currentColor"/><rect x="78" y="3" width="1" height="1" fill="currentColor"/><rect x="81" y="3" width="2" height="1" fill="currentColor"/><rect x="78" y="4" width="1" height="1" fill="currentColor"/><rect x="82" y="4" width="1" height="1" fill="currentColor"/><rect x="78" y="5" width="1" height="1" fill="currentColor"/><rect x="82" y="5" width="1" height="1" fill="currentColor"/><rect x="78" y="6" width="1" height="1" fill="currentColor"/><rect x="82" y="6" width="1" height="1" fill="currentColor"/><rect x="86" y="0" width="1" height="1" fill="currentColor"/><rect x="86" y="1" width="1" height="1" fill="currentColor"/><rect x="86" y="2" width="1" height="1" fill="currentColor"/><rect x="86" y="3" width="1" height="1" fill="currentColor"/><rect x="86" y="4" width="1" height="1" fill="currentColor"/><rect x="86" y="6" width="1" height="1" fill="currentColor"/></svg></a>
+  <nav class="nav">
+    <a href="dashboard.html">Data</a>
+    <a href="kasus.html">Kasus</a>
+    <a href="metodologi.html" aria-current="page">Metodologi</a>
+  </nav>
+</div></header>
+
+<main class="wrap teks">
+  <div class="page-head">
+    <h1>Metodologi</h1>
+    <p>Halaman ini menjelaskan dari mana angka di
+      <a href="dashboard.html">halaman data</a> berasal, bagaimana cara
+      menghitungnya, dan apa saja yang tidak bisa disimpulkan darinya.</p>
+  </div>
+
+  <ul class="daftar-isi"><li><a href="#penyaringan">Penyaringan tahun dan bulan</a></li><li><a href="#apa-itu-kasus">Apa yang dihitung sebagai satu kasus</a></li><li><a href="#tanggal">Tanggal yang dipakai</a></li><li><a href="#jumlah-polisi">Cara menghitung jumlah polisi</a></li><li><a href="#jenis-pelanggaran">Jenis pelanggaran</a></li><li><a href="#lokasi">Provinsi dan lokasi</a></li><li><a href="#pangkat-satuan">Pangkat dan tingkat satuan</a></li><li><a href="#identitas">Keterbukaan identitas</a></li><li><a href="#silang">Silang data</a></li><li><a href="#sumber">Sumber dan proses pemeriksaan</a></li><li><a href="#batas">Batas data ini</a></li><li><a href="#hukum">Status hukum</a></li><li><a href="#pembuat">Siapa yang membuat ini</a></li></ul>
+
+  <h2 id="penyaringan">Penyaringan tahun dan bulan</h2>
+  <p>Halaman data bisa disaring per tahun, dan setelah tahun dipilih, per bulan.
+    Semua angka dan grafik di halaman itu ikut dihitung ulang untuk rentang yang
+    dipilih — termasuk daftar kasus terbaru dan kasus dengan liputan terbesar.</p>
+  <p>Grafik waktu ikut menyesuaikan satuannya: per bulan sepanjang seluruh
+    periode kalau tidak disaring, dua belas bulan Januari–Desember kalau satu
+    tahun dipilih, dan per tanggal kalau satu bulan dipilih. Rentang yang sedang
+    dilihat tersimpan di alamat halaman, jadi tautannya bisa dibagikan.</p>
+
+  <h2 id="apa-itu-kasus">Apa yang dihitung sebagai satu kasus</h2>
+  <p>Satu <b>kasus</b> adalah satu peristiwa dugaan pelanggaran, bukan satu
+    berita. Kalau lima media memberitakan penganiayaan yang sama, kelimanya
+    digabung menjadi satu kasus.</p>
+  <p>Basis data ini berisi <b>1.831 kasus</b> yang dihimpun dari
+    <b>33.717 berita</b>. Penggabungan dilakukan dengan mencocokkan
+    nama, inisial, pangkat, satuan, lokasi, tanggal kejadian, dan kata-kata
+    khas di badan berita, lalu setiap kelompok diperiksa manual satu per satu.</p>
+
+  <h2 id="tanggal">Tanggal yang dipakai</h2>
+  <p>Tanggal sebuah kasus adalah <b>tanggal kasus itu pertama kali muncul di
+    pemberitaan</b>, bukan tanggal peristiwanya terjadi.</p>
+  <div class="sorot">
+    <p>Alasannya: tanggal kejadian kosong di 1.305 dari 1.831 kasus
+      (sekitar 67%), sementara tanggal pemberitaan selalu ada. Memakai tanggal
+      kejadian akan membuang dua pertiga data dari semua grafik yang
+      berhubungan dengan waktu.</p>
+  </div>
+  <p>Konsekuensinya, “kemarin” di halaman depan berarti <i>muncul di
+    pemberitaan kemarin</i>. Peristiwanya sendiri bisa saja terjadi berbulan
+    atau bertahun sebelumnya — misalnya saat sebuah kasus lama baru disidangkan
+    atau baru dibuka ke publik.</p>
+
+  <h2 id="jumlah-polisi">Cara menghitung jumlah polisi</h2>
+  <p>Angka polisi di situs ini adalah <b>batas bawah</b>, bukan hitungan pasti.
+    Yang dihitung adalah individu polisi yang teridentifikasi di pemberitaan
+    lewat nama atau inisial. Kasus yang hanya menyebut “oknum anggota” tanpa
+    identitas apa pun dihitung <b>satu orang</b> — padahal jumlah sebenarnya
+    bisa lebih banyak.</p>
+  <p>Dengan cara ini, 1.831 kasus menghasilkan
+    <b>4.874 polisi teridentifikasi</b>. Angka sebenarnya hampir
+    pasti lebih tinggi.</p>
+  <h3>Mengapa tidak memakai jumlah yang tertulis di berita</h3>
+  <p>Basis data ini punya kolom perkiraan jumlah personel hasil ekstraksi
+    otomatis, tapi kolom itu <b>sengaja tidak dipakai</b> karena banyak salah
+    baca. Dua contoh nyata dari data:</p>
+  <ul>
+    <li>Sebuah artikel tercatat melibatkan <code>2021</code> polisi — angka itu
+      sebenarnya terbaca dari tahun, bukan jumlah orang.</li>
+    <li>Berita berjudul “Polri Kerahkan 323 Personel Amankan Sidang” tercatat
+      sebagai <code>323</code> terduga, padahal itu petugas pengamanan sidang,
+      bukan pihak yang diduga melanggar.</li>
+  </ul>
+
+  <h2 id="jenis-pelanggaran">Jenis pelanggaran</h2>
+  <p>Tiap kasus diberi satu jenis pelanggaran utama, yaitu jenis yang paling
+    sering muncul di berita-berita kasus itu. Kategori “belum teridentifikasi”
+    tidak dipakai sebagai jenis utama.</p>
+  <p>Akibatnya, <b>27 kasus</b> tidak muncul di
+    grafik jenis pelanggaran, karena berita-beritanya tidak cukup jelas
+    menyebut jenis dugaan pelanggarannya.</p>
+
+  <h2 id="lokasi">Provinsi dan lokasi</h2>
+  <p>Provinsi diambil dari lokasi peristiwa yang disebut di berita, bukan dari
+    lokasi kantor redaksi media yang memberitakan.</p>
+  <p><b>54 kasus</b> tidak menyebut lokasi yang cukup
+    jelas untuk dipetakan ke provinsi, jadi tidak muncul di grafik provinsi.</p>
+
+  <h2 id="pangkat-satuan">Pangkat dan tingkat satuan</h2>
+  <h3>Pangkat</h3>
+  <p>Pangkat dikelompokkan jadi empat: Perwira Tinggi (Jenderal, Komjen, Irjen,
+    Brigjen), Perwira Menengah (Kombes, AKBP, Kompol), Perwira Pertama (AKP,
+    Iptu, Ipda), dan Bintara (Aiptu sampai Bripda).</p>
+  <p>Satu kasus bisa masuk lebih dari satu kelompok kalau melibatkan beberapa
+    pangkat sekaligus, jadi <b>jumlah persentasenya bisa melebihi 100%</b>.
+    860 kasus tidak menyebut pangkat sama sekali.</p>
+  <h3>Tingkat satuan</h3>
+  <p>Kasus dihitung di <b>satuan terkecil</b> yang disebut beritanya — Polsek
+    lebih dulu, lalu Polres, baru Polda.</p>
+  <div class="sorot">
+    <p>Alasannya: berita hampir selalu ikut menyebut Polda induk, misalnya
+      karena Propam Polda yang menangani perkaranya. Kalau yang dipakai satuan
+      terbesar, 71% kasus menumpuk di Polda dan grafiknya jadi tidak berguna.
+      Dengan satuan terkecil, sebarannya lebih dekat ke tempat anggota
+      sebenarnya bertugas.</p>
+  </div>
+  <p>69 kasus tidak menyebut satuan sama sekali.</p>
+  <h3>Angka “kasus di tingkat Polres”</h3>
+  <p>Salah satu angka besar di atas halaman data adalah jumlah kasus yang
+    satuan terkecilnya Polres — 944 dari 1.831 kasus
+    untuk seluruh periode. Ini <b>jumlah kasus</b>, bukan jumlah Polres.</p>
+  <div class="sorot">
+    <p>Menghitung <i>berapa banyak Polres</i> yang terdampak belum bisa
+      dilakukan dengan jujur dari data ini. Nama satuan hasil ekstraksi masih
+      bercampur potongan kalimat berita — di data mentah ada
+      <code>polres-metro-jaksel-saat</code> dan
+      <code>polres-lampung-tengah-peristiwa</code> berdampingan dengan nama
+      aslinya. Setelah dinormalisasi pun tersisa sekitar 860 nama unik, padahal
+      Polres di Indonesia hanya sekitar 500 — jadi angkanya akan terlalu tinggi
+      dan menyesatkan. Untuk bisa menyajikannya, data ini perlu dicocokkan dulu
+      dengan daftar resmi nama Polres.</p>
+  </div>
+
+  <h2 id="identitas">Keterbukaan identitas</h2>
+  <p>Grafik ini memotret cara media menyebut polisi yang diduga terlibat, dari
+    yang paling terbuka sampai paling tertutup:</p>
+  <ul>
+    <li><b>Nama lengkap</b> — nama terduga disebut utuh.</li>
+    <li><b>Hanya inisial</b> — identitas disamarkan, misalnya “Bripka RY”.</li>
+    <li><b>Tanpa nama (1 orang)</b> — disebut “oknum anggota” tanpa nama atau
+      inisial.</li>
+    <li><b>Tanpa nama (kelompok)</b> — beberapa anggota disebut bersama tanpa
+      identitas.</li>
+    <li><b>Institusi saja</b> — yang disebut satuannya, bukan individunya.</li>
+  </ul>
+  <p>Tiap kasus dimasukkan ke kategori yang paling sering dipakai di
+    berita-berita kasus tersebut.</p>
+
+  <h2 id="silang">Silang data</h2>
+  <p>Dua tabel di halaman data menyilangkan pangkat dan tingkat satuan dengan
+    jenis pelanggaran. Ada tiga hal yang perlu diketahui sebelum membacanya.</p>
+  <p><b>Angkanya persentase per baris, bukan jumlah kasus.</b> Bintara adalah
+    mayoritas anggota Polri, jadi dalam hitungan mentah mereka akan selalu
+    tampak paling banyak melanggar di hampir semua kategori — dan itu cuma
+    mencerminkan jumlah personelnya, bukan kecenderungannya. Persentase per
+    baris menjawab pertanyaan yang benar: dari kasus yang melibatkan kelompok
+    ini, berapa porsi tiap jenis pelanggaran.</p>
+  <p><b>Tidak semua kasus ikut terhitung.</b> Pangkat hanya terlacak pada
+    sebagian kasus, tingkat satuan lebih sedikit lagi. Angka cakupannya
+    ditulis di bawah tiap tabel, dan kasus yang tidak terlacak tidak dianggap
+    nol — ia hanya tidak ikut.</p>
+  <p><b>Baris dengan kurang dari 25 kasus tidak ditampilkan.</b> Di bawah itu
+    satu kasus saja bisa menggeser persentasenya belasan poin, dan pola yang
+    terlihat lebih mungkin kebisingan daripada kecenderungan.</p>
+  <div class="sorot">
+    <p>Perhatian pers terhadap kasus polisi juga sangat timpang. Kasus
+      <b>Ferdy Sambo</b> sendirian menyerap 17.244 berita —
+      sekitar <b>51%</b> dari seluruh berita dalam basis data ini.
+      Karena itu jumlah berita tidak dipakai sebagai ukuran apa pun di halaman
+      data; yang dihitung adalah jumlah kasus.</p>
+  </div>
+
+  <h2 id="sumber">Sumber dan proses pemeriksaan</h2>
+  <p>Sumbernya adalah berita daring berbahasa Indonesia yang terbit antara
+    8 Agustus 2021 dan 22 Agustus 2026.</p>
+  <p>Setiap kelompok berita yang akan digabung jadi satu kasus melewati
+    <b>pemeriksaan manual</b>: apakah berita-berita itu memang membicarakan
+    peristiwa yang sama, apakah judulnya sudah mewakili, dan apakah ada
+    kelompok yang seharusnya digabung atau justru dipisah. Kelompok yang
+    ternyata bukan kasus pelanggaran polisi dikeluarkan dari data.</p>
+
+  <h2 id="batas">Batas data ini</h2>
+  <p>Ada tiga hal yang <b>tidak bisa</b> disimpulkan dari data ini:</p>
+  <ul>
+    <li><b>Ini bukan jumlah seluruh kasus yang terjadi.</b> Yang tercatat hanya
+      yang sampai diberitakan. Kasus yang tidak diliput media tidak akan pernah
+      muncul di sini.</li>
+    <li><b>Perbandingan antar daerah tidak setara.</b> Daerah dengan media lokal
+      yang aktif akan tampak punya lebih banyak kasus — yang terukur sebagian
+      adalah kepadatan liputan, bukan hanya kepadatan pelanggaran.</li>
+    <li><b>Kenaikan angka tidak otomatis berarti kasusnya bertambah.</b> Bisa
+      juga liputannya yang bertambah, atau cakupan pengumpulan datanya yang
+      meluas.</li>
+  </ul>
+
+  <h2 id="hukum">Status hukum</h2>
+  <p>Seluruh isi situs ini adalah <b>dugaan</b> sebagaimana dilaporkan media.
+    Muncul dalam data ini <b>tidak berarti</b> seseorang sudah terbukti
+    bersalah. Sebagian kasus berakhir dengan sanksi etik atau putusan
+    pengadilan, sebagian lain tidak, dan sebagian besar tidak diketahui
+    ujungnya karena media berhenti memberitakan.</p>
+  <p>Kalau kamu menemukan kesalahan data atau kasus yang sudah punya putusan
+    berbeda dari yang tercatat di sini, koreksi sangat diharapkan.</p>
+
+  <h2 id="pembuat">Siapa yang membuat ini</h2>
+  <p>Lapor Komandan! dibuat oleh <b>Mawa Kresna</b>, jurnalis di
+    <a href="https://projectmultatuli.org" rel="noopener" target="_blank">Project
+    Multatuli</a> dan Direktur Eksekutif
+    <a href="https://idjnetwork.org" rel="noopener" target="_blank">Indonesian
+    Data Journalism Network</a> (IDJN). Bersama IDJN, ia mengembangkan
+    <a href="https://cekdata.ai" rel="noopener" target="_blank">cekdata.ai</a>,
+    perkakas kecerdasan buatan untuk verifikasi data.</p>
+  <p>Kepolisian sudah lama jadi bidang liputannya. Ia menulis dan memimpin
+    banyak liputan tentang institusi ini — dari pengadaan dan anggaran di
+    markas Polri sampai kekerasan aparat di lapangan.</p>
+  <p>Pada SOPA 2026 Awards for Editorial Excellence, ia menerima dua
+    <i>Award for Excellence</i> bersama rekan-rekannya:</p>
+  <ul>
+    <li><b>Excellence in Technology Reporting</b> (Regional/Local), untuk serial
+      <i>#AutomationFever</i> di Project Multatuli English — bersama Antonia
+      Timmerman dan Rio Tuasikal.</li>
+    <li><b>Excellence in Bahasa Indonesia News Reporting</b>, untuk
+      <i>Serial #DaruratKekerasanAparat</i> — bersama Viriya Singgih dan Alfian
+      Putra Abdi.</li>
+  </ul>
+  <p>Serial kedua itu meliput gelombang protes terhadap kekerasan aparat yang
+    memuncak setelah kematian Affan Kurniawan — persoalan yang sama dengan yang
+    coba dihitung situs ini.</p>
+
+  <h3>Karya terkait</h3>
+  <p>Situs ini bukan upaya pertama menghitung pola yang sama. Sebelumnya ada
+    <a href="https://projectmultatuli.org/bagaimana-polisi-menangani-peristiwa-besar-di-indonesia/"
+      rel="noopener" target="_blank">Bagaimana Polisi Menangani Peristiwa Besar
+    di Indonesia</a> (Project Multatuli, 2023) — riset atas 221 pemberitaan dan
+    unggahan media sosial tentang tujuh peristiwa besar, dari tragedi Bawaslu
+    Mei 2019 sampai Kanjuruhan Oktober 2022. Ketujuhnya dipilih karena
+    melibatkan massa besar, ada kekerasan oleh polisi, dan ada korban jiwa.
+    Yang dicari polanya: apa yang dilakukan dan dikatakan polisi
+    <i>sebelum</i>, <i>saat</i>, dan <i>sesudah</i> peristiwa.</p>
+  <p>Dari riset itu lahir <a href="https://thepolicegame.projectmultatuli.org/"
+      rel="noopener" target="_blank">Polisi Aksi</a>, gim simulasi interaktif.
+    Pemain diangkat jadi kepala kepolisian di sebuah daerah, lalu menghadapi
+    peristiwa demi peristiwa dengan strategi lama yang diwariskan para senior —
+    cara membaca temuan riset dari dalam, bukan dari tabel.</p>
+  <p>Bedanya dengan situs ini: riset itu membedah tujuh peristiwa secara
+    mendalam, sementara Lapor Komandan! mencoba menghitung yang sehari-hari dan
+    terus berjalan.</p>
+
+</main>
+
+<script>
+(function () {
+  // Jalan keluar dari kode yang sudah mati: alamat bersih tanpa kode, lalu
+  // form login dibuka langsung supaya "Forgot password?" ada di depan mata.
+  if (/[?&]login=1/.test(location.search)) {
+    var ket = document.createElement("div");
+    ket.setAttribute("role", "status");
+    ket.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+      "background:#000;color:#fff;padding:12px 18px;text-align:center;" +
+      "font:13px/1.5 system-ui,sans-serif";
+    ket.textContent = "Halaman masuk. Membukanya tidak mengirim surel apa pun, "
+      + "jadi aman dibuka berkali-kali. Surel hanya terkirim kalau kamu menekan "
+      + "Forgot password.";
+    (document.body ? Promise.resolve() : new Promise(function (r) {
+      document.addEventListener("DOMContentLoaded", r);
+    })).then(function () { document.body.appendChild(ket); });
+    var sl = document.createElement("script");
+    sl.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    sl.onload = function () {
+      // Sama seperti jalur pemulihan: jangan tutup dan jangan pindah halaman
+      // saat login, supaya form penetapan kata sandi tidak ikut hilang.
+      window.netlifyIdentity.on("login", function (u) {
+        ket.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor")
+          + ". Kalau kotak kata sandi masih terbuka, isi dan simpan sekarang.";
+      });
+      window.netlifyIdentity.init();
+      setTimeout(function () { window.netlifyIdentity.open("login"); }, 400);
+    };
+    document.head.appendChild(sl);
+    return;
+  }
+
+  var hash = location.hash || "";
+  // Ditangkap luas, bukan hanya tiga token yang diharapkan. Kalau Netlify
+  // mengirim bentuk lain — `access_token`, `error` — kegagalannya harus
+  // KELIHATAN, bukan berupa halaman depan biasa yang membingungkan orang
+  // yang sedang menunggu form kata sandi.
+  if (!/[#&](invite_token|recovery_token|confirmation_token|email_change_token|access_token|error)=/.test(hash)) return;
+
+  var jenis = (hash.match(/[#&](\w+)=/) || [])[1] || "tidak dikenal";
+  var papan = document.createElement("div");
+  papan.setAttribute("role", "status");
+  papan.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+    "background:#000;color:#fff;padding:14px 18px;font:14px/1.5 system-ui,sans-serif;" +
+    "text-align:center";
+  papan.textContent = "Menyiapkan form kata sandi…";
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.appendChild(papan);
+  });
+  if (document.body) document.body.appendChild(papan);
+
+  var sebabTerakhir = "";
+
+  function gagal(sebab) { sebabTerakhir = sebab; tawarkan(); }
+
+  // Selalu sisakan jalan keluar yang bisa diklik. Form yang terbuka lalu
+  // tertutup sendiri terlihat sama saja dengan tidak terjadi apa-apa, dan
+  // orang yang menunggu kata sandi tidak punya cara menebak apa yang salah.
+  function tawarkan() {
+    var w = document.querySelector("#netlify-identity-widget");
+    if (w && w.offsetHeight > 200) return;   // masih terbuka, jangan ganggu
+    papan.innerHTML = "";
+    var t = document.createElement("p");
+    t.style.cssText = "margin:0 0 8px;font-weight:700";
+    t.textContent = "Form kata sandi tertutup sebelum selesai.";
+    var d = document.createElement("p");
+    d.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+    d.textContent = "Jenis kode: " + jenis +
+      (sebabTerakhir ? " · sebab: " + sebabTerakhir : "") +
+      " · kemungkinan kodenya sudah terpakai atau kedaluwarsa.";
+    var b = document.createElement("button");
+    b.textContent = "Buka form lagi";
+    b.style.cssText = "font:inherit;font-size:13px;font-weight:700;cursor:pointer;" +
+      "padding:7px 16px;border:2px solid #fff;background:#fff;color:#000";
+    b.onclick = function () { try { window.netlifyIdentity.open(); } catch (e) {} };
+    papan.appendChild(t); papan.appendChild(d); papan.appendChild(b);
+  }
+
+  var s = document.createElement("script");
+  s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  s.onerror = function () { gagal("skrip Netlify tidak bisa dimuat"); };
+  s.onload = function () {
+    // JANGAN menutup widget atau berpindah halaman di sini. Pada jalur
+    // pemulihan, Netlify memasukkan orang LEBIH DULU tanpa kata sandi, baru
+    // menampilkan form penetapan kata sandi. Versi sebelumnya menutup widget
+    // dan melempar ke halaman lain tepat di titik itu — form-nya tidak pernah
+    // terlihat, tidak ada kata sandi tersimpan, dan begitu logout orang itu
+    // terkunci sampai harus meminta tautan baru.
+    window.netlifyIdentity.on("login", function (u) {
+      papan.innerHTML = "";
+      var p1 = document.createElement("p");
+      p1.style.cssText = "margin:0 0 4px;font-weight:700";
+      p1.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor") + ".";
+      var p2 = document.createElement("p");
+      p2.style.cssText = "margin:0;font-size:13px;opacity:.85";
+      p2.textContent = "Kalau kotak kata sandi masih terbuka, isi kata sandi "
+        + "barumu SEKARANG lalu simpan — sebelum menutup apa pun. Tanpa itu "
+        + "kamu perlu tautan pemulihan baru untuk masuk lagi.";
+      papan.appendChild(p1); papan.appendChild(p2);
+    });
+    window.netlifyIdentity.on("error", function (e) {
+      gagal("Netlify menolak: " + (e && e.message ? e.message : "sebab tidak disebutkan"));
+    });
+    // Widget menutup dirinya sendiri kalau tokennya ditolak, dan halaman
+    // kembali kosong tanpa penjelasan. Penutupan itu ditangkap supaya
+    // penyebabnya terlihat, bukan menyisakan orang menatap halaman depan.
+    window.netlifyIdentity.on("close", function () { tawarkan(); });
+    window.netlifyIdentity.init();
+    setTimeout(function () {
+      var w = document.querySelector("#netlify-identity-widget");
+      if (!(w && w.offsetHeight > 200)) {
+        try { window.netlifyIdentity.open(); } catch (e) {}
+        setTimeout(tawarkan, 1200);
+      } else {
+        // Widget tetap membuka kotak meski kodenya sudah terpakai — kotaknya
+        // muncul kosong, dan itu terlihat seperti berhasil. Disebutkan
+        // terus terang supaya tidak ditunggui percuma.
+        // Tinggi kotak BUKAN tanda berhasil: widget yang rusak karena kode
+        // kedaluwarsa tetap membuat kotak setinggi 994 piksel, hanya isinya
+        // tidak pernah digambar. Karena itu jalan keluarnya selalu
+        // ditawarkan, bukan hanya saat kegagalan berhasil terdeteksi.
+        papan.innerHTML = "";
+        var a = document.createElement("p");
+        a.style.cssText = "margin:0 0 4px;font-weight:700";
+        a.textContent = "Isi kata sandi barumu di kotak yang muncul.";
+        var b2 = document.createElement("p");
+        b2.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+        b2.textContent = "Kotaknya kosong? Berarti kode di tautan ini sudah "
+          + "kedaluwarsa atau terpakai.";
+        var b3 = document.createElement("button");
+        b3.textContent = "Buka form login untuk minta kode baru";
+        b3.style.cssText = "font:inherit;font-size:13px;font-weight:700;" +
+          "cursor:pointer;padding:7px 16px;border:2px solid #fff;" +
+          "background:#fff;color:#000";
+        b3.onclick = function () {
+          location.replace(location.pathname + "?login=1");
+        };
+        papan.appendChild(a); papan.appendChild(b2); papan.appendChild(b3);
+      }
+    }, 1000);
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
