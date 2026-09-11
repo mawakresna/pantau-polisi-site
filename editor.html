@@ -1,0 +1,1565 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor — Lapor Komandan!</title>
+<meta name="description" content="Halaman kerja editor.">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lapor Komandan!">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Editor — Lapor Komandan!">
+<meta property="og:description" content="Halaman kerja editor.">
+<meta property="og:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kartu Lapor Komandan! berisi jumlah kasus dugaan pelanggaran polisi yang tercatat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Editor — Lapor Komandan!">
+<meta name="twitter:description" content="Halaman kerja editor.">
+<meta name="twitter:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* Latar putih dikunci: situs ini sengaja hanya punya satu tampilan. */
+:root {
+  color-scheme: light;
+  --kertas:  #ffffff;
+  --tinta:   #000000;
+  --tinta-2: #4a4a4a;
+  --tinta-3: #8a8a8a;
+  --garis:   #000000;
+  --pudar:   #e6e6e6;
+}
+
+body {
+  margin: 0;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg { shape-rendering: crispEdges; }
+img, svg { max-width: 100%; }
+
+a { color: var(--tinta); }
+
+/* Judul pixel: lebar mengikuti wadah, tinggi ikut proporsi. */
+.judul-pixel { display: block; width: 100%; height: auto; color: var(--tinta); }
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.masthead { border-bottom: 3px solid var(--garis); }
+.masthead-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  /* padding-block saja — padding kiri-kanan datang dari .wrap dan jangan
+     tertimpa, kalau tidak logonya mepet ke tepi layar. */
+  padding-block: 16px;
+}
+/* Hanya logo (anak langsung), bukan tautan di dalam .nav. */
+.masthead-inner > a { display: block; width: min(260px, 46vw); text-decoration: none; }
+.masthead-meta { font-size: .75rem; color: var(--tinta-2); text-align: right; }
+
+.nav { display: flex; gap: 16px; align-items: center; }
+.nav a {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; text-decoration: none; color: var(--tinta-2);
+  border-bottom: 3px solid transparent; padding-bottom: 2px;
+}
+.nav a:hover { color: var(--tinta); }
+.nav a[aria-current="page"] { color: var(--tinta); border-bottom-color: var(--garis); }
+
+.page-head { padding: 40px 0 4px; }
+.page-head h1 {
+  font-size: clamp(1.4rem, 3.4vw, 1.9rem); font-weight: 700;
+  letter-spacing: -.01em; margin: 0 0 10px;
+}
+.page-head p { margin: 0; color: var(--tinta-2); max-width: 62ch; }
+.backlink {
+  display: inline-block; margin-bottom: 18px; font-size: .8125rem;
+  color: var(--tinta-2); text-decoration: none;
+  border-bottom: 2px solid var(--pudar); padding-bottom: 2px;
+}
+.backlink:hover { border-color: var(--garis); color: var(--tinta); }
+
+/* ---------- halaman satu kasus ---------- */
+.case-title a { text-decoration: none; border-bottom: 2px solid var(--pudar); }
+.case-title a:hover { border-color: var(--garis); }
+
+.kasus-kode {
+  font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--tinta-2); margin: 0 0 8px;
+}
+.kasus-ringkasan { margin: 24px 0 0; padding: 20px; border: 3px solid var(--garis); }
+.kasus-ringkasan p { margin: 0 0 12px; max-width: 66ch; }
+.kasus-ringkasan p:last-child { margin-bottom: 0; }
+.kasus-ringkasan.kosong { border-style: dashed; color: var(--tinta-2); }
+
+/* Catatan terbuka: bagian yang belum berpijak pada beritanya. Dibuat
+   menonjol tapi tidak seperti peringatan bahaya — ini soal ketelitian
+   data, bukan tuduhan terhadap orangnya. */
+.kasus-periksa {
+  margin: 24px 0 0; padding: 16px 20px;
+  border: 3px solid var(--garis); border-left-width: 10px;
+  background: var(--kertas);
+}
+.kasus-periksa p { margin: 0; max-width: 66ch; font-size: .9375rem; }
+
+/* Donat silang. Warna dipakai untuk identitas irisan, tapi TIDAK sendirian:
+   tiap irisan besar diberi label langsung, dan tabel angkanya selalu bisa
+   dibuka — syarat dari pemisahan buta warna yang ada di pita batas. */
+.donat-baris {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px; margin: 8px 0 20px;
+}
+.donat { margin: 0; text-align: center; }
+.donat svg { width: 100%; max-width: 160px; height: auto; }
+.donat-iris { transition: opacity .15s; }
+.donat:hover .donat-iris { opacity: .45; }
+.donat .donat-iris:hover { opacity: 1; }
+.donat-inti-n {
+  text-anchor: middle; font-size: 22px; font-weight: 800; fill: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+.donat-inti-l { text-anchor: middle; font-size: 10px; fill: var(--tinta-2); }
+.donat figcaption {
+  margin-top: 10px; font-size: .8125rem; font-weight: 700; line-height: 1.4;
+}
+.donat-besar { list-style: none; margin: 6px 0 0; padding: 0; font-weight: 400; }
+.donat-besar li {
+  font-size: .75rem; color: var(--tinta-2); margin: 2px 0;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+.donat-besar b { color: var(--tinta); font-variant-numeric: tabular-nums; }
+.donat-legenda {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px;
+  padding: 0; margin: 0 0 14px; font-size: .8125rem; color: var(--tinta-2);
+}
+.donat-legenda li { display: flex; align-items: center; gap: 7px; }
+.donat-titik {
+  width: 11px; height: 11px; border-radius: 50%; flex: none;
+  display: inline-block;
+}
+
+/* Tabel silang, dipakai sebagai pendamping donat. */
+.gulir-x { overflow-x: auto; }
+table.silang { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .875rem; }
+table.silang th, table.silang td {
+  text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--garis-tipis);
+  vertical-align: middle;
+}
+table.silang thead th {
+  font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--tinta-2); border-bottom: 2px solid var(--tinta); white-space: nowrap;
+}
+table.silang tbody th { font-weight: 700; white-space: nowrap; }
+.silang-total { display: block; font-size: .75rem; font-weight: 400; color: var(--tinta-2); }
+.silang-sel { position: relative; min-width: 78px; }
+.silang-bar {
+  position: absolute; left: 0; top: 4px; bottom: 4px;
+  background: var(--tinta); opacity: .12; pointer-events: none;
+}
+.silang-angka { position: relative; font-variant-numeric: tabular-nums; font-weight: 700; }
+.silang-n { position: relative; display: block; font-size: .75rem; color: var(--tinta-2); }
+
+/* Editor. Semuanya tersembunyi sampai seseorang benar-benar masuk — pembaca
+   biasa tidak boleh melihat jejak antarmuka yang tak bisa mereka pakai. */
+.baris-editor { margin-top: 14px; font-size: .8125rem; }
+.baris-editor a { color: var(--tinta-2); }
+.baris-editor a:hover { color: var(--tinta); }
+.editor-aktif { display: none; margin-left: 12px; color: var(--tinta-2); }
+.mode-editor .editor-aktif { display: inline; }
+.mode-editor .dapat-disunting {
+  cursor: pointer; outline: 2px dashed var(--tinta-3); outline-offset: 3px;
+}
+.mode-editor .dapat-disunting:hover { outline-color: var(--tinta); }
+/* Nilai yang sudah dikoreksi TIDAK diberi label siapa yang mengoreksinya.
+   Label itu dulu mencetak isi kolom `oleh` apa adanya ke halaman publik —
+   artinya alamat surel editor ikut tayang ke siapa pun yang membuka halaman
+   kasus. Pembaca juga tidak butuh tahu tangan siapa yang menyentuh baris mana;
+   yang mereka butuhkan nilainya benar. */
+.sunting { display: flex; flex-direction: column; gap: 8px; }
+.sunting input, .sunting select, .sunting textarea {
+  font: inherit; font-size: .9375rem; padding: 8px 10px;
+  border: 2px solid var(--tinta); background: var(--kertas); color: var(--tinta);
+  width: 100%; max-width: 60ch;
+}
+.sunting .alasan { font-size: .8125rem; }
+.sunting .alat { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.sunting button {
+  font: inherit; font-size: .8125rem; font-weight: 700; cursor: pointer;
+  padding: 7px 14px; border: 2px solid var(--tinta);
+  background: var(--kertas); color: var(--tinta);
+}
+.sunting button.utama { background: var(--tinta); color: var(--kertas); }
+.sunting button[disabled] { opacity: .5; cursor: default; }
+.pesan-sunting { font-size: .8125rem; color: var(--tinta-2); }
+.pesan-sunting.galat { color: #a8321e; font-weight: 700; }
+
+.fakta { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.fakta th, .fakta td {
+  text-align: left; vertical-align: top; padding: 8px 0;
+  border-bottom: 1px solid var(--pudar); font-size: .9375rem;
+}
+.fakta th { width: 34%; font-weight: 600; color: var(--tinta-2); padding-right: 16px; }
+
+.berita { list-style: none; margin: 0; padding: 0; }
+.berita li { padding: 12px 0; border-top: 1px solid var(--pudar); }
+.berita li:first-child { border-top: 0; }
+.berita a { font-weight: 600; font-size: .9375rem; }
+.berita .berita-meta { font-size: .8125rem; color: var(--tinta-2); margin: 3px 0 0; }
+
+/* ---------- daftar seluruh kasus ---------- */
+.saring input[type="search"] {
+  font: inherit; font-size: 1rem; color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0; padding: 6px 10px;
+  min-width: 220px; appearance: none;
+}
+.saring input[type="search"]::placeholder { color: var(--tinta-3); }
+.daftar-hitung { margin: 20px 0 0; font-size: .875rem; color: var(--tinta-2); }
+.daftar-hitung b { color: var(--tinta); }
+.daftar-kosong { margin: 24px 0; padding: 20px; border: 3px dashed var(--garis); color: var(--tinta-2); }
+/* Penyaring yang datang dari halaman lain harus kelihatan, kalau tidak
+   pembaca mengira daftarnya memang sependek itu. */
+.saring-aktif {
+  margin: 18px 0 0; padding: 11px 14px; border-left: 6px solid var(--tinta);
+  background: #f4f4f2; font-size: .875rem; color: var(--tinta-2);
+}
+.saring-aktif b { color: var(--tinta); }
+.saring-aktif a { margin-left: 4px; }
+#daftar-kasus { margin-top: 8px; }
+#daftar-kasus li[hidden] { display: none; }
+
+.lihat-semua { margin: 16px 0 0; }
+.lihat-semua a {
+  font-size: .875rem; font-weight: 700; text-decoration: none;
+  border-bottom: 3px solid var(--pudar); padding-bottom: 2px;
+}
+.lihat-semua a:hover { border-color: var(--garis); }
+
+/* ---------- penyaring tahun ---------- */
+.saring {
+  display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap;
+  margin: 24px 0 0; padding: 14px 16px; border: 3px solid var(--garis);
+}
+.saring-grup { display: flex; align-items: center; gap: 10px; }
+.saring label {
+  font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.saring select {
+  font: inherit; font-size: 1rem; font-weight: 700;
+  color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0;
+  padding: 6px 34px 6px 10px; cursor: pointer;
+  appearance: none;
+  /* Panah kotak-kotak, digambar sebagai gradien supaya tetap tanpa berkas. */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--tinta) 50%),
+    linear-gradient(135deg, var(--tinta) 50%, transparent 50%);
+  background-position: right 15px top 50%, right 10px top 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.saring select:focus-visible { outline: 3px solid var(--tinta); outline-offset: 2px; }
+.saring select:disabled {
+  color: var(--tinta-3); border-color: var(--pudar); cursor: not-allowed;
+  background-image: none;
+}
+.saring .saring-info { font-size: .8125rem; color: var(--tinta-2); }
+.panel-kosong { font-size: .875rem; color: var(--tinta-2); margin: 0; }
+
+.kpi-row {
+  display: grid; gap: 0; margin: 26px 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  border: 3px solid var(--garis);
+}
+.kpi { padding: 16px 18px; border-right: 3px solid var(--garis); }
+.kpi:last-child { border-right: 0; }
+.kpi-value {
+  font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em;
+  line-height: 1.1; margin: 0 0 3px;
+}
+.kpi-label { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+
+section.panel {
+  border: 3px solid var(--garis);
+  padding: 22px; margin: 14px 0 0;
+}
+.panel h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 0 0 6px;
+}
+.panel .sub { font-size: .875rem; color: var(--tinta-2); margin: 0 0 20px; max-width: 66ch; }
+.panel-note { font-size: .8125rem; color: var(--tinta-2); margin: 18px 0 0; }
+
+.grid-2 { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-top: 14px; }
+.grid-2 > section.panel { margin-top: 0; }
+@media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* ---------- bar chart ---------- */
+.bars { display: flex; flex-direction: column; gap: 3px; }
+.bar-row {
+  display: grid; grid-template-columns: minmax(96px, 40%) 1fr auto;
+  gap: 12px; align-items: center; padding: 4px 6px; margin: 0 -6px;
+}
+.bar-row:hover { background: #f2f2f2; }
+/* Batang yang bisa diklik membuka daftar kasusnya. Garis bawah hanya muncul
+   saat disentuh kursor: kalau selalu ada, panel penuh batang jadi berisik. */
+a.bar-tautan { display: block; color: inherit; text-decoration: none; }
+a.bar-tautan:hover .bar-name,
+a.bar-tautan:focus-visible .bar-name { color: var(--tinta); text-decoration: underline; }
+a.bar-tautan:focus-visible { outline: 2px solid var(--tinta); outline-offset: 1px; }
+.bar-name {
+  font-size: .875rem; color: var(--tinta-2);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.bar-track { min-height: 16px; display: flex; align-items: center; }
+.bar-fill { height: 12px; background: var(--tinta); min-width: 3px; }
+.bar-value {
+  font-size: .875rem; font-weight: 700; color: var(--tinta);
+  font-variant-numeric: tabular-nums; min-width: 3.4em; text-align: right;
+}
+.bar-value .pct { font-weight: 400; color: var(--tinta-3); font-size: .8125rem; }
+
+/* ---------- tren ---------- */
+.trend { position: relative; }
+.trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+.trend-tip {
+  position: absolute; pointer-events: none; opacity: 0;
+  transform: translate(-50%, -100%);
+  background: var(--tinta); color: var(--kertas);
+  padding: 5px 9px; font-size: .8125rem; line-height: 1.35;
+  white-space: nowrap; transition: opacity .1s; z-index: 2;
+}
+.trend-tip b { display: block; font-weight: 700; }
+
+/* ---------- daftar kasus ---------- */
+.cases { list-style: none; margin: 0; padding: 0; }
+.cases li {
+  padding: 13px 0; border-top: 1px solid var(--pudar);
+  display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: baseline;
+}
+.cases li:first-child { border-top: 0; padding-top: 0; }
+.case-title { font-size: .9375rem; font-weight: 600; margin: 0 0 3px; line-height: 1.4; }
+.case-meta { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+.case-date {
+  font-size: .8125rem; color: var(--tinta-2); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- tabel ---------- */
+.table-toggle {
+  margin-top: 16px; background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; font-size: .8125rem; color: var(--tinta-2);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.table-toggle:hover { color: var(--tinta); }
+.table-wrap { display: none; margin-top: 12px; overflow-x: auto; }
+.table-wrap.open { display: block; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+th, td { text-align: left; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--pudar); }
+th { font-weight: 700; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.footnote {
+  margin-top: 40px; padding: 20px 0 60px; border-top: 3px solid var(--garis);
+  font-size: .8125rem; line-height: 1.7; color: var(--tinta-2);
+}
+.footnote p { margin: 0 0 8px; max-width: 76ch; }
+.footnote p:last-child { margin-bottom: 0; }
+.footnote a { color: var(--tinta); font-weight: 600; }
+
+/* ---------- halaman metodologi ---------- */
+.teks { max-width: 68ch; padding-bottom: 72px; }
+.teks h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 44px 0 12px;
+  padding-top: 16px; border-top: 3px solid var(--garis);
+}
+.teks h3 { font-size: 1rem; font-weight: 700; margin: 26px 0 6px; }
+.teks p { margin: 0 0 14px; }
+.teks ul { margin: 0 0 14px; padding-left: 20px; }
+.teks li { margin: 0 0 7px; }
+.teks code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: .875em; background: #f2f2f2; padding: 1px 5px;
+}
+.teks .sorot { border: 3px solid var(--garis); padding: 16px 18px; margin: 0 0 18px; }
+.teks .sorot p:last-child { margin-bottom: 0; }
+.daftar-isi { margin: 24px 0 8px; padding: 0; list-style: none; }
+.daftar-isi li { margin: 0 0 6px; }
+.daftar-isi a { color: var(--tinta); }
+
+@media (max-width: 620px) {
+  .masthead-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .masthead-inner > a { width: min(230px, 64vw); }
+  .masthead-meta { text-align: left; }
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .kpi { border-bottom: 3px solid var(--garis); }
+  .kpi:nth-child(2n) { border-right: 0; }
+  .kpi:nth-last-child(-n+2) { border-bottom: 0; }
+  .bar-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name value" "track track";
+    row-gap: 4px; padding-bottom: 8px;
+  }
+  .bar-name { grid-area: name; white-space: normal; }
+  .bar-value { grid-area: value; }
+  .bar-track { grid-area: track; min-height: 0; }
+  .cases li { grid-template-columns: 1fr; }
+  .case-date { order: -1; }
+}
+
+body { background: var(--kertas); color: var(--tinta); }
+.ed-wrap { max-width: 900px; margin: 0 auto; padding: 28px 20px 80px; }
+.ed-kepala {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; flex-wrap: wrap; border-bottom: 3px solid var(--garis);
+  padding-bottom: 14px; margin-bottom: 24px;
+}
+.ed-kepala h1 { font-size: 1.35rem; margin: 0; letter-spacing: -.01em; }
+.ed-kepala a { font-size: .8125rem; color: var(--tinta-2); }
+.ed-sisa { font-size: .8125rem; color: var(--tinta-2); font-variant-numeric: tabular-nums; }
+
+/* Masuk: form biasa di halaman, bukan popup. Popup widget sempat gagal
+   berkali-kali dan tidak menyisakan cara mendiagnosisnya. */
+.ed-masuk { max-width: 380px; margin: 8vh auto; }
+.ed-masuk h1 { font-size: 1.35rem; margin: 0 0 6px; }
+.ed-masuk p.sub { color: var(--tinta-2); font-size: .875rem; margin: 0 0 20px; }
+.ed-masuk label { display: block; font-size: .75rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--tinta-2); font-weight: 700; margin: 14px 0 5px; }
+.ed-masuk input {
+  font: inherit; width: 100%; padding: 11px 12px;
+  border: 3px solid var(--garis); background: var(--kertas); color: var(--tinta);
+}
+.ed-tombol {
+  font: inherit; font-weight: 700; cursor: pointer; padding: 12px 22px;
+  border: 3px solid var(--garis); background: var(--tinta); color: var(--kertas);
+  width: 100%; margin-top: 18px;
+}
+.ed-tombol:hover { background: var(--kertas); color: var(--tinta); }
+.ed-tombol[disabled] { opacity: .5; cursor: default; }
+.ed-tautan-kecil {
+  background: none; border: 0; padding: 6px 0; margin-top: 10px; width: auto;
+  font: inherit; font-size: .8125rem; color: var(--tinta-2);
+  text-decoration: underline; cursor: pointer;
+}
+.ed-pesan { margin-top: 14px; font-size: .875rem; padding: 10px 12px;
+  border-left: 4px solid var(--garis); background: var(--kertas-2); }
+.ed-pesan.galat { border-color: #a8321e; color: #a8321e; }
+.ed-pesan.baik { border-color: #1f5f43; color: #1f5f43; }
+
+/* Satu kasus satu kartu, ditumpuk ke bawah. */
+.ed-kartu { border: 3px solid var(--garis); padding: 20px; margin: 0 0 22px; }
+.ed-kartu.selesai { opacity: .45; }
+.ed-kode { font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .75rem; color: var(--tinta-2); margin: 0; }
+.ed-judul { font-size: 1.05rem; margin: 3px 0 10px; line-height: 1.35; }
+.ed-sebab { margin: 0 0 16px; padding: 10px 14px; background: var(--kertas-2);
+  border-left: 4px solid var(--garis); font-size: .875rem; }
+.ed-sebab ul { margin: 0; padding-left: 18px; }
+
+.ed-banding { display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  margin: 0 0 16px; }
+.ed-banding-ket { font-size: .8125rem; color: var(--tinta-2); }
+.ed-pilih {
+  font: inherit; font-size: .8125rem; cursor: pointer; padding: 7px 14px;
+  border: 2px solid var(--garis); background: var(--kertas); color: var(--tinta-2);
+}
+.ed-pilih b { color: var(--tinta); }
+.ed-pilih:hover { background: var(--kertas-2); }
+.ed-pilih.terpilih { background: var(--tinta); color: var(--kertas); }
+.ed-pilih.terpilih b { color: var(--kertas); }
+
+/* Beberapa jenis pelanggaran bisa dicentang sekaligus: satu polisi bisa
+   dijerat lebih dari satu perbuatan. */
+/* Dua puluh lebih pilihan tidak muat di satu kolom sempit, jadi kotaknya
+   melebar penuh dan isinya dipecah jadi beberapa lajur. */
+.ed-medan .ed-centang {
+  border: 2px solid var(--garis); padding: 10px 12px; max-height: 200px;
+  overflow-y: auto; columns: 3 190px; column-gap: 18px;
+}
+/* Ditulis dengan .ed-medan di depan supaya menang atas ".ed-medan label"
+   di bawah — kalau kalah, labelnya jadi blok huruf besar dan teksnya
+   terlempar ke bawah kotak centangnya. */
+.ed-medan .ed-centang label {
+  display: flex; align-items: center; gap: 7px; font-size: .8125rem;
+  text-transform: none; letter-spacing: 0; color: var(--tinta);
+  font-weight: 400; margin: 0 0 2px; cursor: pointer; padding: 2px 0;
+  break-inside: avoid;
+}
+.ed-medan .ed-centang input { width: auto; accent-color: var(--tinta); }
+
+/* Menambah jenis yang belum ada. Sengaja di bawah kotak centang, bukan di
+   atasnya: mengetik adalah jalan terakhir setelah daftarnya dilihat. */
+.ed-medan .ed-tambah {
+  grid-column: 1 / -1; display: flex; gap: 8px; align-items: center;
+  flex-wrap: wrap; margin-top: 8px;
+}
+.ed-medan .ed-tambah input {
+  flex: 1 1 260px; width: auto; font-size: .8125rem; padding: 7px 10px;
+}
+.ed-medan .ed-tambah button {
+  font: inherit; font-size: .8125rem; font-weight: 700; cursor: pointer;
+  padding: 7px 14px; border: 2px solid var(--garis);
+  background: var(--kertas); color: var(--tinta); width: auto; margin: 0;
+}
+.ed-medan .ed-tambah button:hover { background: var(--tinta); color: var(--kertas); }
+.ed-medan .ed-tambah button:disabled { opacity: .5; cursor: default; }
+.ed-tambah-pesan { flex: 1 1 100%; font-size: .8125rem; color: var(--tinta-2); }
+
+details.ed-berita { margin: 0 0 18px; border: 1px solid var(--garis-tipis); }
+details.ed-berita summary {
+  cursor: pointer; padding: 10px 14px; font-size: .75rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--tinta-2);
+}
+details.ed-berita[open] summary { border-bottom: 1px solid var(--garis-tipis); }
+.ed-artikel { padding: 4px 16px 16px; max-height: 460px; overflow-y: auto; }
+.ed-artikel h4 { font-size: .9375rem; margin: 16px 0 4px; line-height: 1.35; }
+.ed-artikel .meta { font-size: .75rem; color: var(--tinta-3); margin: 0 0 8px; }
+.ed-artikel p.isi { font-size: .875rem; line-height: 1.65; margin: 0;
+  white-space: pre-wrap; color: var(--tinta); }
+
+.ed-medan { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 18px; margin: 0 0 16px; }
+.ed-medan label { display: block; font-size: .6875rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--tinta-2); font-weight: 700; margin-bottom: 4px; }
+.ed-medan input, .ed-medan select, .ed-medan textarea {
+  font: inherit; font-size: .875rem; width: 100%; padding: 8px 10px;
+  border: 2px solid var(--garis); background: var(--kertas); color: var(--tinta);
+}
+.ed-medan .lebar { grid-column: 1 / -1; }
+.ed-medan textarea { min-height: 110px; resize: vertical; }
+.ed-aksi { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.ed-benar {
+  display: flex; align-items: center; gap: 7px; font-size: .8125rem;
+  color: var(--tinta-2); cursor: pointer; margin: 0;
+}
+.ed-benar input { width: auto; margin: 0; accent-color: var(--tinta); }
+.ed-aksi button { width: auto; margin: 0; padding: 10px 18px; font-size: .875rem; }
+.ed-aksi .sekunder { background: var(--kertas); color: var(--tinta); }
+.ed-aksi .sekunder:hover { background: var(--tinta); color: var(--kertas); }
+.ed-status { font-size: .8125rem; color: var(--tinta-2); }
+.ed-status.galat { color: #a8321e; font-weight: 700; }
+.ed-status.baik { color: #1f5f43; font-weight: 700; }
+.ed-kosong { text-align: center; color: var(--tinta-2); padding: 40px 0; }
+.ed-kembar-sisi { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 620px) { .ed-kembar-sisi { grid-template-columns: 1fr; } }
+.ed-kembar-sisi > div {
+  border-left: 3px solid var(--garis); padding-left: 12px; font-size: .875rem;
+  color: var(--tinta-2); line-height: 1.5;
+}
+.ed-kembar-sisi b { color: var(--tinta); font-size: .9375rem; }
+.ed-kembar-bukti {
+  font-size: .8125rem; color: var(--tinta-2); margin: 16px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+.ed-kembar-aksi { display: flex; align-items: center; gap: 12px; margin-top: 14px; flex-wrap: wrap; }
+.ed-kembar-aksi button {
+  border: 2px solid var(--tinta); background: var(--kertas); color: var(--tinta);
+  padding: 8px 16px; font: inherit; font-size: .875rem; font-weight: 700; cursor: pointer;
+}
+.ed-kembar-aksi button:hover:not(:disabled) { background: var(--tinta); color: var(--kertas); }
+.ed-kembar-aksi button:disabled { opacity: .4; cursor: default; }
+.ed-sudah { color: #1f5f43; }
+
+/* Pertanyaan susulan sesudah menyimpan, saat kategorinya belum diputuskan. */
+.ed-tanya {
+  flex: 1 1 100%; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin-top: 8px; padding: 9px 12px; border-left: 5px solid var(--tinta);
+  background: #f4f4f2; font-size: .8125rem; color: var(--tinta-2);
+}
+.ed-tanya b { color: var(--tinta); }
+.ed-tanya button {
+  font: inherit; font-size: .8125rem; font-weight: 700; cursor: pointer;
+  padding: 6px 12px; border: 2px solid var(--garis); width: auto; margin: 0;
+  background: var(--tinta); color: var(--kertas);
+}
+.ed-tanya button.ed-belum { background: var(--kertas); color: var(--tinta); }
+.ed-tanya button:hover { opacity: .85; }
+
+/* Dua tab, karena dua tumpukan ini menuntut kesegeraan yang berbeda:
+   tingkat 1 tandanya sudah tayang di halaman publik, tingkat 2 belum. */
+.ed-tab { display: flex; gap: 0; margin: 0 0 6px; flex-wrap: wrap; }
+.ed-tab button {
+  font: inherit; font-size: .875rem; font-weight: 700; cursor: pointer;
+  padding: 11px 18px; border: 3px solid var(--garis); border-right-width: 0;
+  background: var(--kertas); color: var(--tinta-2);
+}
+.ed-tab button:last-child { border-right-width: 3px; }
+.ed-tab button[aria-selected="true"] { background: var(--tinta); color: var(--kertas); }
+.ed-tab button:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+.ed-tab-ket { margin: 0 0 20px; font-size: .8125rem; color: var(--tinta-2); max-width: 68ch; }
+
+/* Pencarian: dengan 1.958 kasus dalam satu tab, menggulir bukan lagi cara
+   menemukan sesuatu. */
+.ed-cari { margin: 0 0 22px; }
+.ed-cari label {
+  display: block; font-size: .75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--tinta-2); margin-bottom: 6px;
+}
+.ed-cari input {
+  font: inherit; width: 100%; max-width: 44ch; padding: 10px 12px;
+  border: 3px solid var(--garis); background: var(--kertas); color: var(--tinta);
+}
+.ed-cari input:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+.ed-cari-hasil { display: block; margin-top: 6px; font-size: .8125rem; color: var(--tinta-2); }
+</style>
+</head>
+<body data-situs="https://pantaupolisi.netlify.app">
+
+<div class="ed-wrap" id="ed-akar">
+  <div class="ed-masuk" id="ed-masuk">
+    <h1>Masuk sebagai editor</h1>
+    <p class="sub">Halaman kerja untuk memeriksa dan membetulkan data kasus.
+      Hanya untuk editor yang sudah diundang.</p>
+    <form id="ed-form">
+      <label for="ed-email">Alamat surel</label>
+      <input id="ed-email" type="email" autocomplete="username" required>
+      <label for="ed-sandi">Kata sandi</label>
+      <input id="ed-sandi" type="password" autocomplete="current-password" required>
+      <button class="ed-tombol" type="submit" id="ed-kirim">Masuk</button>
+    </form>
+    <button class="ed-tautan-kecil" id="ed-lupa">Lupa kata sandi?</button>
+    <div id="ed-pesan"></div>
+  </div>
+
+  <div id="ed-kerja" hidden>
+    <div class="ed-kepala">
+      <div>
+        <h1>Ruang kerja editor</h1>
+        <p class="ed-sisa" id="ed-sisa">memuat…</p>
+      </div>
+      <div>
+        <span class="ed-sisa" id="ed-siapa"></span>
+        <a href="#" id="ed-keluar">Keluar</a>
+      </div>
+    </div>
+    <div class="ed-tab" role="tablist" id="ed-tab" hidden>
+      <button role="tab" data-tingkat="1" aria-selected="true"></button>
+      <button role="tab" data-tingkat="2" aria-selected="false"></button>
+      <button role="tab" data-tingkat="3" aria-selected="false"></button>
+      <button role="tab" data-tingkat="0" aria-selected="false"></button>
+    </div>
+    <p class="ed-tab-ket" id="ed-tab-ket"></p>
+    <div class="ed-cari" id="ed-cari" hidden>
+      <label for="ed-cari-isi">Cari kasus</label>
+      <input id="ed-cari-isi" type="search" autocomplete="off"
+             placeholder="nomor kasus atau kata di judul, misal PP-000123 atau narkoba">
+      <span class="ed-cari-hasil" id="ed-cari-hasil"></span>
+    </div>
+    <div id="ed-daftar"></div>
+  </div>
+</div>
+<script type="application/json" id="pilihan-editor">{"pelanggaran": ["Desersi", "Diskriminasi", "Eksploitasi seksual", "Intimidasi", "Kekerasan dalam rumah tangga", "Kekerasan fisik", "Kekerasan seksual", "Kekerasan seksual terhadap anak", "Kekerasan terhadap tahanan hingga meninggal", "Kelalaian yang menyebabkan kematian", "Korupsi", "Kriminalisasi", "Menghilangkan atau memanipulasi barang bukti", "Narkotika", "Pelanggaran atau kejahatan lalu lintas", "Pelanggaran etik", "Pelanggaran lainnya", "Pelanggaran privasi", "Pembunuhan", "Pembunuhan berencana", "Pembunuhan di luar proses hukum", "Pemerasan", "Pemerkosaan", "Penahanan sewenang-wenang", "Penculikan", "Pencurian atau perampokan", "Penganiayaan", "Penggelapan", "Penggunaan kekuatan berlebihan", "Penipuan", "Penyalahgunaan atau kepemilikan senjata ilegal", "Penyalahgunaan wewenang", "Penyiksaan", "Perdagangan orang", "Perintangan penyidikan", "Perjudian", "Perselingkuhan", "Pungli", "Represi digital", "Salah tangkap atau penangkapan sewenang-wenang", "Suap", "Tabrak lari", "Tidak diketahui"], "provinsi": ["Aceh", "Bali", "Banten", "Bengkulu", "DI Yogyakarta", "DKI Jakarta", "Gorontalo", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Barat", "Kalimantan Selatan", "Kalimantan Tengah", "Kalimantan Timur", "Kalimantan Utara", "Kep. Bangka Belitung", "Kepulauan Riau", "Lampung", "Maluku", "Maluku Utara", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Papua", "Papua Barat", "Papua Barat Daya", "Papua Pegunungan", "Papua Selatan", "Papua Tengah", "Riau", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tengah", "Sulawesi Tenggara", "Sulawesi Utara", "Sumatera Barat", "Sumatera Selatan", "Sumatera Utara"]}</script>
+
+<script>
+(function () {
+  var API_EDITOR = "/.netlify/functions/editor";
+  var API_KOREKSI = "/.netlify/functions/koreksi";
+  var SITUS = document.body.dataset.situs || "";
+  var PILIHAN = JSON.parse(document.getElementById("pilihan-editor").textContent);
+  var MEDAN = [
+    ["pelanggaran", "Dugaan pelanggaran", "centang"],
+    ["tanggal_kejadian", "Tanggal kejadian (YYYY-MM-DD)", "teks"],
+    ["provinsi", "Provinsi", "pilih"],
+    ["status", "Status pidana", "teks"],
+    ["vonis", "Vonis pidana", "teks"],
+    ["sanksi", "Sanksi etik", "teks"],
+    ["judul", "Judul kasus", "lebar"],
+    ["ringkasan", "Ringkasan", "panjang"]
+  ];
+  var user = null, antrean = [], semua = [], indeks = 0, diputus = {};
+  var kembar = [], kembarDiputus = {};
+
+  // Kasus bertanda yang BELUM diputuskan. Dipakai bersama oleh hitungan tab
+  // dan penyaringan daftarnya, supaya angka di tab dan panjang daftar tidak
+  // pernah bercerita berbeda.
+  function sisa(k) { return k.tingkat && !diputus[k.case_id]; }
+
+  // Pasangan yang sudah dijawab hilang seketika, tanpa menunggu pipeline
+  // malam. Kalau tidak, editor menjawab sepuluh pasangan lalu memuat ulang
+  // halaman dan mendapati kesepuluhnya kembali seolah tak pernah dijawab.
+  function sisaKembar(p) { return !kembarDiputus[p.kasus_a + "~" + p.kasus_b]; }
+
+  var TAB = {
+    1: ["Tampil bertanda di situs",
+        "Kasus ini sudah kelihatan pembaca sebagai \"sedang diperiksa ulang\", " +
+        "karena jenis pelanggarannya belum berpijak pada beritanya. " +
+        "Membetulkannya menghapus tanda itu dari halaman publik."],
+    2: ["Hanya untuk editor",
+        "Metode lama dan metode baru memberi jawaban berbeda. Salah satu pasti " +
+        "keliru, tapi belum tentu yang baru — pembaca tidak melihat apa pun " +
+        "soal ini, jadi tidak mendesak."],
+    3: ["Dugaan kasus kembar",
+        "Sapuan keutuhan menemukan dua kasus yang beritanya saling menunjuk " +
+        "peristiwa yang sama. Ini usulan, bukan tindakan — tidak ada yang " +
+        "digabung sebelum kamu memutuskan, dan jawabanmu, terima maupun tolak, " +
+        "dicatat supaya pasangan ini tidak ditanyakan lagi."],
+    0: ["Semua kasus",
+        "Seluruh kasus dalam basis data, bertanda maupun tidak, semuanya bisa " +
+        "diedit. Mesin tidak menandai kasus di sini, tapi diamnya mesin bukan " +
+        "jaminan benar — pakai kolom pencarian untuk menuju kasus tertentu."]
+  };
+
+  // Pelolos milik halaman ini sendiri — skrip dasbor tidak ikut dimuat di sini,
+  // dan teks berita berasal dari luar, jadi tidak boleh masuk mentah ke HTML.
+  function lolos(t) {
+    return String(t == null ? "" : t)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  var SEKALI = 8;   // kartu dimuat bertahap; 1.047 kartu sekaligus terlalu berat
+
+  // Kotak untuk menambah jenis pelanggaran yang belum ada di daftar. Daftar
+  // bawaan tidak akan pernah lengkap — "desersi" baru ketahuan kurang setelah
+  // satu kasus menuntutnya. Yang diketik di sini jadi kategori tetap, dipakai
+  // semua kasus sesudahnya, bukan ketikan bebas yang berlaku sekali.
+  var SISIP_TAMBAH =
+    '<div class="ed-tambah">' +
+    '<input type="text" class="ed-tambah-isi" maxlength="60" ' +
+    'placeholder="jenis lain yang belum ada di daftar, misal Desersi">' +
+    '<button type="button" class="ed-tambah-tombol">Tambah jenis</button>' +
+    '<span class="ed-tambah-pesan"></span></div>';
+
+  function el(id) { return document.getElementById(id); }
+  function pesan(teks, jenis) {
+    el("ed-pesan").innerHTML = teks
+      ? '<p class="ed-pesan ' + (jenis || "") + '">' + teks + "</p>" : "";
+  }
+
+  // Widget Identity dipakai HANYA sebagai pustaka, tanpa antarmukanya. Form
+  // popup-nya berkali-kali gagal terbuka dan tidak menyisakan cara
+  // mendiagnosisnya; di sini form-nya milik kita sendiri.
+  function identity() {
+    return new Promise(function (selesai, gagal) {
+      if (window.netlifyIdentity) return selesai(window.netlifyIdentity);
+      var s = document.createElement("script");
+      s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+      s.onload = function () {
+        var opsi = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) && SITUS
+          ? { APIUrl: SITUS.replace(/\/$/, "") + "/.netlify/identity" } : undefined;
+        window.netlifyIdentity.init(opsi);
+        selesai(window.netlifyIdentity);
+      };
+      s.onerror = function () { gagal(new Error("skrip Netlify tidak bisa dimuat")); };
+      document.head.appendChild(s);
+    });
+  }
+
+  el("ed-form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var tombol = el("ed-kirim");
+    tombol.disabled = true;
+    pesan("menghubungkan…");
+    identity().then(function (ni) {
+      return ni.gotrue.login(el("ed-email").value.trim(), el("ed-sandi").value, true);
+    }).then(function (u) {
+      user = u; mulai();
+    }).catch(function (g) {
+      tombol.disabled = false;
+      pesan((g && g.message) || "gagal masuk", "galat");
+    });
+  });
+
+  el("ed-lupa").addEventListener("click", function () {
+    var surel = el("ed-email").value.trim();
+    if (!surel) return pesan("Isi alamat surelmu dulu, lalu klik lagi.", "galat");
+    identity().then(function (ni) { return ni.gotrue.requestPasswordRecovery(surel); })
+      .then(function () {
+        pesan("Tautan pengaturan ulang dikirim ke " + surel +
+              ". Buka tautannya sekali saja, lalu isi kata sandi baru di situ.", "baik");
+      })
+      .catch(function (g) { pesan((g && g.message) || "gagal mengirim", "galat"); });
+  });
+
+  el("ed-keluar").addEventListener("click", function (ev) {
+    ev.preventDefault();
+    identity().then(function (ni) { return ni.logout(); })
+      .then(function () { location.reload(); });
+  });
+
+  function mulai() {
+    el("ed-masuk").hidden = true;
+    el("ed-kerja").hidden = false;
+    el("ed-siapa").textContent = (user && user.email) || "editor";
+    ambil(API_EDITOR).then(function (d) {
+      // Kategori buatan editor digabung ke daftar pilihan sebelum kartu
+      // pertama digambar. Daftar bawaan dicetak saat situs dibangun, jadi
+      // tanpa ini kategori yang ditambahkan hari ini baru terlihat besok.
+      var tambahan = d.kategori || {};
+      Object.keys(tambahan).forEach(function (kode) {
+        var label = (tambahan[kode] || {}).label;
+        if (!label) return;
+        var kembar = PILIHAN.pelanggaran.some(function (p) {
+          return p.toLowerCase() === label.toLowerCase();
+        });
+        if (!kembar) PILIHAN.pelanggaran.push(label);
+      });
+      PILIHAN.pelanggaran.sort(function (a, b) { return a.localeCompare(b, "id"); });
+
+      // Keputusan yang sudah dibuat langsung dipotong dari tanda, tanpa
+      // menunggu pipeline malam menyusun ulang antreannya.
+      diputus = {};
+      (d.diputus || []).forEach(function (c) { diputus[c] = true; });
+
+      antrean = d.kasus || [];
+      // Judul yang sudah dibetulkan editor hari ini menimpa judul dari
+      // antrean.json — berkas itu baru ditulis ulang malam nanti.
+      var judulEditor = d.judul || {};
+      antrean.forEach(function (k) {
+        if (judulEditor[k.case_id]) k.judul = judulEditor[k.case_id];
+      });
+      // Terbaru di atas, di ketiga tab. Editor memeriksa tangkapan semalam
+      // setiap pagi; urutan menurut nomor kasus menaruh kasus 2021 di depan
+      // dan yang baru masuk di dasar 1.900 kartu. Yang dipakai tanggal
+      // pemberitaan TERAKHIR, bukan tanggal kejadian: kasus lama yang kembali
+      // diberitakan kemarin juga perlu dilihat lagi. Kasus tanpa tanggal
+      // ditaruh paling belakang, bukan paling depan.
+      antrean.sort(function (a, b) {
+        var x = a.terakhir || "", y = b.terakhir || "";
+        if (x === y) return a.case_id < b.case_id ? 1 : -1;
+        if (!x) return 1;
+        if (!y) return -1;
+        return x < y ? 1 : -1;
+      });
+      // Usulan kembar datang di muatan yang sama, tapi bentuknya berbeda:
+      // yang dinilai pasangan kasus, bukan satu kasus. Karena itu ia tidak
+      // dipaksakan masuk `antrean` — memaksanya berarti memilih salah satu
+      // kasus jadi kuncinya, dan pasangan tidak punya kunci tunggal.
+      kembar = d.kembar || [];
+      kembarDiputus = {};
+      (d.kembar_diputus || []).forEach(function (k) { kembarDiputus[k] = true; });
+      semua = antrean;
+      var bertanda = semua.filter(sisa).length;
+      var selesai = semua.filter(function (k) {
+        return k.tingkat && diputus[k.case_id];
+      }).length;
+      el("ed-sisa").textContent = semua.length
+        ? bertanda.toLocaleString("id") + " kasus bertanda tersisa, dari " +
+          semua.length.toLocaleString("id") + " kasus seluruhnya" +
+          (selesai ? " · " + selesai.toLocaleString("id") + " sudah kamu putuskan" : "")
+        : "Belum ada bahan.";
+      if (!semua.length) {
+        el("ed-daftar").innerHTML =
+          '<p class="ed-kosong">Bahan kerja belum disiapkan.</p>';
+        return;
+      }
+      pasangTab();
+      pilihTingkat(1);
+      window.addEventListener("scroll", function () {
+        if (window.innerHeight + window.scrollY >
+            document.body.offsetHeight - 700) berikutnya();
+      });
+    }).catch(function (g) {
+      el("ed-daftar").innerHTML = '<p class="ed-kosong">Gagal memuat antrean: ' +
+        lolos(g.message) + "</p>";
+    });
+  }
+
+  function hitungTab() {
+    el("ed-tab").querySelectorAll("button").forEach(function (b) {
+      var t = Number(b.dataset.tingkat);
+      // Tab 0 memuat semuanya, bukan cuma yang tak bertanda: editor yang
+      // mencari satu kasus tidak tahu lebih dulu kasus itu bertanda atau bukan.
+      var n = t === 0 ? semua.length
+            : t === 3 ? kembar.filter(sisaKembar).length
+            : semua.filter(function (k) {
+                return k.tingkat === t && !diputus[k.case_id];
+              }).length;
+      b.textContent = TAB[t][0] + " (" + n.toLocaleString("id") + ")";
+    });
+    var sisaSemua = semua.filter(sisa).length;
+    var selesai = semua.filter(function (k) {
+      return k.tingkat && diputus[k.case_id];
+    }).length;
+    el("ed-sisa").textContent = sisaSemua.toLocaleString("id") +
+      " kasus bertanda tersisa, dari " + semua.length.toLocaleString("id") +
+      " kasus seluruhnya" +
+      (selesai ? " · " + selesai.toLocaleString("id") + " sudah kamu putuskan" : "");
+  }
+
+  function pasangTab() {
+    var tab = el("ed-tab");
+    tab.hidden = false;
+    el("ed-cari").hidden = false;
+    hitungTab();
+    tab.querySelectorAll("button").forEach(function (b) {
+      var t = Number(b.dataset.tingkat);
+      b.addEventListener("click", function () { pilihTingkat(t); });
+    });
+
+    var ketik = null;
+    el("ed-cari-isi").addEventListener("input", function () {
+      // Ditunda sebentar: tiap ketukan menyaring 1.958 baris dan membangun
+      // ulang daftarnya.
+      clearTimeout(ketik);
+      ketik = setTimeout(function () { pilihTingkat(tingkatKini); }, 180);
+    });
+  }
+
+  function cocok(k, cari) {
+    if (!cari) return true;
+    return (k.case_id + " " + (k.judul || "") + " " + (k.pelanggaran || ""))
+             .toLowerCase().indexOf(cari) >= 0;
+  }
+
+  var tingkatKini = 1;
+  function pilihTingkat(t) {
+    tingkatKini = t;
+    el("ed-tab").querySelectorAll("button").forEach(function (b) {
+      b.setAttribute("aria-selected", String(Number(b.dataset.tingkat) === t));
+    });
+    el("ed-tab-ket").textContent = TAB[t][1];
+    // Kartu yang sudah dibuka dibuang saat berpindah tab: memuat ulang dari
+    // fungsi lebih murah daripada menyimpan ratusan kartu di memori peramban.
+    el("ed-daftar").innerHTML = "";
+    var cari = el("ed-cari-isi").value.trim().toLowerCase();
+    if (t === 3) {
+      el("ed-cari-hasil").textContent = "";
+      gambarKembar(cari);
+      return;
+    }
+    // Tab bertanda memuat sisa kerja saja. Tab "semua kasus" tetap memuat
+    // yang sudah diputuskan, supaya keputusan masih bisa ditinjau ulang —
+    // menghilangkannya dari sana sama saja mengunci keputusan yang keliru.
+    antrean = semua.filter(function (k) {
+      return (t === 0 ? true : k.tingkat === t && !diputus[k.case_id]) && cocok(k, cari);
+    });
+    indeks = 0;
+    el("ed-cari-hasil").textContent = cari
+      ? antrean.length.toLocaleString("id") + " kasus cocok dengan “" + cari + "”"
+      : "";
+    if (!antrean.length) {
+      el("ed-daftar").innerHTML = '<p class="ed-kosong">' + (cari
+        ? "Tidak ada kasus yang cocok dengan pencarian itu."
+        : "Tidak ada kasus di kelompok ini.") + "</p>";
+      return;
+    }
+    berikutnya();
+  }
+
+  // ---------- kartu dugaan kasus kembar ----------
+  //
+  // Bentuknya sengaja beda dari kartu kasus: yang diputuskan hubungan antara
+  // dua kasus, jadi keduanya harus terbaca berdampingan, lengkap dengan
+  // tautan ke halaman publiknya. Keputusan tidak bisa diambil dari judul saja
+  // — 27 penggabungan sebelumnya semuanya menuntut beritanya dibaca dulu.
+  function gambarKembar(cari) {
+    var daftar = kembar.filter(sisaKembar).filter(function (p) {
+      if (!cari) return true;
+      return (p.kasus_a + " " + p.kasus_b + " " + (p.judul_a || "") + " " +
+              (p.judul_b || "")).toLowerCase().indexOf(cari) >= 0;
+    });
+    if (!daftar.length) {
+      el("ed-daftar").innerHTML = '<p class="ed-kosong">' + (cari
+        ? "Tidak ada pasangan yang cocok dengan pencarian itu."
+        : "Tidak ada dugaan kasus kembar yang belum diputuskan.") + "</p>";
+      return;
+    }
+    el("ed-daftar").innerHTML = daftar.map(function (p) {
+      var id = p.kasus_a + "~" + p.kasus_b;
+      return '<article class="ed-kartu ed-kembar" data-pasangan="' + lolos(id) + '">' +
+        '<div class="ed-kembar-sisi">' +
+          sisiKembar(p.kasus_a, p.judul_a, p.berita_a) +
+          sisiKembar(p.kasus_b, p.judul_b, p.berita_b) +
+        '</div>' +
+        '<p class="ed-kembar-bukti">' + p.bukti + ' pasang berita saling ' +
+          'menunjuk, kemiripan tertinggi ' + p.skor_tertinggi + '. ' +
+          'Buka kedua halaman di atas sebelum memutuskan.</p>' +
+        '<div class="ed-kembar-aksi">' +
+          '<button type="button" data-jawab="kembar">Peristiwa yang sama</button>' +
+          '<button type="button" data-jawab="beda">Beda perkara</button>' +
+          '<span class="ed-status"></span>' +
+        '</div></article>';
+    }).join("");
+    el("ed-daftar").querySelectorAll(".ed-kembar").forEach(pasangKembar);
+  }
+
+  function sisiKembar(kode, judul, berita) {
+    return '<div><a href="kasus/' + lolos(kode) + '.html" target="_blank" ' +
+      'rel="noopener">' + lolos(kode) + '</a> · ' +
+      Number(berita || 0).toLocaleString("id") + ' berita<br>' +
+      '<b>' + lolos(judul || "(tanpa judul)") + '</b></div>';
+  }
+
+  function pasangKembar(node) {
+    var id = node.dataset.pasangan;
+    var bagi = id.split("~");
+    var status = node.querySelector(".ed-status");
+    node.querySelectorAll("[data-jawab]").forEach(function (tombol) {
+      tombol.addEventListener("click", function () {
+        var jawab = tombol.dataset.jawab;
+        node.querySelectorAll("[data-jawab]").forEach(function (t) { t.disabled = true; });
+        status.textContent = "menyimpan…";
+        status.className = "ed-status";
+        user.jwt().then(function (t) {
+          return fetch(API_KOREKSI, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Authorization: "Bearer " + t },
+            body: JSON.stringify({ aksi: "kembar", a: bagi[0], b: bagi[1],
+                                   keputusan: jawab }),
+          });
+        }).then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          kembarDiputus[id] = true;
+          hitungTab();
+          // Penggabungan baru benar-benar terjadi malam nanti. Mengatakannya
+          // terus terang lebih baik daripada membiarkan editor mengira dua
+          // halaman itu sudah menyatu lalu bingung besok paginya.
+          status.textContent = jawab === "kembar"
+            ? "dicatat — digabung saat pipeline malam berikutnya"
+            : "dicatat — pasangan ini tidak akan muncul lagi";
+          status.className = "ed-status baik";
+          setTimeout(function () { node.remove(); }, 1400);
+        }).catch(function (galat) {
+          node.querySelectorAll("[data-jawab]").forEach(function (t) { t.disabled = false; });
+          status.textContent = "gagal menyimpan: " + galat.message;
+          status.className = "ed-status galat";
+        });
+      });
+    });
+  }
+
+  var sedangMuat = false;
+  function berikutnya() {
+    if (sedangMuat || indeks >= antrean.length) return;
+    sedangMuat = true;
+    var potong = antrean.slice(indeks, indeks + SEKALI);
+    indeks += potong.length;
+    Promise.all(potong.map(function (k) {
+      return ambil(API_EDITOR + "?kasus=" + encodeURIComponent(k.case_id))
+        // Tanggal pemberitaan terakhir hanya ada di daftar antrean, tidak di
+        // bahan per kasus. Ditempelkan di sini supaya kartunya bisa
+        // menunjukkan alasan urutannya.
+        .then(function (d) { if (d) d.terakhir = k.terakhir; return d; })
+        .catch(function () { return null; });
+    })).then(function (hasil) {
+      hasil.forEach(function (d) { if (d) el("ed-daftar").appendChild(kartu(d)); });
+      sedangMuat = false;
+    });
+  }
+
+  function ambil(url) {
+    return user.jwt().then(function (t) {
+      return fetch(url, { headers: { Authorization: "Bearer " + t } });
+    }).then(function (r) {
+      return r.json().then(function (d) {
+        if (!r.ok) throw new Error(d.galat || ("HTTP " + r.status));
+        return d;
+      });
+    });
+  }
+
+  function kartu(d) {
+    var node = document.createElement("article");
+    node.className = "ed-kartu";
+
+    var sebab = (d.sebab || []).map(function (s) {
+      return "<li>" + lolos(s) + "</li>"; }).join("");
+    // Dua bacaan disajikan sebagai tombol, bukan sekadar keterangan. Sebagian
+    // besar kerja di antrean ini cuma memilih mana yang benar; mengetik ulang
+    // jawabannya membuang waktu dan membuka peluang salah ketik.
+    var banding = "";
+    var pb = d.pembanding || {};
+    if (pb.pelanggaran_metode_lama || pb.pelanggaran_metode_baru) {
+      banding = '<div class="ed-banding"><span class="ed-banding-ket">Pilih yang benar:</span>' +
+        (pb.pelanggaran_metode_lama
+          ? '<button type="button" class="ed-pilih" data-nilai="' +
+            lolos(pb.pelanggaran_metode_lama) + '">Metode lama: <b>' +
+            lolos(pb.pelanggaran_metode_lama) + "</b></button>" : "") +
+        (pb.pelanggaran_metode_baru
+          ? '<button type="button" class="ed-pilih" data-nilai="' +
+            lolos(pb.pelanggaran_metode_baru) + '">Metode baru: <b>' +
+            lolos(pb.pelanggaran_metode_baru) + "</b></button>" : "") +
+        "</div>";
+    }
+
+    var artikel = (d.artikel || []).map(function (a) {
+      return "<h4>" + lolos(a.judul) + "</h4><p class=\"meta\">" +
+        lolos(a.media || "") + "</p><p class=\"isi\">" + lolos(a.isi || "") + "</p>";
+    }).join("");
+
+    var medan = MEDAN.map(function (m) {
+      var kunci = m[0], label = m[1], jenis = m[2];
+      var nilai = (d.nilai && d.nilai[kunci]) || "";
+      if (nilai === "Tidak diketahui") nilai = "";
+      var kendali;
+      if (jenis === "centang" && PILIHAN[kunci]) {
+        // Satu polisi bisa dijerat lebih dari satu perbuatan — kekerasan
+        // seksual DAN narkotika, misalnya. Satu pilihan tunggal memaksa
+        // editor membuang salah satunya.
+        var terpilih = nilai.split(";").map(function (x) { return x.trim(); })
+                            .filter(Boolean);
+        // Nilai yang tersimpan tapi tidak ada di daftar tetap ditampilkan,
+        // supaya kategori buatan editor tidak hilang dari kartunya sendiri
+        // sebelum daftar pilihannya ikut terbarui.
+        var pilihan = PILIHAN[kunci].slice();
+        terpilih.forEach(function (x) {
+          if (pilihan.indexOf(x) < 0) pilihan.push(x);
+        });
+        pilihan.sort(function (a, b) { return a.localeCompare(b, "id"); });
+        kendali = '<div class="ed-centang" data-medan="' + kunci + '">' +
+          pilihan.map(function (p) {
+            return '<label><input type="checkbox" value="' + lolos(p) + '"' +
+              (terpilih.indexOf(p) >= 0 ? " checked" : "") + "> " + lolos(p) + "</label>";
+          }).join("") + "</div>" +
+          (kunci === "pelanggaran" ? SISIP_TAMBAH : "");
+      } else if (jenis === "pilih" && PILIHAN[kunci]) {
+        kendali = '<select data-medan="' + kunci + '"><option value="">— kosongkan —</option>' +
+          PILIHAN[kunci].map(function (p) {
+            return '<option' + (p === nilai ? " selected" : "") + ">" + lolos(p) + "</option>";
+          }).join("") + "</select>";
+      } else if (jenis === "panjang") {
+        kendali = '<textarea data-medan="' + kunci + '">' + lolos(nilai) + "</textarea>";
+      } else {
+        kendali = '<input type="text" data-medan="' + kunci + '" value="' + lolos(nilai) + '">';
+      }
+      // Daftar centang ikut melebar penuh: dua puluh lebih pilihan tidak
+      // terbaca kalau dijejalkan ke satu kolom selebar 220 piksel.
+      return '<div class="' + (jenis === "panjang" || jenis === "lebar" ||
+                               jenis === "centang" ? "lebar" : "") +
+        '"><label>' + lolos(label) + "</label>" + kendali + "</div>";
+    }).join("");
+
+    node.innerHTML =
+      '<p class="ed-kode">' + lolos(d.case_id) +
+      (d.terakhir ? " · diberitakan " + lolos(d.terakhir) : "") +
+      (d.tingkat ? " · tingkat " + d.tingkat : " · tidak bertanda") +
+      (diputus[d.case_id] ? ' · <b class="ed-sudah">sudah kamu putuskan</b>' : "") +
+      ' · <a href="kasus/' + lolos(d.case_id) + '.html" target="_blank">lihat halaman publik</a></p>' +
+      '<h2 class="ed-judul">' + lolos(d.judul) + "</h2>" +
+      (sebab ? '<div class="ed-sebab"><ul>' + sebab + "</ul></div>" : "") +
+      banding +
+      '<details class="ed-berita"><summary>Teks berita (' +
+        (d.artikel || []).length + " dari " + (d.jumlah_berita || 0) +
+        ')</summary><div class="ed-artikel">' + artikel + "</div></details>" +
+      '<div class="ed-medan">' + medan + "</div>" +
+      '<div class="ed-aksi"><button class="ed-tombol" data-aksi="simpan">Simpan</button>' +
+      '<button class="ed-tombol sekunder" data-aksi="lewati">Lewati</button>' +
+      // Kotak ini yang membedakan "aku sudah memeriksa kategorinya" dari
+      // "aku kebetulan menyimpan kartu ini". Sengaja tidak tercentang dari
+      // awal: kalau tercentang sendiri, ia kembali jadi cap otomatis, dan
+      // itulah yang dulu menuliskan "Kekerasan fisik" atas nama editor pada
+      // kasus yang sebenarnya desersi.
+      '<label class="ed-benar"><input type="checkbox" data-aksi="benar"> ' +
+      'jenis pelanggarannya sudah benar</label>' +
+      '<span class="ed-status"></span></div>';
+
+    // Tombol pilih mencentang kotak yang cocok, bukan langsung menyimpan:
+    // editor tetap melihat hasilnya dan bisa menambah jenis kedua sebelum
+    // menekan Simpan.
+    pasangTambah(node);
+
+    node.querySelectorAll(".ed-pilih").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var mau = b.dataset.nilai.split(",").map(function (x) { return x.trim(); });
+        node.querySelectorAll('.ed-centang input').forEach(function (k) {
+          k.checked = mau.indexOf(k.value) >= 0;
+        });
+        node.querySelectorAll(".ed-pilih").forEach(function (x) {
+          x.classList.toggle("terpilih", x === b);
+        });
+      });
+    });
+
+    var status = node.querySelector(".ed-status");
+    node.querySelector('[data-aksi="lewati"]').addEventListener("click", function () {
+      node.classList.add("selesai");
+      status.textContent = "dilewati";
+    });
+    node.querySelector('[data-aksi="simpan"]').addEventListener("click", function () {
+      simpan(node, d, status);
+    });
+    return node;
+  }
+
+  // Dirapikan sama persis dengan sisi fungsi, supaya "  desersi " dan
+  // "Desersi" tidak pernah jadi dua kategori berbeda.
+  function rapikan(t) {
+    t = String(t == null ? "" : t).replace(/\s+/g, " ").trim();
+    return t ? t.charAt(0).toUpperCase() + t.slice(1) : "";
+  }
+
+  function centangkan(node, label) {
+    var kotak = node.querySelector('.ed-centang[data-medan="pelanggaran"]');
+    if (!kotak) return;
+    var ada = null;
+    kotak.querySelectorAll("input").forEach(function (k) {
+      if (k.value.toLowerCase() === label.toLowerCase()) ada = k;
+    });
+    if (!ada) {
+      var l = document.createElement("label");
+      l.innerHTML = '<input type="checkbox" value="' + lolos(label) + '"> ' + lolos(label);
+      kotak.appendChild(l);
+      ada = l.querySelector("input");
+    }
+    ada.checked = true;
+    ada.scrollIntoView({ block: "nearest" });
+  }
+
+  function pasangTambah(node) {
+    var kotak = node.querySelector(".ed-tambah");
+    if (!kotak) return;
+    var isi = kotak.querySelector(".ed-tambah-isi");
+    var tombol = kotak.querySelector(".ed-tambah-tombol");
+    var pesan = kotak.querySelector(".ed-tambah-pesan");
+
+    function kirim() {
+      var label = rapikan(isi.value);
+      if (!label) { pesan.textContent = "ketik dulu jenisnya"; return; }
+      // Yang sudah ada di daftar tidak dikirim ulang — cukup dicentang.
+      var sama = PILIHAN.pelanggaran.filter(function (p) {
+        return p.toLowerCase() === label.toLowerCase();
+      })[0];
+      if (sama) {
+        centangkan(node, sama);
+        isi.value = "";
+        pesan.textContent = "“" + sama + "” sudah ada di daftar — sudah dicentang";
+        return;
+      }
+      tombol.disabled = true;
+      pesan.textContent = "menyimpan…";
+      user.jwt().then(function (t) {
+        return fetch(API_KOREKSI, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + t },
+          body: JSON.stringify({ aksi: "tambah-kategori", label: label })
+        });
+      }).then(function (r) {
+        return r.json().then(function (x) {
+          if (!r.ok) throw new Error(x.galat || ("HTTP " + r.status));
+          return x;
+        });
+      }).then(function (x) {
+        tombol.disabled = false;
+        isi.value = "";
+        // Ditambahkan ke daftar dalam memori, jadi kartu berikutnya yang
+        // dibuka sudah memuatnya tanpa perlu memuat ulang halaman.
+        if (PILIHAN.pelanggaran.indexOf(x.label) < 0) {
+          PILIHAN.pelanggaran.push(x.label);
+          PILIHAN.pelanggaran.sort(function (a, b) { return a.localeCompare(b, "id"); });
+        }
+        // Kartu yang sudah terbuka ikut disusulkan, supaya editor tidak
+        // menemukan daftar yang berbeda-beda di layar yang sama.
+        document.querySelectorAll(".ed-kartu").forEach(function (lain) {
+          if (lain === node) return;
+          var kotakLain = lain.querySelector('.ed-centang[data-medan="pelanggaran"]');
+          if (!kotakLain) return;
+          var sudah = false;
+          kotakLain.querySelectorAll("input").forEach(function (k) {
+            if (k.value.toLowerCase() === x.label.toLowerCase()) sudah = true;
+          });
+          if (!sudah) {
+            var l = document.createElement("label");
+            l.innerHTML = '<input type="checkbox" value="' + lolos(x.label) + '"> ' +
+              lolos(x.label);
+            kotakLain.appendChild(l);
+          }
+        });
+        centangkan(node, x.label);
+        pesan.textContent = x.sudah_ada
+          ? "“" + x.label + "” sudah pernah ditambahkan — sudah dicentang"
+          : "“" + x.label + "” ditambahkan ke daftar, dan akan muncul di kasus lain";
+      }).catch(function (g) {
+        tombol.disabled = false;
+        pesan.textContent = g.message;
+      });
+    }
+
+    tombol.addEventListener("click", kirim);
+    isi.addEventListener("keydown", function (e) {
+      // Enter di dalam kartu tidak boleh mengirim apa pun selain ini.
+      if (e.key === "Enter") { e.preventDefault(); kirim(); }
+    });
+  }
+
+  function simpan(node, d, status) {
+    var ubah = [], sekarang = "";
+    node.querySelectorAll("[data-medan]").forEach(function (k) {
+      var kunci = k.dataset.medan;
+      var lama = (d.nilai && d.nilai[kunci]) || "";
+      if (lama === "Tidak diketahui") lama = "";
+      var baru;
+      if (k.classList.contains("ed-centang")) {
+        // Beberapa jenis pelanggaran digabung dengan titik koma. Yang pertama
+        // jadi pelanggaran utama; sisanya tetap tercatat di kasus.
+        baru = Array.prototype.slice.call(k.querySelectorAll("input:checked"))
+                 .map(function (x) { return x.value; }).join("; ");
+      } else {
+        baru = k.value.trim();
+      }
+      if (baru !== lama.trim()) ubah.push([kunci, baru]);
+      if (kunci === "pelanggaran") sekarang = baru;
+    });
+
+    // Kartu dianggap selesai kalau editor MENYATAKAN kategorinya benar —
+    // entah dengan mengubahnya, mencentang kotak "sudah benar", atau menekan
+    // Simpan pada kartu yang tidak diubah sama sekali.
+    //
+    // Yang sengaja TIDAK dianggap pernyataan: menyimpan perubahan di kolom
+    // lain sambil tidak menyentuh kategorinya. Dulu itu ikut dicap "sudah
+    // benar", dan pada PP-000033 hasilnya mencatat "Kekerasan fisik" sebagai
+    // keputusan editor — padahal perbuatannya desersi, dan pilihan "Desersi"
+    // waktu itu memang belum ada di daftar untuk dipilih.
+    var adaPelanggaran = ubah.some(function (u) { return u[0] === "pelanggaran"; });
+    var kotakBenar = node.querySelector('[data-aksi="benar"]');
+    var membenarkan = !adaPelanggaran && !!sekarang &&
+                      ((kotakBenar && kotakBenar.checked) || !ubah.length);
+    // Penanda ketiga membedakan "aku membenarkan nilai mesin" dari "aku
+    // mengubahnya". Alasannya dicatat per kolom, bukan satu alasan untuk
+    // seluruh simpanan — kalau disamakan, koreksi ringkasan ikut tercatat
+    // sebagai "nilai mesin sudah benar", padahal justru diubah.
+    if (membenarkan) ubah.push(["pelanggaran", sekarang, true]);
+
+    if (!ubah.length) {
+      status.textContent = sekarang
+        ? "tidak ada yang diubah"
+        : "isi dulu jenis pelanggarannya";
+      status.className = "ed-status galat";
+      return;
+    }
+    status.textContent = "menyimpan…";
+    status.className = "ed-status";
+    user.jwt().then(function (t) {
+      return Promise.all(ubah.map(function (u) {
+        return fetch(API_KOREKSI, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + t },
+          body: JSON.stringify({ kasus: d.case_id, field: u[0], nilai: u[1],
+                                 alasan: u[2]
+                                   ? "diperiksa editor, nilai mesin sudah benar"
+                                   : "diperbaiki lewat halaman editor" })
+        }).then(function (r) { if (!r.ok) return r.json().then(function (x) {
+          throw new Error(u[0] + ": " + (x.galat || r.status)); }); });
+      }));
+    }).then(function () {
+      node.classList.add("selesai");
+      // Judul baru langsung dipakai kepala kartu dan entri daftarnya. Tanpa
+      // ini editor menyimpan nama yang benar, lalu kartunya masih menyebut
+      // nama lama — tidak ada tanda bahwa suntingannya mendarat.
+      var judulBaru = (ubah.filter(function (u) { return u[0] === "judul"; })[0] || [])[1];
+      if (judulBaru) {
+        d.judul = judulBaru;
+        var kepala = node.querySelector(".ed-judul");
+        if (kepala) kepala.textContent = judulBaru;
+        semua.forEach(function (k) {
+          if (k.case_id === d.case_id) k.judul = judulBaru;
+        });
+      }
+      // Angka di tab ikut turun seketika. Kalau baru berubah saat halaman
+      // dimuat ulang, editor tidak punya cara melihat kerjanya membuahkan
+      // hasil — dan itulah keluhan yang memunculkan seluruh perbaikan ini.
+      if (adaPelanggaran || membenarkan) {
+        diputus[d.case_id] = true;
+        hitungTab();
+      }
+      // Kartu tetap di antrean selama jenis pelanggarannya belum diputuskan.
+      // Itu dikatakan terang-terangan, bukan dibiarkan editor mengira selesai.
+      status.textContent = membenarkan
+        ? "sudah benar — dicatat, tandanya hilang setelah pembaruan malam"
+        : adaPelanggaran
+          ? "tersimpan (" + ubah.length + " kolom)"
+          : "tersimpan (" + ubah.length + " kolom) — tinggal satu langkah:";
+      status.className = "ed-status baik";
+
+      // Kalau kategorinya belum diputuskan, pertanyaannya diajukan DI SINI,
+      // saat editor masih memandang kartunya — bukan lewat kotak centang yang
+      // harus disadari lebih dulu sebelum menekan Simpan. Empat kartu sempat
+      // tertinggal separuh selesai persis karena langkah itu terlewat.
+      if (!adaPelanggaran && !membenarkan && sekarang) {
+        node.classList.remove("selesai");
+        var tanya = document.createElement("span");
+        tanya.className = "ed-tanya";
+        tanya.innerHTML = 'jenis pelanggarannya “<b>' + lolos(sekarang) +
+          '</b>” sudah benar? <button type="button" class="ed-ya">Ya, sudah benar</button>' +
+          '<button type="button" class="ed-belum">Belum, biar saya periksa</button>';
+        status.parentNode.appendChild(tanya);
+        tanya.querySelector(".ed-ya").addEventListener("click", function () {
+          tanya.textContent = "menyimpan…";
+          user.jwt().then(function (t) {
+            return fetch(API_KOREKSI, {
+              method: "POST",
+              headers: { "Content-Type": "application/json", Authorization: "Bearer " + t },
+              body: JSON.stringify({
+                kasus: d.case_id, field: "pelanggaran", nilai: sekarang,
+                alasan: "diperiksa editor, nilai mesin sudah benar" })
+            });
+          }).then(function (r) {
+            if (!r.ok) throw new Error("gagal menyimpan");
+            node.classList.add("selesai");
+            diputus[d.case_id] = true;
+            hitungTab();
+            tanya.textContent = "selesai — kartu ini keluar dari antrean";
+          }).catch(function (g) { tanya.textContent = g.message; });
+        });
+        tanya.querySelector(".ed-belum").addEventListener("click", function () {
+          tanya.textContent = "baik — kartu ini tetap di antrean";
+        });
+      }
+    }).catch(function (g) {
+      status.textContent = g.message;
+      status.className = "ed-status galat";
+    });
+  }
+
+  // Sesi yang masih hidup langsung dilanjutkan, tanpa mengetik ulang.
+  identity().then(function (ni) {
+    var u = ni.currentUser();
+    if (u) { user = u; mulai(); }
+  }).catch(function () {});
+})();
+
+(function () {
+  // Jalan keluar dari kode yang sudah mati: alamat bersih tanpa kode, lalu
+  // form login dibuka langsung supaya "Forgot password?" ada di depan mata.
+  if (/[?&]login=1/.test(location.search)) {
+    var ket = document.createElement("div");
+    ket.setAttribute("role", "status");
+    ket.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+      "background:#000;color:#fff;padding:12px 18px;text-align:center;" +
+      "font:13px/1.5 system-ui,sans-serif";
+    ket.textContent = "Halaman masuk. Membukanya tidak mengirim surel apa pun, "
+      + "jadi aman dibuka berkali-kali. Surel hanya terkirim kalau kamu menekan "
+      + "Forgot password.";
+    (document.body ? Promise.resolve() : new Promise(function (r) {
+      document.addEventListener("DOMContentLoaded", r);
+    })).then(function () { document.body.appendChild(ket); });
+    var sl = document.createElement("script");
+    sl.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    sl.onload = function () {
+      // Sama seperti jalur pemulihan: jangan tutup dan jangan pindah halaman
+      // saat login, supaya form penetapan kata sandi tidak ikut hilang.
+      window.netlifyIdentity.on("login", function (u) {
+        ket.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor")
+          + ". Kalau kotak kata sandi masih terbuka, isi dan simpan sekarang.";
+      });
+      window.netlifyIdentity.init();
+      setTimeout(function () { window.netlifyIdentity.open("login"); }, 400);
+    };
+    document.head.appendChild(sl);
+    return;
+  }
+
+  var hash = location.hash || "";
+  // Ditangkap luas, bukan hanya tiga token yang diharapkan. Kalau Netlify
+  // mengirim bentuk lain — `access_token`, `error` — kegagalannya harus
+  // KELIHATAN, bukan berupa halaman depan biasa yang membingungkan orang
+  // yang sedang menunggu form kata sandi.
+  if (!/[#&](invite_token|recovery_token|confirmation_token|email_change_token|access_token|error)=/.test(hash)) return;
+
+  var jenis = (hash.match(/[#&](\w+)=/) || [])[1] || "tidak dikenal";
+  var papan = document.createElement("div");
+  papan.setAttribute("role", "status");
+  papan.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+    "background:#000;color:#fff;padding:14px 18px;font:14px/1.5 system-ui,sans-serif;" +
+    "text-align:center";
+  papan.textContent = "Menyiapkan form kata sandi…";
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.appendChild(papan);
+  });
+  if (document.body) document.body.appendChild(papan);
+
+  var sebabTerakhir = "";
+
+  function gagal(sebab) { sebabTerakhir = sebab; tawarkan(); }
+
+  // Selalu sisakan jalan keluar yang bisa diklik. Form yang terbuka lalu
+  // tertutup sendiri terlihat sama saja dengan tidak terjadi apa-apa, dan
+  // orang yang menunggu kata sandi tidak punya cara menebak apa yang salah.
+  function tawarkan() {
+    var w = document.querySelector("#netlify-identity-widget");
+    if (w && w.offsetHeight > 200) return;   // masih terbuka, jangan ganggu
+    papan.innerHTML = "";
+    var t = document.createElement("p");
+    t.style.cssText = "margin:0 0 8px;font-weight:700";
+    t.textContent = "Form kata sandi tertutup sebelum selesai.";
+    var d = document.createElement("p");
+    d.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+    d.textContent = "Jenis kode: " + jenis +
+      (sebabTerakhir ? " · sebab: " + sebabTerakhir : "") +
+      " · kemungkinan kodenya sudah terpakai atau kedaluwarsa.";
+    var b = document.createElement("button");
+    b.textContent = "Buka form lagi";
+    b.style.cssText = "font:inherit;font-size:13px;font-weight:700;cursor:pointer;" +
+      "padding:7px 16px;border:2px solid #fff;background:#fff;color:#000";
+    b.onclick = function () { try { window.netlifyIdentity.open(); } catch (e) {} };
+    papan.appendChild(t); papan.appendChild(d); papan.appendChild(b);
+  }
+
+  var s = document.createElement("script");
+  s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  s.onerror = function () { gagal("skrip Netlify tidak bisa dimuat"); };
+  s.onload = function () {
+    // JANGAN menutup widget atau berpindah halaman di sini. Pada jalur
+    // pemulihan, Netlify memasukkan orang LEBIH DULU tanpa kata sandi, baru
+    // menampilkan form penetapan kata sandi. Versi sebelumnya menutup widget
+    // dan melempar ke halaman lain tepat di titik itu — form-nya tidak pernah
+    // terlihat, tidak ada kata sandi tersimpan, dan begitu logout orang itu
+    // terkunci sampai harus meminta tautan baru.
+    window.netlifyIdentity.on("login", function (u) {
+      papan.innerHTML = "";
+      var p1 = document.createElement("p");
+      p1.style.cssText = "margin:0 0 4px;font-weight:700";
+      p1.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor") + ".";
+      var p2 = document.createElement("p");
+      p2.style.cssText = "margin:0;font-size:13px;opacity:.85";
+      p2.textContent = "Kalau kotak kata sandi masih terbuka, isi kata sandi "
+        + "barumu SEKARANG lalu simpan — sebelum menutup apa pun. Tanpa itu "
+        + "kamu perlu tautan pemulihan baru untuk masuk lagi.";
+      papan.appendChild(p1); papan.appendChild(p2);
+    });
+    window.netlifyIdentity.on("error", function (e) {
+      gagal("Netlify menolak: " + (e && e.message ? e.message : "sebab tidak disebutkan"));
+    });
+    // Widget menutup dirinya sendiri kalau tokennya ditolak, dan halaman
+    // kembali kosong tanpa penjelasan. Penutupan itu ditangkap supaya
+    // penyebabnya terlihat, bukan menyisakan orang menatap halaman depan.
+    window.netlifyIdentity.on("close", function () { tawarkan(); });
+    window.netlifyIdentity.init();
+    setTimeout(function () {
+      var w = document.querySelector("#netlify-identity-widget");
+      if (!(w && w.offsetHeight > 200)) {
+        try { window.netlifyIdentity.open(); } catch (e) {}
+        setTimeout(tawarkan, 1200);
+      } else {
+        // Widget tetap membuka kotak meski kodenya sudah terpakai — kotaknya
+        // muncul kosong, dan itu terlihat seperti berhasil. Disebutkan
+        // terus terang supaya tidak ditunggui percuma.
+        // Tinggi kotak BUKAN tanda berhasil: widget yang rusak karena kode
+        // kedaluwarsa tetap membuat kotak setinggi 994 piksel, hanya isinya
+        // tidak pernah digambar. Karena itu jalan keluarnya selalu
+        // ditawarkan, bukan hanya saat kegagalan berhasil terdeteksi.
+        papan.innerHTML = "";
+        var a = document.createElement("p");
+        a.style.cssText = "margin:0 0 4px;font-weight:700";
+        a.textContent = "Isi kata sandi barumu di kotak yang muncul.";
+        var b2 = document.createElement("p");
+        b2.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+        b2.textContent = "Kotaknya kosong? Berarti kode di tautan ini sudah "
+          + "kedaluwarsa atau terpakai.";
+        var b3 = document.createElement("button");
+        b3.textContent = "Buka form login untuk minta kode baru";
+        b3.style.cssText = "font:inherit;font-size:13px;font-weight:700;" +
+          "cursor:pointer;padding:7px 16px;border:2px solid #fff;" +
+          "background:#fff;color:#000";
+        b3.onclick = function () {
+          location.replace(location.pathname + "?login=1");
+        };
+        papan.appendChild(a); papan.appendChild(b2); papan.appendChild(b3);
+      }
+    }, 1000);
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>

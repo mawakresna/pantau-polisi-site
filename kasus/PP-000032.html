@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dalizon — Suap — Sumatera Selatan — Lapor Komandan!</title>
+<meta name="description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-000032.">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lapor Komandan!">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Dalizon — Suap — Sumatera Selatan — Lapor Komandan!">
+<meta property="og:description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-000032.">
+<meta property="og:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kartu Lapor Komandan! berisi jumlah kasus dugaan pelanggaran polisi yang tercatat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dalizon — Suap — Sumatera Selatan — Lapor Komandan!">
+<meta name="twitter:description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-000032.">
+<meta name="twitter:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* Latar putih dikunci: situs ini sengaja hanya punya satu tampilan. */
+:root {
+  color-scheme: light;
+  --kertas:  #ffffff;
+  --tinta:   #000000;
+  --tinta-2: #4a4a4a;
+  --tinta-3: #8a8a8a;
+  --garis:   #000000;
+  --pudar:   #e6e6e6;
+}
+
+body {
+  margin: 0;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg { shape-rendering: crispEdges; }
+img, svg { max-width: 100%; }
+
+a { color: var(--tinta); }
+
+/* Judul pixel: lebar mengikuti wadah, tinggi ikut proporsi. */
+.judul-pixel { display: block; width: 100%; height: auto; color: var(--tinta); }
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.masthead { border-bottom: 3px solid var(--garis); }
+.masthead-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  /* padding-block saja — padding kiri-kanan datang dari .wrap dan jangan
+     tertimpa, kalau tidak logonya mepet ke tepi layar. */
+  padding-block: 16px;
+}
+/* Hanya logo (anak langsung), bukan tautan di dalam .nav. */
+.masthead-inner > a { display: block; width: min(260px, 46vw); text-decoration: none; }
+.masthead-meta { font-size: .75rem; color: var(--tinta-2); text-align: right; }
+
+.nav { display: flex; gap: 16px; align-items: center; }
+.nav a {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; text-decoration: none; color: var(--tinta-2);
+  border-bottom: 3px solid transparent; padding-bottom: 2px;
+}
+.nav a:hover { color: var(--tinta); }
+.nav a[aria-current="page"] { color: var(--tinta); border-bottom-color: var(--garis); }
+
+.page-head { padding: 40px 0 4px; }
+.page-head h1 {
+  font-size: clamp(1.4rem, 3.4vw, 1.9rem); font-weight: 700;
+  letter-spacing: -.01em; margin: 0 0 10px;
+}
+.page-head p { margin: 0; color: var(--tinta-2); max-width: 62ch; }
+.backlink {
+  display: inline-block; margin-bottom: 18px; font-size: .8125rem;
+  color: var(--tinta-2); text-decoration: none;
+  border-bottom: 2px solid var(--pudar); padding-bottom: 2px;
+}
+.backlink:hover { border-color: var(--garis); color: var(--tinta); }
+
+/* ---------- halaman satu kasus ---------- */
+.case-title a { text-decoration: none; border-bottom: 2px solid var(--pudar); }
+.case-title a:hover { border-color: var(--garis); }
+
+.kasus-kode {
+  font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--tinta-2); margin: 0 0 8px;
+}
+.kasus-ringkasan { margin: 24px 0 0; padding: 20px; border: 3px solid var(--garis); }
+.kasus-ringkasan p { margin: 0 0 12px; max-width: 66ch; }
+.kasus-ringkasan p:last-child { margin-bottom: 0; }
+.kasus-ringkasan.kosong { border-style: dashed; color: var(--tinta-2); }
+
+/* Catatan terbuka: bagian yang belum berpijak pada beritanya. Dibuat
+   menonjol tapi tidak seperti peringatan bahaya — ini soal ketelitian
+   data, bukan tuduhan terhadap orangnya. */
+.kasus-periksa {
+  margin: 24px 0 0; padding: 16px 20px;
+  border: 3px solid var(--garis); border-left-width: 10px;
+  background: var(--kertas);
+}
+.kasus-periksa p { margin: 0; max-width: 66ch; font-size: .9375rem; }
+
+/* Donat silang. Warna dipakai untuk identitas irisan, tapi TIDAK sendirian:
+   tiap irisan besar diberi label langsung, dan tabel angkanya selalu bisa
+   dibuka — syarat dari pemisahan buta warna yang ada di pita batas. */
+.donat-baris {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px; margin: 8px 0 20px;
+}
+.donat { margin: 0; text-align: center; }
+.donat svg { width: 100%; max-width: 160px; height: auto; }
+.donat-iris { transition: opacity .15s; }
+.donat:hover .donat-iris { opacity: .45; }
+.donat .donat-iris:hover { opacity: 1; }
+.donat-inti-n {
+  text-anchor: middle; font-size: 22px; font-weight: 800; fill: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+.donat-inti-l { text-anchor: middle; font-size: 10px; fill: var(--tinta-2); }
+.donat figcaption {
+  margin-top: 10px; font-size: .8125rem; font-weight: 700; line-height: 1.4;
+}
+.donat-besar { list-style: none; margin: 6px 0 0; padding: 0; font-weight: 400; }
+.donat-besar li {
+  font-size: .75rem; color: var(--tinta-2); margin: 2px 0;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+.donat-besar b { color: var(--tinta); font-variant-numeric: tabular-nums; }
+.donat-legenda {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px;
+  padding: 0; margin: 0 0 14px; font-size: .8125rem; color: var(--tinta-2);
+}
+.donat-legenda li { display: flex; align-items: center; gap: 7px; }
+.donat-titik {
+  width: 11px; height: 11px; border-radius: 50%; flex: none;
+  display: inline-block;
+}
+
+/* Tabel silang, dipakai sebagai pendamping donat. */
+.gulir-x { overflow-x: auto; }
+table.silang { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .875rem; }
+table.silang th, table.silang td {
+  text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--garis-tipis);
+  vertical-align: middle;
+}
+table.silang thead th {
+  font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--tinta-2); border-bottom: 2px solid var(--tinta); white-space: nowrap;
+}
+table.silang tbody th { font-weight: 700; white-space: nowrap; }
+.silang-total { display: block; font-size: .75rem; font-weight: 400; color: var(--tinta-2); }
+.silang-sel { position: relative; min-width: 78px; }
+.silang-bar {
+  position: absolute; left: 0; top: 4px; bottom: 4px;
+  background: var(--tinta); opacity: .12; pointer-events: none;
+}
+.silang-angka { position: relative; font-variant-numeric: tabular-nums; font-weight: 700; }
+.silang-n { position: relative; display: block; font-size: .75rem; color: var(--tinta-2); }
+
+/* Editor. Semuanya tersembunyi sampai seseorang benar-benar masuk — pembaca
+   biasa tidak boleh melihat jejak antarmuka yang tak bisa mereka pakai. */
+.baris-editor { margin-top: 14px; font-size: .8125rem; }
+.baris-editor a { color: var(--tinta-2); }
+.baris-editor a:hover { color: var(--tinta); }
+.editor-aktif { display: none; margin-left: 12px; color: var(--tinta-2); }
+.mode-editor .editor-aktif { display: inline; }
+.mode-editor .dapat-disunting {
+  cursor: pointer; outline: 2px dashed var(--tinta-3); outline-offset: 3px;
+}
+.mode-editor .dapat-disunting:hover { outline-color: var(--tinta); }
+/* Nilai yang sudah dikoreksi TIDAK diberi label siapa yang mengoreksinya.
+   Label itu dulu mencetak isi kolom `oleh` apa adanya ke halaman publik —
+   artinya alamat surel editor ikut tayang ke siapa pun yang membuka halaman
+   kasus. Pembaca juga tidak butuh tahu tangan siapa yang menyentuh baris mana;
+   yang mereka butuhkan nilainya benar. */
+.sunting { display: flex; flex-direction: column; gap: 8px; }
+.sunting input, .sunting select, .sunting textarea {
+  font: inherit; font-size: .9375rem; padding: 8px 10px;
+  border: 2px solid var(--tinta); background: var(--kertas); color: var(--tinta);
+  width: 100%; max-width: 60ch;
+}
+.sunting .alasan { font-size: .8125rem; }
+.sunting .alat { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.sunting button {
+  font: inherit; font-size: .8125rem; font-weight: 700; cursor: pointer;
+  padding: 7px 14px; border: 2px solid var(--tinta);
+  background: var(--kertas); color: var(--tinta);
+}
+.sunting button.utama { background: var(--tinta); color: var(--kertas); }
+.sunting button[disabled] { opacity: .5; cursor: default; }
+.pesan-sunting { font-size: .8125rem; color: var(--tinta-2); }
+.pesan-sunting.galat { color: #a8321e; font-weight: 700; }
+
+.fakta { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.fakta th, .fakta td {
+  text-align: left; vertical-align: top; padding: 8px 0;
+  border-bottom: 1px solid var(--pudar); font-size: .9375rem;
+}
+.fakta th { width: 34%; font-weight: 600; color: var(--tinta-2); padding-right: 16px; }
+
+.berita { list-style: none; margin: 0; padding: 0; }
+.berita li { padding: 12px 0; border-top: 1px solid var(--pudar); }
+.berita li:first-child { border-top: 0; }
+.berita a { font-weight: 600; font-size: .9375rem; }
+.berita .berita-meta { font-size: .8125rem; color: var(--tinta-2); margin: 3px 0 0; }
+
+/* ---------- daftar seluruh kasus ---------- */
+.saring input[type="search"] {
+  font: inherit; font-size: 1rem; color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0; padding: 6px 10px;
+  min-width: 220px; appearance: none;
+}
+.saring input[type="search"]::placeholder { color: var(--tinta-3); }
+.daftar-hitung { margin: 20px 0 0; font-size: .875rem; color: var(--tinta-2); }
+.daftar-hitung b { color: var(--tinta); }
+.daftar-kosong { margin: 24px 0; padding: 20px; border: 3px dashed var(--garis); color: var(--tinta-2); }
+/* Penyaring yang datang dari halaman lain harus kelihatan, kalau tidak
+   pembaca mengira daftarnya memang sependek itu. */
+.saring-aktif {
+  margin: 18px 0 0; padding: 11px 14px; border-left: 6px solid var(--tinta);
+  background: #f4f4f2; font-size: .875rem; color: var(--tinta-2);
+}
+.saring-aktif b { color: var(--tinta); }
+.saring-aktif a { margin-left: 4px; }
+#daftar-kasus { margin-top: 8px; }
+#daftar-kasus li[hidden] { display: none; }
+
+.lihat-semua { margin: 16px 0 0; }
+.lihat-semua a {
+  font-size: .875rem; font-weight: 700; text-decoration: none;
+  border-bottom: 3px solid var(--pudar); padding-bottom: 2px;
+}
+.lihat-semua a:hover { border-color: var(--garis); }
+
+/* ---------- penyaring tahun ---------- */
+.saring {
+  display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap;
+  margin: 24px 0 0; padding: 14px 16px; border: 3px solid var(--garis);
+}
+.saring-grup { display: flex; align-items: center; gap: 10px; }
+.saring label {
+  font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.saring select {
+  font: inherit; font-size: 1rem; font-weight: 700;
+  color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0;
+  padding: 6px 34px 6px 10px; cursor: pointer;
+  appearance: none;
+  /* Panah kotak-kotak, digambar sebagai gradien supaya tetap tanpa berkas. */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--tinta) 50%),
+    linear-gradient(135deg, var(--tinta) 50%, transparent 50%);
+  background-position: right 15px top 50%, right 10px top 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.saring select:focus-visible { outline: 3px solid var(--tinta); outline-offset: 2px; }
+.saring select:disabled {
+  color: var(--tinta-3); border-color: var(--pudar); cursor: not-allowed;
+  background-image: none;
+}
+.saring .saring-info { font-size: .8125rem; color: var(--tinta-2); }
+.panel-kosong { font-size: .875rem; color: var(--tinta-2); margin: 0; }
+
+.kpi-row {
+  display: grid; gap: 0; margin: 26px 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  border: 3px solid var(--garis);
+}
+.kpi { padding: 16px 18px; border-right: 3px solid var(--garis); }
+.kpi:last-child { border-right: 0; }
+.kpi-value {
+  font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em;
+  line-height: 1.1; margin: 0 0 3px;
+}
+.kpi-label { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+
+section.panel {
+  border: 3px solid var(--garis);
+  padding: 22px; margin: 14px 0 0;
+}
+.panel h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 0 0 6px;
+}
+.panel .sub { font-size: .875rem; color: var(--tinta-2); margin: 0 0 20px; max-width: 66ch; }
+.panel-note { font-size: .8125rem; color: var(--tinta-2); margin: 18px 0 0; }
+
+.grid-2 { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-top: 14px; }
+.grid-2 > section.panel { margin-top: 0; }
+@media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* ---------- bar chart ---------- */
+.bars { display: flex; flex-direction: column; gap: 3px; }
+.bar-row {
+  display: grid; grid-template-columns: minmax(96px, 40%) 1fr auto;
+  gap: 12px; align-items: center; padding: 4px 6px; margin: 0 -6px;
+}
+.bar-row:hover { background: #f2f2f2; }
+/* Batang yang bisa diklik membuka daftar kasusnya. Garis bawah hanya muncul
+   saat disentuh kursor: kalau selalu ada, panel penuh batang jadi berisik. */
+a.bar-tautan { display: block; color: inherit; text-decoration: none; }
+a.bar-tautan:hover .bar-name,
+a.bar-tautan:focus-visible .bar-name { color: var(--tinta); text-decoration: underline; }
+a.bar-tautan:focus-visible { outline: 2px solid var(--tinta); outline-offset: 1px; }
+.bar-name {
+  font-size: .875rem; color: var(--tinta-2);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.bar-track { min-height: 16px; display: flex; align-items: center; }
+.bar-fill { height: 12px; background: var(--tinta); min-width: 3px; }
+.bar-value {
+  font-size: .875rem; font-weight: 700; color: var(--tinta);
+  font-variant-numeric: tabular-nums; min-width: 3.4em; text-align: right;
+}
+.bar-value .pct { font-weight: 400; color: var(--tinta-3); font-size: .8125rem; }
+
+/* ---------- tren ---------- */
+.trend { position: relative; }
+.trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+.trend-tip {
+  position: absolute; pointer-events: none; opacity: 0;
+  transform: translate(-50%, -100%);
+  background: var(--tinta); color: var(--kertas);
+  padding: 5px 9px; font-size: .8125rem; line-height: 1.35;
+  white-space: nowrap; transition: opacity .1s; z-index: 2;
+}
+.trend-tip b { display: block; font-weight: 700; }
+
+/* ---------- daftar kasus ---------- */
+.cases { list-style: none; margin: 0; padding: 0; }
+.cases li {
+  padding: 13px 0; border-top: 1px solid var(--pudar);
+  display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: baseline;
+}
+.cases li:first-child { border-top: 0; padding-top: 0; }
+.case-title { font-size: .9375rem; font-weight: 600; margin: 0 0 3px; line-height: 1.4; }
+.case-meta { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+.case-date {
+  font-size: .8125rem; color: var(--tinta-2); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- tabel ---------- */
+.table-toggle {
+  margin-top: 16px; background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; font-size: .8125rem; color: var(--tinta-2);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.table-toggle:hover { color: var(--tinta); }
+.table-wrap { display: none; margin-top: 12px; overflow-x: auto; }
+.table-wrap.open { display: block; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+th, td { text-align: left; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--pudar); }
+th { font-weight: 700; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.footnote {
+  margin-top: 40px; padding: 20px 0 60px; border-top: 3px solid var(--garis);
+  font-size: .8125rem; line-height: 1.7; color: var(--tinta-2);
+}
+.footnote p { margin: 0 0 8px; max-width: 76ch; }
+.footnote p:last-child { margin-bottom: 0; }
+.footnote a { color: var(--tinta); font-weight: 600; }
+
+/* ---------- halaman metodologi ---------- */
+.teks { max-width: 68ch; padding-bottom: 72px; }
+.teks h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 44px 0 12px;
+  padding-top: 16px; border-top: 3px solid var(--garis);
+}
+.teks h3 { font-size: 1rem; font-weight: 700; margin: 26px 0 6px; }
+.teks p { margin: 0 0 14px; }
+.teks ul { margin: 0 0 14px; padding-left: 20px; }
+.teks li { margin: 0 0 7px; }
+.teks code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: .875em; background: #f2f2f2; padding: 1px 5px;
+}
+.teks .sorot { border: 3px solid var(--garis); padding: 16px 18px; margin: 0 0 18px; }
+.teks .sorot p:last-child { margin-bottom: 0; }
+.daftar-isi { margin: 24px 0 8px; padding: 0; list-style: none; }
+.daftar-isi li { margin: 0 0 6px; }
+.daftar-isi a { color: var(--tinta); }
+
+@media (max-width: 620px) {
+  .masthead-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .masthead-inner > a { width: min(230px, 64vw); }
+  .masthead-meta { text-align: left; }
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .kpi { border-bottom: 3px solid var(--garis); }
+  .kpi:nth-child(2n) { border-right: 0; }
+  .kpi:nth-last-child(-n+2) { border-bottom: 0; }
+  .bar-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name value" "track track";
+    row-gap: 4px; padding-bottom: 8px;
+  }
+  .bar-name { grid-area: name; white-space: normal; }
+  .bar-value { grid-area: value; }
+  .bar-track { grid-area: track; min-height: 0; }
+  .cases li { grid-template-columns: 1fr; }
+  .case-date { order: -1; }
+}
+</style>
+</head>
+<body data-kasus="PP-000032" data-situs="https://pantaupolisi.netlify.app">
+
+<header class="masthead"><div class="wrap masthead-inner">
+  <a href="../index.html"><svg class="judul-pixel" viewBox="0 0 89 7" role="img" aria-label="LAPOR KOMANDAN!" preserveAspectRatio="xMidYMid meet"><rect x="0" y="0" width="1" height="1" fill="currentColor"/><rect x="0" y="1" width="1" height="1" fill="currentColor"/><rect x="0" y="2" width="1" height="1" fill="currentColor"/><rect x="0" y="3" width="1" height="1" fill="currentColor"/><rect x="0" y="4" width="1" height="1" fill="currentColor"/><rect x="0" y="5" width="1" height="1" fill="currentColor"/><rect x="0" y="6" width="5" height="1" fill="currentColor"/><rect x="7" y="0" width="3" height="1" fill="currentColor"/><rect x="6" y="1" width="1" height="1" fill="currentColor"/><rect x="10" y="1" width="1" height="1" fill="currentColor"/><rect x="6" y="2" width="1" height="1" fill="currentColor"/><rect x="10" y="2" width="1" height="1" fill="currentColor"/><rect x="6" y="3" width="5" height="1" fill="currentColor"/><rect x="6" y="4" width="1" height="1" fill="currentColor"/><rect x="10" y="4" width="1" height="1" fill="currentColor"/><rect x="6" y="5" width="1" height="1" fill="currentColor"/><rect x="10" y="5" width="1" height="1" fill="currentColor"/><rect x="6" y="6" width="1" height="1" fill="currentColor"/><rect x="10" y="6" width="1" height="1" fill="currentColor"/><rect x="12" y="0" width="4" height="1" fill="currentColor"/><rect x="12" y="1" width="1" height="1" fill="currentColor"/><rect x="16" y="1" width="1" height="1" fill="currentColor"/><rect x="12" y="2" width="1" height="1" fill="currentColor"/><rect x="16" y="2" width="1" height="1" fill="currentColor"/><rect x="12" y="3" width="4" height="1" fill="currentColor"/><rect x="12" y="4" width="1" height="1" fill="currentColor"/><rect x="12" y="5" width="1" height="1" fill="currentColor"/><rect x="12" y="6" width="1" height="1" fill="currentColor"/><rect x="19" y="0" width="3" height="1" fill="currentColor"/><rect x="18" y="1" width="1" height="1" fill="currentColor"/><rect x="22" y="1" width="1" height="1" fill="currentColor"/><rect x="18" y="2" width="1" height="1" fill="currentColor"/><rect x="22" y="2" width="1" height="1" fill="currentColor"/><rect x="18" y="3" width="1" height="1" fill="currentColor"/><rect x="22" y="3" width="1" height="1" fill="currentColor"/><rect x="18" y="4" width="1" height="1" fill="currentColor"/><rect x="22" y="4" width="1" height="1" fill="currentColor"/><rect x="18" y="5" width="1" height="1" fill="currentColor"/><rect x="22" y="5" width="1" height="1" fill="currentColor"/><rect x="19" y="6" width="3" height="1" fill="currentColor"/><rect x="24" y="0" width="4" height="1" fill="currentColor"/><rect x="24" y="1" width="1" height="1" fill="currentColor"/><rect x="28" y="1" width="1" height="1" fill="currentColor"/><rect x="24" y="2" width="1" height="1" fill="currentColor"/><rect x="28" y="2" width="1" height="1" fill="currentColor"/><rect x="24" y="3" width="4" height="1" fill="currentColor"/><rect x="24" y="4" width="1" height="1" fill="currentColor"/><rect x="26" y="4" width="1" height="1" fill="currentColor"/><rect x="24" y="5" width="1" height="1" fill="currentColor"/><rect x="27" y="5" width="1" height="1" fill="currentColor"/><rect x="24" y="6" width="1" height="1" fill="currentColor"/><rect x="28" y="6" width="1" height="1" fill="currentColor"/><rect x="36" y="0" width="1" height="1" fill="currentColor"/><rect x="40" y="0" width="1" height="1" fill="currentColor"/><rect x="36" y="1" width="1" height="1" fill="currentColor"/><rect x="39" y="1" width="1" height="1" fill="currentColor"/><rect x="36" y="2" width="1" height="1" fill="currentColor"/><rect x="38" y="2" width="1" height="1" fill="currentColor"/><rect x="36" y="3" width="2" height="1" fill="currentColor"/><rect x="36" y="4" width="1" height="1" fill="currentColor"/><rect x="38" y="4" width="1" height="1" fill="currentColor"/><rect x="36" y="5" width="1" height="1" fill="currentColor"/><rect x="39" y="5" width="1" height="1" fill="currentColor"/><rect x="36" y="6" width="1" height="1" fill="currentColor"/><rect x="40" y="6" width="1" height="1" fill="currentColor"/><rect x="43" y="0" width="3" height="1" fill="currentColor"/><rect x="42" y="1" width="1" height="1" fill="currentColor"/><rect x="46" y="1" width="1" height="1" fill="currentColor"/><rect x="42" y="2" width="1" height="1" fill="currentColor"/><rect x="46" y="2" width="1" height="1" fill="currentColor"/><rect x="42" y="3" width="1" height="1" fill="currentColor"/><rect x="46" y="3" width="1" height="1" fill="currentColor"/><rect x="42" y="4" width="1" height="1" fill="currentColor"/><rect x="46" y="4" width="1" height="1" fill="currentColor"/><rect x="42" y="5" width="1" height="1" fill="currentColor"/><rect x="46" y="5" width="1" height="1" fill="currentColor"/><rect x="43" y="6" width="3" height="1" fill="currentColor"/><rect x="48" y="0" width="1" height="1" fill="currentColor"/><rect x="52" y="0" width="1" height="1" fill="currentColor"/><rect x="48" y="1" width="2" height="1" fill="currentColor"/><rect x="51" y="1" width="2" height="1" fill="currentColor"/><rect x="48" y="2" width="1" height="1" fill="currentColor"/><rect x="50" y="2" width="1" height="1" fill="currentColor"/><rect x="52" y="2" width="1" height="1" fill="currentColor"/><rect x="48" y="3" width="1" height="1" fill="currentColor"/><rect x="50" y="3" width="1" height="1" fill="currentColor"/><rect x="52" y="3" width="1" height="1" fill="currentColor"/><rect x="48" y="4" width="1" height="1" fill="currentColor"/><rect x="52" y="4" width="1" height="1" fill="currentColor"/><rect x="48" y="5" width="1" height="1" fill="currentColor"/><rect x="52" y="5" width="1" height="1" fill="currentColor"/><rect x="48" y="6" width="1" height="1" fill="currentColor"/><rect x="52" y="6" width="1" height="1" fill="currentColor"/><rect x="55" y="0" width="3" height="1" fill="currentColor"/><rect x="54" y="1" width="1" height="1" fill="currentColor"/><rect x="58" y="1" width="1" height="1" fill="currentColor"/><rect x="54" y="2" width="1" height="1" fill="currentColor"/><rect x="58" y="2" width="1" height="1" fill="currentColor"/><rect x="54" y="3" width="5" height="1" fill="currentColor"/><rect x="54" y="4" width="1" height="1" fill="currentColor"/><rect x="58" y="4" width="1" height="1" fill="currentColor"/><rect x="54" y="5" width="1" height="1" fill="currentColor"/><rect x="58" y="5" width="1" height="1" fill="currentColor"/><rect x="54" y="6" width="1" height="1" fill="currentColor"/><rect x="58" y="6" width="1" height="1" fill="currentColor"/><rect x="60" y="0" width="1" height="1" fill="currentColor"/><rect x="64" y="0" width="1" height="1" fill="currentColor"/><rect x="60" y="1" width="2" height="1" fill="currentColor"/><rect x="64" y="1" width="1" height="1" fill="currentColor"/><rect x="60" y="2" width="1" height="1" fill="currentColor"/><rect x="62" y="2" width="1" height="1" fill="currentColor"/><rect x="64" y="2" width="1" height="1" fill="currentColor"/><rect x="60" y="3" width="1" height="1" fill="currentColor"/><rect x="63" y="3" width="2" height="1" fill="currentColor"/><rect x="60" y="4" width="1" height="1" fill="currentColor"/><rect x="64" y="4" width="1" height="1" fill="currentColor"/><rect x="60" y="5" width="1" height="1" fill="currentColor"/><rect x="64" y="5" width="1" height="1" fill="currentColor"/><rect x="60" y="6" width="1" height="1" fill="currentColor"/><rect x="64" y="6" width="1" height="1" fill="currentColor"/><rect x="66" y="0" width="4" height="1" fill="currentColor"/><rect x="66" y="1" width="1" height="1" fill="currentColor"/><rect x="70" y="1" width="1" height="1" fill="currentColor"/><rect x="66" y="2" width="1" height="1" fill="currentColor"/><rect x="70" y="2" width="1" height="1" fill="currentColor"/><rect x="66" y="3" width="1" height="1" fill="currentColor"/><rect x="70" y="3" width="1" height="1" fill="currentColor"/><rect x="66" y="4" width="1" height="1" fill="currentColor"/><rect x="70" y="4" width="1" height="1" fill="currentColor"/><rect x="66" y="5" width="1" height="1" fill="currentColor"/><rect x="70" y="5" width="1" height="1" fill="currentColor"/><rect x="66" y="6" width="4" height="1" fill="currentColor"/><rect x="73" y="0" width="3" height="1" fill="currentColor"/><rect x="72" y="1" width="1" height="1" fill="currentColor"/><rect x="76" y="1" width="1" height="1" fill="currentColor"/><rect x="72" y="2" width="1" height="1" fill="currentColor"/><rect x="76" y="2" width="1" height="1" fill="currentColor"/><rect x="72" y="3" width="5" height="1" fill="currentColor"/><rect x="72" y="4" width="1" height="1" fill="currentColor"/><rect x="76" y="4" width="1" height="1" fill="currentColor"/><rect x="72" y="5" width="1" height="1" fill="currentColor"/><rect x="76" y="5" width="1" height="1" fill="currentColor"/><rect x="72" y="6" width="1" height="1" fill="currentColor"/><rect x="76" y="6" width="1" height="1" fill="currentColor"/><rect x="78" y="0" width="1" height="1" fill="currentColor"/><rect x="82" y="0" width="1" height="1" fill="currentColor"/><rect x="78" y="1" width="2" height="1" fill="currentColor"/><rect x="82" y="1" width="1" height="1" fill="currentColor"/><rect x="78" y="2" width="1" height="1" fill="currentColor"/><rect x="80" y="2" width="1" height="1" fill="currentColor"/><rect x="82" y="2" width="1" height="1" fill="currentColor"/><rect x="78" y="3" width="1" height="1" fill="currentColor"/><rect x="81" y="3" width="2" height="1" fill="currentColor"/><rect x="78" y="4" width="1" height="1" fill="currentColor"/><rect x="82" y="4" width="1" height="1" fill="currentColor"/><rect x="78" y="5" width="1" height="1" fill="currentColor"/><rect x="82" y="5" width="1" height="1" fill="currentColor"/><rect x="78" y="6" width="1" height="1" fill="currentColor"/><rect x="82" y="6" width="1" height="1" fill="currentColor"/><rect x="86" y="0" width="1" height="1" fill="currentColor"/><rect x="86" y="1" width="1" height="1" fill="currentColor"/><rect x="86" y="2" width="1" height="1" fill="currentColor"/><rect x="86" y="3" width="1" height="1" fill="currentColor"/><rect x="86" y="4" width="1" height="1" fill="currentColor"/><rect x="86" y="6" width="1" height="1" fill="currentColor"/></svg></a>
+  <nav class="nav">
+    <a href="../dashboard.html" aria-current="page">Data</a>
+    <a href="../kasus.html">Kasus</a>
+    <a href="../metodologi.html">Metodologi</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <a class="backlink" href="../dashboard.html">← Kembali ke data</a>
+    <p class="kasus-kode">PP-000032</p>
+    <h1 data-field="judul">Dalizon — Suap — Sumatera Selatan</h1>
+  </div>
+
+  
+
+  <div class="kasus-ringkasan" data-field="ringkasan"><p>Pada 26 Juli 2021, AKBP Dalizon dan Kombes Anton Setiawan diduga menerima suap terkait proyek pengadaan barang dan jasa di Dinas PUPR Muba, Sumatera Selatan. Keduanya berstatus sebagai polisi dengan jabatan Kapolres di Polda Sumatera Selatan. Proses hukum terhadap Dalizon melibatkan beberapa putusan pengadilan, termasuk vonis 3 tahun penjara pada 19 Oktober 2022 dan 1 tahun 6 bulan penjara pada 19 Februari 2024. Proses etik/administratif masih dalam tahap yang tidak diketahui.</p></div>
+
+  <section class="panel"><h2>Fakta yang tercatat</h2><p class="sub">Nilai yang belum ditemukan di pemberitaan ditulis apa adanya.</p><div><table class="fakta"><tr><th>Dugaan pelanggaran</th><td data-field="pelanggaran">Suap</td></tr><tr><th>Tanggal kejadian</th><td data-field="tanggal_kejadian">7 September 2022</td></tr><tr><th>Provinsi</th><td data-field="provinsi">Sumatera Selatan</td></tr><tr><th>Status pidana terkini</th><td data-field="status">terdakwa</td></tr><tr><th>Vonis pidana</th><td data-field="vonis">tiga tahun penjara dan denda Rp 100 juta dengan ketentuan apabila tidak dibayar maka pidana kurungan dua bulan</td></tr><tr><th>Sanksi etik atau administratif</th><td data-field="sanksi">Tidak diketahui</td></tr><tr><th>Jumlah berita</th><td>62</td></tr><tr><th>Diberitakan sejak</th><td>20 Desember 2021</td></tr><tr><th>Pemberitaan terakhir</th><td>23 Juli 2024</td></tr></table></div></section>
+
+  <section class="panel"><h2>Berita yang menjadi dasar kasus</h2><p class="sub">Seluruh pemberitaan yang tertaut ke kasus ini, terbaru lebih dulu.</p><div><ul class="berita"><li><a href="https://makassar.tribunnews.com/2024/07/23/sosok-akbp-dalizon-alumni-akpol-2002-gagal-jadi-jenderal-polri-divonis-penjara-3-tahun" rel="noopener nofollow" target="_blank">Sosok AKBP Dalizon Alumni Akpol 2002 Gagal Jadi Jenderal Polri, Divonis Penjara 3 Tahun</a><p class="berita-meta">tribun-makassar · 23 Juli 2024</p></li><li><a href="https://sumsel.tribunnews.com/2024/02/19/pemberi-suap-ke-akbp-dalizon-divonis-1-tahun-6-bulan-penjara-lebih-ringan-dari-tuntutan-jaksa" rel="noopener nofollow" target="_blank">Pemberi Suap ke AKBP Dalizon Divonis 1 Tahun 6 Bulan Penjara, Lebih Ringan Dari Tuntutan Jaksa</a><p class="berita-meta">tribun-sumsel · 19 Februari 2024</p></li><li><a href="https://sumsel.tribunnews.com/2024/02/02/breaking-news-sidang-pemberi-suap-ke-akbp-dalizon-mantan-kadis-kabid-pupr-muba-dituntut-penjara" rel="noopener nofollow" target="_blank">BREAKING NEWS: Sidang Pemberi Suap ke AKBP Dalizon, Mantan Kadis &amp; Kabid PUPR Muba Dituntut Penjara</a><p class="berita-meta">tribun-sumsel · 2 Februari 2024</p></li><li><a href="https://www.detik.com/sumbagsel/hukum-dan-kriminal/d-7042323/bareskrim-polri-serahkan-pemberi-suap-akbp-dalizon-ke-kejari-palembang" rel="noopener nofollow" target="_blank">Bareskrim Polri Serahkan Pemberi Suap AKBP Dalizon ke Kejari Palembang</a><p class="berita-meta">detik · 17 November 2023</p></li><li><a href="https://kumparan.com/urbanid/eks-kapolres-oku-timur-divonis-3-tahun-penjara-atas-kasus-suap-1z55M4tr1V8" rel="noopener nofollow" target="_blank">Eks Kapolres OKU Timur Divonis 3 Tahun Penjara Atas Kasus Suap</a><p class="berita-meta">kumparan · 19 Oktober 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/10/19/breaking-news-akbp-dalizon-divonis-3-tahun-penjara-wajib-bayar-uang-pengganti-rp-10-miliar" rel="noopener nofollow" target="_blank">BREAKING NEWS: AKBP Dalizon Divonis 3 Tahun Penjara, Wajib Bayar Uang Pengganti Rp 10 Miliar</a><p class="berita-meta">tribun-sumsel · 19 Oktober 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/10/19/breaking-news-sidang-vonis-akbp-dalizon-mantan-kapolres-oku-timur-kasus-suap-pupr-muba" rel="noopener nofollow" target="_blank">BREAKING NEWS: Sidang Vonis AKBP Dalizon Mantan Kapolres OKU Timur, Kasus Suap PUPR Muba</a><p class="berita-meta">tribun-sumsel · 19 Oktober 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/27/akbp-dalizon-dituntut-4-penjara-bagaimana-nasib-kombes-anton-setiawan-disebut-terima-suap-rp47-m" rel="noopener nofollow" target="_blank">AKBP Dalizon Dituntut 4 Penjara, Bagaimana Nasib Kombes Anton Setiawan Disebut Terima Suap Rp4,7 M?</a><p class="berita-meta">tribun-makassar · 27 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/27/terima-suap-rp10-miliar-akbp-dalizon-eks-kapolres-oku-timur-dituntut-4-tahun-penjara" rel="noopener nofollow" target="_blank">Terima Suap Rp10 Miliar, AKBP Dalizon Eks Kapolres OKU Timur Dituntut 4 Tahun Penjara</a><p class="berita-meta">tribun-makassar · 27 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/09/26/reaksi-akbp-dalizon-dituntut-4-tahun-penjara-dan-uang-pengganti-sebesar-rp10-miliar" rel="noopener nofollow" target="_blank">Reaksi AKBP Dalizon Dituntut 4 Tahun Penjara dan Uang Pengganti sebesar Rp10 miliar</a><p class="berita-meta">tribun-sumsel · 26 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/09/26/sidang-akbp-dalizon-mantan-kapolres-okut-dituntut-4-tahun-penjara-kasus-suap-pupr-muba" rel="noopener nofollow" target="_blank">Sidang AKBP Dalizon, Mantan Kapolres OKUT Dituntut 4 Tahun Penjara, Kasus Suap PUPR Muba</a><p class="berita-meta">tribun-sumsel · 26 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/09/21/sidang-tuntutan-akbp-dalizon-kembali-ditunda-jaksa-kejagung-ri-masih-belum-siap" rel="noopener nofollow" target="_blank">Sidang Tuntutan AKBP Dalizon Kembali Ditunda, Jaksa Kejagung RI Masih Belum Siap</a><p class="berita-meta">tribun-sumsel · 21 September 2022</p></li><li><a href="https://aceh.tribunnews.com/2022/09/13/video-akbp-dalizon-sebut-kombes-anton-terima-jatah-rp-500-juta-tiap-bulan-polda-sumsel-bantah" rel="noopener nofollow" target="_blank">VIDEO AKBP Dalizon Sebut Kombes Anton Terima Jatah Rp 500 Juta Tiap Bulan, Polda Sumsel Bantah</a><p class="berita-meta">tribun-aceh · 13 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/13/harta-kombes-anton-setiawan-tak-masuk-akal-akbp-dalizon-ngaku-setor-rp-500-juta-per-bulan" rel="noopener nofollow" target="_blank">Harta Kombes Anton Setiawan tak Masuk Akal, AKBP Dalizon Ngaku Setor Rp 500 Juta Per Bulan</a><p class="berita-meta">tribun-medan · 13 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/13/jawaban-komjen-agus-dituding-lindungi-kombes-anton-yang-terima-setoran-proyek-dari-akbp-dalizon" rel="noopener nofollow" target="_blank">Jawaban Komjen Agus Dituding Lindungi Kombes Anton yang Terima Setoran Proyek dari AKBP Dalizon</a><p class="berita-meta">tribun-medan · 13 September 2022</p></li><li><a href="https://batam.tribunnews.com/2022/09/13/sosok-kombes-anton-setiawan-eks-kapolres-natuna-yang-diduga-terima-suap-rp475-m" rel="noopener nofollow" target="_blank">Sosok Kombes Anton Setiawan, Eks Kapolres Natuna yang Diduga Terima Suap Rp4,75 M - Tribunbatam.id</a><p class="berita-meta">tribun-batam · 13 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/13/tak-masuk-akal-terungkap-harta-kombes-anton-setiawan-diduga-peras-akbp-dalizon-500-juta-sebulan" rel="noopener nofollow" target="_blank">TAK MASUK AKAL, Terungkap Harta Kombes Anton Setiawan, Diduga Peras AKBP Dalizon 500 Juta Sebulan</a><p class="berita-meta">tribun-medan · 13 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/12/ipw-sebut-bareskrim-lindungi-kombes-anton-yang-diduga-terima-rp-500-juta-per-bulan-dari-akbp-dalizon" rel="noopener nofollow" target="_blank">IPW Sebut Bareskrim Lindungi Kombes Anton yang Diduga Terima Rp 500 Juta Per Bulan dari AKBP Dalizon</a><p class="berita-meta">tribun-medan · 12 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/12/dituding-lindungi-kombes-anton-terkait-suap-rp-500-juta-perbulan-komjen-agus-andrianto-angkat-suara" rel="noopener nofollow" target="_blank">Dituding Lindungi Kombes Anton Terkait Suap Rp 500 Juta Perbulan, Komjen Agus Andrianto Angkat Suara</a><p class="berita-meta">tribun-medan · 12 September 2022</p></li><li><a href="https://news.detik.com/berita/d-6287769/polda-sumsel-tepis-akbp-dalizon-soal-setoran-rp-500-juta-setiap-bulan" rel="noopener nofollow" target="_blank">Polda Sumsel Tepis AKBP Dalizon soal Setoran Rp 500 Juta Setiap Bulan</a><p class="berita-meta">detik · 12 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/12/anggota-bareskrim-kombes-anton-setiawan-terseret-dugaan-suap-komjen-agus-ardianto-tunggu-propam" rel="noopener nofollow" target="_blank">Anggota Bareskrim Kombes Anton Setiawan Terseret Dugaan Suap, Komjen Agus Ardianto Tunggu Propam</a><p class="berita-meta">tribun-makassar · 12 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/09/12/melihat-harta-kombes-anton-setiawan-diduga-peras-akbp-dalizon-rp-500-juta-per-bulan-tak-masuk-akal" rel="noopener nofollow" target="_blank">Melihat Harta Kombes Anton Setiawan, Diduga Peras AKBP Dalizon Rp 500 Juta Per Bulan, Tak Masuk Akal</a><p class="berita-meta">tribun-sumsel · 12 September 2022</p></li><li><a href="https://aceh.tribunnews.com/2022/09/12/video-kombes-anton-setiawan-diduga-terima-gratifikasi-rp-47-miliar-kini-bertugas-di-bareskrim" rel="noopener nofollow" target="_blank">VIDEO Kombes Anton Setiawan Diduga Terima Gratifikasi Rp 4,7 Miliar Kini Bertugas di Bareskrim</a><p class="berita-meta">tribun-aceh · 12 September 2022</p></li><li><a href="https://manado.tribunnews.com/2022/09/12/akhirnya-terungkap-seorang-perwira-polisi-diduga-terima-suap-rp-47-miliar-ini-kata-tersangkanya" rel="noopener nofollow" target="_blank">Akhirnya Terungkap Seorang Perwira Polisi Diduga Terima Suap Rp 4,7 Miliar, Ini Kata Tersangkanya - Tribunmanado.co.id</a><p class="berita-meta">tribun-manado · 12 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/12/kombes-anton-setiawan-kini-tugas-di-bareskrim-polri-disebut-terima-suap-senilai-mobil-fortuner" rel="noopener nofollow" target="_blank">Kombes Anton Setiawan Kini Tugas di Bareskrim Polri, Disebut Terima Suap Senilai Mobil Fortuner</a><p class="berita-meta">tribun-makassar · 12 September 2022</p></li><li><a href="https://aceh.tribunnews.com/2022/09/12/sosok-kombes-anton-setiawan-disebut-akbp-dalizon-terima-suap-rp47-m-bertugas-di-bareskrim-polri" rel="noopener nofollow" target="_blank">Sosok Kombes Anton Setiawan Disebut AKBP Dalizon Terima Suap Rp4,7 M, Bertugas di Bareskrim Polri</a><p class="berita-meta">tribun-aceh · 12 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/09/12/akbp-dalizon-terdakwa-dugaan-korupsi-mengaku-setor-ratusan-juta-ke-atasan-ini-kata-polda-sumsel" rel="noopener nofollow" target="_blank">AKBP Dalizon Terdakwa Dugaan Korupsi Mengaku Setor Ratusan Juta ke Atasan, Ini Kata Polda sumsel</a><p class="berita-meta">tribun-sumsel · 12 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/12/sosok-jenderal-bintang-3-lindungi-kombes-anton-bos-akbp-dalizon-misterius-setelah-terima-rp500-juta" rel="noopener nofollow" target="_blank">Sosok Jenderal Bintang 3 Lindungi Kombes Anton Bos AKBP Dalizon? Misterius Setelah Terima Rp500 Juta</a><p class="berita-meta">tribun-makassar · 12 September 2022</p></li><li><a href="https://news.detik.com/berita/d-6286781/ipw-minta-kabareskrim-tindak-lanjuti-pengakuan-akbp-dalizon" rel="noopener nofollow" target="_blank">IPW Minta Kabareskrim Tindak Lanjuti Pengakuan AKBP Dalizon</a><p class="berita-meta">detik · 12 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/12/ipw-tuding-jenderal-bintang-tiga-pasang-badan-lindungi-kombes-anton-setiawan-sebut-dalizon-korban" rel="noopener nofollow" target="_blank">IPW Tuding Jenderal Bintang Tiga Pasang Badan Lindungi Kombes Anton Setiawan, Sebut Dalizon Korban</a><p class="berita-meta">tribun-makassar · 12 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/12/sindiran-keras-ipw-dalam-kasus-suap-akbp-dalizon-mengaku-setor-uang-rp-500-juta-tiap-bulan-untuk-bos" rel="noopener nofollow" target="_blank">SINDIRAN KERAS IPW Dalam Kasus Suap AKBP Dalizon Mengaku Setor Uang Rp 500 Juta Tiap Bulan Untuk Bos</a><p class="berita-meta">tribun-medan · 12 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/12/terbongkar-jabatan-penting-kombes-anton-setiawan-di-bareskrim-geger-suap-47-m-melalui-anak-buah" rel="noopener nofollow" target="_blank">Terbongkar Jabatan Penting Kombes Anton Setiawan di Bareskrim, Geger Suap 4,7 M melalui Anak Buah</a><p class="berita-meta">tribun-medan · 12 September 2022</p></li><li><a href="https://aceh.tribunnews.com/2022/09/12/disebut-terima-gratifikasi-rp-47-miliar-ipw-duga-polri-lindungi-kombes-anton-setiawan" rel="noopener nofollow" target="_blank">Disebut Terima Gratifikasi Rp 4,7 Miliar, IPW Duga Polri Lindungi Kombes Anton Setiawan</a><p class="berita-meta">tribun-aceh · 12 September 2022</p></li><li><a href="https://aceh.tribunnews.com/2022/09/12/kombes-anton-setiawan-yang-diduga-terima-gratifikasi-rp-47-miliar-kini-bertugas-di-bareskrim" rel="noopener nofollow" target="_blank">Kombes Anton Setiawan yang Diduga Terima Gratifikasi Rp 4,7 Miliar Kini Bertugas di Bareskrim</a><p class="berita-meta">tribun-aceh · 12 September 2022</p></li><li><a href="https://pekanbaru.tribunnews.com/2022/09/12/kabareskrim-sebut-pengakuan-akbp-dalizon-soal-keterlibatan-kombes-as-sedang-didalami-propam" rel="noopener nofollow" target="_blank">Kabareskrim Sebut Pengakuan AKBP Dalizon soal Keterlibatan Kombes AS Sedang Didalami Propam</a><p class="berita-meta">tribun-pekanbaru · 12 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/12/dijawab-mabes-polri-siapa-kombes-anton-setiawanheboh-suap-47-miliar-dari-akbp-dalizon-dilindungi" rel="noopener nofollow" target="_blank">Dijawab Mabes Polri Siapa Kombes Anton Setiawan,Heboh Suap 4,7 Miliar dari AKBP Dalizon, Dilindungi?</a><p class="berita-meta">tribun-medan · 12 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/09/12/kombes-anton-setiawan-terima-uang-rp-47-m-dari-akbp-dalizon-diduga-dilindungi-bareskrim-kata-ipw" rel="noopener nofollow" target="_blank">Kombes Anton Setiawan Terima Uang Rp 4,7 M dari AKBP Dalizon Diduga Dilindungi Bareskrim, Kata IPW</a><p class="berita-meta">tribun-sumsel · 12 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/12/ipw-menduga-bareskrim-polri-melindungi-kombes-anton-soal-kasus-akbp-dalizon" rel="noopener nofollow" target="_blank">IPW Menduga Bareskrim Polri Melindungi Kombes Anton, Soal Kasus AKBP Dalizon</a><p class="berita-meta">tribun-medan · 12 September 2022</p></li><li><a href="https://pekanbaru.tribunnews.com/2022/09/10/siapa-sebenarnya-kombes-anton-yang-peras-eks-kapolres-500-juta-per-bulan-tak-berani-hadiri-sidang" rel="noopener nofollow" target="_blank">Siapa Sebenarnya Kombes Anton yang 'Peras' Eks Kapolres 500 Juta per Bulan? Tak Berani Hadiri Sidang</a><p class="berita-meta">tribun-pekanbaru · 10 September 2022</p></li><li><a href="https://aceh.tribunnews.com/2022/09/09/kombes-anton-setiawan-disebut-terima-uang-ratusan-juta-dari-akbp-dalizon-sudah-4-kali-mangkir" rel="noopener nofollow" target="_blank">Kombes Anton Setiawan Disebut Terima Uang Ratusan Juta dari AKBP Dalizon, Sudah 4 Kali Mangkir</a><p class="berita-meta">tribun-aceh · 9 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/09/akbp-dalizon-geram-dijelekkan-kombes-anton-setiawan-dari-belakang-akhirnya-bongkar-setor-rp500-juta" rel="noopener nofollow" target="_blank">AKBP Dalizon Geram Dijelekkan Kombes Anton Setiawan dari Belakang, Akhirnya Bongkar Setor Rp500 Juta</a><p class="berita-meta">tribun-makassar · 9 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/09/sosok-kombes-anton-peras-eks-kapolres-rp500-juta-bulan-tak-berani-hadiri-sidang-akbp-dalizon" rel="noopener nofollow" target="_blank">Sosok Kombes Anton 'Peras' Eks Kapolres Rp500 Juta / Bulan, Tak Berani Hadiri Sidang AKBP Dalizon</a><p class="berita-meta">tribun-makassar · 9 September 2022</p></li><li><a href="https://pekanbaru.tribunnews.com/2022/09/09/sosok-kombes-pol-anton-diduga-rutin-terima-upeti-dari-kapolres-akbp-dalizon" rel="noopener nofollow" target="_blank">Sosok Kombes Pol Anton Diduga Rutin Terima Upeti Dari Kapolres AKBP Dalizon</a><p class="berita-meta">tribun-pekanbaru · 9 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/09/setor-uang-rp500-juta-akbp-dalizon-tambah-deretan-kasus-setoran-suap-oknum-polisi-ke-atasan" rel="noopener nofollow" target="_blank">Setor Uang Rp500 Juta, AKBP Dalizon Tambah Deretan Kasus Setoran Suap Oknum Polisi ke Atasan</a><p class="berita-meta">tribun-makassar · 9 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/09/hakim-mangapul-manalu-heran-dari-mana-akbp-d-dapatkan-rp-500-juta-per-bulan-untuk-setoran-ke-atasan" rel="noopener nofollow" target="_blank">HAKIM Mangapul Manalu Heran, Dari Mana AKBP D Dapatkan Rp 500 Juta Per Bulan untuk Setoran ke Atasan</a><p class="berita-meta">tribun-medan · 9 September 2022</p></li><li><a href="https://medan.tribunnews.com/2022/09/09/akbp-d-ngaku-setor-rp-500-juta-per-bulan-untuk-atasannya-hakim-mangapul-manalu-dari-mana-uangnya" rel="noopener nofollow" target="_blank">AKBP D Ngaku Setor Rp 500 Juta Per Bulan untuk Atasannya, Hakim Mangapul Manalu: Dari Mana Uangnya?</a><p class="berita-meta">tribun-medan · 9 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/09/kombes-anton-setiawan-terancam-dikaitkan-sosok-dirkrimsus-terima-rp500-juta-dari-akbp-dalizon" rel="noopener nofollow" target="_blank">Kombes Anton Setiawan Terancam, Dikaitkan Sosok Dirkrimsus Terima Rp500 Juta dari AKBP Dalizon</a><p class="berita-meta">tribun-makassar · 9 September 2022</p></li><li><a href="https://makassar.tribunnews.com/2022/09/09/eks-kapolres-harus-nyetor-rp-05-miliar-ke-dirkrimsus-per-bulan-uangnya-dari-hasil-kejahatan" rel="noopener nofollow" target="_blank">Eks Kapolres Harus Nyetor Rp 0,5 Miliar ke Dirkrimsus Per Bulan, Uangnya dari Hasil Kejahatan</a><p class="berita-meta">tribun-makassar · 9 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/09/07/fakta-sidang-akbp-dalizon-mantan-kapolres-oku-timur-mengaku-setor-ke-atasan" rel="noopener nofollow" target="_blank">Fakta Sidang AKBP Dalizon, Mantan Kapolres OKU Timur Mengaku Setor ke Atasan</a><p class="berita-meta">tribun-sumsel · 7 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/09/07/sidang-akbp-dalizon-terdakwa-kasus-suap-hadir-langsung-ini-penampilan-pakai-rompi-tahanan" rel="noopener nofollow" target="_blank">Sidang AKBP Dalizon, Terdakwa Kasus Suap Hadir Langsung, Ini Penampilan Pakai Rompi Tahanan</a><p class="berita-meta">tribun-sumsel · 7 September 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/07/07/sidang-akbp-dalizon-mantan-kapolres-okut-3-mantan-anak-buah-jadi-saksi-hakim-berang" rel="noopener nofollow" target="_blank">Sidang AKBP Dalizon Mantan Kapolres OKUT, 3 Mantan Anak Buah Jadi Saksi, Hakim Berang</a><p class="berita-meta">tribun-sumsel · 7 Juli 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/06/17/kasus-akbp-dalizon-terima-uang-suap-rp-10-miliar-akbp-dalizon-jawab-dakwaan-jaksa-penuntut-umum" rel="noopener nofollow" target="_blank">Kasus AKBP Dalizon Terima Uang Suap Rp 10 Miliar, AKBP Dalizon Jawab Dakwaan Jaksa Penuntut Umum</a><p class="berita-meta">tribun-sumsel · 17 Juni 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/06/17/akbp-dalizon-bantah-disebut-memaksa-minta-uang-mantan-kapolres-okut-diduga-terima-suap-pupr-muba" rel="noopener nofollow" target="_blank">AKBP Dalizon Bantah Disebut Memaksa Minta Uang, Mantan Kapolres OKUT Diduga Terima Suap PUPR Muba</a><p class="berita-meta">tribun-sumsel · 17 Juni 2022</p></li><li><a href="https://kumparan.com/urbanid/oknum-polisi-di-sumsel-didakwa-palak-kadis-pupr-muba-rp-10-miliar-1yFIQBT4W7s" rel="noopener nofollow" target="_blank">Oknum Polisi di Sumsel Didakwa Palak Kadis PUPR Muba Rp 10 Miliar</a><p class="berita-meta">kumparan · 10 Juni 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/06/10/sosok-akp-dalizon-terima-suap-rp-5-miliar-mantan-kapolres-oku-timur-terjerat-korupsi-pupr-muba" rel="noopener nofollow" target="_blank">Sosok AKBP Dalizon Terima Suap Rp 5 Miliar, Mantan Kapolres OKU Timur Terjerat Korupsi PUPR Muba</a><p class="berita-meta">tribun-sumsel · 10 Juni 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/06/10/breaking-news-akbp-dalizon-mantan-kapolres-oku-timur-terima-uang-suap-rp-5-miliar" rel="noopener nofollow" target="_blank">BREAKING NEWS : AKBP Dalizon Mantan Kapolres OKU Timur Terima Uang Suap Rp 5 Miliar</a><p class="berita-meta">tribun-sumsel · 10 Juni 2022</p></li><li><a href="https://pekanbaru.tribunnews.com/2022/01/24/kapolres-oku-timur-ditahan-di-mabes-polri-terima-suap-rp-2-m-dari-bupati-non-aktif" rel="noopener nofollow" target="_blank">Kapolres OKU Timur Ditahan di Mabes Polri, Terima Suap Rp 2 M dari Bupati Non Aktif</a><p class="berita-meta">tribun-pekanbaru · 24 Januari 2022</p></li><li><a href="https://www.cnnindonesia.com/nasional/20220122190456-12-750005/kapolda-respons-soal-kapolres-oku-dicopot-berkaitan-uang-kasus-muba" rel="noopener nofollow" target="_blank">Kapolda Respons soal Kapolres OKU Dicopot Berkaitan Uang Kasus Muba</a><p class="berita-meta">cnnindonesia · 23 Januari 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/01/21/oknum-polisi-polda-sumsel-disebut-terima-rp-2-miliar-pengamanan-proyek-pupr-muba-ini-kata-kapolda" rel="noopener nofollow" target="_blank">Oknum Polisi Polda Sumsel Disebut Terima Rp 2 Miliar Pengamanan Proyek PUPR Muba, Ini Kata Kapolda</a><p class="berita-meta">tribun-sumsel · 21 Januari 2022</p></li><li><a href="https://sumsel.tribunnews.com/2022/01/20/polda-sumsel-tanggapi-oknum-polisi-disebut-disidang-dugaan-suap-bupati-muba" rel="noopener nofollow" target="_blank">Polda Sumsel Tanggapi Oknum Polisi Disebut Disidang Dugaan Suap Bupati MUBA</a><p class="berita-meta">tribun-sumsel · 20 Januari 2022</p></li></ul><p class="panel-note">Menampilkan 60 berita terbaru dari 62; 2 berita lainnya tidak ditampilkan.</p></div></section>
+
+  <div class="footnote">
+    <p>Isi halaman ini adalah <b>dugaan</b> yang dilaporkan media, bukan putusan
+      pengadilan atau sanksi etik. Ringkasan disusun otomatis dari berita yang
+      tertaut dan dapat memuat kekeliruan yang berasal dari sumbernya. Cara data
+      ini dikumpulkan dijelaskan di <a href="../metodologi.html">halaman
+      metodologi</a>.</p>
+    <p class="baris-editor"><a href="../editor.html">Masuk sebagai editor</a>
+      <span class="editor-aktif">Mode editor aktif — klik nilai mana pun untuk
+      mengoreksinya.</span></p>
+  </div>
+</main>
+<script type="application/json" id="pilihan-editor">{"pelanggaran": ["Desersi", "Diskriminasi", "Eksploitasi seksual", "Intimidasi", "Kekerasan dalam rumah tangga", "Kekerasan fisik", "Kekerasan seksual", "Kekerasan seksual terhadap anak", "Kekerasan terhadap tahanan hingga meninggal", "Kelalaian yang menyebabkan kematian", "Korupsi", "Kriminalisasi", "Menghilangkan atau memanipulasi barang bukti", "Narkotika", "Pelanggaran atau kejahatan lalu lintas", "Pelanggaran etik", "Pelanggaran lainnya", "Pelanggaran privasi", "Pembunuhan", "Pembunuhan berencana", "Pembunuhan di luar proses hukum", "Pemerasan", "Pemerkosaan", "Penahanan sewenang-wenang", "Penculikan", "Pencurian atau perampokan", "Penganiayaan", "Penggelapan", "Penggunaan kekuatan berlebihan", "Penipuan", "Penyalahgunaan atau kepemilikan senjata ilegal", "Penyalahgunaan wewenang", "Penyiksaan", "Perdagangan orang", "Perintangan penyidikan", "Perjudian", "Perselingkuhan", "Pungli", "Represi digital", "Salah tangkap atau penangkapan sewenang-wenang", "Suap", "Tabrak lari", "Tidak diketahui"], "provinsi": ["Aceh", "Bali", "Banten", "Bengkulu", "DI Yogyakarta", "DKI Jakarta", "Gorontalo", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Barat", "Kalimantan Selatan", "Kalimantan Tengah", "Kalimantan Timur", "Kalimantan Utara", "Kep. Bangka Belitung", "Kepulauan Riau", "Lampung", "Maluku", "Maluku Utara", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Papua", "Papua Barat", "Papua Barat Daya", "Papua Pegunungan", "Papua Selatan", "Papua Tengah", "Riau", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tengah", "Sulawesi Tenggara", "Sulawesi Utara", "Sumatera Barat", "Sumatera Selatan", "Sumatera Utara"]}</script>
+<script>
+(function () {
+  var KODE = document.body.dataset.kasus;
+  var API = "/.netlify/functions/koreksi";
+  var PILIHAN = JSON.parse(document.getElementById("pilihan-editor").textContent);
+  var SITUS_IDENTITY = document.body.dataset.situs || "";
+  var BARIS_PANJANG = { ringkasan: 1 };
+  var user = null;
+
+  var BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli",
+               "Agustus","September","Oktober","November","Desember"];
+  function tanggalTeks(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || "");
+    if (!m) return s;
+    return parseInt(m[3],10) + " " + BULAN[parseInt(m[2],10)-1] + " " + m[1];
+  }
+
+  function sel(field) { return document.querySelector('[data-field="' + field + '"]'); }
+
+  // Koreksi ditempelkan untuk semua pengunjung, bukan cuma editor: begitu
+  // seorang editor menyimpan, pembaca berikutnya langsung melihat nilai yang
+  // sudah dibetulkan, tanpa menunggu situs dibangun ulang malam nanti.
+  function tempel(koreksi) {
+    Object.keys(koreksi || {}).forEach(function (field) {
+      var el = sel(field);
+      if (!el) return;
+      var nilai = koreksi[field].nilai;
+      if (field === "ringkasan") {
+        el.classList.remove("kosong");
+        el.innerHTML = "";
+        nilai.split("\n\n").forEach(function (p) {
+          if (!p.trim()) return;
+          var node = document.createElement("p");
+          node.textContent = p.trim();
+          el.appendChild(node);
+        });
+      } else {
+        el.textContent = field === "tanggal_kejadian" ? tanggalTeks(nilai) : nilai;
+      }
+      // Sengaja tidak menulis siapa yang mengoreksi: kolom `oleh` memuat
+      // alamat surel editor, dan halaman kasus terbuka untuk umum.
+    });
+  }
+
+  fetch(API + "?kasus=" + encodeURIComponent(KODE))
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d) tempel(d.koreksi); })
+    .catch(function () { /* koreksi gagal dimuat: halaman tetap tampil apa adanya */ });
+
+  function nilaiSekarang(el, field) {
+    if (field === "ringkasan") {
+      return Array.prototype.map.call(el.querySelectorAll("p"), function (p) {
+        return p.textContent.trim();
+      }).join("\n\n");
+    }
+    var t = el.textContent.trim();
+    return t === "Tidak diketahui" ? "" : t;
+  }
+
+  function sunting(el, field) {
+    if (el.querySelector(".sunting")) return;
+    var lama = nilaiSekarang(el, field);
+    var kotak = document.createElement("div");
+    kotak.className = "sunting";
+
+    var input;
+    if (PILIHAN[field]) {
+      input = document.createElement("select");
+      var kosong = document.createElement("option");
+      kosong.value = ""; kosong.textContent = "— kosongkan —";
+      input.appendChild(kosong);
+      PILIHAN[field].forEach(function (p) {
+        var o = document.createElement("option");
+        o.value = p; o.textContent = p;
+        if (p === lama) o.selected = true;
+        input.appendChild(o);
+      });
+    } else if (BARIS_PANJANG[field]) {
+      input = document.createElement("textarea");
+      input.rows = 8; input.value = lama;
+    } else {
+      input = document.createElement("input");
+      input.type = "text"; input.value = lama;
+      if (field === "tanggal_kejadian") input.placeholder = "YYYY-MM-DD";
+    }
+
+    var alasan = document.createElement("input");
+    alasan.type = "text";
+    alasan.placeholder = "Alasan koreksi (untuk catatan, boleh kosong)";
+    alasan.className = "alasan";
+
+    var simpan = document.createElement("button");
+    simpan.textContent = "Simpan";
+    simpan.className = "utama";
+    var batal = document.createElement("button");
+    batal.textContent = "Batal";
+    var pesan = document.createElement("span");
+    pesan.className = "pesan-sunting";
+
+    var alat = document.createElement("div");
+    alat.className = "alat";
+    alat.appendChild(simpan); alat.appendChild(batal); alat.appendChild(pesan);
+    kotak.appendChild(input); kotak.appendChild(alasan); kotak.appendChild(alat);
+
+    var isiLama = el.innerHTML;
+    el.innerHTML = "";
+    el.appendChild(kotak);
+    input.focus();
+
+    batal.addEventListener("click", function () { el.innerHTML = isiLama; pasang(); });
+
+    simpan.addEventListener("click", function () {
+      simpan.disabled = true;
+      pesan.textContent = "menyimpan…";
+      user.jwt().then(function (token) {
+        return fetch(API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json",
+                     Authorization: "Bearer " + token },
+          body: JSON.stringify({ kasus: KODE, field: field,
+                                 nilai: input.value, alasan: alasan.value }),
+        });
+      }).then(function (r) {
+        return r.json().then(function (d) { return { ok: r.ok, d: d }; });
+      }).then(function (hasil) {
+        if (!hasil.ok) throw new Error(hasil.d.galat || "gagal menyimpan");
+        el.innerHTML = isiLama;
+        var koreksi = {};
+        koreksi[field] = hasil.d;
+        if (hasil.d.nilai === "") { el.textContent = "Tidak diketahui"; }
+        else { tempel(koreksi); }
+        pasang();
+      }).catch(function (galat) {
+        simpan.disabled = false;
+        pesan.textContent = galat.message;
+        pesan.classList.add("galat");
+      });
+    });
+  }
+
+  function pasang() {
+    if (!user) return;
+    document.querySelectorAll("[data-field]").forEach(function (el) {
+      if (el.dataset.siap === "1") return;
+      el.dataset.siap = "1";
+      el.classList.add("dapat-disunting");
+      el.addEventListener("click", function (ev) {
+        if (ev.target.closest("a") || ev.target.closest(".sunting")) return;
+        sunting(el, el.dataset.field);
+      });
+    });
+    document.body.classList.add("mode-editor");
+  }
+
+  // Widget Netlify Identity sengaja tidak dimuat untuk pembaca biasa: skrip
+  // pihak ketiga yang tidak mereka butuhkan tetap saja melacak dan
+  // memperlambat. Baru diambil ketika seseorang menyatakan diri editor, atau
+  // ketika tautan undangan dibuka.
+  function muatIdentity(sesudah) {
+    // Widget bisa sudah dimuat lebih dulu oleh penangkap tautan pemulihan.
+    // Kalau begitu, penangan di bawah tidak pernah terpasang dan sesi yang
+    // sudah aktif tidak dikenali — orang yang baru saja masuk lewat tautan
+    // akan mengira mode editor tidak berfungsi.
+    if (window.netlifyIdentity) {
+      try { user = window.netlifyIdentity.currentUser(); } catch (e) { user = null; }
+      if (user) pasang();
+      sesudah();
+      return;
+    }
+    var s = document.createElement("script");
+    s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    s.onload = function () {
+      // Di server lokal, widget tidak tahu situs Netlify mana yang harus
+      // ditanyai dan memunculkan dialog "Development Settings" yang meminta
+      // URL diketik manual. Alamatnya sudah kita ketahui saat membangun
+      // situs, jadi diberikan langsung. Di situs sungguhan alamat ini tidak
+      // dipakai — widget membacanya sendiri dari host tempat ia berjalan,
+      // sehingga pindah domain nanti tidak akan mematahkannya.
+      var lokal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      var opsi = (lokal && SITUS_IDENTITY)
+        ? { APIUrl: SITUS_IDENTITY.replace(/\/$/, "") + "/.netlify/identity" }
+        : undefined;
+      window.netlifyIdentity.on("init", function (u) {
+        user = u;
+        if (u) pasang();
+      });
+      window.netlifyIdentity.on("login", function (u) {
+        user = u; window.netlifyIdentity.close(); pasang();
+      });
+      window.netlifyIdentity.on("logout", function () { location.reload(); });
+      window.netlifyIdentity.init(opsi);
+      sesudah();
+    };
+    document.head.appendChild(s);
+  }
+
+  var tombol = document.getElementById("masuk-editor");
+  tombol.addEventListener("click", function (ev) {
+    ev.preventDefault();
+    muatIdentity(function () {
+      if (user) window.netlifyIdentity.logout();
+      else window.netlifyIdentity.open();
+    });
+  });
+  // Kode undangan ditangani SKRIP_UNDANGAN yang ada di semua halaman, jadi
+  // tidak diulang di sini — dua pemuat yang berjalan bersamaan akan berebut
+  // menginisialisasi widget yang sama.
+})();
+
+(function () {
+  // Jalan keluar dari kode yang sudah mati: alamat bersih tanpa kode, lalu
+  // form login dibuka langsung supaya "Forgot password?" ada di depan mata.
+  if (/[?&]login=1/.test(location.search)) {
+    var ket = document.createElement("div");
+    ket.setAttribute("role", "status");
+    ket.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+      "background:#000;color:#fff;padding:12px 18px;text-align:center;" +
+      "font:13px/1.5 system-ui,sans-serif";
+    ket.textContent = "Halaman masuk. Membukanya tidak mengirim surel apa pun, "
+      + "jadi aman dibuka berkali-kali. Surel hanya terkirim kalau kamu menekan "
+      + "Forgot password.";
+    (document.body ? Promise.resolve() : new Promise(function (r) {
+      document.addEventListener("DOMContentLoaded", r);
+    })).then(function () { document.body.appendChild(ket); });
+    var sl = document.createElement("script");
+    sl.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    sl.onload = function () {
+      // Sama seperti jalur pemulihan: jangan tutup dan jangan pindah halaman
+      // saat login, supaya form penetapan kata sandi tidak ikut hilang.
+      window.netlifyIdentity.on("login", function (u) {
+        ket.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor")
+          + ". Kalau kotak kata sandi masih terbuka, isi dan simpan sekarang.";
+      });
+      window.netlifyIdentity.init();
+      setTimeout(function () { window.netlifyIdentity.open("login"); }, 400);
+    };
+    document.head.appendChild(sl);
+    return;
+  }
+
+  var hash = location.hash || "";
+  // Ditangkap luas, bukan hanya tiga token yang diharapkan. Kalau Netlify
+  // mengirim bentuk lain — `access_token`, `error` — kegagalannya harus
+  // KELIHATAN, bukan berupa halaman depan biasa yang membingungkan orang
+  // yang sedang menunggu form kata sandi.
+  if (!/[#&](invite_token|recovery_token|confirmation_token|email_change_token|access_token|error)=/.test(hash)) return;
+
+  var jenis = (hash.match(/[#&](\w+)=/) || [])[1] || "tidak dikenal";
+  var papan = document.createElement("div");
+  papan.setAttribute("role", "status");
+  papan.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+    "background:#000;color:#fff;padding:14px 18px;font:14px/1.5 system-ui,sans-serif;" +
+    "text-align:center";
+  papan.textContent = "Menyiapkan form kata sandi…";
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.appendChild(papan);
+  });
+  if (document.body) document.body.appendChild(papan);
+
+  var sebabTerakhir = "";
+
+  function gagal(sebab) { sebabTerakhir = sebab; tawarkan(); }
+
+  // Selalu sisakan jalan keluar yang bisa diklik. Form yang terbuka lalu
+  // tertutup sendiri terlihat sama saja dengan tidak terjadi apa-apa, dan
+  // orang yang menunggu kata sandi tidak punya cara menebak apa yang salah.
+  function tawarkan() {
+    var w = document.querySelector("#netlify-identity-widget");
+    if (w && w.offsetHeight > 200) return;   // masih terbuka, jangan ganggu
+    papan.innerHTML = "";
+    var t = document.createElement("p");
+    t.style.cssText = "margin:0 0 8px;font-weight:700";
+    t.textContent = "Form kata sandi tertutup sebelum selesai.";
+    var d = document.createElement("p");
+    d.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+    d.textContent = "Jenis kode: " + jenis +
+      (sebabTerakhir ? " · sebab: " + sebabTerakhir : "") +
+      " · kemungkinan kodenya sudah terpakai atau kedaluwarsa.";
+    var b = document.createElement("button");
+    b.textContent = "Buka form lagi";
+    b.style.cssText = "font:inherit;font-size:13px;font-weight:700;cursor:pointer;" +
+      "padding:7px 16px;border:2px solid #fff;background:#fff;color:#000";
+    b.onclick = function () { try { window.netlifyIdentity.open(); } catch (e) {} };
+    papan.appendChild(t); papan.appendChild(d); papan.appendChild(b);
+  }
+
+  var s = document.createElement("script");
+  s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  s.onerror = function () { gagal("skrip Netlify tidak bisa dimuat"); };
+  s.onload = function () {
+    // JANGAN menutup widget atau berpindah halaman di sini. Pada jalur
+    // pemulihan, Netlify memasukkan orang LEBIH DULU tanpa kata sandi, baru
+    // menampilkan form penetapan kata sandi. Versi sebelumnya menutup widget
+    // dan melempar ke halaman lain tepat di titik itu — form-nya tidak pernah
+    // terlihat, tidak ada kata sandi tersimpan, dan begitu logout orang itu
+    // terkunci sampai harus meminta tautan baru.
+    window.netlifyIdentity.on("login", function (u) {
+      papan.innerHTML = "";
+      var p1 = document.createElement("p");
+      p1.style.cssText = "margin:0 0 4px;font-weight:700";
+      p1.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor") + ".";
+      var p2 = document.createElement("p");
+      p2.style.cssText = "margin:0;font-size:13px;opacity:.85";
+      p2.textContent = "Kalau kotak kata sandi masih terbuka, isi kata sandi "
+        + "barumu SEKARANG lalu simpan — sebelum menutup apa pun. Tanpa itu "
+        + "kamu perlu tautan pemulihan baru untuk masuk lagi.";
+      papan.appendChild(p1); papan.appendChild(p2);
+    });
+    window.netlifyIdentity.on("error", function (e) {
+      gagal("Netlify menolak: " + (e && e.message ? e.message : "sebab tidak disebutkan"));
+    });
+    // Widget menutup dirinya sendiri kalau tokennya ditolak, dan halaman
+    // kembali kosong tanpa penjelasan. Penutupan itu ditangkap supaya
+    // penyebabnya terlihat, bukan menyisakan orang menatap halaman depan.
+    window.netlifyIdentity.on("close", function () { tawarkan(); });
+    window.netlifyIdentity.init();
+    setTimeout(function () {
+      var w = document.querySelector("#netlify-identity-widget");
+      if (!(w && w.offsetHeight > 200)) {
+        try { window.netlifyIdentity.open(); } catch (e) {}
+        setTimeout(tawarkan, 1200);
+      } else {
+        // Widget tetap membuka kotak meski kodenya sudah terpakai — kotaknya
+        // muncul kosong, dan itu terlihat seperti berhasil. Disebutkan
+        // terus terang supaya tidak ditunggui percuma.
+        // Tinggi kotak BUKAN tanda berhasil: widget yang rusak karena kode
+        // kedaluwarsa tetap membuat kotak setinggi 994 piksel, hanya isinya
+        // tidak pernah digambar. Karena itu jalan keluarnya selalu
+        // ditawarkan, bukan hanya saat kegagalan berhasil terdeteksi.
+        papan.innerHTML = "";
+        var a = document.createElement("p");
+        a.style.cssText = "margin:0 0 4px;font-weight:700";
+        a.textContent = "Isi kata sandi barumu di kotak yang muncul.";
+        var b2 = document.createElement("p");
+        b2.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+        b2.textContent = "Kotaknya kosong? Berarti kode di tautan ini sudah "
+          + "kedaluwarsa atau terpakai.";
+        var b3 = document.createElement("button");
+        b3.textContent = "Buka form login untuk minta kode baru";
+        b3.style.cssText = "font:inherit;font-size:13px;font-weight:700;" +
+          "cursor:pointer;padding:7px 16px;border:2px solid #fff;" +
+          "background:#fff;color:#000";
+        b3.onclick = function () {
+          location.replace(location.pathname + "?login=1");
+        };
+        papan.appendChild(a); papan.appendChild(b2); papan.appendChild(b3);
+      }
+    }, 1000);
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
