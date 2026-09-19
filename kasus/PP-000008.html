@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fajar Widyadharma Lukman Sumaatmaja — Narkotika — Nusa Tenggara Timur — Lapor Komandan!</title>
+<meta name="description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-000008.">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lapor Komandan!">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Fajar Widyadharma Lukman Sumaatmaja — Narkotika — Nusa Tenggara Timur — Lapor Komandan!">
+<meta property="og:description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-000008.">
+<meta property="og:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kartu Lapor Komandan! berisi jumlah kasus dugaan pelanggaran polisi yang tercatat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fajar Widyadharma Lukman Sumaatmaja — Narkotika — Nusa Tenggara Timur — Lapor Komandan!">
+<meta name="twitter:description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-000008.">
+<meta name="twitter:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* Latar putih dikunci: situs ini sengaja hanya punya satu tampilan. */
+:root {
+  color-scheme: light;
+  --kertas:  #ffffff;
+  --tinta:   #000000;
+  --tinta-2: #4a4a4a;
+  --tinta-3: #8a8a8a;
+  --garis:   #000000;
+  --pudar:   #e6e6e6;
+}
+
+body {
+  margin: 0;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg { shape-rendering: crispEdges; }
+img, svg { max-width: 100%; }
+
+a { color: var(--tinta); }
+
+/* Judul pixel: lebar mengikuti wadah, tinggi ikut proporsi. */
+.judul-pixel { display: block; width: 100%; height: auto; color: var(--tinta); }
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.masthead { border-bottom: 3px solid var(--garis); }
+.masthead-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  /* padding-block saja — padding kiri-kanan datang dari .wrap dan jangan
+     tertimpa, kalau tidak logonya mepet ke tepi layar. */
+  padding-block: 16px;
+}
+/* Hanya logo (anak langsung), bukan tautan di dalam .nav. */
+.masthead-inner > a { display: block; width: min(260px, 46vw); text-decoration: none; }
+.masthead-meta { font-size: .75rem; color: var(--tinta-2); text-align: right; }
+
+.nav { display: flex; gap: 16px; align-items: center; }
+.nav a {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; text-decoration: none; color: var(--tinta-2);
+  border-bottom: 3px solid transparent; padding-bottom: 2px;
+}
+.nav a:hover { color: var(--tinta); }
+.nav a[aria-current="page"] { color: var(--tinta); border-bottom-color: var(--garis); }
+
+.page-head { padding: 40px 0 4px; }
+.page-head h1 {
+  font-size: clamp(1.4rem, 3.4vw, 1.9rem); font-weight: 700;
+  letter-spacing: -.01em; margin: 0 0 10px;
+}
+.page-head p { margin: 0; color: var(--tinta-2); max-width: 62ch; }
+.backlink {
+  display: inline-block; margin-bottom: 18px; font-size: .8125rem;
+  color: var(--tinta-2); text-decoration: none;
+  border-bottom: 2px solid var(--pudar); padding-bottom: 2px;
+}
+.backlink:hover { border-color: var(--garis); color: var(--tinta); }
+
+/* ---------- halaman satu kasus ---------- */
+.case-title a { text-decoration: none; border-bottom: 2px solid var(--pudar); }
+.case-title a:hover { border-color: var(--garis); }
+
+.kasus-kode {
+  font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--tinta-2); margin: 0 0 8px;
+}
+.kasus-ringkasan { margin: 24px 0 0; padding: 20px; border: 3px solid var(--garis); }
+.kasus-ringkasan p { margin: 0 0 12px; max-width: 66ch; }
+.kasus-ringkasan p:last-child { margin-bottom: 0; }
+.kasus-ringkasan.kosong { border-style: dashed; color: var(--tinta-2); }
+
+/* Catatan terbuka: bagian yang belum berpijak pada beritanya. Dibuat
+   menonjol tapi tidak seperti peringatan bahaya — ini soal ketelitian
+   data, bukan tuduhan terhadap orangnya. */
+.kasus-periksa {
+  margin: 24px 0 0; padding: 16px 20px;
+  border: 3px solid var(--garis); border-left-width: 10px;
+  background: var(--kertas);
+}
+.kasus-periksa p { margin: 0; max-width: 66ch; font-size: .9375rem; }
+
+/* Donat silang. Warna dipakai untuk identitas irisan, tapi TIDAK sendirian:
+   tiap irisan besar diberi label langsung, dan tabel angkanya selalu bisa
+   dibuka — syarat dari pemisahan buta warna yang ada di pita batas. */
+.donat-baris {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px; margin: 8px 0 20px;
+}
+.donat { margin: 0; text-align: center; }
+.donat svg { width: 100%; max-width: 160px; height: auto; }
+.donat-iris { transition: opacity .15s; }
+.donat:hover .donat-iris { opacity: .45; }
+.donat .donat-iris:hover { opacity: 1; }
+.donat-inti-n {
+  text-anchor: middle; font-size: 22px; font-weight: 800; fill: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+.donat-inti-l { text-anchor: middle; font-size: 10px; fill: var(--tinta-2); }
+.donat figcaption {
+  margin-top: 10px; font-size: .8125rem; font-weight: 700; line-height: 1.4;
+}
+.donat-besar { list-style: none; margin: 6px 0 0; padding: 0; font-weight: 400; }
+.donat-besar li {
+  font-size: .75rem; color: var(--tinta-2); margin: 2px 0;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+.donat-besar b { color: var(--tinta); font-variant-numeric: tabular-nums; }
+.donat-legenda {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px;
+  padding: 0; margin: 0 0 14px; font-size: .8125rem; color: var(--tinta-2);
+}
+.donat-legenda li { display: flex; align-items: center; gap: 7px; }
+.donat-titik {
+  width: 11px; height: 11px; border-radius: 50%; flex: none;
+  display: inline-block;
+}
+
+/* Tabel silang, dipakai sebagai pendamping donat. */
+.gulir-x { overflow-x: auto; }
+table.silang { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .875rem; }
+table.silang th, table.silang td {
+  text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--garis-tipis);
+  vertical-align: middle;
+}
+table.silang thead th {
+  font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--tinta-2); border-bottom: 2px solid var(--tinta); white-space: nowrap;
+}
+table.silang tbody th { font-weight: 700; white-space: nowrap; }
+.silang-total { display: block; font-size: .75rem; font-weight: 400; color: var(--tinta-2); }
+.silang-sel { position: relative; min-width: 78px; }
+.silang-bar {
+  position: absolute; left: 0; top: 4px; bottom: 4px;
+  background: var(--tinta); opacity: .12; pointer-events: none;
+}
+.silang-angka { position: relative; font-variant-numeric: tabular-nums; font-weight: 700; }
+.silang-n { position: relative; display: block; font-size: .75rem; color: var(--tinta-2); }
+
+/* Editor. Semuanya tersembunyi sampai seseorang benar-benar masuk — pembaca
+   biasa tidak boleh melihat jejak antarmuka yang tak bisa mereka pakai. */
+.baris-editor { margin-top: 14px; font-size: .8125rem; }
+.baris-editor a { color: var(--tinta-2); }
+.baris-editor a:hover { color: var(--tinta); }
+.editor-aktif { display: none; margin-left: 12px; color: var(--tinta-2); }
+.mode-editor .editor-aktif { display: inline; }
+.mode-editor .dapat-disunting {
+  cursor: pointer; outline: 2px dashed var(--tinta-3); outline-offset: 3px;
+}
+.mode-editor .dapat-disunting:hover { outline-color: var(--tinta); }
+/* Nilai yang sudah dikoreksi TIDAK diberi label siapa yang mengoreksinya.
+   Label itu dulu mencetak isi kolom `oleh` apa adanya ke halaman publik —
+   artinya alamat surel editor ikut tayang ke siapa pun yang membuka halaman
+   kasus. Pembaca juga tidak butuh tahu tangan siapa yang menyentuh baris mana;
+   yang mereka butuhkan nilainya benar. */
+.sunting { display: flex; flex-direction: column; gap: 8px; }
+.sunting input, .sunting select, .sunting textarea {
+  font: inherit; font-size: .9375rem; padding: 8px 10px;
+  border: 2px solid var(--tinta); background: var(--kertas); color: var(--tinta);
+  width: 100%; max-width: 60ch;
+}
+.sunting .alasan { font-size: .8125rem; }
+.sunting .alat { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.sunting button {
+  font: inherit; font-size: .8125rem; font-weight: 700; cursor: pointer;
+  padding: 7px 14px; border: 2px solid var(--tinta);
+  background: var(--kertas); color: var(--tinta);
+}
+.sunting button.utama { background: var(--tinta); color: var(--kertas); }
+.sunting button[disabled] { opacity: .5; cursor: default; }
+.pesan-sunting { font-size: .8125rem; color: var(--tinta-2); }
+.pesan-sunting.galat { color: #a8321e; font-weight: 700; }
+
+.fakta { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.fakta th, .fakta td {
+  text-align: left; vertical-align: top; padding: 8px 0;
+  border-bottom: 1px solid var(--pudar); font-size: .9375rem;
+}
+.fakta th { width: 34%; font-weight: 600; color: var(--tinta-2); padding-right: 16px; }
+
+.berita { list-style: none; margin: 0; padding: 0; }
+.berita li { padding: 12px 0; border-top: 1px solid var(--pudar); }
+.berita li:first-child { border-top: 0; }
+.berita a { font-weight: 600; font-size: .9375rem; }
+.berita .berita-meta { font-size: .8125rem; color: var(--tinta-2); margin: 3px 0 0; }
+
+/* ---------- daftar seluruh kasus ---------- */
+.saring input[type="search"] {
+  font: inherit; font-size: 1rem; color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0; padding: 6px 10px;
+  min-width: 220px; appearance: none;
+}
+.saring input[type="search"]::placeholder { color: var(--tinta-3); }
+.daftar-hitung { margin: 20px 0 0; font-size: .875rem; color: var(--tinta-2); }
+.daftar-hitung b { color: var(--tinta); }
+.daftar-kosong { margin: 24px 0; padding: 20px; border: 3px dashed var(--garis); color: var(--tinta-2); }
+/* Penyaring yang datang dari halaman lain harus kelihatan, kalau tidak
+   pembaca mengira daftarnya memang sependek itu. */
+.saring-aktif {
+  margin: 18px 0 0; padding: 11px 14px; border-left: 6px solid var(--tinta);
+  background: #f4f4f2; font-size: .875rem; color: var(--tinta-2);
+}
+.saring-aktif b { color: var(--tinta); }
+.saring-aktif a { margin-left: 4px; }
+#daftar-kasus { margin-top: 8px; }
+#daftar-kasus li[hidden] { display: none; }
+
+.lihat-semua { margin: 16px 0 0; }
+.lihat-semua a {
+  font-size: .875rem; font-weight: 700; text-decoration: none;
+  border-bottom: 3px solid var(--pudar); padding-bottom: 2px;
+}
+.lihat-semua a:hover { border-color: var(--garis); }
+
+/* ---------- penyaring tahun ---------- */
+.saring {
+  display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap;
+  margin: 24px 0 0; padding: 14px 16px; border: 3px solid var(--garis);
+}
+.saring-grup { display: flex; align-items: center; gap: 10px; }
+.saring label {
+  font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.saring select {
+  font: inherit; font-size: 1rem; font-weight: 700;
+  color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0;
+  padding: 6px 34px 6px 10px; cursor: pointer;
+  appearance: none;
+  /* Panah kotak-kotak, digambar sebagai gradien supaya tetap tanpa berkas. */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--tinta) 50%),
+    linear-gradient(135deg, var(--tinta) 50%, transparent 50%);
+  background-position: right 15px top 50%, right 10px top 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.saring select:focus-visible { outline: 3px solid var(--tinta); outline-offset: 2px; }
+.saring select:disabled {
+  color: var(--tinta-3); border-color: var(--pudar); cursor: not-allowed;
+  background-image: none;
+}
+.saring .saring-info { font-size: .8125rem; color: var(--tinta-2); }
+.panel-kosong { font-size: .875rem; color: var(--tinta-2); margin: 0; }
+
+.kpi-row {
+  display: grid; gap: 0; margin: 26px 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  border: 3px solid var(--garis);
+}
+.kpi { padding: 16px 18px; border-right: 3px solid var(--garis); }
+.kpi:last-child { border-right: 0; }
+.kpi-value {
+  font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em;
+  line-height: 1.1; margin: 0 0 3px;
+}
+.kpi-label { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+
+section.panel {
+  border: 3px solid var(--garis);
+  padding: 22px; margin: 14px 0 0;
+}
+.panel h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 0 0 6px;
+}
+.panel .sub { font-size: .875rem; color: var(--tinta-2); margin: 0 0 20px; max-width: 66ch; }
+.panel-note { font-size: .8125rem; color: var(--tinta-2); margin: 18px 0 0; }
+
+.grid-2 { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-top: 14px; }
+.grid-2 > section.panel { margin-top: 0; }
+@media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* ---------- bar chart ---------- */
+.bars { display: flex; flex-direction: column; gap: 3px; }
+.bar-row {
+  display: grid; grid-template-columns: minmax(96px, 40%) 1fr auto;
+  gap: 12px; align-items: center; padding: 4px 6px; margin: 0 -6px;
+}
+.bar-row:hover { background: #f2f2f2; }
+/* Batang yang bisa diklik membuka daftar kasusnya. Garis bawah hanya muncul
+   saat disentuh kursor: kalau selalu ada, panel penuh batang jadi berisik. */
+a.bar-tautan { display: block; color: inherit; text-decoration: none; }
+a.bar-tautan:hover .bar-name,
+a.bar-tautan:focus-visible .bar-name { color: var(--tinta); text-decoration: underline; }
+a.bar-tautan:focus-visible { outline: 2px solid var(--tinta); outline-offset: 1px; }
+.bar-name {
+  font-size: .875rem; color: var(--tinta-2);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.bar-track { min-height: 16px; display: flex; align-items: center; }
+.bar-fill { height: 12px; background: var(--tinta); min-width: 3px; }
+.bar-value {
+  font-size: .875rem; font-weight: 700; color: var(--tinta);
+  font-variant-numeric: tabular-nums; min-width: 3.4em; text-align: right;
+}
+.bar-value .pct { font-weight: 400; color: var(--tinta-3); font-size: .8125rem; }
+
+/* ---------- tren ---------- */
+.trend { position: relative; }
+.trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+.trend-tip {
+  position: absolute; pointer-events: none; opacity: 0;
+  transform: translate(-50%, -100%);
+  background: var(--tinta); color: var(--kertas);
+  padding: 5px 9px; font-size: .8125rem; line-height: 1.35;
+  white-space: nowrap; transition: opacity .1s; z-index: 2;
+}
+.trend-tip b { display: block; font-weight: 700; }
+
+/* ---------- daftar kasus ---------- */
+.cases { list-style: none; margin: 0; padding: 0; }
+.cases li {
+  padding: 13px 0; border-top: 1px solid var(--pudar);
+  display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: baseline;
+}
+.cases li:first-child { border-top: 0; padding-top: 0; }
+.case-title { font-size: .9375rem; font-weight: 600; margin: 0 0 3px; line-height: 1.4; }
+.case-meta { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+.case-date {
+  font-size: .8125rem; color: var(--tinta-2); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- tabel ---------- */
+.table-toggle {
+  margin-top: 16px; background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; font-size: .8125rem; color: var(--tinta-2);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.table-toggle:hover { color: var(--tinta); }
+.table-wrap { display: none; margin-top: 12px; overflow-x: auto; }
+.table-wrap.open { display: block; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+th, td { text-align: left; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--pudar); }
+th { font-weight: 700; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.footnote {
+  margin-top: 40px; padding: 20px 0 60px; border-top: 3px solid var(--garis);
+  font-size: .8125rem; line-height: 1.7; color: var(--tinta-2);
+}
+.footnote p { margin: 0 0 8px; max-width: 76ch; }
+.footnote p:last-child { margin-bottom: 0; }
+.footnote a { color: var(--tinta); font-weight: 600; }
+
+/* ---------- halaman metodologi ---------- */
+.teks { max-width: 68ch; padding-bottom: 72px; }
+.teks h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 44px 0 12px;
+  padding-top: 16px; border-top: 3px solid var(--garis);
+}
+.teks h3 { font-size: 1rem; font-weight: 700; margin: 26px 0 6px; }
+.teks p { margin: 0 0 14px; }
+.teks ul { margin: 0 0 14px; padding-left: 20px; }
+.teks li { margin: 0 0 7px; }
+.teks code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: .875em; background: #f2f2f2; padding: 1px 5px;
+}
+.teks .sorot { border: 3px solid var(--garis); padding: 16px 18px; margin: 0 0 18px; }
+.teks .sorot p:last-child { margin-bottom: 0; }
+.daftar-isi { margin: 24px 0 8px; padding: 0; list-style: none; }
+.daftar-isi li { margin: 0 0 6px; }
+.daftar-isi a { color: var(--tinta); }
+
+@media (max-width: 620px) {
+  .masthead-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .masthead-inner > a { width: min(230px, 64vw); }
+  .masthead-meta { text-align: left; }
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .kpi { border-bottom: 3px solid var(--garis); }
+  .kpi:nth-child(2n) { border-right: 0; }
+  .kpi:nth-last-child(-n+2) { border-bottom: 0; }
+  .bar-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name value" "track track";
+    row-gap: 4px; padding-bottom: 8px;
+  }
+  .bar-name { grid-area: name; white-space: normal; }
+  .bar-value { grid-area: value; }
+  .bar-track { grid-area: track; min-height: 0; }
+  .cases li { grid-template-columns: 1fr; }
+  .case-date { order: -1; }
+}
+</style>
+</head>
+<body data-kasus="PP-000008" data-situs="https://pantaupolisi.netlify.app">
+
+<header class="masthead"><div class="wrap masthead-inner">
+  <a href="../index.html"><svg class="judul-pixel" viewBox="0 0 89 7" role="img" aria-label="LAPOR KOMANDAN!" preserveAspectRatio="xMidYMid meet"><rect x="0" y="0" width="1" height="1" fill="currentColor"/><rect x="0" y="1" width="1" height="1" fill="currentColor"/><rect x="0" y="2" width="1" height="1" fill="currentColor"/><rect x="0" y="3" width="1" height="1" fill="currentColor"/><rect x="0" y="4" width="1" height="1" fill="currentColor"/><rect x="0" y="5" width="1" height="1" fill="currentColor"/><rect x="0" y="6" width="5" height="1" fill="currentColor"/><rect x="7" y="0" width="3" height="1" fill="currentColor"/><rect x="6" y="1" width="1" height="1" fill="currentColor"/><rect x="10" y="1" width="1" height="1" fill="currentColor"/><rect x="6" y="2" width="1" height="1" fill="currentColor"/><rect x="10" y="2" width="1" height="1" fill="currentColor"/><rect x="6" y="3" width="5" height="1" fill="currentColor"/><rect x="6" y="4" width="1" height="1" fill="currentColor"/><rect x="10" y="4" width="1" height="1" fill="currentColor"/><rect x="6" y="5" width="1" height="1" fill="currentColor"/><rect x="10" y="5" width="1" height="1" fill="currentColor"/><rect x="6" y="6" width="1" height="1" fill="currentColor"/><rect x="10" y="6" width="1" height="1" fill="currentColor"/><rect x="12" y="0" width="4" height="1" fill="currentColor"/><rect x="12" y="1" width="1" height="1" fill="currentColor"/><rect x="16" y="1" width="1" height="1" fill="currentColor"/><rect x="12" y="2" width="1" height="1" fill="currentColor"/><rect x="16" y="2" width="1" height="1" fill="currentColor"/><rect x="12" y="3" width="4" height="1" fill="currentColor"/><rect x="12" y="4" width="1" height="1" fill="currentColor"/><rect x="12" y="5" width="1" height="1" fill="currentColor"/><rect x="12" y="6" width="1" height="1" fill="currentColor"/><rect x="19" y="0" width="3" height="1" fill="currentColor"/><rect x="18" y="1" width="1" height="1" fill="currentColor"/><rect x="22" y="1" width="1" height="1" fill="currentColor"/><rect x="18" y="2" width="1" height="1" fill="currentColor"/><rect x="22" y="2" width="1" height="1" fill="currentColor"/><rect x="18" y="3" width="1" height="1" fill="currentColor"/><rect x="22" y="3" width="1" height="1" fill="currentColor"/><rect x="18" y="4" width="1" height="1" fill="currentColor"/><rect x="22" y="4" width="1" height="1" fill="currentColor"/><rect x="18" y="5" width="1" height="1" fill="currentColor"/><rect x="22" y="5" width="1" height="1" fill="currentColor"/><rect x="19" y="6" width="3" height="1" fill="currentColor"/><rect x="24" y="0" width="4" height="1" fill="currentColor"/><rect x="24" y="1" width="1" height="1" fill="currentColor"/><rect x="28" y="1" width="1" height="1" fill="currentColor"/><rect x="24" y="2" width="1" height="1" fill="currentColor"/><rect x="28" y="2" width="1" height="1" fill="currentColor"/><rect x="24" y="3" width="4" height="1" fill="currentColor"/><rect x="24" y="4" width="1" height="1" fill="currentColor"/><rect x="26" y="4" width="1" height="1" fill="currentColor"/><rect x="24" y="5" width="1" height="1" fill="currentColor"/><rect x="27" y="5" width="1" height="1" fill="currentColor"/><rect x="24" y="6" width="1" height="1" fill="currentColor"/><rect x="28" y="6" width="1" height="1" fill="currentColor"/><rect x="36" y="0" width="1" height="1" fill="currentColor"/><rect x="40" y="0" width="1" height="1" fill="currentColor"/><rect x="36" y="1" width="1" height="1" fill="currentColor"/><rect x="39" y="1" width="1" height="1" fill="currentColor"/><rect x="36" y="2" width="1" height="1" fill="currentColor"/><rect x="38" y="2" width="1" height="1" fill="currentColor"/><rect x="36" y="3" width="2" height="1" fill="currentColor"/><rect x="36" y="4" width="1" height="1" fill="currentColor"/><rect x="38" y="4" width="1" height="1" fill="currentColor"/><rect x="36" y="5" width="1" height="1" fill="currentColor"/><rect x="39" y="5" width="1" height="1" fill="currentColor"/><rect x="36" y="6" width="1" height="1" fill="currentColor"/><rect x="40" y="6" width="1" height="1" fill="currentColor"/><rect x="43" y="0" width="3" height="1" fill="currentColor"/><rect x="42" y="1" width="1" height="1" fill="currentColor"/><rect x="46" y="1" width="1" height="1" fill="currentColor"/><rect x="42" y="2" width="1" height="1" fill="currentColor"/><rect x="46" y="2" width="1" height="1" fill="currentColor"/><rect x="42" y="3" width="1" height="1" fill="currentColor"/><rect x="46" y="3" width="1" height="1" fill="currentColor"/><rect x="42" y="4" width="1" height="1" fill="currentColor"/><rect x="46" y="4" width="1" height="1" fill="currentColor"/><rect x="42" y="5" width="1" height="1" fill="currentColor"/><rect x="46" y="5" width="1" height="1" fill="currentColor"/><rect x="43" y="6" width="3" height="1" fill="currentColor"/><rect x="48" y="0" width="1" height="1" fill="currentColor"/><rect x="52" y="0" width="1" height="1" fill="currentColor"/><rect x="48" y="1" width="2" height="1" fill="currentColor"/><rect x="51" y="1" width="2" height="1" fill="currentColor"/><rect x="48" y="2" width="1" height="1" fill="currentColor"/><rect x="50" y="2" width="1" height="1" fill="currentColor"/><rect x="52" y="2" width="1" height="1" fill="currentColor"/><rect x="48" y="3" width="1" height="1" fill="currentColor"/><rect x="50" y="3" width="1" height="1" fill="currentColor"/><rect x="52" y="3" width="1" height="1" fill="currentColor"/><rect x="48" y="4" width="1" height="1" fill="currentColor"/><rect x="52" y="4" width="1" height="1" fill="currentColor"/><rect x="48" y="5" width="1" height="1" fill="currentColor"/><rect x="52" y="5" width="1" height="1" fill="currentColor"/><rect x="48" y="6" width="1" height="1" fill="currentColor"/><rect x="52" y="6" width="1" height="1" fill="currentColor"/><rect x="55" y="0" width="3" height="1" fill="currentColor"/><rect x="54" y="1" width="1" height="1" fill="currentColor"/><rect x="58" y="1" width="1" height="1" fill="currentColor"/><rect x="54" y="2" width="1" height="1" fill="currentColor"/><rect x="58" y="2" width="1" height="1" fill="currentColor"/><rect x="54" y="3" width="5" height="1" fill="currentColor"/><rect x="54" y="4" width="1" height="1" fill="currentColor"/><rect x="58" y="4" width="1" height="1" fill="currentColor"/><rect x="54" y="5" width="1" height="1" fill="currentColor"/><rect x="58" y="5" width="1" height="1" fill="currentColor"/><rect x="54" y="6" width="1" height="1" fill="currentColor"/><rect x="58" y="6" width="1" height="1" fill="currentColor"/><rect x="60" y="0" width="1" height="1" fill="currentColor"/><rect x="64" y="0" width="1" height="1" fill="currentColor"/><rect x="60" y="1" width="2" height="1" fill="currentColor"/><rect x="64" y="1" width="1" height="1" fill="currentColor"/><rect x="60" y="2" width="1" height="1" fill="currentColor"/><rect x="62" y="2" width="1" height="1" fill="currentColor"/><rect x="64" y="2" width="1" height="1" fill="currentColor"/><rect x="60" y="3" width="1" height="1" fill="currentColor"/><rect x="63" y="3" width="2" height="1" fill="currentColor"/><rect x="60" y="4" width="1" height="1" fill="currentColor"/><rect x="64" y="4" width="1" height="1" fill="currentColor"/><rect x="60" y="5" width="1" height="1" fill="currentColor"/><rect x="64" y="5" width="1" height="1" fill="currentColor"/><rect x="60" y="6" width="1" height="1" fill="currentColor"/><rect x="64" y="6" width="1" height="1" fill="currentColor"/><rect x="66" y="0" width="4" height="1" fill="currentColor"/><rect x="66" y="1" width="1" height="1" fill="currentColor"/><rect x="70" y="1" width="1" height="1" fill="currentColor"/><rect x="66" y="2" width="1" height="1" fill="currentColor"/><rect x="70" y="2" width="1" height="1" fill="currentColor"/><rect x="66" y="3" width="1" height="1" fill="currentColor"/><rect x="70" y="3" width="1" height="1" fill="currentColor"/><rect x="66" y="4" width="1" height="1" fill="currentColor"/><rect x="70" y="4" width="1" height="1" fill="currentColor"/><rect x="66" y="5" width="1" height="1" fill="currentColor"/><rect x="70" y="5" width="1" height="1" fill="currentColor"/><rect x="66" y="6" width="4" height="1" fill="currentColor"/><rect x="73" y="0" width="3" height="1" fill="currentColor"/><rect x="72" y="1" width="1" height="1" fill="currentColor"/><rect x="76" y="1" width="1" height="1" fill="currentColor"/><rect x="72" y="2" width="1" height="1" fill="currentColor"/><rect x="76" y="2" width="1" height="1" fill="currentColor"/><rect x="72" y="3" width="5" height="1" fill="currentColor"/><rect x="72" y="4" width="1" height="1" fill="currentColor"/><rect x="76" y="4" width="1" height="1" fill="currentColor"/><rect x="72" y="5" width="1" height="1" fill="currentColor"/><rect x="76" y="5" width="1" height="1" fill="currentColor"/><rect x="72" y="6" width="1" height="1" fill="currentColor"/><rect x="76" y="6" width="1" height="1" fill="currentColor"/><rect x="78" y="0" width="1" height="1" fill="currentColor"/><rect x="82" y="0" width="1" height="1" fill="currentColor"/><rect x="78" y="1" width="2" height="1" fill="currentColor"/><rect x="82" y="1" width="1" height="1" fill="currentColor"/><rect x="78" y="2" width="1" height="1" fill="currentColor"/><rect x="80" y="2" width="1" height="1" fill="currentColor"/><rect x="82" y="2" width="1" height="1" fill="currentColor"/><rect x="78" y="3" width="1" height="1" fill="currentColor"/><rect x="81" y="3" width="2" height="1" fill="currentColor"/><rect x="78" y="4" width="1" height="1" fill="currentColor"/><rect x="82" y="4" width="1" height="1" fill="currentColor"/><rect x="78" y="5" width="1" height="1" fill="currentColor"/><rect x="82" y="5" width="1" height="1" fill="currentColor"/><rect x="78" y="6" width="1" height="1" fill="currentColor"/><rect x="82" y="6" width="1" height="1" fill="currentColor"/><rect x="86" y="0" width="1" height="1" fill="currentColor"/><rect x="86" y="1" width="1" height="1" fill="currentColor"/><rect x="86" y="2" width="1" height="1" fill="currentColor"/><rect x="86" y="3" width="1" height="1" fill="currentColor"/><rect x="86" y="4" width="1" height="1" fill="currentColor"/><rect x="86" y="6" width="1" height="1" fill="currentColor"/></svg></a>
+  <nav class="nav">
+    <a href="../dashboard.html" aria-current="page">Data</a>
+    <a href="../kasus.html">Kasus</a>
+    <a href="../metodologi.html">Metodologi</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <a class="backlink" href="../dashboard.html">← Kembali ke data</a>
+    <p class="kasus-kode">PP-000008</p>
+    <h1 data-field="judul">Fajar Widyadharma Lukman Sumaatmaja — Narkotika — Nusa Tenggara Timur</h1>
+  </div>
+
+  
+
+  <div class="kasus-ringkasan" data-field="ringkasan"><p>AKBP Fajar Widyadharma Lukman Sumaatmaja, Kapolres Ngada yang berpangkat AKBP, diduga melakukan kekerasan seksual terhadap anak di bawah umur dan terlibat dalam kasus narkotika. Kejadian terjadi pada 20 Februari 2025 di Nusa Tenggara Timur, di bawah pengawasan Polda Nusa Tenggara Timur. Kasus ini diungkap setelah video kekerasan seksual yang dilakukan AKBP Fajar terhadap anak berusia 6 tahun beredar, yang diduga ditemukan oleh Polisi Federal Australia (AFP).</p><p>AKBP Fajar ditetapkan sebagai tersangka dalam kasus pidana dan etik/administratif. Dalam proses pidana, ia divonis 19 tahun penjara dan denda Rp5 miliar pada 23 Oktober 2025. Sementara itu, dalam proses etik, ia dikenai sanksi PTDH (Pensiun Tidak dengan Hormat) pada 22 Oktober 2025.</p></div>
+
+  <section class="panel"><h2>Fakta yang tercatat</h2><p class="sub">Nilai yang belum ditemukan di pemberitaan ditulis apa adanya.</p><div><table class="fakta"><tr><th>Dugaan pelanggaran</th><td data-field="pelanggaran">Narkotika</td></tr><tr><th>Tanggal kejadian</th><td data-field="tanggal_kejadian">20 Februari 2025</td></tr><tr><th>Provinsi</th><td data-field="provinsi">Nusa Tenggara Timur</td></tr><tr><th>Status pidana terkini</th><td data-field="status">tersangka</td></tr><tr><th>Vonis pidana</th><td data-field="vonis">19 tahun penjara dan denda Rp5 miliar</td></tr><tr><th>Sanksi etik atau administratif</th><td data-field="sanksi">PTDH</td></tr><tr><th>Jumlah berita</th><td>239</td></tr><tr><th>Diberitakan sejak</th><td>3 Maret 2025</td></tr><tr><th>Pemberitaan terakhir</th><td>23 Oktober 2025</td></tr></table></div></section>
+
+  <section class="panel"><h2>Berita yang menjadi dasar kasus</h2><p class="sub">Seluruh pemberitaan yang tertaut ke kasus ini, terbaru lebih dulu.</p><div><ul class="berita"><li><a href="https://www.metrotvnews.com/play/N4EC4j2m-eks-kapolres-ngada-divonis-19-tahun-penjara-dan-denda-rp5-miliar-dalam-kasus-pedofilia" rel="noopener nofollow" target="_blank">Eks Kapolres Ngada Divonis 19 Tahun Penjara dan Denda Rp5 Miliar dalam Kasus Pedofilia</a><p class="berita-meta">metrotvnews · 23 Oktober 2025</p></li><li><a href="https://kumparan.com/kumparannews/dari-ptdh-ke-pidana-lecehkan-3-anak-eks-kapolres-ngada-dibui-19-tahun-265nOuAAuxx" rel="noopener nofollow" target="_blank">Dari PTDH ke Pidana: Lecehkan 3 Anak, Eks Kapolres Ngada Dibui 19 Tahun</a><p class="berita-meta">kumparan · 22 Oktober 2025</p></li><li><a href="https://www.metrotvnews.com/read/NOlCAJz2-selain-denda-rp5-miliar-eks-kapolres-ngada-wajib-bayar-retitusi-rp359-juta-untuk-3-korbannya" rel="noopener nofollow" target="_blank">Selain Denda Rp5 Miliar, Eks Kapolres Ngada Wajib Bayar Retitusi Rp359 Juta untuk 3 Korbannya</a><p class="berita-meta">metrotvnews · 22 Oktober 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-8135405/kuasa-hukum-sebut-ada-perempuan-lain-dalam-kasus-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Kuasa Hukum Sebut Ada Perempuan Lain Dalam Kasus Eks Kapolres Ngada</a><p class="berita-meta">detik · 29 September 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250922124926-12-1276323/alasan-eks-kapolres-ngada-dituntut-20-tahun-bui-coreng-citra-bangsa" rel="noopener nofollow" target="_blank">Alasan Eks Kapolres Ngada Dituntut 20 Tahun Bui: Coreng Citra Bangsa</a><p class="berita-meta">cnnindonesia · 22 September 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250922112333-12-1276274/eks-kapolres-ngada-dituntut-20-tahun-penjara-kasus-pencabulan-3-anak" rel="noopener nofollow" target="_blank">Eks Kapolres Ngada Dituntut 20 Tahun Penjara Kasus Pencabulan 3 Anak</a><p class="berita-meta">cnnindonesia · 22 September 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250707111040-12-1247730/sidang-eks-kapolres-ngada-tertutup-aktivis-protes-nihil-pasal-narkoba" rel="noopener nofollow" target="_blank">Sidang Eks Kapolres Ngada Tertutup, Aktivis Protes Nihil Pasal Narkoba</a><p class="berita-meta">cnnindonesia · 7 Juli 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250630095815-12-1245033/eks-kapolres-ngada-ntt-jalani-sidang-perdana-kasus-pencabulan-anak" rel="noopener nofollow" target="_blank">Eks Kapolres Ngada NTT Jalani Sidang Perdana Kasus Pencabulan Anak</a><p class="berita-meta">cnnindonesia · 30 Juni 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250630070049-12-1244999/sidang-kasus-kekerasan-seksual-eks-kapolres-ngada-digelar-hari-ini" rel="noopener nofollow" target="_blank">Sidang Kasus Kekerasan Seksual Eks Kapolres Ngada Digelar Hari Ini</a><p class="berita-meta">cnnindonesia · 30 Juni 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250625104717-12-1243596/sidang-kasus-kekerasan-seksual-eks-kapolres-ngada-digelar-pekan-depan" rel="noopener nofollow" target="_blank">Sidang Kasus Kekerasan Seksual Eks Kapolres Ngada Digelar Pekan Depan</a><p class="berita-meta">cnnindonesia · 25 Juni 2025</p></li><li><a href="https://medan.tribunnews.com/2025/06/13/terjerat-pencabulan-anak-bawah-umur-ini-mula-perkenalan-eks-kapolres-ngada-dengan-mahasiswi-fani" rel="noopener nofollow" target="_blank">Terjerat Pencabulan Anak Bawah Umur, Ini Mula Perkenalan Eks Kapolres Ngada dengan Mahasiswi Fani</a><p class="berita-meta">tribun-medan · 13 Juni 2025</p></li><li><a href="https://lampung.tribunnews.com/2025/06/13/pengakuan-mengejutkan-fani-mahasiswi-yang-jual-anak-ke-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Pengakuan Mengejutkan Fani, Mahasiswi yang Jual Anak ke Eks Kapolres Ngada - Tribunlampung.co.id</a><p class="berita-meta">tribun-lampung · 13 Juni 2025</p></li><li><a href="https://medan.tribunnews.com/2025/06/13/pengakuan-mengejutkan-stefani-mahasiswi-yang-sediakan-anak-bawah-umur-untuk-akbp-fajar-lukman" rel="noopener nofollow" target="_blank">PENGAKUAN Mengejutkan Stefani Mahasiswi yang Sediakan Anak Bawah Umur untuk AKBP Fajar Lukman</a><p class="berita-meta">tribun-medan · 13 Juni 2025</p></li><li><a href="https://lampung.tribunnews.com/2025/06/13/pengakuan-mahasiswi-tersangka-kasus-asusila-yang-seret-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Pengakuan Mahasiswi Tersangka Kasus Asusila yang Seret Eks Kapolres Ngada - Tribunlampung.co.id</a><p class="berita-meta">tribun-lampung · 13 Juni 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7957026/eks-kapolres-ngada-tersangka-pencabulan-ditahan-20-hari-di-rutan-kupang" rel="noopener nofollow" target="_blank">Eks Kapolres Ngada Tersangka Pencabulan Ditahan 20 Hari di Rutan Kupang</a><p class="berita-meta">detik · 10 Juni 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250609224856-12-1237953/akbp-fajar-eks-kapolres-ngada-dilimpahkan-ke-jaksa-hari-ini" rel="noopener nofollow" target="_blank">AKBP Fajar Eks Kapolres Ngada Dilimpahkan ke Jaksa Hari Ini</a><p class="berita-meta">cnnindonesia · 10 Juni 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250605131308-12-1236846/dibawa-ke-kupang-eks-kapolres-ngada-dilimpahkan-ke-jaksa-pekan-depan" rel="noopener nofollow" target="_blank">Dibawa ke Kupang, Eks Kapolres Ngada Dilimpahkan ke Jaksa Pekan Depan</a><p class="berita-meta">cnnindonesia · 5 Juni 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250604022927-12-1236195/polda-ntt-eks-kapolres-ngada-tak-terima-uang-dari-situs-porno" rel="noopener nofollow" target="_blank">Polda NTT: Eks Kapolres Ngada Tak Terima Uang dari Situs Porno</a><p class="berita-meta">cnnindonesia · 4 Juni 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250522193743-32-1232185/dpr-minta-kasus-eks-kapolres-ngada-jadi-pelanggaran-ham-berat" rel="noopener nofollow" target="_blank">DPR Minta Kasus Eks Kapolres Ngada Jadi Pelanggaran HAM Berat</a><p class="berita-meta">cnnindonesia · 22 Mei 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250522203330-32-1232212/dpr-dorong-eks-kapolres-ngada-tersangka-grup-inses-dikebiri" rel="noopener nofollow" target="_blank">DPR Dorong Eks Kapolres Ngada &amp; Tersangka 'Grup Inses' Dikebiri</a><p class="berita-meta">cnnindonesia · 22 Mei 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250522164115-12-1232122/dpr-cecar-polda-ntt-soal-pasal-narkoba-hilang-di-kasus-kapolres-ngada" rel="noopener nofollow" target="_blank">DPR Cecar Polda NTT soal Pasal Narkoba Hilang di Kasus Kapolres Ngada</a><p class="berita-meta">cnnindonesia · 22 Mei 2025</p></li><li><a href="https://news.detik.com/berita/d-7926798/di-dpr-polda-ntt-nyatakan-berkas-kasus-eks-kapolres-ngada-sudah-lengkap" rel="noopener nofollow" target="_blank">Di DPR, Polda NTT Nyatakan Berkas Kasus Eks Kapolres Ngada Sudah Lengkap</a><p class="berita-meta">detik · 22 Mei 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250509163439-12-1227814/kejati-ntt-kembalikan-lagi-berkas-akbp-fajar-dan-perempuan-f-ke-polda" rel="noopener nofollow" target="_blank">Kejati NTT Kembalikan Lagi Berkas AKBP Fajar dan Perempuan F ke Polda</a><p class="berita-meta">cnnindonesia · 10 Mei 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250501164512-12-1224719/kejati-terima-berkas-eks-kapolres-ngada-yang-dilimpahkan-polda-ntt" rel="noopener nofollow" target="_blank">Kejati Terima Berkas Eks Kapolres Ngada yang Dilimpahkan Polda NTT</a><p class="berita-meta">cnnindonesia · 2 Mei 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7895359/mahasiswi-perekrut-anak-di-kasus-akbp-fajar-dikenakan-pasal-berlapis" rel="noopener nofollow" target="_blank">Mahasiswi Perekrut Anak di Kasus AKBP Fajar Dikenakan Pasal Berlapis</a><p class="berita-meta">detik · 1 Mei 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250428205201-12-1223663/polda-ntt-limpahkan-berkas-perempuan-f-kasus-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Polda NTT Limpahkan Berkas Perempuan F Kasus Eks Kapolres Ngada</a><p class="berita-meta">cnnindonesia · 28 April 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7886100/kejati-ntt-kembalikan-berkas-perkara-eks-kapolres-ngada-ke-penyidik" rel="noopener nofollow" target="_blank">Kejati NTT Kembalikan Berkas Perkara Eks Kapolres Ngada ke Penyidik</a><p class="berita-meta">detik · 25 April 2025</p></li><li><a href="https://makassar.tribunnews.com/2025/04/23/rekam-jejak-dan-sosok-akbp-fajar-widyadharma-eks-kapolres-ngada-ntt-ditahan-di-mabes-polri" rel="noopener nofollow" target="_blank">Rekam Jejak dan Sosok AKBP Fajar Widyadharma Eks Kapolres Ngada NTT, Ditahan di Mabes Polri</a><p class="berita-meta">tribun-makassar · 23 April 2025</p></li><li><a href="https://aceh.tribunnews.com/2025/04/23/cabuli-anak-di-bawah-umur-akbp-fajar-widyadharma-eks-kapolres-ngada-kini-ditahan-di-mabes-polri" rel="noopener nofollow" target="_blank">Cabuli Anak di Bawah Umur, AKBP Fajar Widyadharma, Eks Kapolres Ngada Kini Ditahan di Mabes Polri</a><p class="berita-meta">tribun-aceh · 23 April 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7848360/beragam-temuan-komnas-ham-soal-kasus-pencabulan-anak-oleh-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Beragam Temuan Komnas HAM soal Kasus Pencabulan Anak oleh Eks Kapolres Ngada</a><p class="berita-meta">detik · 30 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7847796/eks-kapolres-ngada-diduga-7-kali-pesan-kamar-hotel-di-kupang-untuk-cabuli" rel="noopener nofollow" target="_blank">Eks Kapolres Ngada Diduga 7 Kali Pesan Kamar Hotel di Kupang untuk Cabuli</a><p class="berita-meta">detik · 29 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250327183354-20-1213847/kejati-ntt-kembalikan-berkas-perkara-eks-kapolres-ngada-ke-polda" rel="noopener nofollow" target="_blank">Kejati NTT Kembalikan Berkas Perkara Eks Kapolres Ngada ke Polda</a><p class="berita-meta">cnnindonesia · 28 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7843389/kasus-pencabulan-akbp-fajar-jadi-atensi-kejagung-kejati-ntt-siapkan-4-jpu" rel="noopener nofollow" target="_blank">Kasus Pencabulan AKBP Fajar Jadi Atensi Kejagung, Kejati NTT Siapkan 4 JPU</a><p class="berita-meta">detik · 26 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250326133458-12-1213292/peran-perempuan-f-dalam-kasus-pencabulan-anak-oleh-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Peran Perempuan F dalam Kasus Pencabulan Anak oleh Eks Kapolres Ngada</a><p class="berita-meta">cnnindonesia · 26 Maret 2025</p></li><li><a href="https://medan.tribunnews.com/2025/03/26/terungkap-fakta-baru-kasus-cabul-eks-kapolres-ngada-akbp-fajar-mahasiswi-penyedia-anak-kini-ditahan" rel="noopener nofollow" target="_blank">TERUNGKAP Fakta Baru Kasus Eks Kapolres Ngada AKBP Fajar, Mahasiswi Penyedia Anak Kini Telah Ditahan</a><p class="berita-meta">tribun-medan · 26 Maret 2025</p></li><li><a href="https://aceh.tribunnews.com/2025/03/26/kasus-pencabulan-eks-kapolres-ngada-perempuan-inisial-f-turut-jadi-tersangka-ini-perannya" rel="noopener nofollow" target="_blank">Kasus Pencabulan Eks Kapolres Ngada: Perempuan Inisial F Turut Jadi Tersangka, Ini Perannya</a><p class="berita-meta">tribun-aceh · 26 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7842026/awal-perkenalan-mahasiswi-dengan-eks-kapolres-ngada-berujung-cabuli-anak" rel="noopener nofollow" target="_blank">Awal Perkenalan Mahasiswi dengan Eks Kapolres Ngada Berujung Cabuli Anak</a><p class="berita-meta">detik · 26 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250326070409-12-1213098/fakta-fakta-terbaru-kasus-pelecehan-anak-eks-kapolres-ngada-akbp-fajar" rel="noopener nofollow" target="_blank">Fakta-Fakta Terbaru Kasus Pelecehan Anak Eks Kapolres Ngada AKBP Fajar</a><p class="berita-meta">cnnindonesia · 26 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250326005016-12-1213058/tersangka-f-tunggu-di-kolam-renang-saat-akbp-fajar-cabuli-korban" rel="noopener nofollow" target="_blank">Tersangka F Tunggu di Kolam Renang saat AKBP Fajar Cabuli Korban</a><p class="berita-meta">cnnindonesia · 26 Maret 2025</p></li><li><a href="https://pekanbaru.tribunnews.com/2025/03/25/mahasiswi-f-yang-bawa-bocah-untuk-dicabuli-akbp-fajar-ditetapkan-jadi-tersangka" rel="noopener nofollow" target="_blank">Mahasiswi F yang Bawa Bocah untuk Dicabuli AKBP Fajar Ditetapkan Jadi Tersangka</a><p class="berita-meta">tribun-pekanbaru · 25 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7841240/terungkap-anak-korban-pencabulan-eks-kapolres-ngada-dibayar-rp-100-ribu" rel="noopener nofollow" target="_blank">Terungkap, Anak Korban Pencabulan Eks Kapolres Ngada Dibayar Rp 100 Ribu</a><p class="berita-meta">detik · 25 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250325144948-12-1212872/perempuan-inisial-f-turut-jadi-tersangka-di-kasus-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Perempuan Inisial F Turut Jadi Tersangka di Kasus Eks Kapolres Ngada</a><p class="berita-meta">cnnindonesia · 25 Maret 2025</p></li><li><a href="https://www.detik.com/sumut/hukum-dan-kriminal/d-7840301/eks-kapolres-ngada-rekam-dan-sebarkan-sendiri-video-pencabulan-anak" rel="noopener nofollow" target="_blank">Eks Kapolres Ngada Rekam dan Sebarkan Sendiri Video Pencabulan Anak</a><p class="berita-meta">detik · 25 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7840170/8-video-porno-dan-keterlibatan-mahasiswi-dalam-kasus-asusila-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">8 Video Porno dan Keterlibatan Mahasiswi dalam Kasus Asusila Eks Kapolres Ngada</a><p class="berita-meta">detik · 25 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7839566/rekrut-anak-di-kasus-eks-kapolres-ngada-seorang-mahasiswi-tersangka" rel="noopener nofollow" target="_blank">Rekrut Anak di Kasus Eks Kapolres Ngada, Seorang Mahasiswi Tersangka!</a><p class="berita-meta">detik · 24 Maret 2025</p></li><li><a href="https://pekanbaru.tribunnews.com/2025/03/23/fakta-mengerikan-lainnya-kapolres-ngada-yang-cabuli-anak-2-korban-adalah-sepupuan" rel="noopener nofollow" target="_blank">FAKTA Mengerikan Lainnya Kapolres Ngada yang Cabuli Anak: 2 Korban adalah Sepupuan</a><p class="berita-meta">tribun-pekanbaru · 23 Maret 2025</p></li><li><a href="https://medan.tribunnews.com/2025/03/23/terungkap-fakta-baru-kasus-kapolres-ngada-ternyata-korban-masih-saudara-potensi-pasal-berlapis" rel="noopener nofollow" target="_blank">Terungkap Fakta Baru Kasus Kapolres Ngada, Ternyata Korban Masih Saudara, Potensi Pasal Berlapis</a><p class="berita-meta">tribun-medan · 23 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250322140020-12-1211887/polda-ntt-respons-tuntutan-transparan-proses-hukum-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Polda NTT Respons Tuntutan Transparan Proses Hukum Eks Kapolres Ngada</a><p class="berita-meta">cnnindonesia · 22 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250322131558-20-1211876/tokoh-agama-ntt-desak-polri-minta-maaf-atas-kasus-kapolres-cabul" rel="noopener nofollow" target="_blank">Tokoh Agama NTT Desak Polri Minta Maaf Atas Kasus Kapolres Cabul</a><p class="berita-meta">cnnindonesia · 22 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250321100331-20-1211424/aktivis-tokoh-agama-geruduk-polda-ntt-tagih-kasus-eks-kapolres-ngada" rel="noopener nofollow" target="_blank">Aktivis-Tokoh Agama Geruduk Polda NTT, Tagih Kasus Eks Kapolres Ngada</a><p class="berita-meta">cnnindonesia · 21 Maret 2025</p></li><li><a href="https://www.cnnindonesia.com/nasional/20250321084043-12-1211383/polda-ntt-limpahkan-berkas-perkara-cabul-eks-kapolres-ngada-ke-jaksa" rel="noopener nofollow" target="_blank">Polda NTT Limpahkan Berkas Perkara Cabul Eks Kapolres Ngada ke Jaksa</a><p class="berita-meta">cnnindonesia · 21 Maret 2025</p></li><li><a href="https://kumparan.com/kumparannews/polisi-bidik-eks-kapolres-ngada-dengan-pasal-tppo-24i1CgMhyUI" rel="noopener nofollow" target="_blank">Polisi Bidik eks Kapolres Ngada dengan Pasal TPPO</a><p class="berita-meta">kumparan · 19 Maret 2025</p></li><li><a href="https://jambi.tribunnews.com/2025/03/19/pantas-dipermalukan-di-depan-publik-ucap-pengamat-minta-eks-kapolres-ngada-segera-diadili" rel="noopener nofollow" target="_blank">Pantas Dipermalukan di Depan Publik, Ucap Pengamat Minta Eks Kapolres Ngada Segera Diadili</a><p class="berita-meta">tribun-jambi · 19 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7830428/perlawanan-eks-kapolres-ngada-seusai-dipecat-terkait-kasus-pencabulan" rel="noopener nofollow" target="_blank">Perlawanan Eks Kapolres Ngada Seusai Dipecat Terkait Kasus Pencabulan</a><p class="berita-meta">detik · 19 Maret 2025</p></li><li><a href="https://kumparan.com/kumparannews/hasil-sidang-kode-etik-eks-kapolres-ngada-dipecat-dari-polri-ajukan-banding-24hYSzUsjgM" rel="noopener nofollow" target="_blank">Hasil Sidang Kode Etik eks Kapolres Ngada: Dipecat dari Polri; Ajukan Banding</a><p class="berita-meta">kumparan · 18 Maret 2025</p></li><li><a href="https://news.detik.com/berita/d-7829977/legislator-desak-eks-kapolres-ngada-disanksi-maksimal-kejahatan-luar-biasa" rel="noopener nofollow" target="_blank">Legislator Desak Eks Kapolres Ngada Disanksi Maksimal: Kejahatan Luar Biasa</a><p class="berita-meta">detik · 18 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7829877/kasus-eks-kapolres-ngada-cabuli-anak-di-bawah-umur-kini-ditangani-polda-ntt" rel="noopener nofollow" target="_blank">Kasus Eks Kapolres Ngada Cabuli Anak di Bawah Umur Kini Ditangani Polda NTT</a><p class="berita-meta">detik · 18 Maret 2025</p></li><li><a href="https://www.detik.com/bali/hukum-dan-kriminal/d-7829817/kapolda-ntt-respons-upaya-banding-mantan-kapolres-ngada-usai-dipecat-polri" rel="noopener nofollow" target="_blank">Kapolda NTT Respons Upaya Banding Mantan Kapolres Ngada Usai Dipecat Polri</a><p class="berita-meta">detik · 18 Maret 2025</p></li><li><a href="https://www.tempo.co/hukum/kompolnas-bakal-ada-tersangka-baru-dari-kasus-asusila-akbp-fajar-1221169" rel="noopener nofollow" target="_blank">Kompolnas: Bakal Ada Tersangka Baru dari Kasus Asusila AKBP Fajar</a><p class="berita-meta">tempo · 18 Maret 2025</p></li><li><a href="https://pekanbaru.tribunnews.com/2025/03/18/istri-saksikan-pemecatan-akbp-fajar-eks-kapolres-ngada-yang-terlibat-kasus-pencabulan-dan-narkoba" rel="noopener nofollow" target="_blank">Istri Saksikan Pemecatan AKBP Fajar Eks Kapolres Ngada yang Terlibat Kasus Pencabulan dan Narkoba</a><p class="berita-meta">tribun-pekanbaru · 18 Maret 2025</p></li></ul><p class="panel-note">Menampilkan 60 berita terbaru dari 239; 179 berita lainnya tidak ditampilkan.</p></div></section>
+
+  <div class="footnote">
+    <p>Isi halaman ini adalah <b>dugaan</b> yang dilaporkan media, bukan putusan
+      pengadilan atau sanksi etik. Ringkasan disusun otomatis dari berita yang
+      tertaut dan dapat memuat kekeliruan yang berasal dari sumbernya. Cara data
+      ini dikumpulkan dijelaskan di <a href="../metodologi.html">halaman
+      metodologi</a>.</p>
+    <p class="baris-editor"><a href="../editor.html">Masuk sebagai editor</a>
+      <span class="editor-aktif">Mode editor aktif — klik nilai mana pun untuk
+      mengoreksinya.</span></p>
+  </div>
+</main>
+<script type="application/json" id="pilihan-editor">{"pelanggaran": ["Desersi", "Diskriminasi", "Eksploitasi seksual", "Intimidasi", "Kekerasan dalam rumah tangga", "Kekerasan fisik", "Kekerasan seksual", "Kekerasan seksual terhadap anak", "Kekerasan terhadap tahanan hingga meninggal", "Kelalaian yang menyebabkan kematian", "Korupsi", "Kriminalisasi", "Menghilangkan atau memanipulasi barang bukti", "Narkotika", "Pelanggaran atau kejahatan lalu lintas", "Pelanggaran etik", "Pelanggaran lainnya", "Pelanggaran privasi", "Pembunuhan", "Pembunuhan berencana", "Pembunuhan di luar proses hukum", "Pemerasan", "Pemerkosaan", "Penahanan sewenang-wenang", "Penculikan", "Pencurian atau perampokan", "Penganiayaan", "Penggelapan", "Penggunaan kekuatan berlebihan", "Penipuan", "Penyalahgunaan atau kepemilikan senjata ilegal", "Penyalahgunaan wewenang", "Penyiksaan", "Perdagangan orang", "Perintangan penyidikan", "Perjudian", "Perselingkuhan", "Pungli", "Represi digital", "Salah tangkap atau penangkapan sewenang-wenang", "Suap", "Tabrak lari", "Tidak diketahui"], "provinsi": ["Aceh", "Bali", "Banten", "Bengkulu", "DI Yogyakarta", "DKI Jakarta", "Gorontalo", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Barat", "Kalimantan Selatan", "Kalimantan Tengah", "Kalimantan Timur", "Kalimantan Utara", "Kep. Bangka Belitung", "Kepulauan Riau", "Lampung", "Maluku", "Maluku Utara", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Papua", "Papua Barat", "Papua Barat Daya", "Papua Pegunungan", "Papua Selatan", "Papua Tengah", "Riau", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tengah", "Sulawesi Tenggara", "Sulawesi Utara", "Sumatera Barat", "Sumatera Selatan", "Sumatera Utara"]}</script>
+<script>
+(function () {
+  var KODE = document.body.dataset.kasus;
+  var API = "/.netlify/functions/koreksi";
+  var PILIHAN = JSON.parse(document.getElementById("pilihan-editor").textContent);
+  var SITUS_IDENTITY = document.body.dataset.situs || "";
+  var BARIS_PANJANG = { ringkasan: 1 };
+  var user = null;
+
+  var BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli",
+               "Agustus","September","Oktober","November","Desember"];
+  function tanggalTeks(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || "");
+    if (!m) return s;
+    return parseInt(m[3],10) + " " + BULAN[parseInt(m[2],10)-1] + " " + m[1];
+  }
+
+  function sel(field) { return document.querySelector('[data-field="' + field + '"]'); }
+
+  // Koreksi ditempelkan untuk semua pengunjung, bukan cuma editor: begitu
+  // seorang editor menyimpan, pembaca berikutnya langsung melihat nilai yang
+  // sudah dibetulkan, tanpa menunggu situs dibangun ulang malam nanti.
+  function tempel(koreksi) {
+    Object.keys(koreksi || {}).forEach(function (field) {
+      var el = sel(field);
+      if (!el) return;
+      var nilai = koreksi[field].nilai;
+      if (field === "ringkasan") {
+        el.classList.remove("kosong");
+        el.innerHTML = "";
+        nilai.split("\n\n").forEach(function (p) {
+          if (!p.trim()) return;
+          var node = document.createElement("p");
+          node.textContent = p.trim();
+          el.appendChild(node);
+        });
+      } else {
+        el.textContent = field === "tanggal_kejadian" ? tanggalTeks(nilai) : nilai;
+      }
+      // Sengaja tidak menulis siapa yang mengoreksi: kolom `oleh` memuat
+      // alamat surel editor, dan halaman kasus terbuka untuk umum.
+    });
+  }
+
+  fetch(API + "?kasus=" + encodeURIComponent(KODE))
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d) tempel(d.koreksi); })
+    .catch(function () { /* koreksi gagal dimuat: halaman tetap tampil apa adanya */ });
+
+  function nilaiSekarang(el, field) {
+    if (field === "ringkasan") {
+      return Array.prototype.map.call(el.querySelectorAll("p"), function (p) {
+        return p.textContent.trim();
+      }).join("\n\n");
+    }
+    var t = el.textContent.trim();
+    return t === "Tidak diketahui" ? "" : t;
+  }
+
+  function sunting(el, field) {
+    if (el.querySelector(".sunting")) return;
+    var lama = nilaiSekarang(el, field);
+    var kotak = document.createElement("div");
+    kotak.className = "sunting";
+
+    var input;
+    if (PILIHAN[field]) {
+      input = document.createElement("select");
+      var kosong = document.createElement("option");
+      kosong.value = ""; kosong.textContent = "— kosongkan —";
+      input.appendChild(kosong);
+      PILIHAN[field].forEach(function (p) {
+        var o = document.createElement("option");
+        o.value = p; o.textContent = p;
+        if (p === lama) o.selected = true;
+        input.appendChild(o);
+      });
+    } else if (BARIS_PANJANG[field]) {
+      input = document.createElement("textarea");
+      input.rows = 8; input.value = lama;
+    } else {
+      input = document.createElement("input");
+      input.type = "text"; input.value = lama;
+      if (field === "tanggal_kejadian") input.placeholder = "YYYY-MM-DD";
+    }
+
+    var alasan = document.createElement("input");
+    alasan.type = "text";
+    alasan.placeholder = "Alasan koreksi (untuk catatan, boleh kosong)";
+    alasan.className = "alasan";
+
+    var simpan = document.createElement("button");
+    simpan.textContent = "Simpan";
+    simpan.className = "utama";
+    var batal = document.createElement("button");
+    batal.textContent = "Batal";
+    var pesan = document.createElement("span");
+    pesan.className = "pesan-sunting";
+
+    var alat = document.createElement("div");
+    alat.className = "alat";
+    alat.appendChild(simpan); alat.appendChild(batal); alat.appendChild(pesan);
+    kotak.appendChild(input); kotak.appendChild(alasan); kotak.appendChild(alat);
+
+    var isiLama = el.innerHTML;
+    el.innerHTML = "";
+    el.appendChild(kotak);
+    input.focus();
+
+    batal.addEventListener("click", function () { el.innerHTML = isiLama; pasang(); });
+
+    simpan.addEventListener("click", function () {
+      simpan.disabled = true;
+      pesan.textContent = "menyimpan…";
+      user.jwt().then(function (token) {
+        return fetch(API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json",
+                     Authorization: "Bearer " + token },
+          body: JSON.stringify({ kasus: KODE, field: field,
+                                 nilai: input.value, alasan: alasan.value }),
+        });
+      }).then(function (r) {
+        return r.json().then(function (d) { return { ok: r.ok, d: d }; });
+      }).then(function (hasil) {
+        if (!hasil.ok) throw new Error(hasil.d.galat || "gagal menyimpan");
+        el.innerHTML = isiLama;
+        var koreksi = {};
+        koreksi[field] = hasil.d;
+        if (hasil.d.nilai === "") { el.textContent = "Tidak diketahui"; }
+        else { tempel(koreksi); }
+        pasang();
+      }).catch(function (galat) {
+        simpan.disabled = false;
+        pesan.textContent = galat.message;
+        pesan.classList.add("galat");
+      });
+    });
+  }
+
+  function pasang() {
+    if (!user) return;
+    document.querySelectorAll("[data-field]").forEach(function (el) {
+      if (el.dataset.siap === "1") return;
+      el.dataset.siap = "1";
+      el.classList.add("dapat-disunting");
+      el.addEventListener("click", function (ev) {
+        if (ev.target.closest("a") || ev.target.closest(".sunting")) return;
+        sunting(el, el.dataset.field);
+      });
+    });
+    document.body.classList.add("mode-editor");
+  }
+
+  // Widget Netlify Identity sengaja tidak dimuat untuk pembaca biasa: skrip
+  // pihak ketiga yang tidak mereka butuhkan tetap saja melacak dan
+  // memperlambat. Baru diambil ketika seseorang menyatakan diri editor, atau
+  // ketika tautan undangan dibuka.
+  function muatIdentity(sesudah) {
+    // Widget bisa sudah dimuat lebih dulu oleh penangkap tautan pemulihan.
+    // Kalau begitu, penangan di bawah tidak pernah terpasang dan sesi yang
+    // sudah aktif tidak dikenali — orang yang baru saja masuk lewat tautan
+    // akan mengira mode editor tidak berfungsi.
+    if (window.netlifyIdentity) {
+      try { user = window.netlifyIdentity.currentUser(); } catch (e) { user = null; }
+      if (user) pasang();
+      sesudah();
+      return;
+    }
+    var s = document.createElement("script");
+    s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    s.onload = function () {
+      // Di server lokal, widget tidak tahu situs Netlify mana yang harus
+      // ditanyai dan memunculkan dialog "Development Settings" yang meminta
+      // URL diketik manual. Alamatnya sudah kita ketahui saat membangun
+      // situs, jadi diberikan langsung. Di situs sungguhan alamat ini tidak
+      // dipakai — widget membacanya sendiri dari host tempat ia berjalan,
+      // sehingga pindah domain nanti tidak akan mematahkannya.
+      var lokal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      var opsi = (lokal && SITUS_IDENTITY)
+        ? { APIUrl: SITUS_IDENTITY.replace(/\/$/, "") + "/.netlify/identity" }
+        : undefined;
+      window.netlifyIdentity.on("init", function (u) {
+        user = u;
+        if (u) pasang();
+      });
+      window.netlifyIdentity.on("login", function (u) {
+        user = u; window.netlifyIdentity.close(); pasang();
+      });
+      window.netlifyIdentity.on("logout", function () { location.reload(); });
+      window.netlifyIdentity.init(opsi);
+      sesudah();
+    };
+    document.head.appendChild(s);
+  }
+
+  var tombol = document.getElementById("masuk-editor");
+  tombol.addEventListener("click", function (ev) {
+    ev.preventDefault();
+    muatIdentity(function () {
+      if (user) window.netlifyIdentity.logout();
+      else window.netlifyIdentity.open();
+    });
+  });
+  // Kode undangan ditangani SKRIP_UNDANGAN yang ada di semua halaman, jadi
+  // tidak diulang di sini — dua pemuat yang berjalan bersamaan akan berebut
+  // menginisialisasi widget yang sama.
+})();
+
+(function () {
+  // Jalan keluar dari kode yang sudah mati: alamat bersih tanpa kode, lalu
+  // form login dibuka langsung supaya "Forgot password?" ada di depan mata.
+  if (/[?&]login=1/.test(location.search)) {
+    var ket = document.createElement("div");
+    ket.setAttribute("role", "status");
+    ket.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+      "background:#000;color:#fff;padding:12px 18px;text-align:center;" +
+      "font:13px/1.5 system-ui,sans-serif";
+    ket.textContent = "Halaman masuk. Membukanya tidak mengirim surel apa pun, "
+      + "jadi aman dibuka berkali-kali. Surel hanya terkirim kalau kamu menekan "
+      + "Forgot password.";
+    (document.body ? Promise.resolve() : new Promise(function (r) {
+      document.addEventListener("DOMContentLoaded", r);
+    })).then(function () { document.body.appendChild(ket); });
+    var sl = document.createElement("script");
+    sl.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    sl.onload = function () {
+      // Sama seperti jalur pemulihan: jangan tutup dan jangan pindah halaman
+      // saat login, supaya form penetapan kata sandi tidak ikut hilang.
+      window.netlifyIdentity.on("login", function (u) {
+        ket.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor")
+          + ". Kalau kotak kata sandi masih terbuka, isi dan simpan sekarang.";
+      });
+      window.netlifyIdentity.init();
+      setTimeout(function () { window.netlifyIdentity.open("login"); }, 400);
+    };
+    document.head.appendChild(sl);
+    return;
+  }
+
+  var hash = location.hash || "";
+  // Ditangkap luas, bukan hanya tiga token yang diharapkan. Kalau Netlify
+  // mengirim bentuk lain — `access_token`, `error` — kegagalannya harus
+  // KELIHATAN, bukan berupa halaman depan biasa yang membingungkan orang
+  // yang sedang menunggu form kata sandi.
+  if (!/[#&](invite_token|recovery_token|confirmation_token|email_change_token|access_token|error)=/.test(hash)) return;
+
+  var jenis = (hash.match(/[#&](\w+)=/) || [])[1] || "tidak dikenal";
+  var papan = document.createElement("div");
+  papan.setAttribute("role", "status");
+  papan.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+    "background:#000;color:#fff;padding:14px 18px;font:14px/1.5 system-ui,sans-serif;" +
+    "text-align:center";
+  papan.textContent = "Menyiapkan form kata sandi…";
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.appendChild(papan);
+  });
+  if (document.body) document.body.appendChild(papan);
+
+  var sebabTerakhir = "";
+
+  function gagal(sebab) { sebabTerakhir = sebab; tawarkan(); }
+
+  // Selalu sisakan jalan keluar yang bisa diklik. Form yang terbuka lalu
+  // tertutup sendiri terlihat sama saja dengan tidak terjadi apa-apa, dan
+  // orang yang menunggu kata sandi tidak punya cara menebak apa yang salah.
+  function tawarkan() {
+    var w = document.querySelector("#netlify-identity-widget");
+    if (w && w.offsetHeight > 200) return;   // masih terbuka, jangan ganggu
+    papan.innerHTML = "";
+    var t = document.createElement("p");
+    t.style.cssText = "margin:0 0 8px;font-weight:700";
+    t.textContent = "Form kata sandi tertutup sebelum selesai.";
+    var d = document.createElement("p");
+    d.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+    d.textContent = "Jenis kode: " + jenis +
+      (sebabTerakhir ? " · sebab: " + sebabTerakhir : "") +
+      " · kemungkinan kodenya sudah terpakai atau kedaluwarsa.";
+    var b = document.createElement("button");
+    b.textContent = "Buka form lagi";
+    b.style.cssText = "font:inherit;font-size:13px;font-weight:700;cursor:pointer;" +
+      "padding:7px 16px;border:2px solid #fff;background:#fff;color:#000";
+    b.onclick = function () { try { window.netlifyIdentity.open(); } catch (e) {} };
+    papan.appendChild(t); papan.appendChild(d); papan.appendChild(b);
+  }
+
+  var s = document.createElement("script");
+  s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  s.onerror = function () { gagal("skrip Netlify tidak bisa dimuat"); };
+  s.onload = function () {
+    // JANGAN menutup widget atau berpindah halaman di sini. Pada jalur
+    // pemulihan, Netlify memasukkan orang LEBIH DULU tanpa kata sandi, baru
+    // menampilkan form penetapan kata sandi. Versi sebelumnya menutup widget
+    // dan melempar ke halaman lain tepat di titik itu — form-nya tidak pernah
+    // terlihat, tidak ada kata sandi tersimpan, dan begitu logout orang itu
+    // terkunci sampai harus meminta tautan baru.
+    window.netlifyIdentity.on("login", function (u) {
+      papan.innerHTML = "";
+      var p1 = document.createElement("p");
+      p1.style.cssText = "margin:0 0 4px;font-weight:700";
+      p1.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor") + ".";
+      var p2 = document.createElement("p");
+      p2.style.cssText = "margin:0;font-size:13px;opacity:.85";
+      p2.textContent = "Kalau kotak kata sandi masih terbuka, isi kata sandi "
+        + "barumu SEKARANG lalu simpan — sebelum menutup apa pun. Tanpa itu "
+        + "kamu perlu tautan pemulihan baru untuk masuk lagi.";
+      papan.appendChild(p1); papan.appendChild(p2);
+    });
+    window.netlifyIdentity.on("error", function (e) {
+      gagal("Netlify menolak: " + (e && e.message ? e.message : "sebab tidak disebutkan"));
+    });
+    // Widget menutup dirinya sendiri kalau tokennya ditolak, dan halaman
+    // kembali kosong tanpa penjelasan. Penutupan itu ditangkap supaya
+    // penyebabnya terlihat, bukan menyisakan orang menatap halaman depan.
+    window.netlifyIdentity.on("close", function () { tawarkan(); });
+    window.netlifyIdentity.init();
+    setTimeout(function () {
+      var w = document.querySelector("#netlify-identity-widget");
+      if (!(w && w.offsetHeight > 200)) {
+        try { window.netlifyIdentity.open(); } catch (e) {}
+        setTimeout(tawarkan, 1200);
+      } else {
+        // Widget tetap membuka kotak meski kodenya sudah terpakai — kotaknya
+        // muncul kosong, dan itu terlihat seperti berhasil. Disebutkan
+        // terus terang supaya tidak ditunggui percuma.
+        // Tinggi kotak BUKAN tanda berhasil: widget yang rusak karena kode
+        // kedaluwarsa tetap membuat kotak setinggi 994 piksel, hanya isinya
+        // tidak pernah digambar. Karena itu jalan keluarnya selalu
+        // ditawarkan, bukan hanya saat kegagalan berhasil terdeteksi.
+        papan.innerHTML = "";
+        var a = document.createElement("p");
+        a.style.cssText = "margin:0 0 4px;font-weight:700";
+        a.textContent = "Isi kata sandi barumu di kotak yang muncul.";
+        var b2 = document.createElement("p");
+        b2.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+        b2.textContent = "Kotaknya kosong? Berarti kode di tautan ini sudah "
+          + "kedaluwarsa atau terpakai.";
+        var b3 = document.createElement("button");
+        b3.textContent = "Buka form login untuk minta kode baru";
+        b3.style.cssText = "font:inherit;font-size:13px;font-weight:700;" +
+          "cursor:pointer;padding:7px 16px;border:2px solid #fff;" +
+          "background:#fff;color:#000";
+        b3.onclick = function () {
+          location.replace(location.pathname + "?login=1");
+        };
+        papan.appendChild(a); papan.appendChild(b2); papan.appendChild(b3);
+      }
+    }, 1000);
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
