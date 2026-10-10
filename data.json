@@ -1,0 +1,5649 @@
+{
+  "nama": "LAPOR KOMANDAN!",
+  "dibangun": "2026-10-10T20:38",
+  "dibangun_teks": "20.38, 10 Oktober 2026",
+  "acuan": "2026-10-10",
+  "acuan_teks": "10 Oktober 2026",
+  "data_terakhir": "2026-10-02",
+  "data_terakhir_teks": "2 Oktober 2026",
+  "tertinggal_hari": 8,
+  "tahun_tersedia": [
+    "2026",
+    "2025",
+    "2024",
+    "2023",
+    "2022",
+    "2021"
+  ],
+  "irisan": {
+    "semua": {
+      "tahun": null,
+      "ringkas": {
+        "kasus": 1725,
+        "artikel": 33775,
+        "terduga": 3732,
+        "provinsi": 37,
+        "polres": 402,
+        "dari": "8 Agustus 2021",
+        "sampai": "2 Oktober 2026"
+      },
+      "tren": [
+        {
+          "ym": "2021-08",
+          "label": "Agu 2021",
+          "label_panjang": "Agustus 2021",
+          "jumlah": 23
+        },
+        {
+          "ym": "2021-09",
+          "label": "Sep 2021",
+          "label_panjang": "September 2021",
+          "jumlah": 29
+        },
+        {
+          "ym": "2021-10",
+          "label": "Okt 2021",
+          "label_panjang": "Oktober 2021",
+          "jumlah": 55
+        },
+        {
+          "ym": "2021-11",
+          "label": "Nov 2021",
+          "label_panjang": "November 2021",
+          "jumlah": 39
+        },
+        {
+          "ym": "2021-12",
+          "label": "Des 2021",
+          "label_panjang": "Desember 2021",
+          "jumlah": 45
+        },
+        {
+          "ym": "2022-01",
+          "label": "Jan 2022",
+          "label_panjang": "Januari 2022",
+          "jumlah": 42
+        },
+        {
+          "ym": "2022-02",
+          "label": "Feb 2022",
+          "label_panjang": "Februari 2022",
+          "jumlah": 26
+        },
+        {
+          "ym": "2022-03",
+          "label": "Mar 2022",
+          "label_panjang": "Maret 2022",
+          "jumlah": 30
+        },
+        {
+          "ym": "2022-04",
+          "label": "Apr 2022",
+          "label_panjang": "April 2022",
+          "jumlah": 24
+        },
+        {
+          "ym": "2022-05",
+          "label": "Mei 2022",
+          "label_panjang": "Mei 2022",
+          "jumlah": 33
+        },
+        {
+          "ym": "2022-06",
+          "label": "Jun 2022",
+          "label_panjang": "Juni 2022",
+          "jumlah": 24
+        },
+        {
+          "ym": "2022-07",
+          "label": "Jul 2022",
+          "label_panjang": "Juli 2022",
+          "jumlah": 26
+        },
+        {
+          "ym": "2022-08",
+          "label": "Agu 2022",
+          "label_panjang": "Agustus 2022",
+          "jumlah": 39
+        },
+        {
+          "ym": "2022-09",
+          "label": "Sep 2022",
+          "label_panjang": "September 2022",
+          "jumlah": 47
+        },
+        {
+          "ym": "2022-10",
+          "label": "Okt 2022",
+          "label_panjang": "Oktober 2022",
+          "jumlah": 32
+        },
+        {
+          "ym": "2022-11",
+          "label": "Nov 2022",
+          "label_panjang": "November 2022",
+          "jumlah": 45
+        },
+        {
+          "ym": "2022-12",
+          "label": "Des 2022",
+          "label_panjang": "Desember 2022",
+          "jumlah": 27
+        },
+        {
+          "ym": "2023-01",
+          "label": "Jan 2023",
+          "label_panjang": "Januari 2023",
+          "jumlah": 28
+        },
+        {
+          "ym": "2023-02",
+          "label": "Feb 2023",
+          "label_panjang": "Februari 2023",
+          "jumlah": 19
+        },
+        {
+          "ym": "2023-03",
+          "label": "Mar 2023",
+          "label_panjang": "Maret 2023",
+          "jumlah": 27
+        },
+        {
+          "ym": "2023-04",
+          "label": "Apr 2023",
+          "label_panjang": "April 2023",
+          "jumlah": 25
+        },
+        {
+          "ym": "2023-05",
+          "label": "Mei 2023",
+          "label_panjang": "Mei 2023",
+          "jumlah": 36
+        },
+        {
+          "ym": "2023-06",
+          "label": "Jun 2023",
+          "label_panjang": "Juni 2023",
+          "jumlah": 25
+        },
+        {
+          "ym": "2023-07",
+          "label": "Jul 2023",
+          "label_panjang": "Juli 2023",
+          "jumlah": 36
+        },
+        {
+          "ym": "2023-08",
+          "label": "Agu 2023",
+          "label_panjang": "Agustus 2023",
+          "jumlah": 43
+        },
+        {
+          "ym": "2023-09",
+          "label": "Sep 2023",
+          "label_panjang": "September 2023",
+          "jumlah": 22
+        },
+        {
+          "ym": "2023-10",
+          "label": "Okt 2023",
+          "label_panjang": "Oktober 2023",
+          "jumlah": 20
+        },
+        {
+          "ym": "2023-11",
+          "label": "Nov 2023",
+          "label_panjang": "November 2023",
+          "jumlah": 24
+        },
+        {
+          "ym": "2023-12",
+          "label": "Des 2023",
+          "label_panjang": "Desember 2023",
+          "jumlah": 20
+        },
+        {
+          "ym": "2024-01",
+          "label": "Jan 2024",
+          "label_panjang": "Januari 2024",
+          "jumlah": 17
+        },
+        {
+          "ym": "2024-02",
+          "label": "Feb 2024",
+          "label_panjang": "Februari 2024",
+          "jumlah": 23
+        },
+        {
+          "ym": "2024-03",
+          "label": "Mar 2024",
+          "label_panjang": "Maret 2024",
+          "jumlah": 20
+        },
+        {
+          "ym": "2024-04",
+          "label": "Apr 2024",
+          "label_panjang": "April 2024",
+          "jumlah": 33
+        },
+        {
+          "ym": "2024-05",
+          "label": "Mei 2024",
+          "label_panjang": "Mei 2024",
+          "jumlah": 25
+        },
+        {
+          "ym": "2024-06",
+          "label": "Jun 2024",
+          "label_panjang": "Juni 2024",
+          "jumlah": 28
+        },
+        {
+          "ym": "2024-07",
+          "label": "Jul 2024",
+          "label_panjang": "Juli 2024",
+          "jumlah": 27
+        },
+        {
+          "ym": "2024-08",
+          "label": "Agu 2024",
+          "label_panjang": "Agustus 2024",
+          "jumlah": 14
+        },
+        {
+          "ym": "2024-09",
+          "label": "Sep 2024",
+          "label_panjang": "September 2024",
+          "jumlah": 25
+        },
+        {
+          "ym": "2024-10",
+          "label": "Okt 2024",
+          "label_panjang": "Oktober 2024",
+          "jumlah": 16
+        },
+        {
+          "ym": "2024-11",
+          "label": "Nov 2024",
+          "label_panjang": "November 2024",
+          "jumlah": 21
+        },
+        {
+          "ym": "2024-12",
+          "label": "Des 2024",
+          "label_panjang": "Desember 2024",
+          "jumlah": 26
+        },
+        {
+          "ym": "2025-01",
+          "label": "Jan 2025",
+          "label_panjang": "Januari 2025",
+          "jumlah": 24
+        },
+        {
+          "ym": "2025-02",
+          "label": "Feb 2025",
+          "label_panjang": "Februari 2025",
+          "jumlah": 40
+        },
+        {
+          "ym": "2025-03",
+          "label": "Mar 2025",
+          "label_panjang": "Maret 2025",
+          "jumlah": 35
+        },
+        {
+          "ym": "2025-04",
+          "label": "Apr 2025",
+          "label_panjang": "April 2025",
+          "jumlah": 34
+        },
+        {
+          "ym": "2025-05",
+          "label": "Mei 2025",
+          "label_panjang": "Mei 2025",
+          "jumlah": 34
+        },
+        {
+          "ym": "2025-06",
+          "label": "Jun 2025",
+          "label_panjang": "Juni 2025",
+          "jumlah": 27
+        },
+        {
+          "ym": "2025-07",
+          "label": "Jul 2025",
+          "label_panjang": "Juli 2025",
+          "jumlah": 37
+        },
+        {
+          "ym": "2025-08",
+          "label": "Agu 2025",
+          "label_panjang": "Agustus 2025",
+          "jumlah": 34
+        },
+        {
+          "ym": "2025-09",
+          "label": "Sep 2025",
+          "label_panjang": "September 2025",
+          "jumlah": 21
+        },
+        {
+          "ym": "2025-10",
+          "label": "Okt 2025",
+          "label_panjang": "Oktober 2025",
+          "jumlah": 37
+        },
+        {
+          "ym": "2025-11",
+          "label": "Nov 2025",
+          "label_panjang": "November 2025",
+          "jumlah": 24
+        },
+        {
+          "ym": "2025-12",
+          "label": "Des 2025",
+          "label_panjang": "Desember 2025",
+          "jumlah": 17
+        },
+        {
+          "ym": "2026-01",
+          "label": "Jan 2026",
+          "label_panjang": "Januari 2026",
+          "jumlah": 13
+        },
+        {
+          "ym": "2026-02",
+          "label": "Feb 2026",
+          "label_panjang": "Februari 2026",
+          "jumlah": 19
+        },
+        {
+          "ym": "2026-03",
+          "label": "Mar 2026",
+          "label_panjang": "Maret 2026",
+          "jumlah": 14
+        },
+        {
+          "ym": "2026-04",
+          "label": "Apr 2026",
+          "label_panjang": "April 2026",
+          "jumlah": 25
+        },
+        {
+          "ym": "2026-05",
+          "label": "Mei 2026",
+          "label_panjang": "Mei 2026",
+          "jumlah": 19
+        },
+        {
+          "ym": "2026-06",
+          "label": "Jun 2026",
+          "label_panjang": "Juni 2026",
+          "jumlah": 18
+        },
+        {
+          "ym": "2026-07",
+          "label": "Jul 2026",
+          "label_panjang": "Juli 2026",
+          "jumlah": 32
+        },
+        {
+          "ym": "2026-08",
+          "label": "Agu 2026",
+          "label_panjang": "Agustus 2026",
+          "jumlah": 23
+        },
+        {
+          "ym": "2026-09",
+          "label": "Sep 2026",
+          "label_panjang": "September 2026",
+          "jumlah": 11
+        },
+        {
+          "ym": "2026-10",
+          "label": "Okt 2026",
+          "label_panjang": "Oktober 2026",
+          "jumlah": 1
+        }
+      ],
+      "tabel_waktu": {
+        "kolom": "Tahun",
+        "baris": [
+          {
+            "label": "2021",
+            "jumlah": 191
+          },
+          {
+            "label": "2022",
+            "jumlah": 395
+          },
+          {
+            "label": "2023",
+            "jumlah": 325
+          },
+          {
+            "label": "2024",
+            "jumlah": 275
+          },
+          {
+            "label": "2025",
+            "jumlah": 364
+          },
+          {
+            "label": "2026",
+            "jumlah": 175
+          }
+        ]
+      },
+      "pelanggaran": [
+        {
+          "label": "Narkotika",
+          "jumlah": 264
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 248
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 222
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 111
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 97
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 62
+        },
+        {
+          "label": "Kekerasan dalam rumah tangga",
+          "jumlah": 50
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 48
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 45
+        },
+        {
+          "label": "Intimidasi",
+          "jumlah": 43
+        },
+        {
+          "label": "Suap",
+          "jumlah": 40
+        },
+        {
+          "label": "Pencurian atau perampokan",
+          "jumlah": 38
+        }
+      ],
+      "pelanggaran_orang": [
+        {
+          "label": "Narkotika",
+          "jumlah": 593
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 460
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 405
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 318
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 301
+        },
+        {
+          "label": "Pembunuhan",
+          "jumlah": 180
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 144
+        },
+        {
+          "label": "Suap",
+          "jumlah": 129
+        },
+        {
+          "label": "Salah tangkap atau penangkapan sewenang-wenang",
+          "jumlah": 86
+        },
+        {
+          "label": "Kekerasan terhadap tahanan hingga meninggal",
+          "jumlah": 83
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 79
+        },
+        {
+          "label": "Pencurian atau perampokan",
+          "jumlah": 78
+        }
+      ],
+      "pelanggaran_tanpa": 25,
+      "provinsi_daftar": [
+        {
+          "label": "Sumatera Utara",
+          "jumlah": 236
+        },
+        {
+          "label": "Sulawesi Selatan",
+          "jumlah": 195
+        },
+        {
+          "label": "DKI Jakarta",
+          "jumlah": 125
+        },
+        {
+          "label": "Jawa Timur",
+          "jumlah": 90
+        },
+        {
+          "label": "Sumatera Selatan",
+          "jumlah": 87
+        },
+        {
+          "label": "Riau",
+          "jumlah": 71
+        },
+        {
+          "label": "Jawa Barat",
+          "jumlah": 66
+        },
+        {
+          "label": "Nusa Tenggara Timur",
+          "jumlah": 65
+        },
+        {
+          "label": "Lampung",
+          "jumlah": 59
+        },
+        {
+          "label": "Jawa Tengah",
+          "jumlah": 58
+        },
+        {
+          "label": "Maluku",
+          "jumlah": 55
+        },
+        {
+          "label": "Jambi",
+          "jumlah": 49
+        }
+      ],
+      "provinsi_tanpa": 53,
+      "pangkat": [
+        {
+          "label": "Perwira Tinggi",
+          "contoh": "Jenderal, Komjen, Irjen, Brigjen",
+          "jumlah": 28
+        },
+        {
+          "label": "Perwira Menengah",
+          "contoh": "Kombes, AKBP, Kompol",
+          "jumlah": 144
+        },
+        {
+          "label": "Perwira Pertama",
+          "contoh": "AKP, Iptu, Ipda",
+          "jumlah": 171
+        },
+        {
+          "label": "Bintara",
+          "contoh": "Aiptu, Aipda, Bripka, Brigadir, Briptu, Bripda",
+          "jumlah": 653
+        }
+      ],
+      "pangkat_tanpa": 777,
+      "satuan": [
+        {
+          "label": "Polda",
+          "jumlah": 155
+        },
+        {
+          "label": "Polres",
+          "jumlah": 402
+        },
+        {
+          "label": "Polsek",
+          "jumlah": 109
+        }
+      ],
+      "satuan_tanpa": 1059,
+      "identitas": [
+        {
+          "label": "Nama lengkap",
+          "keterangan": "Media menyebut nama terduga secara utuh.",
+          "jumlah": 471
+        },
+        {
+          "label": "Hanya inisial",
+          "keterangan": "Identitas disamarkan jadi inisial, misalnya “Bripka RY”.",
+          "jumlah": 439
+        },
+        {
+          "label": "Tanpa nama (1 orang)",
+          "keterangan": "Disebut sebagai “oknum anggota” tanpa nama atau inisial.",
+          "jumlah": 445
+        },
+        {
+          "label": "Tanpa nama (kelompok)",
+          "keterangan": "Beberapa anggota disebut bersama tanpa identitas.",
+          "jumlah": 370
+        },
+        {
+          "label": "Institusi saja",
+          "keterangan": "Yang disebut satuannya, bukan individunya.",
+          "jumlah": 0
+        }
+      ],
+      "silang_pangkat": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "fraud",
+            "label": "Penipuan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Perwira Tinggi",
+            "total": 27,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 7,
+                "persen": 25.9
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 3,
+                "persen": 11.1
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 6,
+                "persen": 22.2
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 1,
+                "persen": 3.7
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 0,
+                "persen": 0.0
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 10,
+                "persen": 37.0
+              }
+            ]
+          },
+          {
+            "label": "Perwira Menengah",
+            "total": 141,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 20,
+                "persen": 14.2
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 26,
+                "persen": 18.4
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 16,
+                "persen": 11.3
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 17,
+                "persen": 12.1
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 3,
+                "persen": 2.1
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 59,
+                "persen": 41.8
+              }
+            ]
+          },
+          {
+            "label": "Perwira Pertama",
+            "total": 167,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 19,
+                "persen": 11.4
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 42,
+                "persen": 25.1
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 13,
+                "persen": 7.8
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 12,
+                "persen": 7.2
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 6,
+                "persen": 3.6
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 75,
+                "persen": 44.9
+              }
+            ]
+          },
+          {
+            "label": "Bintara",
+            "total": 653,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 117,
+                "persen": 17.9
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 78,
+                "persen": 11.9
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 84,
+                "persen": 12.9
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 45,
+                "persen": 6.9
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 26,
+                "persen": 4.0
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 303,
+                "persen": 46.4
+              }
+            ]
+          }
+        ],
+        "cakupan": 920,
+        "dari": 1725
+      },
+      "silang_satuan": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "fraud",
+            "label": "Penipuan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Polsek",
+            "total": 108,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 20,
+                "persen": 18.5
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 14,
+                "persen": 13.0
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 12,
+                "persen": 11.1
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 11,
+                "persen": 10.2
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 3,
+                "persen": 2.8
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 48,
+                "persen": 44.4
+              }
+            ]
+          },
+          {
+            "label": "Polres",
+            "total": 402,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 106,
+                "persen": 26.4
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 50,
+                "persen": 12.4
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 42,
+                "persen": 10.4
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 17,
+                "persen": 4.2
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 24,
+                "persen": 6.0
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 163,
+                "persen": 40.5
+              }
+            ]
+          },
+          {
+            "label": "Polda",
+            "total": 155,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 26,
+                "persen": 16.8
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 14,
+                "persen": 9.0
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 18,
+                "persen": 11.6
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 11,
+                "persen": 7.1
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 11,
+                "persen": 7.1
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 75,
+                "persen": 48.4
+              }
+            ]
+          }
+        ],
+        "cakupan": 665,
+        "dari": 1725
+      },
+      "dominasi": {
+        "judul": "Agus Andrianto — Pembunuhan — Jakarta Selatan",
+        "subjek": "Agus Andrianto",
+        "artikel": 17245,
+        "persen": 51
+      },
+      "terbaru": [
+        {
+          "id": 9149,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pencurian atau perampokan — Ambon Jambret",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pencurian atau perampokan",
+          "provinsi": "Maluku",
+          "tanggal": "2 Oktober 2026",
+          "artikel": 2
+        },
+        {
+          "id": 9146,
+          "judul": "Yayat Sudrajat — Korupsi — Jawa Barat",
+          "subjek": "Yayat Sudrajat",
+          "pelanggaran": "Korupsi",
+          "provinsi": "Jawa Barat",
+          "tanggal": "30 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9136,
+          "judul": "MA — Kekerasan seksual — Papua Barat",
+          "subjek": "MA",
+          "pelanggaran": "Kekerasan seksual",
+          "provinsi": "Papua Barat",
+          "tanggal": "28 September 2026",
+          "artikel": 2
+        },
+        {
+          "id": 9129,
+          "judul": "Fahrurozi — Penipuan — Sulawesi Utara",
+          "subjek": "Fahrurozi",
+          "pelanggaran": "Penipuan",
+          "provinsi": "Sulawesi Utara",
+          "tanggal": "25 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9127,
+          "judul": "Oknum polisi (belum teridentifikasi) — Penggunaan kekuatan berlebihan — Sumatera Utara",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Penggunaan kekuatan berlebihan",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "25 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9120,
+          "judul": "GN — Pelanggaran etik — Sulawesi Selatan",
+          "subjek": "GN",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "22 September 2026",
+          "artikel": 2
+        },
+        {
+          "id": 9116,
+          "judul": "Kelompok anggota polisi (anonim) — Narkotika — Jambi Lebih Ringan",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Jambi",
+          "tanggal": "22 September 2026",
+          "artikel": 3
+        },
+        {
+          "id": 9115,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pemerasan — DI Yogyakarta",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "DI Yogyakarta",
+          "tanggal": "22 September 2026",
+          "artikel": 3
+        },
+        {
+          "id": 9112,
+          "judul": "Kelompok anggota polisi (anonim) — Pencurian — Maros",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Pencurian atau perampokan",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "21 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9110,
+          "judul": "SAS Digerebek Mesum — Pelanggaran etik — Mobil",
+          "subjek": "SAS Digerebek Mesum",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "18 September 2026",
+          "artikel": 5
+        },
+        {
+          "id": 9107,
+          "judul": "Oknum polisi (belum teridentifikasi) — Tabrak lari — Lampung",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Tabrak lari",
+          "provinsi": "Lampung",
+          "tanggal": "13 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9101,
+          "judul": "Muhammad Dafa — Suap — Jambi",
+          "subjek": "Muhammad Dafa",
+          "pelanggaran": "Suap",
+          "provinsi": "Jambi",
+          "tanggal": "7 September 2026",
+          "artikel": 9
+        },
+        {
+          "id": 9088,
+          "judul": "Aviv Muharman Hakim — Pelanggaran lainnya — Bungo",
+          "subjek": "Aviv Muharman Hakim",
+          "pelanggaran": "Pelanggaran lainnya",
+          "provinsi": "Jambi",
+          "tanggal": "31 Agustus 2026",
+          "artikel": 2
+        },
+        {
+          "id": 9087,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pemerasan — Jawa Timur",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "Jawa Timur",
+          "tanggal": "29 Agustus 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9083,
+          "judul": "Oknum polisi (belum teridentifikasi) — Dugaan suap — Sidrap",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Suap",
+          "provinsi": "Jawa Barat",
+          "tanggal": "26 Agustus 2026",
+          "artikel": 1
+        }
+      ]
+    },
+    "2026": {
+      "tahun": 2026,
+      "ringkas": {
+        "kasus": 175,
+        "artikel": 1024,
+        "terduga": 352,
+        "provinsi": 31,
+        "polres": 49,
+        "dari": "5 Januari 2026",
+        "sampai": "2 Oktober 2026"
+      },
+      "tren": [
+        {
+          "ym": "2026-01",
+          "label": "Jan 2026",
+          "label_panjang": "Januari 2026",
+          "jumlah": 13
+        },
+        {
+          "ym": "2026-02",
+          "label": "Feb 2026",
+          "label_panjang": "Februari 2026",
+          "jumlah": 19
+        },
+        {
+          "ym": "2026-03",
+          "label": "Mar 2026",
+          "label_panjang": "Maret 2026",
+          "jumlah": 14
+        },
+        {
+          "ym": "2026-04",
+          "label": "Apr 2026",
+          "label_panjang": "April 2026",
+          "jumlah": 25
+        },
+        {
+          "ym": "2026-05",
+          "label": "Mei 2026",
+          "label_panjang": "Mei 2026",
+          "jumlah": 19
+        },
+        {
+          "ym": "2026-06",
+          "label": "Jun 2026",
+          "label_panjang": "Juni 2026",
+          "jumlah": 18
+        },
+        {
+          "ym": "2026-07",
+          "label": "Jul 2026",
+          "label_panjang": "Juli 2026",
+          "jumlah": 32
+        },
+        {
+          "ym": "2026-08",
+          "label": "Agu 2026",
+          "label_panjang": "Agustus 2026",
+          "jumlah": 23
+        },
+        {
+          "ym": "2026-09",
+          "label": "Sep 2026",
+          "label_panjang": "September 2026",
+          "jumlah": 11
+        },
+        {
+          "ym": "2026-10",
+          "label": "Okt 2026",
+          "label_panjang": "Oktober 2026",
+          "jumlah": 1
+        },
+        {
+          "ym": "2026-11",
+          "label": "Nov 2026",
+          "label_panjang": "November 2026",
+          "jumlah": 0
+        },
+        {
+          "ym": "2026-12",
+          "label": "Des 2026",
+          "label_panjang": "Desember 2026",
+          "jumlah": 0
+        }
+      ],
+      "tabel_waktu": {
+        "kolom": "Bulan",
+        "baris": [
+          {
+            "label": "Januari 2026",
+            "jumlah": 13
+          },
+          {
+            "label": "Februari 2026",
+            "jumlah": 19
+          },
+          {
+            "label": "Maret 2026",
+            "jumlah": 14
+          },
+          {
+            "label": "April 2026",
+            "jumlah": 25
+          },
+          {
+            "label": "Mei 2026",
+            "jumlah": 19
+          },
+          {
+            "label": "Juni 2026",
+            "jumlah": 18
+          },
+          {
+            "label": "Juli 2026",
+            "jumlah": 32
+          },
+          {
+            "label": "Agustus 2026",
+            "jumlah": 23
+          },
+          {
+            "label": "September 2026",
+            "jumlah": 11
+          },
+          {
+            "label": "Oktober 2026",
+            "jumlah": 1
+          },
+          {
+            "label": "November 2026",
+            "jumlah": 0
+          },
+          {
+            "label": "Desember 2026",
+            "jumlah": 0
+          }
+        ]
+      },
+      "pelanggaran": [
+        {
+          "label": "Narkotika",
+          "jumlah": 32
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 24
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 17
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 13
+        },
+        {
+          "label": "Intimidasi",
+          "jumlah": 8
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 6
+        },
+        {
+          "label": "Suap",
+          "jumlah": 6
+        },
+        {
+          "label": "Kelalaian yang menyebabkan kematian",
+          "jumlah": 5
+        },
+        {
+          "label": "Korupsi",
+          "jumlah": 5
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 5
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 5
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 5
+        }
+      ],
+      "pelanggaran_orang": [
+        {
+          "label": "Narkotika",
+          "jumlah": 81
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 45
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 30
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 20
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 19
+        },
+        {
+          "label": "Intimidasi",
+          "jumlah": 17
+        },
+        {
+          "label": "Suap",
+          "jumlah": 15
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 13
+        },
+        {
+          "label": "Korupsi",
+          "jumlah": 13
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 13
+        },
+        {
+          "label": "Pelanggaran lainnya",
+          "jumlah": 10
+        },
+        {
+          "label": "Pembunuhan",
+          "jumlah": 10
+        }
+      ],
+      "pelanggaran_tanpa": 1,
+      "provinsi_daftar": [
+        {
+          "label": "Sumatera Utara",
+          "jumlah": 18
+        },
+        {
+          "label": "Sulawesi Selatan",
+          "jumlah": 17
+        },
+        {
+          "label": "Jambi",
+          "jumlah": 13
+        },
+        {
+          "label": "Jawa Timur",
+          "jumlah": 12
+        },
+        {
+          "label": "Riau",
+          "jumlah": 12
+        },
+        {
+          "label": "Jawa Tengah",
+          "jumlah": 9
+        },
+        {
+          "label": "DKI Jakarta",
+          "jumlah": 8
+        },
+        {
+          "label": "Jawa Barat",
+          "jumlah": 8
+        },
+        {
+          "label": "Nusa Tenggara Barat",
+          "jumlah": 8
+        },
+        {
+          "label": "Nusa Tenggara Timur",
+          "jumlah": 8
+        },
+        {
+          "label": "Aceh",
+          "jumlah": 7
+        },
+        {
+          "label": "Maluku",
+          "jumlah": 7
+        }
+      ],
+      "provinsi_tanpa": 2,
+      "pangkat": [
+        {
+          "label": "Perwira Tinggi",
+          "contoh": "Jenderal, Komjen, Irjen, Brigjen",
+          "jumlah": 2
+        },
+        {
+          "label": "Perwira Menengah",
+          "contoh": "Kombes, AKBP, Kompol",
+          "jumlah": 14
+        },
+        {
+          "label": "Perwira Pertama",
+          "contoh": "AKP, Iptu, Ipda",
+          "jumlah": 14
+        },
+        {
+          "label": "Bintara",
+          "contoh": "Aiptu, Aipda, Bripka, Brigadir, Briptu, Bripda",
+          "jumlah": 70
+        }
+      ],
+      "pangkat_tanpa": 81,
+      "satuan": [
+        {
+          "label": "Polda",
+          "jumlah": 15
+        },
+        {
+          "label": "Polres",
+          "jumlah": 49
+        },
+        {
+          "label": "Polsek",
+          "jumlah": 4
+        }
+      ],
+      "satuan_tanpa": 107,
+      "identitas": [
+        {
+          "label": "Nama lengkap",
+          "keterangan": "Media menyebut nama terduga secara utuh.",
+          "jumlah": 43
+        },
+        {
+          "label": "Hanya inisial",
+          "keterangan": "Identitas disamarkan jadi inisial, misalnya “Bripka RY”.",
+          "jumlah": 46
+        },
+        {
+          "label": "Tanpa nama (1 orang)",
+          "keterangan": "Disebut sebagai “oknum anggota” tanpa nama atau inisial.",
+          "jumlah": 51
+        },
+        {
+          "label": "Tanpa nama (kelompok)",
+          "keterangan": "Beberapa anggota disebut bersama tanpa identitas.",
+          "jumlah": 35
+        },
+        {
+          "label": "Institusi saja",
+          "keterangan": "Yang disebut satuannya, bukan individunya.",
+          "jumlah": 0
+        }
+      ],
+      "silang_pangkat": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "bribery",
+            "label": "Suap"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Bintara",
+            "total": 70,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 12,
+                "persen": 17.1
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 8,
+                "persen": 11.4
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 5,
+                "persen": 7.1
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 4,
+                "persen": 5.7
+              },
+              {
+                "kode": "bribery",
+                "label": "Suap",
+                "jumlah": 2,
+                "persen": 2.9
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 39,
+                "persen": 55.7
+              }
+            ]
+          }
+        ],
+        "cakupan": 93,
+        "dari": 175
+      },
+      "silang_satuan": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "sexual_violence",
+            "label": "Kekerasan seksual"
+          },
+          {
+            "kode": "desertion",
+            "label": "Desersi"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Polres",
+            "total": 49,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 15,
+                "persen": 30.6
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 7,
+                "persen": 14.3
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 4,
+                "persen": 8.2
+              },
+              {
+                "kode": "sexual_violence",
+                "label": "Kekerasan seksual",
+                "jumlah": 3,
+                "persen": 6.1
+              },
+              {
+                "kode": "desertion",
+                "label": "Desersi",
+                "jumlah": 3,
+                "persen": 6.1
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 17,
+                "persen": 34.7
+              }
+            ]
+          }
+        ],
+        "cakupan": 68,
+        "dari": 175
+      },
+      "dominasi": {
+        "judul": "Didik Putra Kuncoro — Narkotika — Bima Kota",
+        "subjek": "Didik Putra Kuncoro",
+        "artikel": 197,
+        "persen": 19
+      },
+      "terbaru": [
+        {
+          "id": 9149,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pencurian atau perampokan — Ambon Jambret",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pencurian atau perampokan",
+          "provinsi": "Maluku",
+          "tanggal": "2 Oktober 2026",
+          "artikel": 2
+        },
+        {
+          "id": 9146,
+          "judul": "Yayat Sudrajat — Korupsi — Jawa Barat",
+          "subjek": "Yayat Sudrajat",
+          "pelanggaran": "Korupsi",
+          "provinsi": "Jawa Barat",
+          "tanggal": "30 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9136,
+          "judul": "MA — Kekerasan seksual — Papua Barat",
+          "subjek": "MA",
+          "pelanggaran": "Kekerasan seksual",
+          "provinsi": "Papua Barat",
+          "tanggal": "28 September 2026",
+          "artikel": 2
+        },
+        {
+          "id": 9129,
+          "judul": "Fahrurozi — Penipuan — Sulawesi Utara",
+          "subjek": "Fahrurozi",
+          "pelanggaran": "Penipuan",
+          "provinsi": "Sulawesi Utara",
+          "tanggal": "25 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9127,
+          "judul": "Oknum polisi (belum teridentifikasi) — Penggunaan kekuatan berlebihan — Sumatera Utara",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Penggunaan kekuatan berlebihan",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "25 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9120,
+          "judul": "GN — Pelanggaran etik — Sulawesi Selatan",
+          "subjek": "GN",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "22 September 2026",
+          "artikel": 2
+        },
+        {
+          "id": 9116,
+          "judul": "Kelompok anggota polisi (anonim) — Narkotika — Jambi Lebih Ringan",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Jambi",
+          "tanggal": "22 September 2026",
+          "artikel": 3
+        },
+        {
+          "id": 9115,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pemerasan — DI Yogyakarta",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "DI Yogyakarta",
+          "tanggal": "22 September 2026",
+          "artikel": 3
+        },
+        {
+          "id": 9112,
+          "judul": "Kelompok anggota polisi (anonim) — Pencurian — Maros",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Pencurian atau perampokan",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "21 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9110,
+          "judul": "SAS Digerebek Mesum — Pelanggaran etik — Mobil",
+          "subjek": "SAS Digerebek Mesum",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "18 September 2026",
+          "artikel": 5
+        },
+        {
+          "id": 9107,
+          "judul": "Oknum polisi (belum teridentifikasi) — Tabrak lari — Lampung",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Tabrak lari",
+          "provinsi": "Lampung",
+          "tanggal": "13 September 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9101,
+          "judul": "Muhammad Dafa — Suap — Jambi",
+          "subjek": "Muhammad Dafa",
+          "pelanggaran": "Suap",
+          "provinsi": "Jambi",
+          "tanggal": "7 September 2026",
+          "artikel": 9
+        },
+        {
+          "id": 9088,
+          "judul": "Aviv Muharman Hakim — Pelanggaran lainnya — Bungo",
+          "subjek": "Aviv Muharman Hakim",
+          "pelanggaran": "Pelanggaran lainnya",
+          "provinsi": "Jambi",
+          "tanggal": "31 Agustus 2026",
+          "artikel": 2
+        },
+        {
+          "id": 9087,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pemerasan — Jawa Timur",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "Jawa Timur",
+          "tanggal": "29 Agustus 2026",
+          "artikel": 1
+        },
+        {
+          "id": 9083,
+          "judul": "Oknum polisi (belum teridentifikasi) — Dugaan suap — Sidrap",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Suap",
+          "provinsi": "Jawa Barat",
+          "tanggal": "26 Agustus 2026",
+          "artikel": 1
+        }
+      ]
+    },
+    "2025": {
+      "tahun": 2025,
+      "ringkas": {
+        "kasus": 364,
+        "artikel": 2519,
+        "terduga": 708,
+        "provinsi": 31,
+        "polres": 91,
+        "dari": "3 Januari 2025",
+        "sampai": "30 Desember 2025"
+      },
+      "tren": [
+        {
+          "ym": "2025-01",
+          "label": "Jan 2025",
+          "label_panjang": "Januari 2025",
+          "jumlah": 24
+        },
+        {
+          "ym": "2025-02",
+          "label": "Feb 2025",
+          "label_panjang": "Februari 2025",
+          "jumlah": 40
+        },
+        {
+          "ym": "2025-03",
+          "label": "Mar 2025",
+          "label_panjang": "Maret 2025",
+          "jumlah": 35
+        },
+        {
+          "ym": "2025-04",
+          "label": "Apr 2025",
+          "label_panjang": "April 2025",
+          "jumlah": 34
+        },
+        {
+          "ym": "2025-05",
+          "label": "Mei 2025",
+          "label_panjang": "Mei 2025",
+          "jumlah": 34
+        },
+        {
+          "ym": "2025-06",
+          "label": "Jun 2025",
+          "label_panjang": "Juni 2025",
+          "jumlah": 27
+        },
+        {
+          "ym": "2025-07",
+          "label": "Jul 2025",
+          "label_panjang": "Juli 2025",
+          "jumlah": 37
+        },
+        {
+          "ym": "2025-08",
+          "label": "Agu 2025",
+          "label_panjang": "Agustus 2025",
+          "jumlah": 34
+        },
+        {
+          "ym": "2025-09",
+          "label": "Sep 2025",
+          "label_panjang": "September 2025",
+          "jumlah": 21
+        },
+        {
+          "ym": "2025-10",
+          "label": "Okt 2025",
+          "label_panjang": "Oktober 2025",
+          "jumlah": 37
+        },
+        {
+          "ym": "2025-11",
+          "label": "Nov 2025",
+          "label_panjang": "November 2025",
+          "jumlah": 24
+        },
+        {
+          "ym": "2025-12",
+          "label": "Des 2025",
+          "label_panjang": "Desember 2025",
+          "jumlah": 17
+        }
+      ],
+      "tabel_waktu": {
+        "kolom": "Bulan",
+        "baris": [
+          {
+            "label": "Januari 2025",
+            "jumlah": 24
+          },
+          {
+            "label": "Februari 2025",
+            "jumlah": 40
+          },
+          {
+            "label": "Maret 2025",
+            "jumlah": 35
+          },
+          {
+            "label": "April 2025",
+            "jumlah": 34
+          },
+          {
+            "label": "Mei 2025",
+            "jumlah": 34
+          },
+          {
+            "label": "Juni 2025",
+            "jumlah": 27
+          },
+          {
+            "label": "Juli 2025",
+            "jumlah": 37
+          },
+          {
+            "label": "Agustus 2025",
+            "jumlah": 34
+          },
+          {
+            "label": "September 2025",
+            "jumlah": 21
+          },
+          {
+            "label": "Oktober 2025",
+            "jumlah": 37
+          },
+          {
+            "label": "November 2025",
+            "jumlah": 24
+          },
+          {
+            "label": "Desember 2025",
+            "jumlah": 17
+          }
+        ]
+      },
+      "pelanggaran": [
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 58
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 46
+        },
+        {
+          "label": "Narkotika",
+          "jumlah": 41
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 29
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 25
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 22
+        },
+        {
+          "label": "Kekerasan dalam rumah tangga",
+          "jumlah": 13
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 13
+        },
+        {
+          "label": "Salah tangkap atau penangkapan sewenang-wenang",
+          "jumlah": 13
+        },
+        {
+          "label": "Pembunuhan",
+          "jumlah": 10
+        },
+        {
+          "label": "Pemerkosaan",
+          "jumlah": 10
+        },
+        {
+          "label": "Penggelapan",
+          "jumlah": 8
+        }
+      ],
+      "pelanggaran_orang": [
+        {
+          "label": "Pemerasan",
+          "jumlah": 108
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 88
+        },
+        {
+          "label": "Narkotika",
+          "jumlah": 85
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 73
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 49
+        },
+        {
+          "label": "Salah tangkap atau penangkapan sewenang-wenang",
+          "jumlah": 44
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 33
+        },
+        {
+          "label": "Pembunuhan",
+          "jumlah": 27
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 17
+        },
+        {
+          "label": "Intimidasi",
+          "jumlah": 16
+        },
+        {
+          "label": "Pembunuhan di luar proses hukum",
+          "jumlah": 16
+        },
+        {
+          "label": "Pencurian atau perampokan",
+          "jumlah": 14
+        }
+      ],
+      "pelanggaran_tanpa": 8,
+      "provinsi_daftar": [
+        {
+          "label": "Sumatera Utara",
+          "jumlah": 44
+        },
+        {
+          "label": "Sulawesi Selatan",
+          "jumlah": 42
+        },
+        {
+          "label": "Jawa Timur",
+          "jumlah": 22
+        },
+        {
+          "label": "DKI Jakarta",
+          "jumlah": 20
+        },
+        {
+          "label": "Jawa Tengah",
+          "jumlah": 19
+        },
+        {
+          "label": "Sumatera Selatan",
+          "jumlah": 18
+        },
+        {
+          "label": "Nusa Tenggara Timur",
+          "jumlah": 16
+        },
+        {
+          "label": "Riau",
+          "jumlah": 16
+        },
+        {
+          "label": "Maluku",
+          "jumlah": 14
+        },
+        {
+          "label": "Gorontalo",
+          "jumlah": 12
+        },
+        {
+          "label": "Sulawesi Barat",
+          "jumlah": 12
+        },
+        {
+          "label": "Jawa Barat",
+          "jumlah": 11
+        }
+      ],
+      "provinsi_tanpa": 11,
+      "pangkat": [
+        {
+          "label": "Perwira Tinggi",
+          "contoh": "Jenderal, Komjen, Irjen, Brigjen",
+          "jumlah": 4
+        },
+        {
+          "label": "Perwira Menengah",
+          "contoh": "Kombes, AKBP, Kompol",
+          "jumlah": 27
+        },
+        {
+          "label": "Perwira Pertama",
+          "contoh": "AKP, Iptu, Ipda",
+          "jumlah": 38
+        },
+        {
+          "label": "Bintara",
+          "contoh": "Aiptu, Aipda, Bripka, Brigadir, Briptu, Bripda",
+          "jumlah": 161
+        }
+      ],
+      "pangkat_tanpa": 142,
+      "satuan": [
+        {
+          "label": "Polda",
+          "jumlah": 34
+        },
+        {
+          "label": "Polres",
+          "jumlah": 91
+        },
+        {
+          "label": "Polsek",
+          "jumlah": 22
+        }
+      ],
+      "satuan_tanpa": 217,
+      "identitas": [
+        {
+          "label": "Nama lengkap",
+          "keterangan": "Media menyebut nama terduga secara utuh.",
+          "jumlah": 118
+        },
+        {
+          "label": "Hanya inisial",
+          "keterangan": "Identitas disamarkan jadi inisial, misalnya “Bripka RY”.",
+          "jumlah": 102
+        },
+        {
+          "label": "Tanpa nama (1 orang)",
+          "keterangan": "Disebut sebagai “oknum anggota” tanpa nama atau inisial.",
+          "jumlah": 75
+        },
+        {
+          "label": "Tanpa nama (kelompok)",
+          "keterangan": "Beberapa anggota disebut bersama tanpa identitas.",
+          "jumlah": 69
+        },
+        {
+          "label": "Institusi saja",
+          "keterangan": "Yang disebut satuannya, bukan individunya.",
+          "jumlah": 0
+        }
+      ],
+      "silang_pangkat": {
+        "kolom": [
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "fraud",
+            "label": "Penipuan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Perwira Menengah",
+            "total": 26,
+            "sel": [
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 5,
+                "persen": 19.2
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 4,
+                "persen": 15.4
+              },
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 2,
+                "persen": 7.7
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 5,
+                "persen": 19.2
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 1,
+                "persen": 3.8
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 9,
+                "persen": 34.6
+              }
+            ]
+          },
+          {
+            "label": "Perwira Pertama",
+            "total": 36,
+            "sel": [
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 10,
+                "persen": 27.8
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 4,
+                "persen": 11.1
+              },
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 2,
+                "persen": 5.6
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 2,
+                "persen": 5.6
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 3,
+                "persen": 8.3
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 15,
+                "persen": 41.7
+              }
+            ]
+          },
+          {
+            "label": "Bintara",
+            "total": 161,
+            "sel": [
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 23,
+                "persen": 14.3
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 20,
+                "persen": 12.4
+              },
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 23,
+                "persen": 14.3
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 15,
+                "persen": 9.3
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 10,
+                "persen": 6.2
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 70,
+                "persen": 43.5
+              }
+            ]
+          }
+        ],
+        "cakupan": 213,
+        "dari": 364
+      },
+      "silang_satuan": {
+        "kolom": [
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "fraud",
+            "label": "Penipuan"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Polres",
+            "total": 91,
+            "sel": [
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 15,
+                "persen": 16.5
+              },
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 12,
+                "persen": 13.2
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 10,
+                "persen": 11.0
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 10,
+                "persen": 11.0
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 6,
+                "persen": 6.6
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 38,
+                "persen": 41.8
+              }
+            ]
+          },
+          {
+            "label": "Polda",
+            "total": 34,
+            "sel": [
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 6,
+                "persen": 17.6
+              },
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 6,
+                "persen": 17.6
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 5,
+                "persen": 14.7
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 2,
+                "persen": 5.9
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 4,
+                "persen": 11.8
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 11,
+                "persen": 32.4
+              }
+            ]
+          }
+        ],
+        "cakupan": 146,
+        "dari": 364
+      },
+      "dominasi": {
+        "judul": "Fajar Widyadharma Lukman Sumaatmaja — Narkotika — Nusa Tenggara Timur",
+        "subjek": "Fajar Widyadharma Lukman Sumaatmaja",
+        "artikel": 239,
+        "persen": 9
+      },
+      "terbaru": [
+        {
+          "id": 6153,
+          "judul": "Oknum polisi (belum teridentifikasi) — Penipuan — Takalar",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Penipuan",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "30 Desember 2025",
+          "artikel": 1
+        },
+        {
+          "id": 1148,
+          "judul": "Kelompok anggota polisi (anonim) — Salah tangkap atau penangkapan sewenang-wenang — Bogor",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Salah tangkap atau penangkapan sewenang-wenang",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "28 Desember 2025",
+          "artikel": 3
+        },
+        {
+          "id": 125,
+          "judul": "Muhammad Seili — Pembunuhan berencana — Kalimantan Selatan",
+          "subjek": "Muhammad Seili",
+          "pelanggaran": "Pembunuhan berencana",
+          "provinsi": "Kalimantan Selatan",
+          "tanggal": "26 Desember 2025",
+          "artikel": 18
+        },
+        {
+          "id": 654,
+          "judul": "La Ode Isnardin — Kekerasan fisik — Konawe Utara",
+          "subjek": "La Ode Isnardin",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Sulawesi Tenggara",
+          "tanggal": "25 Desember 2025",
+          "artikel": 3
+        },
+        {
+          "id": 3885,
+          "judul": "Akmaluddin dan kelompok anggota polisi (anonim) — Penyalahgunaan wewenang — Mandailing Natal",
+          "subjek": "Akmaluddin dan kelompok anggota polisi (anonim)",
+          "pelanggaran": "Penyalahgunaan wewenang",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "22 Desember 2025",
+          "artikel": 3
+        },
+        {
+          "id": 3212,
+          "judul": "Oknum polisi (belum teridentifikasi) — Kekerasan seksual — Bone",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Kekerasan seksual",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "21 Desember 2025",
+          "artikel": 1
+        },
+        {
+          "id": 1071,
+          "judul": "Julihan Muntaha — Pemerasan — Sumatera Utara",
+          "subjek": "Julihan Muntaha",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "21 Desember 2025",
+          "artikel": 3
+        },
+        {
+          "id": 4025,
+          "judul": "Kelompok anggota polisi (anonim) — Salah tangkap atau penangkapan sewenang-wenang — Blitar",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Salah tangkap atau penangkapan sewenang-wenang",
+          "provinsi": "Jawa Timur",
+          "tanggal": "18 Desember 2025",
+          "artikel": 1
+        },
+        {
+          "id": 3436,
+          "judul": "Brigadir YAAS — Kekerasan dalam rumah tangga — Kepulauan Riau",
+          "subjek": "Brigadir YAAS",
+          "pelanggaran": "Kekerasan dalam rumah tangga",
+          "provinsi": "Kepulauan Riau",
+          "tanggal": "18 Desember 2025",
+          "artikel": 2
+        },
+        {
+          "id": 332,
+          "judul": "Agus Muhammad Sulaiman — Pembunuhan — Jawa Timur",
+          "subjek": "Agus Muhammad Sulaiman",
+          "pelanggaran": "Pembunuhan",
+          "provinsi": "Jawa Timur",
+          "tanggal": "17 Desember 2025",
+          "artikel": 22
+        },
+        {
+          "id": 3204,
+          "judul": "Abdul Kadir — Narkotika — Majene",
+          "subjek": "Abdul Kadir",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Sulawesi Barat",
+          "tanggal": "16 Desember 2025",
+          "artikel": 2
+        },
+        {
+          "id": 3203,
+          "judul": "Oknum polisi (belum teridentifikasi) — Tidak diketahui — Deli Serdang",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Belum teridentifikasi",
+          "provinsi": "Lokasi belum teridentifikasi",
+          "tanggal": "13 Desember 2025",
+          "artikel": 1
+        },
+        {
+          "id": 1069,
+          "judul": "AMZ — Penggunaan kekuatan berlebihan — Kalibata",
+          "subjek": "AMZ",
+          "pelanggaran": "Penggunaan kekuatan berlebihan",
+          "provinsi": "DKI Jakarta",
+          "tanggal": "12 Desember 2025",
+          "artikel": 39
+        },
+        {
+          "id": 4736,
+          "judul": "Oknum polisi (belum teridentifikasi) — Kekerasan dalam rumah tangga — Palembang",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Kekerasan dalam rumah tangga",
+          "provinsi": "Sumatera Selatan",
+          "tanggal": "10 Desember 2025",
+          "artikel": 1
+        },
+        {
+          "id": 8499,
+          "judul": "Harceprei Simatupang — Penggelapan — Medan",
+          "subjek": "Harceprei Simatupang",
+          "pelanggaran": "Penggelapan",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "7 Desember 2025",
+          "artikel": 1
+        }
+      ]
+    },
+    "2024": {
+      "tahun": 2024,
+      "ringkas": {
+        "kasus": 275,
+        "artikel": 2558,
+        "terduga": 637,
+        "provinsi": 34,
+        "polres": 66,
+        "dari": "3 Januari 2024",
+        "sampai": "31 Desember 2024"
+      },
+      "tren": [
+        {
+          "ym": "2024-01",
+          "label": "Jan 2024",
+          "label_panjang": "Januari 2024",
+          "jumlah": 17
+        },
+        {
+          "ym": "2024-02",
+          "label": "Feb 2024",
+          "label_panjang": "Februari 2024",
+          "jumlah": 23
+        },
+        {
+          "ym": "2024-03",
+          "label": "Mar 2024",
+          "label_panjang": "Maret 2024",
+          "jumlah": 20
+        },
+        {
+          "ym": "2024-04",
+          "label": "Apr 2024",
+          "label_panjang": "April 2024",
+          "jumlah": 33
+        },
+        {
+          "ym": "2024-05",
+          "label": "Mei 2024",
+          "label_panjang": "Mei 2024",
+          "jumlah": 25
+        },
+        {
+          "ym": "2024-06",
+          "label": "Jun 2024",
+          "label_panjang": "Juni 2024",
+          "jumlah": 28
+        },
+        {
+          "ym": "2024-07",
+          "label": "Jul 2024",
+          "label_panjang": "Juli 2024",
+          "jumlah": 27
+        },
+        {
+          "ym": "2024-08",
+          "label": "Agu 2024",
+          "label_panjang": "Agustus 2024",
+          "jumlah": 14
+        },
+        {
+          "ym": "2024-09",
+          "label": "Sep 2024",
+          "label_panjang": "September 2024",
+          "jumlah": 25
+        },
+        {
+          "ym": "2024-10",
+          "label": "Okt 2024",
+          "label_panjang": "Oktober 2024",
+          "jumlah": 16
+        },
+        {
+          "ym": "2024-11",
+          "label": "Nov 2024",
+          "label_panjang": "November 2024",
+          "jumlah": 21
+        },
+        {
+          "ym": "2024-12",
+          "label": "Des 2024",
+          "label_panjang": "Desember 2024",
+          "jumlah": 26
+        }
+      ],
+      "tabel_waktu": {
+        "kolom": "Bulan",
+        "baris": [
+          {
+            "label": "Januari 2024",
+            "jumlah": 17
+          },
+          {
+            "label": "Februari 2024",
+            "jumlah": 23
+          },
+          {
+            "label": "Maret 2024",
+            "jumlah": 20
+          },
+          {
+            "label": "April 2024",
+            "jumlah": 33
+          },
+          {
+            "label": "Mei 2024",
+            "jumlah": 25
+          },
+          {
+            "label": "Juni 2024",
+            "jumlah": 28
+          },
+          {
+            "label": "Juli 2024",
+            "jumlah": 27
+          },
+          {
+            "label": "Agustus 2024",
+            "jumlah": 14
+          },
+          {
+            "label": "September 2024",
+            "jumlah": 25
+          },
+          {
+            "label": "Oktober 2024",
+            "jumlah": 16
+          },
+          {
+            "label": "November 2024",
+            "jumlah": 21
+          },
+          {
+            "label": "Desember 2024",
+            "jumlah": 26
+          }
+        ]
+      },
+      "pelanggaran": [
+        {
+          "label": "Narkotika",
+          "jumlah": 49
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 45
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 41
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 15
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 14
+        },
+        {
+          "label": "Desersi",
+          "jumlah": 9
+        },
+        {
+          "label": "Intimidasi",
+          "jumlah": 9
+        },
+        {
+          "label": "Kekerasan dalam rumah tangga",
+          "jumlah": 9
+        },
+        {
+          "label": "Perjudian",
+          "jumlah": 9
+        },
+        {
+          "label": "Pembunuhan",
+          "jumlah": 6
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 6
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 5
+        }
+      ],
+      "pelanggaran_orang": [
+        {
+          "label": "Narkotika",
+          "jumlah": 115
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 103
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 90
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 60
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 43
+        },
+        {
+          "label": "Penyiksaan",
+          "jumlah": 31
+        },
+        {
+          "label": "Pembunuhan",
+          "jumlah": 24
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 22
+        },
+        {
+          "label": "Perjudian",
+          "jumlah": 16
+        },
+        {
+          "label": "Desersi",
+          "jumlah": 11
+        },
+        {
+          "label": "Kekerasan dalam rumah tangga",
+          "jumlah": 11
+        },
+        {
+          "label": "Kekerasan terhadap tahanan hingga meninggal",
+          "jumlah": 11
+        }
+      ],
+      "pelanggaran_tanpa": 4,
+      "provinsi_daftar": [
+        {
+          "label": "Sulawesi Selatan",
+          "jumlah": 41
+        },
+        {
+          "label": "Sumatera Utara",
+          "jumlah": 35
+        },
+        {
+          "label": "DKI Jakarta",
+          "jumlah": 26
+        },
+        {
+          "label": "Jawa Timur",
+          "jumlah": 16
+        },
+        {
+          "label": "Nusa Tenggara Timur",
+          "jumlah": 14
+        },
+        {
+          "label": "Kepulauan Riau",
+          "jumlah": 11
+        },
+        {
+          "label": "Maluku",
+          "jumlah": 11
+        },
+        {
+          "label": "Sumatera Selatan",
+          "jumlah": 11
+        },
+        {
+          "label": "Riau",
+          "jumlah": 9
+        },
+        {
+          "label": "Jawa Barat",
+          "jumlah": 8
+        },
+        {
+          "label": "Lampung",
+          "jumlah": 8
+        },
+        {
+          "label": "Sulawesi Tenggara",
+          "jumlah": 8
+        }
+      ],
+      "provinsi_tanpa": 11,
+      "pangkat": [
+        {
+          "label": "Perwira Tinggi",
+          "contoh": "Jenderal, Komjen, Irjen, Brigjen",
+          "jumlah": 3
+        },
+        {
+          "label": "Perwira Menengah",
+          "contoh": "Kombes, AKBP, Kompol",
+          "jumlah": 17
+        },
+        {
+          "label": "Perwira Pertama",
+          "contoh": "AKP, Iptu, Ipda",
+          "jumlah": 32
+        },
+        {
+          "label": "Bintara",
+          "contoh": "Aiptu, Aipda, Bripka, Brigadir, Briptu, Bripda",
+          "jumlah": 90
+        }
+      ],
+      "pangkat_tanpa": 139,
+      "satuan": [
+        {
+          "label": "Polda",
+          "jumlah": 23
+        },
+        {
+          "label": "Polres",
+          "jumlah": 66
+        },
+        {
+          "label": "Polsek",
+          "jumlah": 19
+        }
+      ],
+      "satuan_tanpa": 167,
+      "identitas": [
+        {
+          "label": "Nama lengkap",
+          "keterangan": "Media menyebut nama terduga secara utuh.",
+          "jumlah": 68
+        },
+        {
+          "label": "Hanya inisial",
+          "keterangan": "Identitas disamarkan jadi inisial, misalnya “Bripka RY”.",
+          "jumlah": 69
+        },
+        {
+          "label": "Tanpa nama (1 orang)",
+          "keterangan": "Disebut sebagai “oknum anggota” tanpa nama atau inisial.",
+          "jumlah": 77
+        },
+        {
+          "label": "Tanpa nama (kelompok)",
+          "keterangan": "Beberapa anggota disebut bersama tanpa identitas.",
+          "jumlah": 61
+        },
+        {
+          "label": "Institusi saja",
+          "keterangan": "Yang disebut satuannya, bukan individunya.",
+          "jumlah": 0
+        }
+      ],
+      "silang_pangkat": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "killing",
+            "label": "Pembunuhan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Perwira Pertama",
+            "total": 31,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 3,
+                "persen": 9.7
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 11,
+                "persen": 35.5
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 2,
+                "persen": 6.5
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 4,
+                "persen": 12.9
+              },
+              {
+                "kode": "killing",
+                "label": "Pembunuhan",
+                "jumlah": 0,
+                "persen": 0.0
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 11,
+                "persen": 35.5
+              }
+            ]
+          },
+          {
+            "label": "Bintara",
+            "total": 90,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 18,
+                "persen": 20.0
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 10,
+                "persen": 11.1
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 18,
+                "persen": 20.0
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 4,
+                "persen": 4.4
+              },
+              {
+                "kode": "killing",
+                "label": "Pembunuhan",
+                "jumlah": 6,
+                "persen": 6.7
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 34,
+                "persen": 37.8
+              }
+            ]
+          }
+        ],
+        "cakupan": 131,
+        "dari": 275
+      },
+      "silang_satuan": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "fraud",
+            "label": "Penipuan"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Polres",
+            "total": 66,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 21,
+                "persen": 31.8
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 10,
+                "persen": 15.2
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 6,
+                "persen": 9.1
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 3,
+                "persen": 4.5
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 2,
+                "persen": 3.0
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 24,
+                "persen": 36.4
+              }
+            ]
+          }
+        ],
+        "cakupan": 108,
+        "dari": 275
+      },
+      "dominasi": {
+        "judul": "Donald Parlaungan Simanjuntak dan beberapa polisi lainnya — Pemerasan — DKI Jakarta",
+        "subjek": "Donald Parlaungan Simanjuntak dan beberapa polisi lainnya",
+        "artikel": 341,
+        "persen": 13
+      },
+      "terbaru": [
+        {
+          "id": 2911,
+          "judul": "SW — Narkotika — Jeneponto",
+          "subjek": "SW",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "31 Desember 2024",
+          "artikel": 1
+        },
+        {
+          "id": 1010,
+          "judul": "AS — Narkotika — Dairi",
+          "subjek": "AS",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "31 Desember 2024",
+          "artikel": 2
+        },
+        {
+          "id": 2905,
+          "judul": "Oknum polisi (belum teridentifikasi) — Narkotika — Indragiri Hulu",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Riau",
+          "tanggal": "30 Desember 2024",
+          "artikel": 1
+        },
+        {
+          "id": 151,
+          "judul": "RH — Kekerasan fisik — Baubau",
+          "subjek": "RH",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Sulawesi Tenggara",
+          "tanggal": "29 Desember 2024",
+          "artikel": 26
+        },
+        {
+          "id": 7099,
+          "judul": "Sukri Liwang — Pemerasan — Sinjai",
+          "subjek": "Sukri Liwang",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "27 Desember 2024",
+          "artikel": 1
+        },
+        {
+          "id": 124,
+          "judul": "Aswar — Pemerasan — Bone",
+          "subjek": "Aswar",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "27 Desember 2024",
+          "artikel": 16
+        },
+        {
+          "id": 112,
+          "judul": "Imanuel Dachi — Kekerasan fisik — Medan",
+          "subjek": "Imanuel Dachi",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "27 Desember 2024",
+          "artikel": 31
+        },
+        {
+          "id": 7094,
+          "judul": "Oknum polisi (belum teridentifikasi) — Perselingkuhan — Maros",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Perselingkuhan",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "24 Desember 2024",
+          "artikel": 4
+        },
+        {
+          "id": 2890,
+          "judul": "Kelompok anggota polisi (anonim) — Pelanggaran etik — Maros",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "24 Desember 2024",
+          "artikel": 2
+        },
+        {
+          "id": 499,
+          "judul": "RN — Pelanggaran etik — Maros",
+          "subjek": "RN",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "24 Desember 2024",
+          "artikel": 5
+        },
+        {
+          "id": 186,
+          "judul": "AA — Kekerasan fisik — Jawa Barat",
+          "subjek": "AA",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Jawa Barat",
+          "tanggal": "24 Desember 2024",
+          "artikel": 19
+        },
+        {
+          "id": 2888,
+          "judul": "DS — Kekerasan fisik — Teluk Bintuni",
+          "subjek": "DS",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Papua Barat",
+          "tanggal": "23 Desember 2024",
+          "artikel": 1
+        },
+        {
+          "id": 1133,
+          "judul": "Tiga oknum polisi — Kekerasan fisik — Maluku",
+          "subjek": "Tiga oknum polisi",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Maluku",
+          "tanggal": "21 Desember 2024",
+          "artikel": 29
+        },
+        {
+          "id": 6421,
+          "judul": "Kelompok anggota polisi (anonim) — Perdagangan orang — Tanjungpinang",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Perdagangan orang",
+          "provinsi": "Kepulauan Riau",
+          "tanggal": "20 Desember 2024",
+          "artikel": 3
+        },
+        {
+          "id": 38,
+          "judul": "Donald Parlaungan Simanjuntak dan beberapa polisi lainnya — Pemerasan — DKI Jakarta",
+          "subjek": "Donald Parlaungan Simanjuntak dan beberapa polisi lainnya",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "DKI Jakarta",
+          "tanggal": "19 Desember 2024",
+          "artikel": 341
+        }
+      ]
+    },
+    "2023": {
+      "tahun": 2023,
+      "ringkas": {
+        "kasus": 325,
+        "artikel": 3833,
+        "terduga": 642,
+        "provinsi": 34,
+        "polres": 65,
+        "dari": "2 Januari 2023",
+        "sampai": "29 Desember 2023"
+      },
+      "tren": [
+        {
+          "ym": "2023-01",
+          "label": "Jan 2023",
+          "label_panjang": "Januari 2023",
+          "jumlah": 28
+        },
+        {
+          "ym": "2023-02",
+          "label": "Feb 2023",
+          "label_panjang": "Februari 2023",
+          "jumlah": 19
+        },
+        {
+          "ym": "2023-03",
+          "label": "Mar 2023",
+          "label_panjang": "Maret 2023",
+          "jumlah": 27
+        },
+        {
+          "ym": "2023-04",
+          "label": "Apr 2023",
+          "label_panjang": "April 2023",
+          "jumlah": 25
+        },
+        {
+          "ym": "2023-05",
+          "label": "Mei 2023",
+          "label_panjang": "Mei 2023",
+          "jumlah": 36
+        },
+        {
+          "ym": "2023-06",
+          "label": "Jun 2023",
+          "label_panjang": "Juni 2023",
+          "jumlah": 25
+        },
+        {
+          "ym": "2023-07",
+          "label": "Jul 2023",
+          "label_panjang": "Juli 2023",
+          "jumlah": 36
+        },
+        {
+          "ym": "2023-08",
+          "label": "Agu 2023",
+          "label_panjang": "Agustus 2023",
+          "jumlah": 43
+        },
+        {
+          "ym": "2023-09",
+          "label": "Sep 2023",
+          "label_panjang": "September 2023",
+          "jumlah": 22
+        },
+        {
+          "ym": "2023-10",
+          "label": "Okt 2023",
+          "label_panjang": "Oktober 2023",
+          "jumlah": 20
+        },
+        {
+          "ym": "2023-11",
+          "label": "Nov 2023",
+          "label_panjang": "November 2023",
+          "jumlah": 24
+        },
+        {
+          "ym": "2023-12",
+          "label": "Des 2023",
+          "label_panjang": "Desember 2023",
+          "jumlah": 20
+        }
+      ],
+      "tabel_waktu": {
+        "kolom": "Bulan",
+        "baris": [
+          {
+            "label": "Januari 2023",
+            "jumlah": 28
+          },
+          {
+            "label": "Februari 2023",
+            "jumlah": 19
+          },
+          {
+            "label": "Maret 2023",
+            "jumlah": 27
+          },
+          {
+            "label": "April 2023",
+            "jumlah": 25
+          },
+          {
+            "label": "Mei 2023",
+            "jumlah": 36
+          },
+          {
+            "label": "Juni 2023",
+            "jumlah": 25
+          },
+          {
+            "label": "Juli 2023",
+            "jumlah": 36
+          },
+          {
+            "label": "Agustus 2023",
+            "jumlah": 43
+          },
+          {
+            "label": "September 2023",
+            "jumlah": 22
+          },
+          {
+            "label": "Oktober 2023",
+            "jumlah": 20
+          },
+          {
+            "label": "November 2023",
+            "jumlah": 24
+          },
+          {
+            "label": "Desember 2023",
+            "jumlah": 20
+          }
+        ]
+      },
+      "pelanggaran": [
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 49
+        },
+        {
+          "label": "Narkotika",
+          "jumlah": 47
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 38
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 19
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 19
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 15
+        },
+        {
+          "label": "Pencurian atau perampokan",
+          "jumlah": 13
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 12
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 10
+        },
+        {
+          "label": "Suap",
+          "jumlah": 10
+        },
+        {
+          "label": "Penggelapan",
+          "jumlah": 9
+        },
+        {
+          "label": "Kekerasan dalam rumah tangga",
+          "jumlah": 7
+        }
+      ],
+      "pelanggaran_orang": [
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 80
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 76
+        },
+        {
+          "label": "Narkotika",
+          "jumlah": 73
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 68
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 49
+        },
+        {
+          "label": "Suap",
+          "jumlah": 42
+        },
+        {
+          "label": "Pencurian atau perampokan",
+          "jumlah": 23
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 19
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 18
+        },
+        {
+          "label": "Salah tangkap atau penangkapan sewenang-wenang",
+          "jumlah": 16
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 15
+        },
+        {
+          "label": "Perintangan penyidikan",
+          "jumlah": 15
+        }
+      ],
+      "pelanggaran_tanpa": 6,
+      "provinsi_daftar": [
+        {
+          "label": "Sumatera Utara",
+          "jumlah": 45
+        },
+        {
+          "label": "Sulawesi Selatan",
+          "jumlah": 39
+        },
+        {
+          "label": "Lampung",
+          "jumlah": 20
+        },
+        {
+          "label": "DKI Jakarta",
+          "jumlah": 19
+        },
+        {
+          "label": "Jawa Timur",
+          "jumlah": 16
+        },
+        {
+          "label": "Sulawesi Barat",
+          "jumlah": 15
+        },
+        {
+          "label": "Nusa Tenggara Timur",
+          "jumlah": 13
+        },
+        {
+          "label": "Riau",
+          "jumlah": 13
+        },
+        {
+          "label": "Sumatera Selatan",
+          "jumlah": 13
+        },
+        {
+          "label": "Jawa Barat",
+          "jumlah": 11
+        },
+        {
+          "label": "Jawa Tengah",
+          "jumlah": 10
+        },
+        {
+          "label": "Jambi",
+          "jumlah": 8
+        }
+      ],
+      "provinsi_tanpa": 16,
+      "pangkat": [
+        {
+          "label": "Perwira Tinggi",
+          "contoh": "Jenderal, Komjen, Irjen, Brigjen",
+          "jumlah": 1
+        },
+        {
+          "label": "Perwira Menengah",
+          "contoh": "Kombes, AKBP, Kompol",
+          "jumlah": 33
+        },
+        {
+          "label": "Perwira Pertama",
+          "contoh": "AKP, Iptu, Ipda",
+          "jumlah": 34
+        },
+        {
+          "label": "Bintara",
+          "contoh": "Aiptu, Aipda, Bripka, Brigadir, Briptu, Bripda",
+          "jumlah": 120
+        }
+      ],
+      "pangkat_tanpa": 143,
+      "satuan": [
+        {
+          "label": "Polda",
+          "jumlah": 30
+        },
+        {
+          "label": "Polres",
+          "jumlah": 65
+        },
+        {
+          "label": "Polsek",
+          "jumlah": 21
+        }
+      ],
+      "satuan_tanpa": 209,
+      "identitas": [
+        {
+          "label": "Nama lengkap",
+          "keterangan": "Media menyebut nama terduga secara utuh.",
+          "jumlah": 85
+        },
+        {
+          "label": "Hanya inisial",
+          "keterangan": "Identitas disamarkan jadi inisial, misalnya “Bripka RY”.",
+          "jumlah": 89
+        },
+        {
+          "label": "Tanpa nama (1 orang)",
+          "keterangan": "Disebut sebagai “oknum anggota” tanpa nama atau inisial.",
+          "jumlah": 84
+        },
+        {
+          "label": "Tanpa nama (kelompok)",
+          "keterangan": "Beberapa anggota disebut bersama tanpa identitas.",
+          "jumlah": 67
+        },
+        {
+          "label": "Institusi saja",
+          "keterangan": "Yang disebut satuannya, bukan individunya.",
+          "jumlah": 0
+        }
+      ],
+      "silang_pangkat": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "robbery",
+            "label": "Pencurian atau perampokan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Perwira Menengah",
+            "total": 32,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 2,
+                "persen": 6.2
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 4,
+                "persen": 12.5
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 5,
+                "persen": 15.6
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 2,
+                "persen": 6.2
+              },
+              {
+                "kode": "robbery",
+                "label": "Pencurian atau perampokan",
+                "jumlah": 1,
+                "persen": 3.1
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 18,
+                "persen": 56.2
+              }
+            ]
+          },
+          {
+            "label": "Perwira Pertama",
+            "total": 33,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 5,
+                "persen": 15.2
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 9,
+                "persen": 27.3
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 2,
+                "persen": 6.1
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 2,
+                "persen": 6.1
+              },
+              {
+                "kode": "robbery",
+                "label": "Pencurian atau perampokan",
+                "jumlah": 0,
+                "persen": 0.0
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 15,
+                "persen": 45.5
+              }
+            ]
+          },
+          {
+            "label": "Bintara",
+            "total": 120,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 21,
+                "persen": 17.5
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 10,
+                "persen": 8.3
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 15,
+                "persen": 12.5
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 9,
+                "persen": 7.5
+              },
+              {
+                "kode": "robbery",
+                "label": "Pencurian atau perampokan",
+                "jumlah": 9,
+                "persen": 7.5
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 56,
+                "persen": 46.7
+              }
+            ]
+          }
+        ],
+        "cakupan": 175,
+        "dari": 325
+      },
+      "silang_satuan": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "robbery",
+            "label": "Pencurian atau perampokan"
+          },
+          {
+            "kode": "fraud",
+            "label": "Penipuan"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Polres",
+            "total": 65,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 16,
+                "persen": 24.6
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 9,
+                "persen": 13.8
+              },
+              {
+                "kode": "robbery",
+                "label": "Pencurian atau perampokan",
+                "jumlah": 6,
+                "persen": 9.2
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 5,
+                "persen": 7.7
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 4,
+                "persen": 6.2
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 25,
+                "persen": 38.5
+              }
+            ]
+          },
+          {
+            "label": "Polda",
+            "total": 30,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 5,
+                "persen": 16.7
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 3,
+                "persen": 10.0
+              },
+              {
+                "kode": "robbery",
+                "label": "Pencurian atau perampokan",
+                "jumlah": 1,
+                "persen": 3.3
+              },
+              {
+                "kode": "fraud",
+                "label": "Penipuan",
+                "jumlah": 1,
+                "persen": 3.3
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 0,
+                "persen": 0.0
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 20,
+                "persen": 66.7
+              }
+            ]
+          }
+        ],
+        "cakupan": 116,
+        "dari": 325
+      },
+      "dominasi": {
+        "judul": "Achiruddin Hasibuan — Kekerasan fisik — Sumatera Utara",
+        "subjek": "Achiruddin Hasibuan",
+        "artikel": 986,
+        "persen": 26
+      },
+      "terbaru": [
+        {
+          "id": 364,
+          "judul": "Rishian Krisna Budhiaswanto — Korupsi — Nusa Tenggara Timur",
+          "subjek": "Rishian Krisna Budhiaswanto",
+          "pelanggaran": "Korupsi",
+          "provinsi": "Nusa Tenggara Timur",
+          "tanggal": "29 Desember 2023",
+          "artikel": 5
+        },
+        {
+          "id": 5035,
+          "judul": "SR — Kekerasan fisik — Sukabumi",
+          "subjek": "SR",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Lokasi belum teridentifikasi",
+          "tanggal": "23 Desember 2023",
+          "artikel": 1
+        },
+        {
+          "id": 6985,
+          "judul": "SAP — Perselingkuhan — Nunukan",
+          "subjek": "SAP",
+          "pelanggaran": "Perselingkuhan",
+          "provinsi": "Kalimantan Timur",
+          "tanggal": "22 Desember 2023",
+          "artikel": 2
+        },
+        {
+          "id": 2637,
+          "judul": "Bripka SR — Kekerasan dalam rumah tangga — Jawa Barat",
+          "subjek": "Bripka SR",
+          "pelanggaran": "Kekerasan dalam rumah tangga",
+          "provinsi": "Jawa Barat",
+          "tanggal": "22 Desember 2023",
+          "artikel": 4
+        },
+        {
+          "id": 2635,
+          "judul": "Oknum polisi (belum teridentifikasi) — Kelalaian yang menyebabkan kematian — Tanjung Jabung Barat",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Kelalaian yang menyebabkan kematian",
+          "provinsi": "Jambi",
+          "tanggal": "19 Desember 2023",
+          "artikel": 1
+        },
+        {
+          "id": 970,
+          "judul": "Oknum polisi (belum teridentifikasi) — Intimidasi — Palembang",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Intimidasi",
+          "provinsi": "Sumatera Selatan",
+          "tanggal": "19 Desember 2023",
+          "artikel": 2
+        },
+        {
+          "id": 34,
+          "judul": "Edi Purwanto — Intimidasi — Banyuasin",
+          "subjek": "Edi Purwanto",
+          "pelanggaran": "Intimidasi",
+          "provinsi": "Sumatera Selatan",
+          "tanggal": "19 Desember 2023",
+          "artikel": 37
+        },
+        {
+          "id": 6622,
+          "judul": "Oknum polisi (belum teridentifikasi) — Kekerasan fisik — Kotabumi, Lampung Utara",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Lampung",
+          "tanggal": "17 Desember 2023",
+          "artikel": 1
+        },
+        {
+          "id": 5133,
+          "judul": "Oknum polisi (belum teridentifikasi) — Penyiksaan — Gresik",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Penyiksaan",
+          "provinsi": "Jawa Timur",
+          "tanggal": "17 Desember 2023",
+          "artikel": 1
+        },
+        {
+          "id": 240,
+          "judul": "Mbah Omen — Salah tangkap atau penangkapan sewenang-wenang — Lampung",
+          "subjek": "Mbah Omen",
+          "pelanggaran": "Salah tangkap atau penangkapan sewenang-wenang",
+          "provinsi": "Lampung",
+          "tanggal": "16 Desember 2023",
+          "artikel": 9
+        },
+        {
+          "id": 8951,
+          "judul": "Sofwan Hermanto — Pelanggaran etik — Serang",
+          "subjek": "Sofwan Hermanto",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Banten",
+          "tanggal": "15 Desember 2023",
+          "artikel": 1
+        },
+        {
+          "id": 2757,
+          "judul": "M Robby Faleska — Kekerasan dalam rumah tangga — Jawa Barat",
+          "subjek": "M Robby Faleska",
+          "pelanggaran": "Kekerasan dalam rumah tangga",
+          "provinsi": "Jawa Barat",
+          "tanggal": "14 Desember 2023",
+          "artikel": 4
+        },
+        {
+          "id": 968,
+          "judul": "Aditya Andjar Nugroho — Kekerasan terhadap tahanan hingga meninggal — Banyumas",
+          "subjek": "Aditya Andjar Nugroho",
+          "pelanggaran": "Kekerasan terhadap tahanan hingga meninggal",
+          "provinsi": "Jawa Tengah",
+          "tanggal": "11 Desember 2023",
+          "artikel": 3
+        },
+        {
+          "id": 243,
+          "judul": "Junaidin — Pencurian atau perampokan — Sorong",
+          "subjek": "Junaidin",
+          "pelanggaran": "Pencurian atau perampokan",
+          "provinsi": "Papua Barat",
+          "tanggal": "11 Desember 2023",
+          "artikel": 8
+        },
+        {
+          "id": 8124,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pemerasan — Bali",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pemerasan",
+          "provinsi": "Bali",
+          "tanggal": "8 Desember 2023",
+          "artikel": 1
+        }
+      ]
+    },
+    "2022": {
+      "tahun": 2022,
+      "ringkas": {
+        "kasus": 395,
+        "artikel": 20452,
+        "terduga": 981,
+        "provinsi": 34,
+        "polres": 83,
+        "dari": "3 Januari 2022",
+        "sampai": "31 Desember 2022"
+      },
+      "tren": [
+        {
+          "ym": "2022-01",
+          "label": "Jan 2022",
+          "label_panjang": "Januari 2022",
+          "jumlah": 42
+        },
+        {
+          "ym": "2022-02",
+          "label": "Feb 2022",
+          "label_panjang": "Februari 2022",
+          "jumlah": 26
+        },
+        {
+          "ym": "2022-03",
+          "label": "Mar 2022",
+          "label_panjang": "Maret 2022",
+          "jumlah": 30
+        },
+        {
+          "ym": "2022-04",
+          "label": "Apr 2022",
+          "label_panjang": "April 2022",
+          "jumlah": 24
+        },
+        {
+          "ym": "2022-05",
+          "label": "Mei 2022",
+          "label_panjang": "Mei 2022",
+          "jumlah": 33
+        },
+        {
+          "ym": "2022-06",
+          "label": "Jun 2022",
+          "label_panjang": "Juni 2022",
+          "jumlah": 24
+        },
+        {
+          "ym": "2022-07",
+          "label": "Jul 2022",
+          "label_panjang": "Juli 2022",
+          "jumlah": 26
+        },
+        {
+          "ym": "2022-08",
+          "label": "Agu 2022",
+          "label_panjang": "Agustus 2022",
+          "jumlah": 39
+        },
+        {
+          "ym": "2022-09",
+          "label": "Sep 2022",
+          "label_panjang": "September 2022",
+          "jumlah": 47
+        },
+        {
+          "ym": "2022-10",
+          "label": "Okt 2022",
+          "label_panjang": "Oktober 2022",
+          "jumlah": 32
+        },
+        {
+          "ym": "2022-11",
+          "label": "Nov 2022",
+          "label_panjang": "November 2022",
+          "jumlah": 45
+        },
+        {
+          "ym": "2022-12",
+          "label": "Des 2022",
+          "label_panjang": "Desember 2022",
+          "jumlah": 27
+        }
+      ],
+      "tabel_waktu": {
+        "kolom": "Bulan",
+        "baris": [
+          {
+            "label": "Januari 2022",
+            "jumlah": 42
+          },
+          {
+            "label": "Februari 2022",
+            "jumlah": 26
+          },
+          {
+            "label": "Maret 2022",
+            "jumlah": 30
+          },
+          {
+            "label": "April 2022",
+            "jumlah": 24
+          },
+          {
+            "label": "Mei 2022",
+            "jumlah": 33
+          },
+          {
+            "label": "Juni 2022",
+            "jumlah": 24
+          },
+          {
+            "label": "Juli 2022",
+            "jumlah": 26
+          },
+          {
+            "label": "Agustus 2022",
+            "jumlah": 39
+          },
+          {
+            "label": "September 2022",
+            "jumlah": 47
+          },
+          {
+            "label": "Oktober 2022",
+            "jumlah": 32
+          },
+          {
+            "label": "November 2022",
+            "jumlah": 45
+          },
+          {
+            "label": "Desember 2022",
+            "jumlah": 27
+          }
+        ]
+      },
+      "pelanggaran": [
+        {
+          "label": "Narkotika",
+          "jumlah": 67
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 60
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 46
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 22
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 22
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 20
+        },
+        {
+          "label": "Kekerasan dalam rumah tangga",
+          "jumlah": 14
+        },
+        {
+          "label": "Perselingkuhan",
+          "jumlah": 14
+        },
+        {
+          "label": "Kelalaian yang menyebabkan kematian",
+          "jumlah": 10
+        },
+        {
+          "label": "Intimidasi",
+          "jumlah": 9
+        },
+        {
+          "label": "Pemerkosaan",
+          "jumlah": 9
+        },
+        {
+          "label": "Kriminalisasi",
+          "jumlah": 8
+        }
+      ],
+      "pelanggaran_orang": [
+        {
+          "label": "Narkotika",
+          "jumlah": 136
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 113
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 110
+        },
+        {
+          "label": "Pembunuhan",
+          "jumlah": 104
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 93
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 54
+        },
+        {
+          "label": "Penyalahgunaan wewenang",
+          "jumlah": 52
+        },
+        {
+          "label": "Kelalaian yang menyebabkan kematian",
+          "jumlah": 32
+        },
+        {
+          "label": "Suap",
+          "jumlah": 31
+        },
+        {
+          "label": "Kekerasan terhadap tahanan hingga meninggal",
+          "jumlah": 29
+        },
+        {
+          "label": "Pembunuhan di luar proses hukum",
+          "jumlah": 27
+        },
+        {
+          "label": "Perselingkuhan",
+          "jumlah": 24
+        }
+      ],
+      "pelanggaran_tanpa": 3,
+      "provinsi_daftar": [
+        {
+          "label": "Sumatera Utara",
+          "jumlah": 54
+        },
+        {
+          "label": "Sulawesi Selatan",
+          "jumlah": 40
+        },
+        {
+          "label": "DKI Jakarta",
+          "jumlah": 29
+        },
+        {
+          "label": "Sumatera Selatan",
+          "jumlah": 26
+        },
+        {
+          "label": "Jawa Barat",
+          "jumlah": 19
+        },
+        {
+          "label": "Jawa Timur",
+          "jumlah": 17
+        },
+        {
+          "label": "Riau",
+          "jumlah": 17
+        },
+        {
+          "label": "Jambi",
+          "jumlah": 13
+        },
+        {
+          "label": "Maluku",
+          "jumlah": 13
+        },
+        {
+          "label": "Jawa Tengah",
+          "jumlah": 12
+        },
+        {
+          "label": "Lampung",
+          "jumlah": 12
+        },
+        {
+          "label": "Maluku Utara",
+          "jumlah": 12
+        }
+      ],
+      "provinsi_tanpa": 9,
+      "pangkat": [
+        {
+          "label": "Perwira Tinggi",
+          "contoh": "Jenderal, Komjen, Irjen, Brigjen",
+          "jumlah": 12
+        },
+        {
+          "label": "Perwira Menengah",
+          "contoh": "Kombes, AKBP, Kompol",
+          "jumlah": 36
+        },
+        {
+          "label": "Perwira Pertama",
+          "contoh": "AKP, Iptu, Ipda",
+          "jumlah": 36
+        },
+        {
+          "label": "Bintara",
+          "contoh": "Aiptu, Aipda, Bripka, Brigadir, Briptu, Bripda",
+          "jumlah": 142
+        }
+      ],
+      "pangkat_tanpa": 184,
+      "satuan": [
+        {
+          "label": "Polda",
+          "jumlah": 35
+        },
+        {
+          "label": "Polres",
+          "jumlah": 83
+        },
+        {
+          "label": "Polsek",
+          "jumlah": 31
+        }
+      ],
+      "satuan_tanpa": 246,
+      "identitas": [
+        {
+          "label": "Nama lengkap",
+          "keterangan": "Media menyebut nama terduga secara utuh.",
+          "jumlah": 101
+        },
+        {
+          "label": "Hanya inisial",
+          "keterangan": "Identitas disamarkan jadi inisial, misalnya “Bripka RY”.",
+          "jumlah": 95
+        },
+        {
+          "label": "Tanpa nama (1 orang)",
+          "keterangan": "Disebut sebagai “oknum anggota” tanpa nama atau inisial.",
+          "jumlah": 109
+        },
+        {
+          "label": "Tanpa nama (kelompok)",
+          "keterangan": "Beberapa anggota disebut bersama tanpa identitas.",
+          "jumlah": 90
+        },
+        {
+          "label": "Institusi saja",
+          "keterangan": "Yang disebut satuannya, bukan individunya.",
+          "jumlah": 0
+        }
+      ],
+      "silang_pangkat": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "domestic_violence",
+            "label": "Kekerasan dalam rumah tangga"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Perwira Menengah",
+            "total": 35,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 3,
+                "persen": 8.6
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 8,
+                "persen": 22.9
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 3,
+                "persen": 8.6
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 3,
+                "persen": 8.6
+              },
+              {
+                "kode": "domestic_violence",
+                "label": "Kekerasan dalam rumah tangga",
+                "jumlah": 0,
+                "persen": 0.0
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 18,
+                "persen": 51.4
+              }
+            ]
+          },
+          {
+            "label": "Perwira Pertama",
+            "total": 36,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 4,
+                "persen": 11.1
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 8,
+                "persen": 22.2
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 3,
+                "persen": 8.3
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 2,
+                "persen": 5.6
+              },
+              {
+                "kode": "domestic_violence",
+                "label": "Kekerasan dalam rumah tangga",
+                "jumlah": 2,
+                "persen": 5.6
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 17,
+                "persen": 47.2
+              }
+            ]
+          },
+          {
+            "label": "Bintara",
+            "total": 142,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 32,
+                "persen": 22.5
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 21,
+                "persen": 14.8
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 18,
+                "persen": 12.7
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 8,
+                "persen": 5.6
+              },
+              {
+                "kode": "domestic_violence",
+                "label": "Kekerasan dalam rumah tangga",
+                "jumlah": 8,
+                "persen": 5.6
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 55,
+                "persen": 38.7
+              }
+            ]
+          }
+        ],
+        "cakupan": 207,
+        "dari": 395
+      },
+      "silang_satuan": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "domestic_violence",
+            "label": "Kekerasan dalam rumah tangga"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Polsek",
+            "total": 31,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 8,
+                "persen": 25.8
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 6,
+                "persen": 19.4
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 4,
+                "persen": 12.9
+              },
+              {
+                "kode": "domestic_violence",
+                "label": "Kekerasan dalam rumah tangga",
+                "jumlah": 1,
+                "persen": 3.2
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 4,
+                "persen": 12.9
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 8,
+                "persen": 25.8
+              }
+            ]
+          },
+          {
+            "label": "Polres",
+            "total": 83,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 30,
+                "persen": 36.1
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 15,
+                "persen": 18.1
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 5,
+                "persen": 6.0
+              },
+              {
+                "kode": "domestic_violence",
+                "label": "Kekerasan dalam rumah tangga",
+                "jumlah": 2,
+                "persen": 2.4
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 3,
+                "persen": 3.6
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 28,
+                "persen": 33.7
+              }
+            ]
+          },
+          {
+            "label": "Polda",
+            "total": 35,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 5,
+                "persen": 14.3
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 2,
+                "persen": 5.7
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 4,
+                "persen": 11.4
+              },
+              {
+                "kode": "domestic_violence",
+                "label": "Kekerasan dalam rumah tangga",
+                "jumlah": 5,
+                "persen": 14.3
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 1,
+                "persen": 2.9
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 18,
+                "persen": 51.4
+              }
+            ]
+          }
+        ],
+        "cakupan": 149,
+        "dari": 395
+      },
+      "dominasi": {
+        "judul": "Agus Andrianto — Pembunuhan — Jakarta Selatan",
+        "subjek": "Agus Andrianto",
+        "artikel": 17245,
+        "persen": 84
+      },
+      "terbaru": [
+        {
+          "id": 6320,
+          "judul": "Oknum polisi (belum teridentifikasi) — Perselingkuhan — Kendari",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Perselingkuhan",
+          "provinsi": "Kalimantan Utara",
+          "tanggal": "31 Desember 2022",
+          "artikel": 1
+        },
+        {
+          "id": 2226,
+          "judul": "Kelompok anggota polisi (anonim) — Pelanggaran etik — Palembang",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Sumatera Selatan",
+          "tanggal": "30 Desember 2022",
+          "artikel": 4
+        },
+        {
+          "id": 1293,
+          "judul": "Masyhuri — Pelanggaran etik — Kuantan Singingi",
+          "subjek": "Masyhuri",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Riau",
+          "tanggal": "29 Desember 2022",
+          "artikel": 5
+        },
+        {
+          "id": 1261,
+          "judul": "Id — Kekerasan fisik — Lembata",
+          "subjek": "Id",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Nusa Tenggara Timur",
+          "tanggal": "29 Desember 2022",
+          "artikel": 7
+        },
+        {
+          "id": 5378,
+          "judul": "BBA — Penyalahgunaan atau kepemilikan senjata ilegal — Sumba Barat Daya",
+          "subjek": "BBA",
+          "pelanggaran": "Penyalahgunaan atau kepemilikan senjata ilegal",
+          "provinsi": "Bali",
+          "tanggal": "23 Desember 2022",
+          "artikel": 1
+        },
+        {
+          "id": 1177,
+          "judul": "RA — Narkotika — Kepulauan Riau",
+          "subjek": "RA",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Riau",
+          "tanggal": "23 Desember 2022",
+          "artikel": 2
+        },
+        {
+          "id": 4455,
+          "judul": "Ruslan — Pembunuhan — Spn Polda Riau",
+          "subjek": "Ruslan",
+          "pelanggaran": "Pembunuhan",
+          "provinsi": "Riau",
+          "tanggal": "21 Desember 2022",
+          "artikel": 8
+        },
+        {
+          "id": 2218,
+          "judul": "Bripka Wido — Kekerasan fisik — Riau",
+          "subjek": "Bripka Wido",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Riau",
+          "tanggal": "21 Desember 2022",
+          "artikel": 1
+        },
+        {
+          "id": 4454,
+          "judul": "Chandra Gunawan Hutahaean — Pencurian atau perampokan — Rokan Hilir",
+          "subjek": "Chandra Gunawan Hutahaean",
+          "pelanggaran": "Pencurian atau perampokan",
+          "provinsi": "Riau",
+          "tanggal": "20 Desember 2022",
+          "artikel": 1
+        },
+        {
+          "id": 5935,
+          "judul": "Alex Sander — Narkotika — Rokan Hilir",
+          "subjek": "Alex Sander",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Riau",
+          "tanggal": "18 Desember 2022",
+          "artikel": 2
+        },
+        {
+          "id": 7747,
+          "judul": "Umbaran Wibowo — Pelanggaran etik — Blora",
+          "subjek": "Umbaran Wibowo",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Jawa Tengah",
+          "tanggal": "16 Desember 2022",
+          "artikel": 1
+        },
+        {
+          "id": 6172,
+          "judul": "Oknum polisi (belum teridentifikasi) — Penyalahgunaan wewenang — Indonesia",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Penyalahgunaan wewenang",
+          "provinsi": "Lokasi belum teridentifikasi",
+          "tanggal": "15 Desember 2022",
+          "artikel": 1
+        },
+        {
+          "id": 7745,
+          "judul": "Oknum polisi (belum teridentifikasi) — Penyalahgunaan wewenang — Palembang",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Penyalahgunaan wewenang",
+          "provinsi": "Sumatera Selatan",
+          "tanggal": "14 Desember 2022",
+          "artikel": 1
+        },
+        {
+          "id": 574,
+          "judul": "B — Kekerasan fisik — Sulawesi Selatan",
+          "subjek": "B",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "14 Desember 2022",
+          "artikel": 3
+        },
+        {
+          "id": 2210,
+          "judul": "Rusnawati — Pelanggaran etik — Bekasi",
+          "subjek": "Rusnawati",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "DKI Jakarta",
+          "tanggal": "13 Desember 2022",
+          "artikel": 2
+        }
+      ]
+    },
+    "2021": {
+      "tahun": 2021,
+      "ringkas": {
+        "kasus": 191,
+        "artikel": 3389,
+        "terduga": 412,
+        "provinsi": 34,
+        "polres": 48,
+        "dari": "8 Agustus 2021",
+        "sampai": "31 Desember 2021"
+      },
+      "tren": [
+        {
+          "ym": "2021-01",
+          "label": "Jan 2021",
+          "label_panjang": "Januari 2021",
+          "jumlah": 0
+        },
+        {
+          "ym": "2021-02",
+          "label": "Feb 2021",
+          "label_panjang": "Februari 2021",
+          "jumlah": 0
+        },
+        {
+          "ym": "2021-03",
+          "label": "Mar 2021",
+          "label_panjang": "Maret 2021",
+          "jumlah": 0
+        },
+        {
+          "ym": "2021-04",
+          "label": "Apr 2021",
+          "label_panjang": "April 2021",
+          "jumlah": 0
+        },
+        {
+          "ym": "2021-05",
+          "label": "Mei 2021",
+          "label_panjang": "Mei 2021",
+          "jumlah": 0
+        },
+        {
+          "ym": "2021-06",
+          "label": "Jun 2021",
+          "label_panjang": "Juni 2021",
+          "jumlah": 0
+        },
+        {
+          "ym": "2021-07",
+          "label": "Jul 2021",
+          "label_panjang": "Juli 2021",
+          "jumlah": 0
+        },
+        {
+          "ym": "2021-08",
+          "label": "Agu 2021",
+          "label_panjang": "Agustus 2021",
+          "jumlah": 23
+        },
+        {
+          "ym": "2021-09",
+          "label": "Sep 2021",
+          "label_panjang": "September 2021",
+          "jumlah": 29
+        },
+        {
+          "ym": "2021-10",
+          "label": "Okt 2021",
+          "label_panjang": "Oktober 2021",
+          "jumlah": 55
+        },
+        {
+          "ym": "2021-11",
+          "label": "Nov 2021",
+          "label_panjang": "November 2021",
+          "jumlah": 39
+        },
+        {
+          "ym": "2021-12",
+          "label": "Des 2021",
+          "label_panjang": "Desember 2021",
+          "jumlah": 45
+        }
+      ],
+      "tabel_waktu": {
+        "kolom": "Bulan",
+        "baris": [
+          {
+            "label": "Januari 2021",
+            "jumlah": 0
+          },
+          {
+            "label": "Februari 2021",
+            "jumlah": 0
+          },
+          {
+            "label": "Maret 2021",
+            "jumlah": 0
+          },
+          {
+            "label": "April 2021",
+            "jumlah": 0
+          },
+          {
+            "label": "Mei 2021",
+            "jumlah": 0
+          },
+          {
+            "label": "Juni 2021",
+            "jumlah": 0
+          },
+          {
+            "label": "Juli 2021",
+            "jumlah": 0
+          },
+          {
+            "label": "Agustus 2021",
+            "jumlah": 23
+          },
+          {
+            "label": "September 2021",
+            "jumlah": 29
+          },
+          {
+            "label": "Oktober 2021",
+            "jumlah": 55
+          },
+          {
+            "label": "November 2021",
+            "jumlah": 39
+          },
+          {
+            "label": "Desember 2021",
+            "jumlah": 45
+          }
+        ]
+      },
+      "pelanggaran": [
+        {
+          "label": "Narkotika",
+          "jumlah": 28
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 23
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 23
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 15
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 13
+        },
+        {
+          "label": "Suap",
+          "jumlah": 7
+        },
+        {
+          "label": "Intimidasi",
+          "jumlah": 6
+        },
+        {
+          "label": "Penipuan",
+          "jumlah": 6
+        },
+        {
+          "label": "Kekerasan dalam rumah tangga",
+          "jumlah": 5
+        },
+        {
+          "label": "Kekerasan seksual",
+          "jumlah": 5
+        },
+        {
+          "label": "Kriminalisasi",
+          "jumlah": 5
+        },
+        {
+          "label": "Pelanggaran lainnya",
+          "jumlah": 5
+        }
+      ],
+      "pelanggaran_orang": [
+        {
+          "label": "Narkotika",
+          "jumlah": 103
+        },
+        {
+          "label": "Kekerasan fisik",
+          "jumlah": 55
+        },
+        {
+          "label": "Penggunaan kekuatan berlebihan",
+          "jumlah": 33
+        },
+        {
+          "label": "Pelanggaran etik",
+          "jumlah": 29
+        },
+        {
+          "label": "Suap",
+          "jumlah": 24
+        },
+        {
+          "label": "Pemerasan",
+          "jumlah": 17
+        },
+        {
+          "label": "Kekerasan terhadap tahanan hingga meninggal",
+          "jumlah": 16
+        },
+        {
+          "label": "Pencurian atau perampokan",
+          "jumlah": 12
+        },
+        {
+          "label": "Intimidasi",
+          "jumlah": 10
+        },
+        {
+          "label": "Kriminalisasi",
+          "jumlah": 10
+        },
+        {
+          "label": "Pembunuhan",
+          "jumlah": 10
+        },
+        {
+          "label": "Pemerkosaan",
+          "jumlah": 10
+        }
+      ],
+      "pelanggaran_tanpa": 3,
+      "provinsi_daftar": [
+        {
+          "label": "Sumatera Utara",
+          "jumlah": 40
+        },
+        {
+          "label": "DKI Jakarta",
+          "jumlah": 23
+        },
+        {
+          "label": "Sulawesi Selatan",
+          "jumlah": 16
+        },
+        {
+          "label": "Sumatera Selatan",
+          "jumlah": 14
+        },
+        {
+          "label": "Jawa Barat",
+          "jumlah": 9
+        },
+        {
+          "label": "Jawa Timur",
+          "jumlah": 7
+        },
+        {
+          "label": "Maluku Utara",
+          "jumlah": 7
+        },
+        {
+          "label": "Nusa Tenggara Timur",
+          "jumlah": 7
+        },
+        {
+          "label": "Aceh",
+          "jumlah": 5
+        },
+        {
+          "label": "Nusa Tenggara Barat",
+          "jumlah": 5
+        },
+        {
+          "label": "Papua",
+          "jumlah": 5
+        },
+        {
+          "label": "Sulawesi Tengah",
+          "jumlah": 5
+        }
+      ],
+      "provinsi_tanpa": 4,
+      "pangkat": [
+        {
+          "label": "Perwira Tinggi",
+          "contoh": "Jenderal, Komjen, Irjen, Brigjen",
+          "jumlah": 6
+        },
+        {
+          "label": "Perwira Menengah",
+          "contoh": "Kombes, AKBP, Kompol",
+          "jumlah": 17
+        },
+        {
+          "label": "Perwira Pertama",
+          "contoh": "AKP, Iptu, Ipda",
+          "jumlah": 17
+        },
+        {
+          "label": "Bintara",
+          "contoh": "Aiptu, Aipda, Bripka, Brigadir, Briptu, Bripda",
+          "jumlah": 70
+        }
+      ],
+      "pangkat_tanpa": 88,
+      "satuan": [
+        {
+          "label": "Polda",
+          "jumlah": 18
+        },
+        {
+          "label": "Polres",
+          "jumlah": 48
+        },
+        {
+          "label": "Polsek",
+          "jumlah": 12
+        }
+      ],
+      "satuan_tanpa": 113,
+      "identitas": [
+        {
+          "label": "Nama lengkap",
+          "keterangan": "Media menyebut nama terduga secara utuh.",
+          "jumlah": 56
+        },
+        {
+          "label": "Hanya inisial",
+          "keterangan": "Identitas disamarkan jadi inisial, misalnya “Bripka RY”.",
+          "jumlah": 38
+        },
+        {
+          "label": "Tanpa nama (1 orang)",
+          "keterangan": "Disebut sebagai “oknum anggota” tanpa nama atau inisial.",
+          "jumlah": 49
+        },
+        {
+          "label": "Tanpa nama (kelompok)",
+          "keterangan": "Beberapa anggota disebut bersama tanpa identitas.",
+          "jumlah": 48
+        },
+        {
+          "label": "Institusi saja",
+          "keterangan": "Yang disebut satuannya, bukan individunya.",
+          "jumlah": 0
+        }
+      ],
+      "silang_pangkat": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "bribery",
+            "label": "Suap"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Bintara",
+            "total": 70,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 11,
+                "persen": 15.7
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 9,
+                "persen": 12.9
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 5,
+                "persen": 7.1
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 5,
+                "persen": 7.1
+              },
+              {
+                "kode": "bribery",
+                "label": "Suap",
+                "jumlah": 3,
+                "persen": 4.3
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 37,
+                "persen": 52.9
+              }
+            ]
+          }
+        ],
+        "cakupan": 101,
+        "dari": 191
+      },
+      "silang_satuan": {
+        "kolom": [
+          {
+            "kode": "narcotics",
+            "label": "Narkotika"
+          },
+          {
+            "kode": "ethical_violation",
+            "label": "Pelanggaran etik"
+          },
+          {
+            "kode": "physical_violence",
+            "label": "Kekerasan fisik"
+          },
+          {
+            "kode": "excessive_force",
+            "label": "Penggunaan kekuatan berlebihan"
+          },
+          {
+            "kode": "extortion",
+            "label": "Pemerasan"
+          },
+          {
+            "kode": "lainnya",
+            "label": "Lainnya"
+          }
+        ],
+        "baris": [
+          {
+            "label": "Polres",
+            "total": 48,
+            "sel": [
+              {
+                "kode": "narcotics",
+                "label": "Narkotika",
+                "jumlah": 12,
+                "persen": 25.0
+              },
+              {
+                "kode": "ethical_violation",
+                "label": "Pelanggaran etik",
+                "jumlah": 5,
+                "persen": 10.4
+              },
+              {
+                "kode": "physical_violence",
+                "label": "Kekerasan fisik",
+                "jumlah": 4,
+                "persen": 8.3
+              },
+              {
+                "kode": "excessive_force",
+                "label": "Penggunaan kekuatan berlebihan",
+                "jumlah": 4,
+                "persen": 8.3
+              },
+              {
+                "kode": "extortion",
+                "label": "Pemerasan",
+                "jumlah": 2,
+                "persen": 4.2
+              },
+              {
+                "kode": "lainnya",
+                "label": "Lainnya",
+                "jumlah": 21,
+                "persen": 43.8
+              }
+            ]
+          }
+        ],
+        "cakupan": 78,
+        "dari": 191
+      },
+      "dominasi": {
+        "judul": "Dody Prawiranegara — Narkotika — Sumatera Barat",
+        "subjek": "Dody Prawiranegara",
+        "artikel": 1140,
+        "persen": 34
+      },
+      "terbaru": [
+        {
+          "id": 7368,
+          "judul": "Oknum polisi (belum teridentifikasi) — Kriminalisasi — Sumatera Utara",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Kriminalisasi",
+          "provinsi": "Sumatera Utara",
+          "tanggal": "31 Desember 2021",
+          "artikel": 3
+        },
+        {
+          "id": 5849,
+          "judul": "DP — Kekerasan dalam rumah tangga — Tuban",
+          "subjek": "DP",
+          "pelanggaran": "Kekerasan dalam rumah tangga",
+          "provinsi": "Jawa Timur",
+          "tanggal": "30 Desember 2021",
+          "artikel": 1
+        },
+        {
+          "id": 5848,
+          "judul": "Kelompok anggota polisi (anonim) — Kekerasan fisik — Nunukan",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "Kalimantan Utara",
+          "tanggal": "30 Desember 2021",
+          "artikel": 2
+        },
+        {
+          "id": 340,
+          "judul": "Ganesha Sinambela — Korupsi — Ambon",
+          "subjek": "Ganesha Sinambela",
+          "pelanggaran": "Korupsi",
+          "provinsi": "Maluku",
+          "tanggal": "30 Desember 2021",
+          "artikel": 7
+        },
+        {
+          "id": 4163,
+          "judul": "SA — Narkotika — Sekadau",
+          "subjek": "SA",
+          "pelanggaran": "Narkotika",
+          "provinsi": "Kalimantan Barat",
+          "tanggal": "29 Desember 2021",
+          "artikel": 3
+        },
+        {
+          "id": 1649,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pelanggaran etik — Gunungkidul",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "DI Yogyakarta",
+          "tanggal": "29 Desember 2021",
+          "artikel": 1
+        },
+        {
+          "id": 382,
+          "judul": "Oky Bekti Wibowo — Narkotika — Banten",
+          "subjek": "Oky Bekti Wibowo",
+          "pelanggaran": "Narkotika",
+          "provinsi": "DKI Jakarta",
+          "tanggal": "29 Desember 2021",
+          "artikel": 9
+        },
+        {
+          "id": 1647,
+          "judul": "Oknum polisi (belum teridentifikasi) — Penggunaan kekuatan berlebihan — Bogor",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Penggunaan kekuatan berlebihan",
+          "provinsi": "Jawa Barat",
+          "tanggal": "27 Desember 2021",
+          "artikel": 1
+        },
+        {
+          "id": 3986,
+          "judul": "Kelompok anggota polisi (anonim) — Kekerasan fisik — Jatinegara",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Kekerasan fisik",
+          "provinsi": "DKI Jakarta",
+          "tanggal": "25 Desember 2021",
+          "artikel": 1
+        },
+        {
+          "id": 537,
+          "judul": "TP — Penggunaan kekuatan berlebihan — DKI Jakarta",
+          "subjek": "TP",
+          "pelanggaran": "Penggunaan kekuatan berlebihan",
+          "provinsi": "DKI Jakarta",
+          "tanggal": "24 Desember 2021",
+          "artikel": 10
+        },
+        {
+          "id": 4813,
+          "judul": "Oknum polisi (belum teridentifikasi) — Suap — Jakarta Pusat",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Suap",
+          "provinsi": "DKI Jakarta",
+          "tanggal": "23 Desember 2021",
+          "artikel": 1
+        },
+        {
+          "id": 1239,
+          "judul": "Oknum polisi (belum teridentifikasi) — Pelanggaran etik — Rokan Hulu",
+          "subjek": "Oknum polisi (belum teridentifikasi)",
+          "pelanggaran": "Pelanggaran etik",
+          "provinsi": "Riau",
+          "tanggal": "22 Desember 2021",
+          "artikel": 2
+        },
+        {
+          "id": 1238,
+          "judul": "Benny Alamsyah — Narkotika — DKI Jakarta",
+          "subjek": "Benny Alamsyah",
+          "pelanggaran": "Narkotika",
+          "provinsi": "DKI Jakarta",
+          "tanggal": "22 Desember 2021",
+          "artikel": 2
+        },
+        {
+          "id": 6809,
+          "judul": "Kelompok anggota polisi (anonim) — Penggunaan kekuatan berlebihan — Gowa",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Penggunaan kekuatan berlebihan",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "20 Desember 2021",
+          "artikel": 1
+        },
+        {
+          "id": 5231,
+          "judul": "Kelompok anggota polisi (anonim) — Kekerasan terhadap tahanan hingga meninggal — Gowa",
+          "subjek": "Kelompok anggota polisi (anonim)",
+          "pelanggaran": "Kekerasan terhadap tahanan hingga meninggal",
+          "provinsi": "Sulawesi Selatan",
+          "tanggal": "20 Desember 2021",
+          "artikel": 1
+        }
+      ]
+    }
+  },
+  "ringkas": {
+    "kasus": 1725,
+    "artikel": 33775,
+    "terduga": 3732,
+    "provinsi": 37,
+    "polres": 402,
+    "dari": "8 Agustus 2021",
+    "sampai": "2 Oktober 2026"
+  },
+  "kemarin": {
+    "mulai": "2026-10-09",
+    "selesai": "2026-10-09",
+    "mulai_teks": "9 Oktober 2026",
+    "selesai_teks": "9 Oktober 2026",
+    "kasus": 0,
+    "terduga": 0,
+    "artikel": 0,
+    "pelanggaran": [],
+    "provinsi": []
+  },
+  "minggu": {
+    "mulai": "2026-10-05",
+    "selesai": "2026-10-10",
+    "mulai_teks": "5 Oktober 2026",
+    "selesai_teks": "10 Oktober 2026",
+    "kasus": 0,
+    "terduga": 0,
+    "artikel": 0,
+    "pelanggaran": [],
+    "provinsi": []
+  },
+  "bulan": {
+    "mulai": "2026-10-01",
+    "selesai": "2026-10-10",
+    "mulai_teks": "1 Oktober 2026",
+    "selesai_teks": "10 Oktober 2026",
+    "kasus": 1,
+    "terduga": 1,
+    "artikel": 2,
+    "pelanggaran": [
+      {
+        "kunci": "robbery",
+        "label": "Pencurian atau perampokan",
+        "jumlah": 1
+      }
+    ],
+    "provinsi": [
+      {
+        "label": "Maluku",
+        "jumlah": 1
+      }
+    ]
+  },
+  "audit_baseline": {
+    "tanggal": "2026-10-06",
+    "jumlah_kasus": 1725,
+    "sha256_dataset": "3c2bdba3cb992ab27e15c1211c13af846dd110c2b2b0e770ea4881ff10a8324b"
+  },
+  "situs_url": "https://pantaupolisi.netlify.app",
+  "pilihan_editor": {
+    "pelanggaran": [
+      "Desersi",
+      "Diskriminasi",
+      "Eksploitasi seksual",
+      "Intimidasi",
+      "Kekerasan dalam rumah tangga",
+      "Kekerasan fisik",
+      "Kekerasan seksual",
+      "Kekerasan seksual terhadap anak",
+      "Kekerasan terhadap tahanan hingga meninggal",
+      "Kelalaian yang menyebabkan kematian",
+      "Korupsi",
+      "Kriminalisasi",
+      "Menghilangkan atau memanipulasi barang bukti",
+      "Narkotika",
+      "Pelanggaran atau kejahatan lalu lintas",
+      "Pelanggaran etik",
+      "Pelanggaran lainnya",
+      "Pelanggaran privasi",
+      "Pembunuhan",
+      "Pembunuhan berencana",
+      "Pembunuhan di luar proses hukum",
+      "Pemerasan",
+      "Pemerkosaan",
+      "Penahanan sewenang-wenang",
+      "Penculikan",
+      "Pencurian atau perampokan",
+      "Penganiayaan",
+      "Penggelapan",
+      "Penggunaan kekuatan berlebihan",
+      "Penipuan",
+      "Penyalahgunaan atau kepemilikan senjata ilegal",
+      "Penyalahgunaan wewenang",
+      "Penyiksaan",
+      "Perdagangan orang",
+      "Perintangan penyidikan",
+      "Perjudian",
+      "Perselingkuhan",
+      "Pungli",
+      "Represi digital",
+      "Salah tangkap atau penangkapan sewenang-wenang",
+      "Suap",
+      "Tabrak lari",
+      "Tidak diketahui"
+    ],
+    "provinsi": [
+      "Aceh",
+      "Bali",
+      "Banten",
+      "Bengkulu",
+      "DI Yogyakarta",
+      "DKI Jakarta",
+      "Gorontalo",
+      "Jambi",
+      "Jawa Barat",
+      "Jawa Tengah",
+      "Jawa Timur",
+      "Kalimantan Barat",
+      "Kalimantan Selatan",
+      "Kalimantan Tengah",
+      "Kalimantan Timur",
+      "Kalimantan Utara",
+      "Kep. Bangka Belitung",
+      "Kepulauan Riau",
+      "Lampung",
+      "Maluku",
+      "Maluku Utara",
+      "Nusa Tenggara Barat",
+      "Nusa Tenggara Timur",
+      "Papua",
+      "Papua Barat",
+      "Papua Barat Daya",
+      "Papua Pegunungan",
+      "Papua Selatan",
+      "Papua Tengah",
+      "Riau",
+      "Sulawesi Barat",
+      "Sulawesi Selatan",
+      "Sulawesi Tengah",
+      "Sulawesi Tenggara",
+      "Sulawesi Utara",
+      "Sumatera Barat",
+      "Sumatera Selatan",
+      "Sumatera Utara"
+    ]
+  }
+}
