@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evgiyanto — Narkotika — Riau — Lapor Komandan!</title>
+<meta name="description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-005116.">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lapor Komandan!">
+<meta property="og:locale" content="id_ID">
+<meta property="og:title" content="Evgiyanto — Narkotika — Riau — Lapor Komandan!">
+<meta property="og:description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-005116.">
+<meta property="og:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kartu Lapor Komandan! berisi jumlah kasus dugaan pelanggaran polisi yang tercatat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evgiyanto — Narkotika — Riau — Lapor Komandan!">
+<meta name="twitter:description" content="Ringkasan dan seluruh tautan berita untuk kasus PP-005116.">
+<meta name="twitter:image" content="https://pantaupolisi.netlify.app/bagikan.png">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* Latar putih dikunci: situs ini sengaja hanya punya satu tampilan. */
+:root {
+  color-scheme: light;
+  --kertas:  #ffffff;
+  --tinta:   #000000;
+  --tinta-2: #4a4a4a;
+  --tinta-3: #8a8a8a;
+  --garis:   #000000;
+  --pudar:   #e6e6e6;
+}
+
+body {
+  margin: 0;
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+svg { shape-rendering: crispEdges; }
+img, svg { max-width: 100%; }
+
+a { color: var(--tinta); }
+
+/* Judul pixel: lebar mengikuti wadah, tinggi ikut proporsi. */
+.judul-pixel { display: block; width: 100%; height: auto; color: var(--tinta); }
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.masthead { border-bottom: 3px solid var(--garis); }
+.masthead-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  /* padding-block saja — padding kiri-kanan datang dari .wrap dan jangan
+     tertimpa, kalau tidak logonya mepet ke tepi layar. */
+  padding-block: 16px;
+}
+/* Hanya logo (anak langsung), bukan tautan di dalam .nav. */
+.masthead-inner > a { display: block; width: min(260px, 46vw); text-decoration: none; }
+.masthead-meta { font-size: .75rem; color: var(--tinta-2); text-align: right; }
+
+.nav { display: flex; gap: 16px; align-items: center; }
+.nav a {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; text-decoration: none; color: var(--tinta-2);
+  border-bottom: 3px solid transparent; padding-bottom: 2px;
+}
+.nav a:hover { color: var(--tinta); }
+.nav a[aria-current="page"] { color: var(--tinta); border-bottom-color: var(--garis); }
+
+.page-head { padding: 40px 0 4px; }
+.page-head h1 {
+  font-size: clamp(1.4rem, 3.4vw, 1.9rem); font-weight: 700;
+  letter-spacing: -.01em; margin: 0 0 10px;
+}
+.page-head p { margin: 0; color: var(--tinta-2); max-width: 62ch; }
+.backlink {
+  display: inline-block; margin-bottom: 18px; font-size: .8125rem;
+  color: var(--tinta-2); text-decoration: none;
+  border-bottom: 2px solid var(--pudar); padding-bottom: 2px;
+}
+.backlink:hover { border-color: var(--garis); color: var(--tinta); }
+
+/* ---------- halaman satu kasus ---------- */
+.case-title a { text-decoration: none; border-bottom: 2px solid var(--pudar); }
+.case-title a:hover { border-color: var(--garis); }
+
+.kasus-kode {
+  font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--tinta-2); margin: 0 0 8px;
+}
+.kasus-ringkasan { margin: 24px 0 0; padding: 20px; border: 3px solid var(--garis); }
+.kasus-ringkasan p { margin: 0 0 12px; max-width: 66ch; }
+.kasus-ringkasan p:last-child { margin-bottom: 0; }
+.kasus-ringkasan.kosong { border-style: dashed; color: var(--tinta-2); }
+
+/* Catatan terbuka: bagian yang belum berpijak pada beritanya. Dibuat
+   menonjol tapi tidak seperti peringatan bahaya — ini soal ketelitian
+   data, bukan tuduhan terhadap orangnya. */
+.kasus-periksa {
+  margin: 24px 0 0; padding: 16px 20px;
+  border: 3px solid var(--garis); border-left-width: 10px;
+  background: var(--kertas);
+}
+.kasus-periksa p { margin: 0; max-width: 66ch; font-size: .9375rem; }
+
+/* Donat silang. Warna dipakai untuk identitas irisan, tapi TIDAK sendirian:
+   tiap irisan besar diberi label langsung, dan tabel angkanya selalu bisa
+   dibuka — syarat dari pemisahan buta warna yang ada di pita batas. */
+.donat-baris {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px; margin: 8px 0 20px;
+}
+.donat { margin: 0; text-align: center; }
+.donat svg { width: 100%; max-width: 160px; height: auto; }
+.donat-iris { transition: opacity .15s; }
+.donat:hover .donat-iris { opacity: .45; }
+.donat .donat-iris:hover { opacity: 1; }
+.donat-inti-n {
+  text-anchor: middle; font-size: 22px; font-weight: 800; fill: var(--tinta);
+  font-variant-numeric: tabular-nums;
+}
+.donat-inti-l { text-anchor: middle; font-size: 10px; fill: var(--tinta-2); }
+.donat figcaption {
+  margin-top: 10px; font-size: .8125rem; font-weight: 700; line-height: 1.4;
+}
+.donat-besar { list-style: none; margin: 6px 0 0; padding: 0; font-weight: 400; }
+.donat-besar li {
+  font-size: .75rem; color: var(--tinta-2); margin: 2px 0;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+}
+.donat-besar b { color: var(--tinta); font-variant-numeric: tabular-nums; }
+.donat-legenda {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px;
+  padding: 0; margin: 0 0 14px; font-size: .8125rem; color: var(--tinta-2);
+}
+.donat-legenda li { display: flex; align-items: center; gap: 7px; }
+.donat-titik {
+  width: 11px; height: 11px; border-radius: 50%; flex: none;
+  display: inline-block;
+}
+
+/* Tabel silang, dipakai sebagai pendamping donat. */
+.gulir-x { overflow-x: auto; }
+table.silang { border-collapse: collapse; width: 100%; min-width: 640px; font-size: .875rem; }
+table.silang th, table.silang td {
+  text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--garis-tipis);
+  vertical-align: middle;
+}
+table.silang thead th {
+  font-size: .6875rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--tinta-2); border-bottom: 2px solid var(--tinta); white-space: nowrap;
+}
+table.silang tbody th { font-weight: 700; white-space: nowrap; }
+.silang-total { display: block; font-size: .75rem; font-weight: 400; color: var(--tinta-2); }
+.silang-sel { position: relative; min-width: 78px; }
+.silang-bar {
+  position: absolute; left: 0; top: 4px; bottom: 4px;
+  background: var(--tinta); opacity: .12; pointer-events: none;
+}
+.silang-angka { position: relative; font-variant-numeric: tabular-nums; font-weight: 700; }
+.silang-n { position: relative; display: block; font-size: .75rem; color: var(--tinta-2); }
+
+/* Editor. Semuanya tersembunyi sampai seseorang benar-benar masuk — pembaca
+   biasa tidak boleh melihat jejak antarmuka yang tak bisa mereka pakai. */
+.baris-editor { margin-top: 14px; font-size: .8125rem; }
+.baris-editor a { color: var(--tinta-2); }
+.baris-editor a:hover { color: var(--tinta); }
+.editor-aktif { display: none; margin-left: 12px; color: var(--tinta-2); }
+.mode-editor .editor-aktif { display: inline; }
+.mode-editor .dapat-disunting {
+  cursor: pointer; outline: 2px dashed var(--tinta-3); outline-offset: 3px;
+}
+.mode-editor .dapat-disunting:hover { outline-color: var(--tinta); }
+/* Nilai yang sudah dikoreksi TIDAK diberi label siapa yang mengoreksinya.
+   Label itu dulu mencetak isi kolom `oleh` apa adanya ke halaman publik —
+   artinya alamat surel editor ikut tayang ke siapa pun yang membuka halaman
+   kasus. Pembaca juga tidak butuh tahu tangan siapa yang menyentuh baris mana;
+   yang mereka butuhkan nilainya benar. */
+.sunting { display: flex; flex-direction: column; gap: 8px; }
+.sunting input, .sunting select, .sunting textarea {
+  font: inherit; font-size: .9375rem; padding: 8px 10px;
+  border: 2px solid var(--tinta); background: var(--kertas); color: var(--tinta);
+  width: 100%; max-width: 60ch;
+}
+.sunting .alasan { font-size: .8125rem; }
+.sunting .alat { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.sunting button {
+  font: inherit; font-size: .8125rem; font-weight: 700; cursor: pointer;
+  padding: 7px 14px; border: 2px solid var(--tinta);
+  background: var(--kertas); color: var(--tinta);
+}
+.sunting button.utama { background: var(--tinta); color: var(--kertas); }
+.sunting button[disabled] { opacity: .5; cursor: default; }
+.pesan-sunting { font-size: .8125rem; color: var(--tinta-2); }
+.pesan-sunting.galat { color: #a8321e; font-weight: 700; }
+
+.fakta { border-collapse: collapse; width: 100%; margin-top: 8px; }
+.fakta th, .fakta td {
+  text-align: left; vertical-align: top; padding: 8px 0;
+  border-bottom: 1px solid var(--pudar); font-size: .9375rem;
+}
+.fakta th { width: 34%; font-weight: 600; color: var(--tinta-2); padding-right: 16px; }
+
+.berita { list-style: none; margin: 0; padding: 0; }
+.berita li { padding: 12px 0; border-top: 1px solid var(--pudar); }
+.berita li:first-child { border-top: 0; }
+.berita a { font-weight: 600; font-size: .9375rem; }
+.berita .berita-meta { font-size: .8125rem; color: var(--tinta-2); margin: 3px 0 0; }
+
+/* ---------- daftar seluruh kasus ---------- */
+.saring input[type="search"] {
+  font: inherit; font-size: 1rem; color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0; padding: 6px 10px;
+  min-width: 220px; appearance: none;
+}
+.saring input[type="search"]::placeholder { color: var(--tinta-3); }
+.daftar-hitung { margin: 20px 0 0; font-size: .875rem; color: var(--tinta-2); }
+.daftar-hitung b { color: var(--tinta); }
+.daftar-kosong { margin: 24px 0; padding: 20px; border: 3px dashed var(--garis); color: var(--tinta-2); }
+/* Penyaring yang datang dari halaman lain harus kelihatan, kalau tidak
+   pembaca mengira daftarnya memang sependek itu. */
+.saring-aktif {
+  margin: 18px 0 0; padding: 11px 14px; border-left: 6px solid var(--tinta);
+  background: #f4f4f2; font-size: .875rem; color: var(--tinta-2);
+}
+.saring-aktif b { color: var(--tinta); }
+.saring-aktif a { margin-left: 4px; }
+#daftar-kasus { margin-top: 8px; }
+#daftar-kasus li[hidden] { display: none; }
+
+.lihat-semua { margin: 16px 0 0; }
+.lihat-semua a {
+  font-size: .875rem; font-weight: 700; text-decoration: none;
+  border-bottom: 3px solid var(--pudar); padding-bottom: 2px;
+}
+.lihat-semua a:hover { border-color: var(--garis); }
+
+/* ---------- penyaring tahun ---------- */
+.saring {
+  display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap;
+  margin: 24px 0 0; padding: 14px 16px; border: 3px solid var(--garis);
+}
+.saring-grup { display: flex; align-items: center; gap: 10px; }
+.saring label {
+  font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.saring select {
+  font: inherit; font-size: 1rem; font-weight: 700;
+  color: var(--tinta); background: var(--kertas);
+  border: 3px solid var(--garis); border-radius: 0;
+  padding: 6px 34px 6px 10px; cursor: pointer;
+  appearance: none;
+  /* Panah kotak-kotak, digambar sebagai gradien supaya tetap tanpa berkas. */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--tinta) 50%),
+    linear-gradient(135deg, var(--tinta) 50%, transparent 50%);
+  background-position: right 15px top 50%, right 10px top 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.saring select:focus-visible { outline: 3px solid var(--tinta); outline-offset: 2px; }
+.saring select:disabled {
+  color: var(--tinta-3); border-color: var(--pudar); cursor: not-allowed;
+  background-image: none;
+}
+.saring .saring-info { font-size: .8125rem; color: var(--tinta-2); }
+.panel-kosong { font-size: .875rem; color: var(--tinta-2); margin: 0; }
+
+.kpi-row {
+  display: grid; gap: 0; margin: 26px 0 0;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  border: 3px solid var(--garis);
+}
+.kpi { padding: 16px 18px; border-right: 3px solid var(--garis); }
+.kpi:last-child { border-right: 0; }
+.kpi-value {
+  font-size: 1.75rem; font-weight: 700; letter-spacing: -.02em;
+  line-height: 1.1; margin: 0 0 3px;
+}
+.kpi-label { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+
+section.panel {
+  border: 3px solid var(--garis);
+  padding: 22px; margin: 14px 0 0;
+}
+.panel h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 0 0 6px;
+}
+.panel .sub { font-size: .875rem; color: var(--tinta-2); margin: 0 0 20px; max-width: 66ch; }
+.panel-note { font-size: .8125rem; color: var(--tinta-2); margin: 18px 0 0; }
+
+.grid-2 { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-top: 14px; }
+.grid-2 > section.panel { margin-top: 0; }
+@media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* ---------- bar chart ---------- */
+.bars { display: flex; flex-direction: column; gap: 3px; }
+.bar-row {
+  display: grid; grid-template-columns: minmax(96px, 40%) 1fr auto;
+  gap: 12px; align-items: center; padding: 4px 6px; margin: 0 -6px;
+}
+.bar-row:hover { background: #f2f2f2; }
+/* Batang yang bisa diklik membuka daftar kasusnya. Garis bawah hanya muncul
+   saat disentuh kursor: kalau selalu ada, panel penuh batang jadi berisik. */
+a.bar-tautan { display: block; color: inherit; text-decoration: none; }
+a.bar-tautan:hover .bar-name,
+a.bar-tautan:focus-visible .bar-name { color: var(--tinta); text-decoration: underline; }
+a.bar-tautan:focus-visible { outline: 2px solid var(--tinta); outline-offset: 1px; }
+.bar-name {
+  font-size: .875rem; color: var(--tinta-2);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.bar-track { min-height: 16px; display: flex; align-items: center; }
+.bar-fill { height: 12px; background: var(--tinta); min-width: 3px; }
+.bar-value {
+  font-size: .875rem; font-weight: 700; color: var(--tinta);
+  font-variant-numeric: tabular-nums; min-width: 3.4em; text-align: right;
+}
+.bar-value .pct { font-weight: 400; color: var(--tinta-3); font-size: .8125rem; }
+
+/* ---------- tren ---------- */
+.trend { position: relative; }
+.trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+.trend-tip {
+  position: absolute; pointer-events: none; opacity: 0;
+  transform: translate(-50%, -100%);
+  background: var(--tinta); color: var(--kertas);
+  padding: 5px 9px; font-size: .8125rem; line-height: 1.35;
+  white-space: nowrap; transition: opacity .1s; z-index: 2;
+}
+.trend-tip b { display: block; font-weight: 700; }
+
+/* ---------- daftar kasus ---------- */
+.cases { list-style: none; margin: 0; padding: 0; }
+.cases li {
+  padding: 13px 0; border-top: 1px solid var(--pudar);
+  display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: baseline;
+}
+.cases li:first-child { border-top: 0; padding-top: 0; }
+.case-title { font-size: .9375rem; font-weight: 600; margin: 0 0 3px; line-height: 1.4; }
+.case-meta { font-size: .8125rem; color: var(--tinta-2); margin: 0; }
+.case-date {
+  font-size: .8125rem; color: var(--tinta-2); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- tabel ---------- */
+.table-toggle {
+  margin-top: 16px; background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; font-size: .8125rem; color: var(--tinta-2);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.table-toggle:hover { color: var(--tinta); }
+.table-wrap { display: none; margin-top: 12px; overflow-x: auto; }
+.table-wrap.open { display: block; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+th, td { text-align: left; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--pudar); }
+th { font-weight: 700; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.footnote {
+  margin-top: 40px; padding: 20px 0 60px; border-top: 3px solid var(--garis);
+  font-size: .8125rem; line-height: 1.7; color: var(--tinta-2);
+}
+.footnote p { margin: 0 0 8px; max-width: 76ch; }
+.footnote p:last-child { margin-bottom: 0; }
+.footnote a { color: var(--tinta); font-weight: 600; }
+
+/* ---------- halaman metodologi ---------- */
+.teks { max-width: 68ch; padding-bottom: 72px; }
+.teks h2 {
+  font-size: .8125rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; margin: 44px 0 12px;
+  padding-top: 16px; border-top: 3px solid var(--garis);
+}
+.teks h3 { font-size: 1rem; font-weight: 700; margin: 26px 0 6px; }
+.teks p { margin: 0 0 14px; }
+.teks ul { margin: 0 0 14px; padding-left: 20px; }
+.teks li { margin: 0 0 7px; }
+.teks code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: .875em; background: #f2f2f2; padding: 1px 5px;
+}
+.teks .sorot { border: 3px solid var(--garis); padding: 16px 18px; margin: 0 0 18px; }
+.teks .sorot p:last-child { margin-bottom: 0; }
+.daftar-isi { margin: 24px 0 8px; padding: 0; list-style: none; }
+.daftar-isi li { margin: 0 0 6px; }
+.daftar-isi a { color: var(--tinta); }
+
+@media (max-width: 620px) {
+  .masthead-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .masthead-inner > a { width: min(230px, 64vw); }
+  .masthead-meta { text-align: left; }
+  .kpi-row { grid-template-columns: 1fr 1fr; }
+  .kpi { border-bottom: 3px solid var(--garis); }
+  .kpi:nth-child(2n) { border-right: 0; }
+  .kpi:nth-last-child(-n+2) { border-bottom: 0; }
+  .bar-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "name value" "track track";
+    row-gap: 4px; padding-bottom: 8px;
+  }
+  .bar-name { grid-area: name; white-space: normal; }
+  .bar-value { grid-area: value; }
+  .bar-track { grid-area: track; min-height: 0; }
+  .cases li { grid-template-columns: 1fr; }
+  .case-date { order: -1; }
+}
+</style>
+</head>
+<body data-kasus="PP-005116" data-situs="https://pantaupolisi.netlify.app">
+
+<header class="masthead"><div class="wrap masthead-inner">
+  <a href="../index.html"><svg class="judul-pixel" viewBox="0 0 89 7" role="img" aria-label="LAPOR KOMANDAN!" preserveAspectRatio="xMidYMid meet"><rect x="0" y="0" width="1" height="1" fill="currentColor"/><rect x="0" y="1" width="1" height="1" fill="currentColor"/><rect x="0" y="2" width="1" height="1" fill="currentColor"/><rect x="0" y="3" width="1" height="1" fill="currentColor"/><rect x="0" y="4" width="1" height="1" fill="currentColor"/><rect x="0" y="5" width="1" height="1" fill="currentColor"/><rect x="0" y="6" width="5" height="1" fill="currentColor"/><rect x="7" y="0" width="3" height="1" fill="currentColor"/><rect x="6" y="1" width="1" height="1" fill="currentColor"/><rect x="10" y="1" width="1" height="1" fill="currentColor"/><rect x="6" y="2" width="1" height="1" fill="currentColor"/><rect x="10" y="2" width="1" height="1" fill="currentColor"/><rect x="6" y="3" width="5" height="1" fill="currentColor"/><rect x="6" y="4" width="1" height="1" fill="currentColor"/><rect x="10" y="4" width="1" height="1" fill="currentColor"/><rect x="6" y="5" width="1" height="1" fill="currentColor"/><rect x="10" y="5" width="1" height="1" fill="currentColor"/><rect x="6" y="6" width="1" height="1" fill="currentColor"/><rect x="10" y="6" width="1" height="1" fill="currentColor"/><rect x="12" y="0" width="4" height="1" fill="currentColor"/><rect x="12" y="1" width="1" height="1" fill="currentColor"/><rect x="16" y="1" width="1" height="1" fill="currentColor"/><rect x="12" y="2" width="1" height="1" fill="currentColor"/><rect x="16" y="2" width="1" height="1" fill="currentColor"/><rect x="12" y="3" width="4" height="1" fill="currentColor"/><rect x="12" y="4" width="1" height="1" fill="currentColor"/><rect x="12" y="5" width="1" height="1" fill="currentColor"/><rect x="12" y="6" width="1" height="1" fill="currentColor"/><rect x="19" y="0" width="3" height="1" fill="currentColor"/><rect x="18" y="1" width="1" height="1" fill="currentColor"/><rect x="22" y="1" width="1" height="1" fill="currentColor"/><rect x="18" y="2" width="1" height="1" fill="currentColor"/><rect x="22" y="2" width="1" height="1" fill="currentColor"/><rect x="18" y="3" width="1" height="1" fill="currentColor"/><rect x="22" y="3" width="1" height="1" fill="currentColor"/><rect x="18" y="4" width="1" height="1" fill="currentColor"/><rect x="22" y="4" width="1" height="1" fill="currentColor"/><rect x="18" y="5" width="1" height="1" fill="currentColor"/><rect x="22" y="5" width="1" height="1" fill="currentColor"/><rect x="19" y="6" width="3" height="1" fill="currentColor"/><rect x="24" y="0" width="4" height="1" fill="currentColor"/><rect x="24" y="1" width="1" height="1" fill="currentColor"/><rect x="28" y="1" width="1" height="1" fill="currentColor"/><rect x="24" y="2" width="1" height="1" fill="currentColor"/><rect x="28" y="2" width="1" height="1" fill="currentColor"/><rect x="24" y="3" width="4" height="1" fill="currentColor"/><rect x="24" y="4" width="1" height="1" fill="currentColor"/><rect x="26" y="4" width="1" height="1" fill="currentColor"/><rect x="24" y="5" width="1" height="1" fill="currentColor"/><rect x="27" y="5" width="1" height="1" fill="currentColor"/><rect x="24" y="6" width="1" height="1" fill="currentColor"/><rect x="28" y="6" width="1" height="1" fill="currentColor"/><rect x="36" y="0" width="1" height="1" fill="currentColor"/><rect x="40" y="0" width="1" height="1" fill="currentColor"/><rect x="36" y="1" width="1" height="1" fill="currentColor"/><rect x="39" y="1" width="1" height="1" fill="currentColor"/><rect x="36" y="2" width="1" height="1" fill="currentColor"/><rect x="38" y="2" width="1" height="1" fill="currentColor"/><rect x="36" y="3" width="2" height="1" fill="currentColor"/><rect x="36" y="4" width="1" height="1" fill="currentColor"/><rect x="38" y="4" width="1" height="1" fill="currentColor"/><rect x="36" y="5" width="1" height="1" fill="currentColor"/><rect x="39" y="5" width="1" height="1" fill="currentColor"/><rect x="36" y="6" width="1" height="1" fill="currentColor"/><rect x="40" y="6" width="1" height="1" fill="currentColor"/><rect x="43" y="0" width="3" height="1" fill="currentColor"/><rect x="42" y="1" width="1" height="1" fill="currentColor"/><rect x="46" y="1" width="1" height="1" fill="currentColor"/><rect x="42" y="2" width="1" height="1" fill="currentColor"/><rect x="46" y="2" width="1" height="1" fill="currentColor"/><rect x="42" y="3" width="1" height="1" fill="currentColor"/><rect x="46" y="3" width="1" height="1" fill="currentColor"/><rect x="42" y="4" width="1" height="1" fill="currentColor"/><rect x="46" y="4" width="1" height="1" fill="currentColor"/><rect x="42" y="5" width="1" height="1" fill="currentColor"/><rect x="46" y="5" width="1" height="1" fill="currentColor"/><rect x="43" y="6" width="3" height="1" fill="currentColor"/><rect x="48" y="0" width="1" height="1" fill="currentColor"/><rect x="52" y="0" width="1" height="1" fill="currentColor"/><rect x="48" y="1" width="2" height="1" fill="currentColor"/><rect x="51" y="1" width="2" height="1" fill="currentColor"/><rect x="48" y="2" width="1" height="1" fill="currentColor"/><rect x="50" y="2" width="1" height="1" fill="currentColor"/><rect x="52" y="2" width="1" height="1" fill="currentColor"/><rect x="48" y="3" width="1" height="1" fill="currentColor"/><rect x="50" y="3" width="1" height="1" fill="currentColor"/><rect x="52" y="3" width="1" height="1" fill="currentColor"/><rect x="48" y="4" width="1" height="1" fill="currentColor"/><rect x="52" y="4" width="1" height="1" fill="currentColor"/><rect x="48" y="5" width="1" height="1" fill="currentColor"/><rect x="52" y="5" width="1" height="1" fill="currentColor"/><rect x="48" y="6" width="1" height="1" fill="currentColor"/><rect x="52" y="6" width="1" height="1" fill="currentColor"/><rect x="55" y="0" width="3" height="1" fill="currentColor"/><rect x="54" y="1" width="1" height="1" fill="currentColor"/><rect x="58" y="1" width="1" height="1" fill="currentColor"/><rect x="54" y="2" width="1" height="1" fill="currentColor"/><rect x="58" y="2" width="1" height="1" fill="currentColor"/><rect x="54" y="3" width="5" height="1" fill="currentColor"/><rect x="54" y="4" width="1" height="1" fill="currentColor"/><rect x="58" y="4" width="1" height="1" fill="currentColor"/><rect x="54" y="5" width="1" height="1" fill="currentColor"/><rect x="58" y="5" width="1" height="1" fill="currentColor"/><rect x="54" y="6" width="1" height="1" fill="currentColor"/><rect x="58" y="6" width="1" height="1" fill="currentColor"/><rect x="60" y="0" width="1" height="1" fill="currentColor"/><rect x="64" y="0" width="1" height="1" fill="currentColor"/><rect x="60" y="1" width="2" height="1" fill="currentColor"/><rect x="64" y="1" width="1" height="1" fill="currentColor"/><rect x="60" y="2" width="1" height="1" fill="currentColor"/><rect x="62" y="2" width="1" height="1" fill="currentColor"/><rect x="64" y="2" width="1" height="1" fill="currentColor"/><rect x="60" y="3" width="1" height="1" fill="currentColor"/><rect x="63" y="3" width="2" height="1" fill="currentColor"/><rect x="60" y="4" width="1" height="1" fill="currentColor"/><rect x="64" y="4" width="1" height="1" fill="currentColor"/><rect x="60" y="5" width="1" height="1" fill="currentColor"/><rect x="64" y="5" width="1" height="1" fill="currentColor"/><rect x="60" y="6" width="1" height="1" fill="currentColor"/><rect x="64" y="6" width="1" height="1" fill="currentColor"/><rect x="66" y="0" width="4" height="1" fill="currentColor"/><rect x="66" y="1" width="1" height="1" fill="currentColor"/><rect x="70" y="1" width="1" height="1" fill="currentColor"/><rect x="66" y="2" width="1" height="1" fill="currentColor"/><rect x="70" y="2" width="1" height="1" fill="currentColor"/><rect x="66" y="3" width="1" height="1" fill="currentColor"/><rect x="70" y="3" width="1" height="1" fill="currentColor"/><rect x="66" y="4" width="1" height="1" fill="currentColor"/><rect x="70" y="4" width="1" height="1" fill="currentColor"/><rect x="66" y="5" width="1" height="1" fill="currentColor"/><rect x="70" y="5" width="1" height="1" fill="currentColor"/><rect x="66" y="6" width="4" height="1" fill="currentColor"/><rect x="73" y="0" width="3" height="1" fill="currentColor"/><rect x="72" y="1" width="1" height="1" fill="currentColor"/><rect x="76" y="1" width="1" height="1" fill="currentColor"/><rect x="72" y="2" width="1" height="1" fill="currentColor"/><rect x="76" y="2" width="1" height="1" fill="currentColor"/><rect x="72" y="3" width="5" height="1" fill="currentColor"/><rect x="72" y="4" width="1" height="1" fill="currentColor"/><rect x="76" y="4" width="1" height="1" fill="currentColor"/><rect x="72" y="5" width="1" height="1" fill="currentColor"/><rect x="76" y="5" width="1" height="1" fill="currentColor"/><rect x="72" y="6" width="1" height="1" fill="currentColor"/><rect x="76" y="6" width="1" height="1" fill="currentColor"/><rect x="78" y="0" width="1" height="1" fill="currentColor"/><rect x="82" y="0" width="1" height="1" fill="currentColor"/><rect x="78" y="1" width="2" height="1" fill="currentColor"/><rect x="82" y="1" width="1" height="1" fill="currentColor"/><rect x="78" y="2" width="1" height="1" fill="currentColor"/><rect x="80" y="2" width="1" height="1" fill="currentColor"/><rect x="82" y="2" width="1" height="1" fill="currentColor"/><rect x="78" y="3" width="1" height="1" fill="currentColor"/><rect x="81" y="3" width="2" height="1" fill="currentColor"/><rect x="78" y="4" width="1" height="1" fill="currentColor"/><rect x="82" y="4" width="1" height="1" fill="currentColor"/><rect x="78" y="5" width="1" height="1" fill="currentColor"/><rect x="82" y="5" width="1" height="1" fill="currentColor"/><rect x="78" y="6" width="1" height="1" fill="currentColor"/><rect x="82" y="6" width="1" height="1" fill="currentColor"/><rect x="86" y="0" width="1" height="1" fill="currentColor"/><rect x="86" y="1" width="1" height="1" fill="currentColor"/><rect x="86" y="2" width="1" height="1" fill="currentColor"/><rect x="86" y="3" width="1" height="1" fill="currentColor"/><rect x="86" y="4" width="1" height="1" fill="currentColor"/><rect x="86" y="6" width="1" height="1" fill="currentColor"/></svg></a>
+  <nav class="nav">
+    <a href="../dashboard.html" aria-current="page">Data</a>
+    <a href="../kasus.html">Kasus</a>
+    <a href="../metodologi.html">Metodologi</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="page-head">
+    <a class="backlink" href="../dashboard.html">← Kembali ke data</a>
+    <p class="kasus-kode">PP-005116</p>
+    <h1 data-field="judul">Evgiyanto — Narkotika — Riau</h1>
+  </div>
+
+  
+
+  <div class="kasus-ringkasan" data-field="ringkasan"><p>Evgiyanto, seorang polisi dengan pangkat AIPDA dari Polda Riau, diduga terlibat dalam kasus narkotika yang terjadi pada 8 Juli 2023 di Riau. Ia ditetapkan sebagai terdakwa dalam proses hukum pidana.</p><p>Evgiyanto divonis hukuman mati oleh pengadilan pada 23 Agustus 2023. Proses etik/administratif masih dalam tahap yang tidak diketahui.</p></div>
+
+  <section class="panel"><h2>Fakta yang tercatat</h2><p class="sub">Nilai yang belum ditemukan di pemberitaan ditulis apa adanya.</p><div><table class="fakta"><tr><th>Dugaan pelanggaran</th><td data-field="pelanggaran">Narkotika</td></tr><tr><th>Tanggal kejadian</th><td data-field="tanggal_kejadian">8 Juli 2023</td></tr><tr><th>Provinsi</th><td data-field="provinsi">Riau</td></tr><tr><th>Status pidana terkini</th><td data-field="status">Divonis</td></tr><tr><th>Vonis pidana</th><td data-field="vonis">hukuman mati</td></tr><tr><th>Sanksi etik atau administratif</th><td data-field="sanksi">Tidak diketahui</td></tr><tr><th>Jumlah berita</th><td>1</td></tr><tr><th>Diberitakan sejak</th><td>23 Agustus 2023</td></tr><tr><th>Pemberitaan terakhir</th><td>23 Agustus 2023</td></tr></table></div></section>
+
+  <section class="panel"><h2>Berita yang menjadi dasar kasus</h2><p class="sub">Seluruh pemberitaan yang tertaut ke kasus ini, terbaru lebih dulu.</p><div><ul class="berita"><li><a href="https://www.suara.com/news/2023/08/23/084043/profil-aipda-evgiyanto-polisi-yang-divonis-hukuman-mati-oleh-ma" rel="noopener nofollow" target="_blank">Profil Aipda Evgiyanto, Polisi yang Divonis Hukuman Mati oleh MA</a><p class="berita-meta">suara · 23 Agustus 2023</p></li></ul></div></section>
+
+  <div class="footnote">
+    <p>Isi halaman ini adalah <b>dugaan</b> yang dilaporkan media, bukan putusan
+      pengadilan atau sanksi etik. Ringkasan disusun otomatis dari berita yang
+      tertaut dan dapat memuat kekeliruan yang berasal dari sumbernya. Cara data
+      ini dikumpulkan dijelaskan di <a href="../metodologi.html">halaman
+      metodologi</a>.</p>
+    <p class="baris-editor"><a href="../editor.html">Masuk sebagai editor</a>
+      <span class="editor-aktif">Mode editor aktif — klik nilai mana pun untuk
+      mengoreksinya.</span></p>
+  </div>
+</main>
+<script type="application/json" id="pilihan-editor">{"pelanggaran": ["Desersi", "Diskriminasi", "Eksploitasi seksual", "Intimidasi", "Kekerasan dalam rumah tangga", "Kekerasan fisik", "Kekerasan seksual", "Kekerasan seksual terhadap anak", "Kekerasan terhadap tahanan hingga meninggal", "Kelalaian yang menyebabkan kematian", "Korupsi", "Kriminalisasi", "Menghilangkan atau memanipulasi barang bukti", "Narkotika", "Pelanggaran atau kejahatan lalu lintas", "Pelanggaran etik", "Pelanggaran lainnya", "Pelanggaran privasi", "Pembunuhan", "Pembunuhan berencana", "Pembunuhan di luar proses hukum", "Pemerasan", "Pemerkosaan", "Penahanan sewenang-wenang", "Penculikan", "Pencurian atau perampokan", "Penganiayaan", "Penggelapan", "Penggunaan kekuatan berlebihan", "Penipuan", "Penyalahgunaan atau kepemilikan senjata ilegal", "Penyalahgunaan wewenang", "Penyiksaan", "Perdagangan orang", "Perintangan penyidikan", "Perjudian", "Perselingkuhan", "Pungli", "Represi digital", "Salah tangkap atau penangkapan sewenang-wenang", "Suap", "Tabrak lari", "Tidak diketahui"], "provinsi": ["Aceh", "Bali", "Banten", "Bengkulu", "DI Yogyakarta", "DKI Jakarta", "Gorontalo", "Jambi", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Kalimantan Barat", "Kalimantan Selatan", "Kalimantan Tengah", "Kalimantan Timur", "Kalimantan Utara", "Kep. Bangka Belitung", "Kepulauan Riau", "Lampung", "Maluku", "Maluku Utara", "Nusa Tenggara Barat", "Nusa Tenggara Timur", "Papua", "Papua Barat", "Papua Barat Daya", "Papua Pegunungan", "Papua Selatan", "Papua Tengah", "Riau", "Sulawesi Barat", "Sulawesi Selatan", "Sulawesi Tengah", "Sulawesi Tenggara", "Sulawesi Utara", "Sumatera Barat", "Sumatera Selatan", "Sumatera Utara"]}</script>
+<script>
+(function () {
+  var KODE = document.body.dataset.kasus;
+  var API = "/.netlify/functions/koreksi";
+  var PILIHAN = JSON.parse(document.getElementById("pilihan-editor").textContent);
+  var SITUS_IDENTITY = document.body.dataset.situs || "";
+  var BARIS_PANJANG = { ringkasan: 1 };
+  var user = null;
+
+  var BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli",
+               "Agustus","September","Oktober","November","Desember"];
+  function tanggalTeks(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || "");
+    if (!m) return s;
+    return parseInt(m[3],10) + " " + BULAN[parseInt(m[2],10)-1] + " " + m[1];
+  }
+
+  function sel(field) { return document.querySelector('[data-field="' + field + '"]'); }
+
+  // Koreksi ditempelkan untuk semua pengunjung, bukan cuma editor: begitu
+  // seorang editor menyimpan, pembaca berikutnya langsung melihat nilai yang
+  // sudah dibetulkan, tanpa menunggu situs dibangun ulang malam nanti.
+  function tempel(koreksi) {
+    Object.keys(koreksi || {}).forEach(function (field) {
+      var el = sel(field);
+      if (!el) return;
+      var nilai = koreksi[field].nilai;
+      if (field === "ringkasan") {
+        el.classList.remove("kosong");
+        el.innerHTML = "";
+        nilai.split("\n\n").forEach(function (p) {
+          if (!p.trim()) return;
+          var node = document.createElement("p");
+          node.textContent = p.trim();
+          el.appendChild(node);
+        });
+      } else {
+        el.textContent = field === "tanggal_kejadian" ? tanggalTeks(nilai) : nilai;
+      }
+      // Sengaja tidak menulis siapa yang mengoreksi: kolom `oleh` memuat
+      // alamat surel editor, dan halaman kasus terbuka untuk umum.
+    });
+  }
+
+  fetch(API + "?kasus=" + encodeURIComponent(KODE))
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d) tempel(d.koreksi); })
+    .catch(function () { /* koreksi gagal dimuat: halaman tetap tampil apa adanya */ });
+
+  function nilaiSekarang(el, field) {
+    if (field === "ringkasan") {
+      return Array.prototype.map.call(el.querySelectorAll("p"), function (p) {
+        return p.textContent.trim();
+      }).join("\n\n");
+    }
+    var t = el.textContent.trim();
+    return t === "Tidak diketahui" ? "" : t;
+  }
+
+  function sunting(el, field) {
+    if (el.querySelector(".sunting")) return;
+    var lama = nilaiSekarang(el, field);
+    var kotak = document.createElement("div");
+    kotak.className = "sunting";
+
+    var input;
+    if (PILIHAN[field]) {
+      input = document.createElement("select");
+      var kosong = document.createElement("option");
+      kosong.value = ""; kosong.textContent = "— kosongkan —";
+      input.appendChild(kosong);
+      PILIHAN[field].forEach(function (p) {
+        var o = document.createElement("option");
+        o.value = p; o.textContent = p;
+        if (p === lama) o.selected = true;
+        input.appendChild(o);
+      });
+    } else if (BARIS_PANJANG[field]) {
+      input = document.createElement("textarea");
+      input.rows = 8; input.value = lama;
+    } else {
+      input = document.createElement("input");
+      input.type = "text"; input.value = lama;
+      if (field === "tanggal_kejadian") input.placeholder = "YYYY-MM-DD";
+    }
+
+    var alasan = document.createElement("input");
+    alasan.type = "text";
+    alasan.placeholder = "Alasan koreksi (untuk catatan, boleh kosong)";
+    alasan.className = "alasan";
+
+    var simpan = document.createElement("button");
+    simpan.textContent = "Simpan";
+    simpan.className = "utama";
+    var batal = document.createElement("button");
+    batal.textContent = "Batal";
+    var pesan = document.createElement("span");
+    pesan.className = "pesan-sunting";
+
+    var alat = document.createElement("div");
+    alat.className = "alat";
+    alat.appendChild(simpan); alat.appendChild(batal); alat.appendChild(pesan);
+    kotak.appendChild(input); kotak.appendChild(alasan); kotak.appendChild(alat);
+
+    var isiLama = el.innerHTML;
+    el.innerHTML = "";
+    el.appendChild(kotak);
+    input.focus();
+
+    batal.addEventListener("click", function () { el.innerHTML = isiLama; pasang(); });
+
+    simpan.addEventListener("click", function () {
+      simpan.disabled = true;
+      pesan.textContent = "menyimpan…";
+      user.jwt().then(function (token) {
+        return fetch(API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json",
+                     Authorization: "Bearer " + token },
+          body: JSON.stringify({ kasus: KODE, field: field,
+                                 nilai: input.value, alasan: alasan.value }),
+        });
+      }).then(function (r) {
+        return r.json().then(function (d) { return { ok: r.ok, d: d }; });
+      }).then(function (hasil) {
+        if (!hasil.ok) throw new Error(hasil.d.galat || "gagal menyimpan");
+        el.innerHTML = isiLama;
+        var koreksi = {};
+        koreksi[field] = hasil.d;
+        if (hasil.d.nilai === "") { el.textContent = "Tidak diketahui"; }
+        else { tempel(koreksi); }
+        pasang();
+      }).catch(function (galat) {
+        simpan.disabled = false;
+        pesan.textContent = galat.message;
+        pesan.classList.add("galat");
+      });
+    });
+  }
+
+  function pasang() {
+    if (!user) return;
+    document.querySelectorAll("[data-field]").forEach(function (el) {
+      if (el.dataset.siap === "1") return;
+      el.dataset.siap = "1";
+      el.classList.add("dapat-disunting");
+      el.addEventListener("click", function (ev) {
+        if (ev.target.closest("a") || ev.target.closest(".sunting")) return;
+        sunting(el, el.dataset.field);
+      });
+    });
+    document.body.classList.add("mode-editor");
+  }
+
+  // Widget Netlify Identity sengaja tidak dimuat untuk pembaca biasa: skrip
+  // pihak ketiga yang tidak mereka butuhkan tetap saja melacak dan
+  // memperlambat. Baru diambil ketika seseorang menyatakan diri editor, atau
+  // ketika tautan undangan dibuka.
+  function muatIdentity(sesudah) {
+    // Widget bisa sudah dimuat lebih dulu oleh penangkap tautan pemulihan.
+    // Kalau begitu, penangan di bawah tidak pernah terpasang dan sesi yang
+    // sudah aktif tidak dikenali — orang yang baru saja masuk lewat tautan
+    // akan mengira mode editor tidak berfungsi.
+    if (window.netlifyIdentity) {
+      try { user = window.netlifyIdentity.currentUser(); } catch (e) { user = null; }
+      if (user) pasang();
+      sesudah();
+      return;
+    }
+    var s = document.createElement("script");
+    s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    s.onload = function () {
+      // Di server lokal, widget tidak tahu situs Netlify mana yang harus
+      // ditanyai dan memunculkan dialog "Development Settings" yang meminta
+      // URL diketik manual. Alamatnya sudah kita ketahui saat membangun
+      // situs, jadi diberikan langsung. Di situs sungguhan alamat ini tidak
+      // dipakai — widget membacanya sendiri dari host tempat ia berjalan,
+      // sehingga pindah domain nanti tidak akan mematahkannya.
+      var lokal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      var opsi = (lokal && SITUS_IDENTITY)
+        ? { APIUrl: SITUS_IDENTITY.replace(/\/$/, "") + "/.netlify/identity" }
+        : undefined;
+      window.netlifyIdentity.on("init", function (u) {
+        user = u;
+        if (u) pasang();
+      });
+      window.netlifyIdentity.on("login", function (u) {
+        user = u; window.netlifyIdentity.close(); pasang();
+      });
+      window.netlifyIdentity.on("logout", function () { location.reload(); });
+      window.netlifyIdentity.init(opsi);
+      sesudah();
+    };
+    document.head.appendChild(s);
+  }
+
+  var tombol = document.getElementById("masuk-editor");
+  tombol.addEventListener("click", function (ev) {
+    ev.preventDefault();
+    muatIdentity(function () {
+      if (user) window.netlifyIdentity.logout();
+      else window.netlifyIdentity.open();
+    });
+  });
+  // Kode undangan ditangani SKRIP_UNDANGAN yang ada di semua halaman, jadi
+  // tidak diulang di sini — dua pemuat yang berjalan bersamaan akan berebut
+  // menginisialisasi widget yang sama.
+})();
+
+(function () {
+  // Jalan keluar dari kode yang sudah mati: alamat bersih tanpa kode, lalu
+  // form login dibuka langsung supaya "Forgot password?" ada di depan mata.
+  if (/[?&]login=1/.test(location.search)) {
+    var ket = document.createElement("div");
+    ket.setAttribute("role", "status");
+    ket.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+      "background:#000;color:#fff;padding:12px 18px;text-align:center;" +
+      "font:13px/1.5 system-ui,sans-serif";
+    ket.textContent = "Halaman masuk. Membukanya tidak mengirim surel apa pun, "
+      + "jadi aman dibuka berkali-kali. Surel hanya terkirim kalau kamu menekan "
+      + "Forgot password.";
+    (document.body ? Promise.resolve() : new Promise(function (r) {
+      document.addEventListener("DOMContentLoaded", r);
+    })).then(function () { document.body.appendChild(ket); });
+    var sl = document.createElement("script");
+    sl.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    sl.onload = function () {
+      // Sama seperti jalur pemulihan: jangan tutup dan jangan pindah halaman
+      // saat login, supaya form penetapan kata sandi tidak ikut hilang.
+      window.netlifyIdentity.on("login", function (u) {
+        ket.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor")
+          + ". Kalau kotak kata sandi masih terbuka, isi dan simpan sekarang.";
+      });
+      window.netlifyIdentity.init();
+      setTimeout(function () { window.netlifyIdentity.open("login"); }, 400);
+    };
+    document.head.appendChild(sl);
+    return;
+  }
+
+  var hash = location.hash || "";
+  // Ditangkap luas, bukan hanya tiga token yang diharapkan. Kalau Netlify
+  // mengirim bentuk lain — `access_token`, `error` — kegagalannya harus
+  // KELIHATAN, bukan berupa halaman depan biasa yang membingungkan orang
+  // yang sedang menunggu form kata sandi.
+  if (!/[#&](invite_token|recovery_token|confirmation_token|email_change_token|access_token|error)=/.test(hash)) return;
+
+  var jenis = (hash.match(/[#&](\w+)=/) || [])[1] || "tidak dikenal";
+  var papan = document.createElement("div");
+  papan.setAttribute("role", "status");
+  papan.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:9999;" +
+    "background:#000;color:#fff;padding:14px 18px;font:14px/1.5 system-ui,sans-serif;" +
+    "text-align:center";
+  papan.textContent = "Menyiapkan form kata sandi…";
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.appendChild(papan);
+  });
+  if (document.body) document.body.appendChild(papan);
+
+  var sebabTerakhir = "";
+
+  function gagal(sebab) { sebabTerakhir = sebab; tawarkan(); }
+
+  // Selalu sisakan jalan keluar yang bisa diklik. Form yang terbuka lalu
+  // tertutup sendiri terlihat sama saja dengan tidak terjadi apa-apa, dan
+  // orang yang menunggu kata sandi tidak punya cara menebak apa yang salah.
+  function tawarkan() {
+    var w = document.querySelector("#netlify-identity-widget");
+    if (w && w.offsetHeight > 200) return;   // masih terbuka, jangan ganggu
+    papan.innerHTML = "";
+    var t = document.createElement("p");
+    t.style.cssText = "margin:0 0 8px;font-weight:700";
+    t.textContent = "Form kata sandi tertutup sebelum selesai.";
+    var d = document.createElement("p");
+    d.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+    d.textContent = "Jenis kode: " + jenis +
+      (sebabTerakhir ? " · sebab: " + sebabTerakhir : "") +
+      " · kemungkinan kodenya sudah terpakai atau kedaluwarsa.";
+    var b = document.createElement("button");
+    b.textContent = "Buka form lagi";
+    b.style.cssText = "font:inherit;font-size:13px;font-weight:700;cursor:pointer;" +
+      "padding:7px 16px;border:2px solid #fff;background:#fff;color:#000";
+    b.onclick = function () { try { window.netlifyIdentity.open(); } catch (e) {} };
+    papan.appendChild(t); papan.appendChild(d); papan.appendChild(b);
+  }
+
+  var s = document.createElement("script");
+  s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  s.onerror = function () { gagal("skrip Netlify tidak bisa dimuat"); };
+  s.onload = function () {
+    // JANGAN menutup widget atau berpindah halaman di sini. Pada jalur
+    // pemulihan, Netlify memasukkan orang LEBIH DULU tanpa kata sandi, baru
+    // menampilkan form penetapan kata sandi. Versi sebelumnya menutup widget
+    // dan melempar ke halaman lain tepat di titik itu — form-nya tidak pernah
+    // terlihat, tidak ada kata sandi tersimpan, dan begitu logout orang itu
+    // terkunci sampai harus meminta tautan baru.
+    window.netlifyIdentity.on("login", function (u) {
+      papan.innerHTML = "";
+      var p1 = document.createElement("p");
+      p1.style.cssText = "margin:0 0 4px;font-weight:700";
+      p1.textContent = "Sudah masuk sebagai " + ((u && u.email) || "editor") + ".";
+      var p2 = document.createElement("p");
+      p2.style.cssText = "margin:0;font-size:13px;opacity:.85";
+      p2.textContent = "Kalau kotak kata sandi masih terbuka, isi kata sandi "
+        + "barumu SEKARANG lalu simpan — sebelum menutup apa pun. Tanpa itu "
+        + "kamu perlu tautan pemulihan baru untuk masuk lagi.";
+      papan.appendChild(p1); papan.appendChild(p2);
+    });
+    window.netlifyIdentity.on("error", function (e) {
+      gagal("Netlify menolak: " + (e && e.message ? e.message : "sebab tidak disebutkan"));
+    });
+    // Widget menutup dirinya sendiri kalau tokennya ditolak, dan halaman
+    // kembali kosong tanpa penjelasan. Penutupan itu ditangkap supaya
+    // penyebabnya terlihat, bukan menyisakan orang menatap halaman depan.
+    window.netlifyIdentity.on("close", function () { tawarkan(); });
+    window.netlifyIdentity.init();
+    setTimeout(function () {
+      var w = document.querySelector("#netlify-identity-widget");
+      if (!(w && w.offsetHeight > 200)) {
+        try { window.netlifyIdentity.open(); } catch (e) {}
+        setTimeout(tawarkan, 1200);
+      } else {
+        // Widget tetap membuka kotak meski kodenya sudah terpakai — kotaknya
+        // muncul kosong, dan itu terlihat seperti berhasil. Disebutkan
+        // terus terang supaya tidak ditunggui percuma.
+        // Tinggi kotak BUKAN tanda berhasil: widget yang rusak karena kode
+        // kedaluwarsa tetap membuat kotak setinggi 994 piksel, hanya isinya
+        // tidak pernah digambar. Karena itu jalan keluarnya selalu
+        // ditawarkan, bukan hanya saat kegagalan berhasil terdeteksi.
+        papan.innerHTML = "";
+        var a = document.createElement("p");
+        a.style.cssText = "margin:0 0 4px;font-weight:700";
+        a.textContent = "Isi kata sandi barumu di kotak yang muncul.";
+        var b2 = document.createElement("p");
+        b2.style.cssText = "margin:0 0 10px;font-size:13px;opacity:.85";
+        b2.textContent = "Kotaknya kosong? Berarti kode di tautan ini sudah "
+          + "kedaluwarsa atau terpakai.";
+        var b3 = document.createElement("button");
+        b3.textContent = "Buka form login untuk minta kode baru";
+        b3.style.cssText = "font:inherit;font-size:13px;font-weight:700;" +
+          "cursor:pointer;padding:7px 16px;border:2px solid #fff;" +
+          "background:#fff;color:#000";
+        b3.onclick = function () {
+          location.replace(location.pathname + "?login=1");
+        };
+        papan.appendChild(a); papan.appendChild(b2); papan.appendChild(b3);
+      }
+    }, 1000);
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
