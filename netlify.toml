@@ -1,0 +1,24 @@
+[build]
+  publish = "."
+  command = ""
+
+# Fungsi koreksi editor ikut terbit dari sini. Koreksinya sendiri TIDAK
+# disimpan di repo ini: repo ini ditimpa satu commit tunggal setiap malam,
+# jadi apa pun yang ditulis ke sini akan hilang esok paginya. Fungsi itu
+# menulis ke repo koreksi terpisah, dan pipeline lokal menariknya kembali
+# sebelum normalisasi.
+[functions]
+  directory = "netlify/functions"
+
+# Pretty URLs bawaan Netlify mengalihkan /kasus/PP-000003.html ke
+# /kasus/pp-000003 — satu lompatan 301 untuk tiap tautan kasus, dan kode
+# kasusnya berubah jadi huruf kecil. Padahal PP-000003 adalah identitas publik
+# yang dimaksudkan untuk dibagikan dan sama persis dengan case_id di dataset.
+[build.processing.html]
+  pretty_urls = false
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
